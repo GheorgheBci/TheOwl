@@ -90,9 +90,6 @@ Habrá 7 tablas en la base de datos, que son:
 
 # Diario
 
-Semana 11/04/2022 - 17/04/2022
+Semana 18/04/2022 - 24/04/2022
 
-- Creación del proyecto
-- Añadir las migraciones y modelos del proyecto
-- Modificar la imagen del Diagrama E/R
-- Eliminar la migración y modelo de user
+- Resubir de nuevo el proyecto a GitHub por problemas con unos archivos del anterior proyecto
