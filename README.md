@@ -32,7 +32,7 @@ Habrá 7 tablas en la base de datos, que son:
 	
 # Diagrama E/R 
 	
-![Image text](https://github.com/GheorgheBci/TheWiseOwl/blob/master/The%20Wise%20Owl.drawio.svg)
+![Image text](https://github.com/GheorgheBci/TheOwl/blob/master/TheOwl.drawio.svg)
 
 # Especificación de requisitos 
 
