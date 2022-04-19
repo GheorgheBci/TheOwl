@@ -1,64 +1,98 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# The Owl :books:
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The Owl es una biblioteca digital donde puedes encontrar miles de ejemplares de todas las temáticas con un simple click. 
 
-## About Laravel
+# Diseño de la página web 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+https://www.figma.com/file/mz63ZJqAQhAQc42y7s9GJP/ElB%C3%BAhoSabio?node-id=0%3A1
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+:exclamation: El diseño es una idea de como será la página web, puede cambiar bastante cuando se publique el producto final.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Despliegue
 
-## Learning Laravel
+El proyecto se desplegará en Heroku o en IONOS (En caso de que el dominio no funcione en Heroku) con el dominio www.theowl.es. La base de datos en un principio estará en el mismo servidor que la página.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# Base de datos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Habrá 7 tablas en la base de datos, que son:
 
-## Laravel Sponsors
+	- Usuario: contiene todos los datos de los usuarios que están registrados en la página.
+	
+	- Rol: indica que rol tiene un usuario (usuario normal, socio o admin).
+	
+	- Ejemplar: contiene los datos un ejemplar.
+	
+	- Colección: contiene los datos de una colección.
+	
+	- Autor: contiene todos los datos de un autor.
+	
+	- Editorial: contiene los datos de una editorial.
+	
+	- Detalle_Alquiler: cuando un usuario alquila un ejemplar se guarda en está tabla, en la cual aparece el id del usuario, id del ejemplar alquilado, fecha de alquiler, fecha de devolución y el precio.
+	
+# Diagrama E/R 
+	
+![Image text](https://github.com/GheorgheBci/TheWiseOwl/blob/master/The%20Wise%20Owl.drawio.svg)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# Especificación de requisitos 
 
-### Premium Partners
+- Se puede acceder a la página principal y sus apartados sin necesidad de estar logueado, pero a la hora de alquilar un ejemplar si es necesario estar logueado para saber que usuario alquila dicho ejemplar.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- Cuando un usuario se registra, deberá confirmar su cuenta pulsando en el link que le llegará a su cuenta de gmail.
 
-## Contributing
+- Habrá 3 tipos de perfiles de usuario:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+	- Administrador: Usuario encargado de administrar la página.
 
-## Code of Conduct
+	- Usuario normal: Usuario que puede alquilar cualquier ejemplar.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+	- Socio: Es lo mismo que el usuario normal, pero este tiene ciertos privilegios como rebajas a la hora de alquilar un ejemplar, puede retrasar la fecha de 	       devolución si aún no ha terminado de leer un ejemplar, etc. Para ser socio tienes que pagar una membresía.
 
-## Security Vulnerabilities
+- Cada usuario tendrá un apartado de perfil donde podrá ver sus datos personales, historial de libros alquilados, que libros tiene alquilado en ese momento además de cuántos días le queda para devolverlo.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- El login se hará a través del email del usuario (que será único) y la contraseña.
 
-## License
+- Si el usuario no se acuerda de la contraseña habrá una opción para cambiarla por otra. El usuario tendrá que indicar su correo para que le llegue un link donde le llevará a una página para cambiar la contraseña.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Otra forma de cambiar la contraseña es desde el perfil del usuario. Habrá un apartado donde el usuario podrá cambiar su contraseña, es importante que el usuario sepa su contraseña actual porque habrá que indicarlo para poder cambiar a otra contraseña.
+
+- Tendremos ejemplares que serán los libros que se pueden alquilar. Cada ejemplar tendrá su isbn que es el identificador de dicho ejemplar (está compuesto por 13 dígitos), nombre del ejemplar, epílogo, fecha de publicación y el tema (aventura, horror, ciencia ficción, etc). Además también sabremos a qué editorial pertenece, cuál es su autor si es que lo tiene y en qué colección está.
+
+- A la hora de cuando un usuario alquila un ejemplar se le muestra durante el proceso el precio, la fecha y la fecha de devolución (si el usuario es un socio puede cambiar este campo) del alquiler. Estos datos lo puede ver el usuario siempre si entra en su perfil.
+
+- Cuando es el cumpleaños de un usuario, se le felicitara mediante un correo y además ese día tendrá un descuento si alquila un libro.
+
+- Cuando el usuario procede a leer un ejemplar habrá una animación de un libro abriéndose, además cuando pasamos de página habrá también una animación.
+
+- En la página principal habrá un buscador de ejemplares con el objetivo de agilizar la búsqueda del usuario, además tendrá una búsqueda avanzada por autor, tema, colección, editorial y fecha de publicación. Los resultados tras la búsqueda se podrán ordenar tanto alfabéticamente como por la fecha de publicación.
+
+- El usuario tiene la opción de añadir libros al carrito, que contiene todos los ejemplares que el usuario tiene pensado alquilar junto el precio total de alquilar dichos ejemplares.
+
+- El usuario que sea socio puede darse de baja como tal, seguirá siendo socio hasta la fecha en la que en teoría tiene que pagar la membresía, ya después será un usuario normal.
+
+- Cada ejemplar puede ser puntuado del 1 al 5 por todos los usuarios, luego se hará una media con todos las notas y se mostrará la nota media de dicho ejemplar.
+
+- En el menú principal habrá un apartado llamado WishList, que tendrá la forma de un corazón. El WishList es como una lista donde se guardaran los libros que el usuario le gustaría alquilar alguna vez. Este apartado sólo es accesible si el usuario está logueado.
+
+- En la página donde se visualizan todos los ejemplares, si queremos ver los detalles de un ejemplar, basta con hacer click sobre dicho ejemplar y ocurrirá una animación de como si el ejemplar se abriese. Una vez abierto nos saldrá todos los detalles de ese ejemplar como su autor, epílogo, etc.
+
+# Tecnologías 
+
+- Front-end
+	- JavaScript
+	- JQuery 
+	- AJAX 
+	- HTML 
+	- CSS
+
+- Back-end 
+	- Laravel
+
+# Diario
+
+Semana 11/04/2022 - 17/04/2022
+
+- Creación del proyecto
+- Añadir las migraciones y modelos del proyecto
+- Modificar la imagen del Diagrama E/R
+- Eliminar la migración y modelo de user
