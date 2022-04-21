@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -50,9 +50,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'nombre' => ['required', 'string', 'max:20'],
+            'ape1' => ['required', 'string', 'max:20'],
+            'ape2' => ['string', 'max:35', 'nullable'],
+            'fechaNac' => ['required', 'date'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:usuario'],
+            'password' => ['required', 'string', 'min:8'],
+            'password-confirm' => ['required', 'min:8', 'same:password'],
         ]);
     }
 
@@ -60,14 +64,18 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\Models\User
+     * @return \App\Models\Usuario
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        return Usuario::create([
+            'nombre' => $data['nombre'],
+            'apellido1' => $data['ape1'],
+            'apellido2' => $data['ape2'],
+            'fecNacimiento' => $data['fechaNac'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'idRol' => 1
         ]);
     }
 }
