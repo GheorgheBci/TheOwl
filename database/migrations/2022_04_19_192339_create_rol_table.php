@@ -15,7 +15,7 @@ class CreateRolTable extends Migration
     {
         Schema::create('rol', function (Blueprint $table) {
             $table->id('idRol');
-            $table->enum('rol', ['usuario', 'socio', 'administrador'])->required();
+            $table->enum('rol', ['usuario', 'socio', 'administrador'])->required()->default('usuario');
         });
     }
 
