@@ -15,9 +15,9 @@ class CreateUsuarioTable extends Migration
     {
         Schema::create('usuario', function (Blueprint $table) {
             $table->id('codUsu');
-            $table->string('nombre')->required();
-            $table->string('apellido1')->required();
-            $table->string('apellido2')->nullable();
+            $table->string('nombre', 20)->required();
+            $table->string('apellido1', 20)->required();
+            $table->string('apellido2', 35)->nullable();
             $table->date('fecNacimiento')->required();
             $table->string('email')->unique();
             $table->string('password')->required();
