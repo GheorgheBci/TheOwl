@@ -16,7 +16,7 @@
 
         <header>
 
-            <div class="logo">
+            <div class="logo_login_registro">
                 <a href="{{ route('inicio') }}">LOGO</a>
             </div>
 
