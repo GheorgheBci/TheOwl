@@ -1,0 +1,121 @@
+/* Estilos generales */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F2E4CE;
+}
+
+.contenedor {
+    border: 1px solid #F8F3ED;
+    border-radius: 25px;
+    width: 92%;
+    margin: auto;
+    margin-top: 3%;
+    background-color: #F8F3ED;
+}
+
+.logo {
+    width: 7%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.palo {
+    border-left: 1px solid black;
+    height: 438px;
+}
+
+/*Registro*/
+
+.main_registro {
+    width: 90%;
+    margin: auto;
+    margin-top: 3%;
+    padding-bottom: 4%;
+
+    display: grid;
+    grid-template-columns: 30% 1fr 80%;
+}
+
+.form_registro {
+    width: 80%;
+}
+
+.registro_nombre_apellidos,
+.registro_email_feNacimiento,
+.registro_contrasenia {
+    margin-bottom: 3%;
+}
+
+.registro_nombre_apellidos {
+    display: flex;
+    gap: 1.5%;
+}
+
+.registro_email_feNacimiento {
+    display: flex;
+    gap: 3%;
+}
+
+.registro_contrasenia {
+    display: flex;
+    gap: 3%;
+}
+
+.registro_boton_crear_cuenta {
+    background-color: #D99255;
+    color: white;
+}
+
+.btn_registro {
+    width: 30%;
+}
+
+.registro {
+    margin-left: 8%;
+}
+
+/*Login*/
+
+.main_login {
+    width: 86%;
+    margin: auto;
+    margin-top: 3%;
+    padding-bottom: 4%;
+
+    display: grid;
+    grid-template-columns: 50% 1fr 50%;
+}
+
+.login {
+    margin-left: 12%;
+}
+
+.form_login {
+    margin-top: 5%;
+}
+
+.login_form_group {
+    margin-bottom: 4%;
+}
+
+.login_right {
+    float: right;
+}
+
+.btn_login {
+    width: 100%;
+    background-color: #D99255;
+    color: white;
+}
+
+.login_enlace_crear_cuenta {
+    margin-top: 5%;
+}
+
+/*--------------*/
