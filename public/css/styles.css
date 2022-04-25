@@ -68,6 +68,7 @@ ul li {
 footer {
     border: 1px solid green;
     height: 250px;
+    margin-top: 5%;
 }
 
 /*Inicio*/
@@ -250,4 +251,40 @@ footer {
     height: 150px;
     margin: auto;
     margin-bottom: 7%;
+}
+
+/*Conocenos*/
+
+.contenedor_conocenos {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.contenedor_conocenos p {
+    padding-top: 5%;
+    text-align: justify;
+}
+
+.contenedor_conocenos_2 {
+    border-radius: 0 0 25px 25px;
+    margin-top: 3%;
+    background-color: #D99255;
+
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
+.contenedor_conocenos_2 .titulo {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.contenedor_conocenos_2 .texto {
+    padding: 5%;
+}
+
+.titulo,
+.texto {
+    color: white;
 }
