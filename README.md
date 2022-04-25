@@ -93,3 +93,9 @@ Habrá 7 tablas en la base de datos, que son:
 Semana 18/04/2022 - 24/04/2022
 
 - Resubir de nuevo el proyecto a GitHub por problemas con unos archivos del anterior proyecto
+- Añadir los modelos y migraciones del proyecto
+- Eliminar de GitHub la migracion users y las vistas home y welcome
+- Añadir las vistas login, registro, index y userAccount
+- Añadir los estilos y el script.js
+- Subir el controlador de la clase Usuario
+- Pequeñas modificaciones en algunos archivos
