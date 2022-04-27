@@ -288,3 +288,82 @@ footer {
 .texto {
     color: white;
 }
+
+
+/*Contacto*/
+.contacto {
+    text-align: center;
+    background-color: #D99255;
+    color: white;
+}
+
+.contacto h1 {
+    padding: 5%;
+}
+
+.formulario {
+    width: 35%;
+    border: 1px solid white;
+    margin: auto;
+    padding: 5%;
+    background-color: white;
+    border-radius: 25px;
+    margin: 5% auto;
+}
+
+.formulario input {
+    background-color: #fbfbfb;
+    width: 97%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #D99255;
+    margin: 2% 0 5% 0;
+    padding-left: 3.5%;
+}
+
+textarea {
+    background-color: #fbfbfb;
+    width: 97%;
+    height: 150px;
+    border-radius: 5px;
+    border: 1px solid #D99255;
+    margin: 2% 0 5% 0;
+    padding: 3.8% 0 0 3.5%;
+    resize: none;
+}
+
+.formulario button {
+    padding: 2% 5%;
+    margin: 3% 0 5% 0;
+    background-color: #D99255;
+    border: 1px solid #D99255;
+    border-radius: 10px;
+    width: 97%;
+    cursor: pointer;
+    color: white;
+}
+
+.obligatorio {
+    color: red;
+}
+
+.aviso {
+    color: red;
+}
+
+.formulario_subtitulo {
+    font-size: 1em;
+    padding-bottom: 8.5%;
+    color: #0e0e0e;
+}
+
+.formulario input:focus {
+    outline: 0;
+    border: 1px solid #97d848;
+}
+
+
+.formulario textarea:focus {
+    outline: 0;
+    border: 1px solid #97d848;
+}
