@@ -30,7 +30,7 @@
                     <li><a href="{{ route('inicio') }}">Inicio</a></li>
                     <li><a href="#">Ejemplares</a></li>
                     <li><a href="{{ route('conocenos') }}">Conocenos</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="{{route('contacto')}}">Contacto</a></li>
                 </ul>
             </nav>
 
