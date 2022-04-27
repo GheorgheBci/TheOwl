@@ -18,6 +18,14 @@ Route::get('/', function () {
     return view('index');
 })->name('inicio');
 
+Route::get('conocenos', function () {
+    return view('conocenos');
+})->name('conocenos');
+
+Route::get('contacto', function () {
+    return view('contacto');
+})->name('contacto');
+
 Route::get('/personal', [UsuarioController::class, 'homeUser'])->middleware('auth')->name('userHome');
 
 Auth::routes();
