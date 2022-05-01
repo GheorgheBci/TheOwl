@@ -17,14 +17,14 @@
         <header>
 
             <div class="logo_login_registro">
-                <a href="{{ route('inicio') }}">LOGO</a>
+                <a href="{{ route('inicio') }}"><img src="../buho.svg" alt="buho" class="imagenbuho"></a>
             </div>
 
         </header>
 
         <main class="main_login">
             <div class="img">
-                IMAGEN
+                <img src="../fairy-tale-gf5d0c6a7e_1280.jpg" alt="imagen" class="portada_login">
             </div>
 
             <div class="palo"></div>
@@ -69,7 +69,8 @@
                     </div>
                     <button type="submit" class="btn btn_login">Iniciar Sesión</button>
                     <div class="form-group login_form_group login_enlace_crear_cuenta">
-                        <p>¿No tienes una cuenta? <a href="{{ route('register') }}">Crea una aquí</a></p>
+                        <p>¿No tienes una cuenta? <a href="{{ route('register') }}" class="enlace_registro">Crea una
+                                aquí</a></p>
                     </div>
                 </form>
             </div>
