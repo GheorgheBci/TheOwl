@@ -22,7 +22,9 @@ class CreateUsuarioTable extends Migration
             $table->string('email')->unique();
             $table->string('password')->required();
             $table->unsignedBigInteger('idRol');
+            $table->string('imagen_usuario')->nullable();
             $table->foreign('idRol')->references('idRol')->on('rol')->onDelete('cascade');
+            $table->timestamp('email_verified_at')->nullable();
         });
     }
 
