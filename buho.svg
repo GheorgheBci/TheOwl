@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg19046"
+   width="343.53214"
+   height="207.46503"
+   viewBox="0 0 343.53213 207.46503"
+   sodipodi:docname="buho.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs19050">
+    <linearGradient
+       id="linearGradient26112"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop26110" />
+    </linearGradient>
+    <rect
+       x="143.24496"
+       y="266.95654"
+       width="257.84094"
+       height="100.27148"
+       id="rect2564" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview19048"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="1.5861561"
+     inkscape:cx="15.761374"
+     inkscape:cy="142.79805"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g19052"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g19052"
+     transform="translate(-33.36611,43.462452)">
+    <g
+       id="g33217"
+       transform="translate(174.00558,-45.392759)">
+      <text
+         xml:space="preserve"
+         transform="matrix(1.3640673,0,0,1.5255835,-335.52597,-287.01521)"
+         id="text2562"
+         style="font-size:64px;line-height:1.25;font-family:nickelodeon;-inkscape-font-specification:nickelodeon;white-space:pre;shape-inside:url(#rect2564);fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1"><tspan
+           x="143.24414"
+           y="324.60531"
+           id="tspan33426">THE OWL</tspan></text>
+      <g
+         id="g30587"
+         transform="translate(-285.25662,-47.267958)"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1">
+        <path
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 455.15869,49.713796 -13.76154,2.47708 -8.8074,4.12846 -6.60554,0.825689 -2.47708,-1.651379 -1.65138,-0.27523 2.20184,7.155999 3.02754,1.92662 -6.05508,13.48632 0.8257,9.90831 4.12846,-0.82569 -24.22032,30.000175 -11.00924,22.2937 -7.70647,24.22034 12.66062,-8.25693 -3.85323,26.6974 15.41293,-22.56893 -0.82569,2.7523 17.89002,2.47708 1.92661,-4.40369 3.578,13.48632 7.9817,4.12846 6.33032,-0.27523 2.7523,9.63308 4.4037,-8.25693 0.82569,9.35786 5.77985,-7.43124 -1.92661,-4.67893 -6.88078,-4.12846 -4.12846,-2.47708 -1.37616,-4.67893 9.90832,-5.77985 17.89,-13.76155 13.2111,-20.91756 3.02754,-16.23862 -2.47708,-8.532165 -0.27523,-2.20184 -3.30277,4.678925 4.40369,-15.137705 v -9.63308 l -1.37615,-7.15601 -1.65139,-4.67893 h -4.67893 l 7.15601,-3.30277 1.37616,-6.330309 -4.4037,1.100919 h -6.60555 l -6.05508,-2.752309 -9.90831,-2.75231 z"
+           id="path19806" />
+        <ellipse
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3.15748;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:stroke fill markers"
+           id="path25768"
+           cx="438.52551"
+           cy="76.197693"
+           rx="8.080102"
+           ry="7.3025742" />
+        <ellipse
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3.15748;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:stroke fill markers"
+           id="path25768-3"
+           cx="470.01538"
+           cy="75.420166"
+           rx="8.080102"
+           ry="7.3025742" />
+        <path
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 454.63445,80.057737 -2.72703,0.973938 -0.38958,5.06448 3.11661,5.84363 3.70096,-6.427993 0.19479,-3.116603 z"
+           id="path26225" />
+      </g>
+    </g>
+  </g>
+</svg>
