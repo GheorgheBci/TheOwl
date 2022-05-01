@@ -1,28 +1,50 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="es">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <title>Verifica tu cuenta</title>
+</head>
 
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
+<body>
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
+    <div class="contenedor">
+
+        <header>
+
+            <div class="logo_login_registro">
+                <a href="{{ route('inicio') }}">LOGO</a>
+            </div>
+
+        </header>
+
+        <main>
+
+            <div class="mensaje">
+                <h1 class="mensaje_titulo">Bienvenido a The Owl</h1>
+
+                <div class="mensaje_contenido">
+                    <p>Para poder usar la cuenta tienes que activar con el link que le hemos enviado a su correo. Si no
+                        le ha llegado ningún correo, pulsa en el siguiente enlace y le enviares otro enlace a su
+                        cuenta.
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                        <button type="submit"
+                            class="btn btn-link p-0 m-0 align-baseline">{{ __('Click para reenviar otro enlace') }}</button>.
                     </form>
+                    </p>
+
                 </div>
             </div>
-        </div>
+
+        </main>
+
     </div>
-</div>
-@endsection
+
+</body>
+
+</html>
