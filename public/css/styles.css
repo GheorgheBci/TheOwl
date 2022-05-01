@@ -14,24 +14,28 @@ body {
     border: 1px solid #F8F3ED;
     border-radius: 25px;
     width: 92%;
-    margin: auto;
-    margin-top: 3%;
+    margin: 3% auto;
     background-color: #F8F3ED;
 }
 
 .logo {
-    margin: 25% 0 0 25%;
+    margin: 10% 0 -24px 8%;
+}
+
+.imagenbuho {
+    width: 185px;
+    margin-bottom: 15%;
 }
 
 .logo_login_registro {
     width: 7%;
-    margin: auto;
+    margin-left: 44%;
     margin-top: 2%;
 }
 
 .palo {
     border-left: 1px solid black;
-    height: 438px;
+    height: 385px;
 }
 
 li {
@@ -54,7 +58,7 @@ ul li {
 }
 
 .nave {
-    margin-left: 15%;
+    margin-left: 10%;
 }
 
 .iconos {
@@ -75,7 +79,7 @@ footer {
 
 .header_home {
     display: grid;
-    grid-template-columns: 10% 2fr 1fr;
+    grid-template-columns: 20% 2fr 1fr;
 }
 
 .caja,
@@ -183,12 +187,26 @@ footer {
     margin-left: 12%;
 }
 
+.img{
+    margin-right: 3%;
+}
+
+.portada_login {
+    width: 100%;
+    height: 100%;
+}
+
 .form_login {
     margin-top: 5%;
 }
 
 .login_form_group {
     margin-bottom: 4%;
+}
+
+.login_form_group:focus {
+    outline: 0;
+    border: 1px solid #97d848;
 }
 
 .login_right {
@@ -205,14 +223,15 @@ footer {
     margin-top: 5%;
 }
 
-/* Cuenta de usuario*/
-
-.header_user_account {
-    margin-bottom: 4%;
-
-    display: grid;
-    grid-template-columns: 10% 2fr 1fr;
+.enlace_registro {
+    color: rgb(16, 140, 228);
 }
+
+/* .enlace_registro:hover {
+    color: rgb(16, 140, 228);
+} */
+
+/* Cuenta de usuario*/
 
 .main_user_account {
     margin-bottom: 7%;
@@ -238,9 +257,26 @@ footer {
 
 .foto_usuario {
     border: 1px solid white;
+    border-radius: 10px;
+    background-color: white;
     width: 25%;
     height: 200px;
     margin: 5% 5%;
+}
+
+.usufoto {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.cambiar_foto {
+    border: 1px solid white;
+    border-radius: 40px;
+    padding: 0.5%;
+    background-color: white;
+    position: absolute;
+    right: 46.8%;
 }
 
 .userr,
@@ -366,4 +402,21 @@ textarea {
 .formulario textarea:focus {
     outline: 0;
     border: 1px solid #97d848;
+}
+
+
+/*Verificación*/
+
+.mensaje {
+    border: 1px solid #D99255;
+    width: 60%;
+    margin: 5% auto;
+    background-color: #D99255;
+    border-radius: 10px;
+    padding: 5%;
+}
+
+.mensaje_titulo {
+    text-align: center;
+    color: white;
 }
