@@ -99,3 +99,12 @@ Semana 18/04/2022 - 24/04/2022
 - Añadir los estilos y el script.js
 - Subir el controlador de la clase Usuario
 - Pequeñas modificaciones en algunos archivos
+
+Semana 25/04/2022 - 01/05/2022
+
+- He añadido la función para que el usuario tenga que verificar su cuenta con un link que le llega a su cuenta de gmail para poder usar su cuenta en The Owl
+- Ahora el usuario puede cambiar su foto de perfil
+- He añadido la parte de contacto y conocenos
+- He añadido dos nuevas columnas a la migración usuario, email_verified_at (para comprobar que el usuario ha verificado su cuenta) e imagen_usuario (donde se guardara la imagen que suba el usuario para su perfil)
+- He creado el logo de la página (es posible que reciba algunos cambios más)
+- Otros cambios 
