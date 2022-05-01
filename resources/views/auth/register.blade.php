@@ -17,7 +17,7 @@
         <header>
 
             <div class="logo_login_registro">
-                <a href="{{ route('inicio') }}">LOGO</a>
+                <a href="{{ route('inicio') }}"><img src="../buho.svg" alt="buho" class="imagenbuho"></a>
             </div>
 
         </header>

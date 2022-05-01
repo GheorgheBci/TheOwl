@@ -22,7 +22,7 @@
         <header class="header_home">
 
             <div class="logo">
-                LOGO
+                <img src="../buho.svg" alt="buho" class="imagenbuho">
             </div>
 
             <nav class="nave">
