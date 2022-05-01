@@ -19,10 +19,10 @@
 
     <div class="contenedor">
 
-        <header class="header_user_account">
+        <header class="header_home">
 
             <div class="logo">
-                LOGO
+                <img src="../buho.svg" alt="buho" class="imagenbuho">
             </div>
 
             <nav class="nave">
@@ -83,6 +83,16 @@
             <div class="usuario">
 
                 <div class="foto_usuario">
+                    <a href="{{ route('cargar') }}"> <span class="material-icons-outlined cambiar_foto">
+                            photo_camera
+                        </span></a>
+
+                    @if (Auth::user()->imagen_usuario != null)
+                        <img src="{{ asset('imagenes/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario"
+                            class="usufoto">
+                    @else
+                        <img src="../user.png" alt="" class="usufoto">
+                    @endif
 
                 </div>
 
