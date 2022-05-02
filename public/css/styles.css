@@ -187,7 +187,7 @@ footer {
     margin-left: 12%;
 }
 
-.img{
+.img {
     margin-right: 3%;
 }
 
@@ -419,4 +419,28 @@ textarea {
 .mensaje_titulo {
     text-align: center;
     color: white;
+}
+
+/*Recuperar Contraseña*/
+
+.formulario_email_recuperar_contrasenia {
+    margin: 7% auto;
+}
+
+.titulo_cambiar_contrasenia {
+    text-align: center;
+    margin: 4% 0 2% 0;
+}
+
+.formulario_recuperar_contrasenia {
+    width: 50%;
+    margin: auto;
+}
+
+.btn_actualizar_contrasenia,
+.btn_enviar_link {
+    width: 100%;
+    background-color: #D99255;
+    color: white;
+    margin: 6% auto;
 }
