@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Framework\Constraint\LogicalOr;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +28,19 @@ Route::get('contacto', function () {
     return view('contacto');
 })->name('contacto');
 
-Route::get('/personal', [UsuarioController::class, 'homeUser'])->middleware('auth')->name('userHome');
+Route::get('membresia', function () {
+    return view('auth.membresia');
+})->name('membresia')->middleware('auth', 'verified');
 
-Auth::routes();
+Route::group(['usuario' => 'usuario', 'as' => 'usuario.', 'middleware' => ['auth', 'verified']], function () {
+    Route::get('/perfil', [UsuarioController::class, 'homeUser'])->name('userHome');
+    Route::post('cargarImagen', [UsuarioController::class, 'cargarImagenUsuario'])->name('cargarImagen');
+    Route::post('actualizarDatosPersonales', [UsuarioController::class, 'actualizarDatosPersonales'])->name('actualizarDatosPersonales');
+    Route::post('actualizarContraseña', [UsuarioController::class, 'cambiarContraseña'])->name('actualizarContraseña');
+    Route::get('comprar/{tipo}', [UsuarioController::class, 'socio'])->name('comprar');
+    Route::get('baja', [UsuarioController::class, 'bajaSocio'])->name('baja');
+});
+
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
