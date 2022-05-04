@@ -23,6 +23,9 @@ class CreateUsuarioTable extends Migration
             $table->string('password')->required();
             $table->unsignedBigInteger('idRol')->default(1);
             $table->foreign('idRol')->references('idRol')->on('rol')->onDelete('cascade');
+            $table->date('fec_ini_socio')->nullable();
+            $table->date('fec_fin_socio')->nullable();
+            $table->boolean('baja')->default(0);
             $table->string('imagen_usuario')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
