@@ -29,6 +29,9 @@ class Usuario extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'idRol',
+        'fec_ini_socio',
+        'fec_fin_socio',
+        'baja',
         'imagen_usuario',
     ];
 
