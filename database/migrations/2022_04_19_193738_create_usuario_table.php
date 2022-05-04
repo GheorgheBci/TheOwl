@@ -21,9 +21,9 @@ class CreateUsuarioTable extends Migration
             $table->date('fecNacimiento')->required();
             $table->string('email')->unique();
             $table->string('password')->required();
-            $table->unsignedBigInteger('idRol');
-            $table->string('imagen_usuario')->nullable();
+            $table->unsignedBigInteger('idRol')->default(1);
             $table->foreign('idRol')->references('idRol')->on('rol')->onDelete('cascade');
+            $table->string('imagen_usuario')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
         });
