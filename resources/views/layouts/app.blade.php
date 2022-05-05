@@ -1,83 +1,103 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="es">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
+    @yield('estilosConBootstrap')
+    @yield('estilosSinBootstrap')
+    @yield('javascript')
+    <title>@yield('titulo')</title>
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+    <div class="contenedor">
 
-                    </ul>
+        <header class="header_home">
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+            <div class="logo">
+                <img src="../buho.svg" alt="buho" class="imagenbuho">
+            </div>
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+            <nav class="nave">
+                <ul>
+                    <li><a href="{{ route('inicio') }}">Inicio</a></li>
+                    <li><a href="#">Ejemplares</a></li>
+                    <li><a href="{{ route('conocenos') }}">Conocenos</a></li>
+                    <li><a href="{{ route('contacto') }}">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="iconos">
+                <ul>
+                    <li><a href="#"><span class="material-icons-outlined">
+                                search
+                            </span></a></li>
+                    <li><a href="#"><span class="material-icons-outlined">
+                                favorite_border
+                            </span></a></li>
+                    <li><a href="#"><span class="material-icons-outlined">
+                                add_shopping_cart
+                            </span></a></li>
+                    <li>
+                        {{-- @if (Auth::user())
+                            <a href="#">
+                                <div class="bbb">
+                                    @if (Auth::user()->imagen_usuario != null)
+                                        <img src="{{ asset('imagenes/' . Auth::user()->imagen_usuario) }}"
+                                            alt="imagen_usuario" class="usufoto">
+                                    @else
+                                        <img src="../user.png" alt="" class="usufoto">
+                                    @endif
+
+                                </div>
+                            </a>
+                        @else --}}
+                        <a href="#"><span class="material-icons-outlined user" id="u">
+                                perm_identity
+                            </span></a>
+                        {{-- @endif --}}
+                    </li>
+
+                    <span class="material-icons-outlined" id="flecha">
+                        arrow_drop_up
+                    </span>
+                    <div id="menu_desplegable_usuario">
+                        <p><a href="{{ route('usuario.userHome') }}">Mis Datos</a></p>
+                        @if (Auth::user())
+                            <p> <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                    Cerrar Sesión
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                class="d-none">
+                                @csrf
+                            </form>
+                            </p>
+                        @else
+                            <p><a href="{{ route('login') }}">Iniciar Sesión</a></p>
+                        @endif
+                    </div>
+                </ul>
             </div>
-        </nav>
 
-        <main class="py-4">
+        </header>
+
+        <main>
             @yield('content')
         </main>
+
     </div>
+
+    <footer></footer>
 </body>
+
 </html>
