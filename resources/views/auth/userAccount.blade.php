@@ -1,121 +1,127 @@
-<!DOCTYPE html>
-<html lang="es">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
+@section('estilosConBootstrap')
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@endsection
+
+@section('estilosSinBootstrap')
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/script.js') }}" async></script>
-    <title>Cuenta de Usuario</title>
-</head>
+@endsection
 
-<body>
+@section('javascript')
+    <script src="{{ asset('js/script2.js') }}" async></script>
+@endsection
 
-    <div class="contenedor">
+@section('titulo', 'Perfil')
 
-        <header class="header_home">
+@section('content')
+    <div class="main_user_account">
+        <div class="menu_user_account">
 
-            <div class="logo">
-                <img src="../buho.svg" alt="buho" class="imagenbuho">
+        </div>
+
+        <div class="usuario">
+
+            <div class="foto_usuario">
+                <a href="#"> <span id="cambiar_foto">Cambiar
+                        imagen</span></a>
+
+
+
+                @if (Auth::user()->imagen_usuario != null)
+                    <img src="{{ asset('imagenes/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario"
+                        class="usufoto">
+                @else
+                    <img src="../user.png" alt="" class="usufoto">
+                @endif
+
             </div>
 
-            <nav class="nave">
-                <ul>
-                    <li><a href="{{ route('inicio') }}">Inicio</a></li>
-                    <li><a href="#">Ejemplares</a></li>
-                    <li><a href="{{ route('conocenos') }}">Conocenos</a></li>
-                    <li><a href="{{ route('contacto') }}">Contacto</a></li>
-                </ul>
-            </nav>
+            <div id="form">
+                <form action="{{ route('usuario.cargarImagen') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="file">
+                    <button type="submit">Cambiar imagen</button>
+                    <a href="#" id="cancelar">Cancelar</a>
+                </form>
+            </div>
 
-            <div class="iconos">
-                <ul>
-                    <li><a href="#"><span class="material-icons-outlined">
-                                search
-                            </span></a></li>
-                    <li><a href="#"><span class="material-icons-outlined">
-                                favorite_border
-                            </span></a></li>
-                    <li><a href="#"><span class="material-icons-outlined">
-                                add_shopping_cart
-                            </span></a></li>
-                    <li><a href="#"><span class="material-icons-outlined user" id="u">
-                                perm_identity
-                            </span></a></li>
-
-                    <span class="material-icons-outlined" id="flecha">
-                        arrow_drop_up
-                    </span>
-                    <div id="menu_desplegable_usuario">
-                        <p><a href="{{ route('userHome') }}">Mis Datos</a></p>
-                        @if (Auth::user())
-                            <p> <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                    Cerrar Sesión
-                                </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                class="d-none">
-                                @csrf
-                            </form>
-                            </p>
-                        @else
-                            <p><a href="{{ route('login') }}">Iniciar Sesión</a></p>
-                        @endif
+            <div class="userr">
+                <form action="{{ route('usuario.actualizarDatosPersonales') }}" method="POST">
+                    @csrf
+                    <div class="row mb-4">
+                        <div class="form-group col-md-4">
+                            <label for="nombre">Nombre: </label>
+                            <input type="text" class="form-control" name="nombre" id="nombre"
+                                value="{{ Auth::user()->nombre }}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="ape1">Primer apellido: </label>
+                            <input type="text" class="form-control" name="ape1" id="ape1"
+                                value="{{ Auth::user()->apellido1 }}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="ape2">Segundo apellido: </label>
+                            <input type="text" class="form-control" name="ape2" id="ape2"
+                                value="{{ Auth::user()->apellido2 }}">
+                        </div>
                     </div>
-                </ul>
+                    <div class="row mb-4">
+                        <div class="form-group col-md-9">
+                            <label for="email">Email: </label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                value="{{ Auth::user()->email }}">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="fecNac">Fecha de nacimiento: </label>
+                            <input type="date" class="form-control" name="fecNac" id="fecNac"
+                                value="{{ Auth::user()->fecNacimiento }}">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </form>
             </div>
 
-        </header>
-
-        <main class="main_user_account">
-
-            <div class="menu_user_account">
-
+            <div class="user2">
+                <form action="{{ route('usuario.actualizarContraseña') }}" method="POST">
+                    @csrf
+                    <div class="row mb-4">
+                        <div class="form-group col-md-4">
+                            <label for="password">Contraseña Actual: </label>
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="newPassword">Nueva Contraseña: </label>
+                            <input type="password" class="form-control" name="newPassword" id="newPassword">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="password-confirm">Confirmar Contraseña: </label>
+                            <input type="password" class="form-control" name="password-confirm" id="password-confirm">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </form>
             </div>
 
-            <div class="usuario">
+            <div class="user3">
+                @if (Auth::user()->idRol === 2 && !Auth::user()->baja)
+                    <p>Su membresia como socio es hasta {{ Auth::user()->fec_fin_socio }}</p>
 
-                <div class="foto_usuario">
-                    <a href="{{ route('cargar') }}"> <span class="material-icons-outlined cambiar_foto">
-                            photo_camera
-                        </span></a>
+                    @if ( ((strtotime(date("Y-m-d", strtotime(Auth::user()->fec_fin_socio))) - strtotime(date("Y-m-d"))) /
+                    60
+                    /60 / 24) === 1)
+                    <p class="aviso_renovacion">Atención su membresia se renovara mañana</p>
+                @endif
 
-                    @if (Auth::user()->imagen_usuario != null)
-                        <img src="{{ asset('imagenes/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario"
-                            class="usufoto">
-                    @else
-                        <img src="../user.png" alt="" class="usufoto">
-                    @endif
-
-                </div>
-
-                <div class="userr">
-
-                </div>
-
-                <div class="user2">
-
-                </div>
-
-                <div class="user3">
-
-                </div>
-
+                <a href="{{ route('usuario.baja') }}" class="btn btn-dark">Darse de baja</a>
+            @elseif(Auth::user()->baja)
+                <p>Te has dado de baja, tu membresia es hasta {{ Auth::user()->fec_fin_socio }}</p>
+            @else
+                <p>Actualmente no eres socio</p>
+                <a href="{{ route('membresia') }}" class="btn btn-dark">Hacerte socio</a>
+                @endif
             </div>
 
-        </main>
-
+        </div>
     </div>
-
-    <footer></footer>
-
-</body>
-
-</html>
+@endsection
