@@ -108,3 +108,11 @@ Semana 25/04/2022 - 01/05/2022
 - He añadido dos nuevas columnas a la migración usuario, email_verified_at (para comprobar que el usuario ha verificado su cuenta) e imagen_usuario (donde se guardara la imagen que suba el usuario para su perfil)
 - He creado el logo de la página (es posible que reciba algunos cambios más)
 - Otros cambios 
+
+Semana 02/05/2022 - 08/05/2022
+
+- El usuario puede recuperar la contraseña en caso de que no se acuerde. Esta opción se encuentra en el login
+- El usuario también puede cambiar su contraseña en su perfil personal. Aquí solo puede cambiar la contraseña si indica la contraseña actual junto con la nueva contraseña
+- El usuario se puede dar de alta como socio
+- He añadido una plantilla general para todas las vistas, una plantilla para el login y registro y una plantilla para las vistas de administrador
+- He añadido la parte del administrador (Aún no esta del todo terminada)
