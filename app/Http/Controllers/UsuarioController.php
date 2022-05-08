@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Ui\Presets\React;
+use PhpParser\Builder\Use_;
 
 class UsuarioController extends Controller
 {
@@ -17,12 +20,8 @@ class UsuarioController extends Controller
     public function cargarImagenUsuario(Request $request)
     {
         if ($request->hasFile('file')) {
-            $imagen = $request->file;
-
-            $imagen->move(public_path() . '/imagenes', $imagen->getClientOriginalName());
-
             Usuario::where('codUsu', Auth::user()->codUsu)->update([
-                'imagen_usuario' => $imagen->getClientOriginalName()
+                'imagen_usuario' =>  $request->file('file')->store('public')
             ]);
         }
 
@@ -100,5 +99,34 @@ class UsuarioController extends Controller
         ]);
 
         return redirect()->route('usuario.userHome');
+    }
+
+    /*Parte Administrador*/
+
+    public function usuarios(Request $request)
+    {
+        return view('admin.usuarios.index', ['usuarios' => Usuario::paginate(15)]);
+    }
+
+    public function eliminarCuenta(Request $request, Usuario $usuario)
+    {
+        Usuario::where('codUsu', $usuario->codUsu)->delete();
+
+        return redirect()->route('usuario.usuarios');
+    }
+
+    public function buscarUsuario(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        $usuario = Usuario::where('email', $request->email)->first();
+
+        if ($usuario != null) {
+            return view('admin.usuarios.usuario', ['usuario' => $usuario]);
+        }
+
+        return redirect()->route('usuario.usuarios');
     }
 }
