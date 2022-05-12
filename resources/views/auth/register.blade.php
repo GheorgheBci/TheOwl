@@ -1,18 +1,10 @@
 @extends('layouts.loginRegisterPlantilla')
 
-@section('estilosConBootstrap')
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-@endsection
-
-@section('estilosSinBootstrap')
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-@endsection
-
 @section('titulo', 'Registro')
 
 @section('content')
     <div class="main_registro">
-        <div class="img">
+        <div class="tex">
             <p><strong>Disfruta</strong> de millones de libros de todas las tematicas</p>
             <p><strong>Conviertete</strong> en socio y distruta de muchas ventajas</p>
         </div>
@@ -25,48 +17,48 @@
             <form method="POST" action="{{ route('register') }}" class="form_registro">
                 @csrf
                 <div class="registro_nombre_apellidos">
-                    <div class="form-group col-md-4">
+                    <div class="grupoA">
                         <label for="nombre">Nombre</label>
 
-                        <div class="col-md-12">
-                            <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror"
-                                name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus
+                        <div>
+                            <input id="nombre" type="text" @error('nombre') is-invalid @enderror name="nombre"
+                                value="{{ old('nombre') }}" required autocomplete="nombre" 
                                 placeholder="Indica tu nombre">
 
                             @error('nombre')
-                                <span class="invalid-feedback" role="alert">
+                                <span>
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                     </div>
 
-                    <div class="form-group col-md-4">
+                    <div class="grupoA">
                         <label for="ape1">Primer apellido</label>
 
-                        <div class="col-md-12">
-                            <input id="ape1" type="text" class="form-control @error('ape1') is-invalid @enderror"
-                                name="ape1" value="{{ old('ape1') }}" required autocomplete="ape1" autofocus
+                        <div>
+                            <input id="ape1" type="text" l @error('ape1') is-invalid @enderror name="ape1"
+                                value="{{ old('ape1') }}" required autocomplete="ape1" 
                                 placeholder="Indica tu primer apellido">
 
                             @error('ape1')
-                                <span class="invalid-feedback" role="alert">
+                                <span>
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                     </div>
 
-                    <div class="form-group col-md-4">
+                    <div class="grupoA">
                         <label for="ape2">Segundo apellido</label>
 
-                        <div class="col-md-12">
-                            <input id="ape2" type="text" class="form-control @error('ape2') is-invalid @enderror"
-                                name="ape2" value="{{ old('ape2') }}" autocomplete="ape2" autofocus
+                        <div>
+                            <input id="ape2" type="text" @error('ape2') is-invalid @enderror name="ape2"
+                                value="{{ old('ape2') }}" autocomplete="ape2" 
                                 placeholder="Indica tu segundo apellido">
 
                             @error('ape2')
-                                <span class="invalid-feedback" role="alert">
+                                <span>
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -75,31 +67,30 @@
                 </div>
 
                 <div class="registro_email_feNacimiento">
-                    <div class="form-group col-md-9">
+                    <div class="ema">
                         <label for="email">Correo electrónico</label>
 
-                        <div class="col-md-12">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email"
-                                placeholder="Indica tu correo">
+                        <div>
+                            <input id="email" type="email" @error('email') is-invalid @enderror name="email"
+                                value="{{ old('email') }}" required autocomplete="email" placeholder="Indica tu correo">
 
                             @error('email')
-                                <span class="invalid-feedback" role="alert">
+                                <span>
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                     </div>
 
-                    <div class="form-group col-md-3">
+                    <div class="ema">
                         <label for="fechaNac">Fecha de nacimiento</label>
 
-                        <div class="col-md-12">
-                            <input id="fechaNac" type="date" class="form-control @error('fechaNac') is-invalid @enderror"
-                                name="fechaNac" value="{{ old('fechaNac') }}" required autocomplete="fechaNac" autofocus>
+                        <div>
+                            <input id="fechaNac" type="date" @error('fechaNac') is-invalid @enderror name="fechaNac"
+                                value="{{ old('fechaNac') }}" required autocomplete="fechaNac" >
 
                             @error('fechaNac')
-                                <span class="invalid-feedback" role="alert">
+                                <span>
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -108,33 +99,32 @@
                 </div>
 
                 <div class="registro_contrasenia">
-                    <div class="form-group col-md-6">
+                    <div class="pass">
                         <label for="password">Contraseña</label>
 
-                        <div class="col-md-12">
-                            <input id="password" type="password"
-                                class="form-control @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="new-password" placeholder="Indica tu contraseña">
+                        <div>
+                            <input id="password" type="password" @error('password') is-invalid @enderror name="password"
+                                required autocomplete="new-password" placeholder="Indica tu contraseña">
 
                             @error('password')
-                                <span class="invalid-feedback" role="alert">
+                                <span>
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6">
+                    <div class="pass">
                         <label for="password-confirm">Confirmar la contraseña</label>
 
-                        <div class="col-md-12">
-                            <input id="password-confirm" type="password" class="form-control" name="password-confirm"
-                                required autocomplete="new-password" placeholder="Repite la contraseña">
+                        <div>
+                            <input id="password-confirm" type="password" name="password-confirm" required
+                                autocomplete="new-password" placeholder="Repite la contraseña">
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn_registro registro_boton_crear_cuenta">Crear Cuenta</button>
-                <a href="{{ route('login') }}" class="btn btn_registro btn-danger">Cancelar</a>
+                <button type="submit" class="registro_boton_crear_cuenta">Crear Cuenta</button>
+                <a href="{{ route('login') }}" class="boton_cancelar">Cancelar</a>
             </form>
         </div>
     </div>
