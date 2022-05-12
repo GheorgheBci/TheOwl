@@ -9,6 +9,7 @@
 @endsection
 
 @section('javascript')
+    <script src="{{ asset('js/script2.js') }}" async></script>
     <script src="{{ asset('js/script.js') }}" async></script>
 @endsection
 
