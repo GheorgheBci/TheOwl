@@ -10,86 +10,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
-    @yield('estilosConBootstrap')
-    @yield('estilosSinBootstrap')
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     @yield('javascript')
+    <script src="{{ asset('anime.min.js') }}" async></script>
     <title>@yield('titulo')</title>
 </head>
 
 <body>
+    <div class="logo">
+        <img src="../buho.svg" alt="buho" class="imagenbuho">
+    </div>
+
+    <header class="header">
+        <nav>
+            <span id="menu_barra">
+                <i class="fas fa-bars"></i>Menu
+            </span>
+            <ul id="c">
+
+                <li><a href="{{ route('inicio') }}">Inicio</a></li>
+                <li><a href="#">Ejemplares</a></li>
+                <li><a href="{{ route('conocenos') }}">Conocenos</a></li>
+                <li><a href="{{ route('contacto') }}">Contacto</a></li>
+                {{-- @auth
+                    @if (Auth::user()->idRol == 3)
+                        <li><a href="{{ route('admin') }}">Administrador</a></li>
+                    @endif
+                @endauth --}}
+                <li><a href="#"><i class="fas fa-heart"></i>WishList</a></li>
+                <li><a href="#"><i class="fas fa-cart-plus"></i>Carrito</a></li>
+                <li>
+                    @if (Auth::user())
+                        <a href="{{ route('usuario.userHome') }}"><i class="fas fa-user"></i>Mi Cuenta</a>
+                    @else
+                        <a href="{{ route('login') }}"><i class="fas fa-user"></i>Mi Cuenta</a>
+                    @endif
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="contenedor">
-
-        <header class="header_home">
-
-            <div class="logo">
-                <img src="../buho.svg" alt="buho" class="imagenbuho">
-            </div>
-
-            <nav class="nave">
-                <ul>
-                    <li><a href="{{ route('inicio') }}">Inicio</a></li>
-                    <li><a href="#">Ejemplares</a></li>
-                    <li><a href="{{ route('conocenos') }}">Conocenos</a></li>
-                    <li><a href="{{ route('contacto') }}">Contacto</a></li>
-                </ul>
-            </nav>
-
-            <div class="iconos">
-                <ul>
-                    <li><a href="#"><span class="material-icons-outlined">
-                                search
-                            </span></a></li>
-                    <li><a href="#"><span class="material-icons-outlined">
-                                favorite_border
-                            </span></a></li>
-                    <li><a href="#"><span class="material-icons-outlined">
-                                add_shopping_cart
-                            </span></a></li>
-                    <li>
-                        {{-- @if (Auth::user())
-                            <a href="#">
-                                <div class="bbb">
-                                    @if (Auth::user()->imagen_usuario != null)
-                                        <img src="{{ asset('imagenes/' . Auth::user()->imagen_usuario) }}"
-                                            alt="imagen_usuario" class="usufoto">
-                                    @else
-                                        <img src="../user.png" alt="" class="usufoto">
-                                    @endif
-
-                                </div>
-                            </a>
-                        @else --}}
-                        <a href="#"><span class="material-icons-outlined user" id="u">
-                                perm_identity
-                            </span></a>
-                        {{-- @endif --}}
-                    </li>
-
-                    <span class="material-icons-outlined" id="flecha">
-                        arrow_drop_up
-                    </span>
-                    <div id="menu_desplegable_usuario">
-                        <p><a href="{{ route('usuario.userHome') }}">Mis Datos</a></p>
-                        @if (Auth::user())
-                            <p> <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                    Cerrar Sesión
-                                </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                class="d-none">
-                                @csrf
-                            </form>
-                            </p>
-                        @else
-                            <p><a href="{{ route('login') }}">Iniciar Sesión</a></p>
-                        @endif
-                    </div>
-                </ul>
-            </div>
-
-        </header>
 
         <main>
             @yield('content')
