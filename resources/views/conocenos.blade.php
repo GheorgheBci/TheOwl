@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('estilosSinBootstrap')
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-@endsection
-
 @section('javascript')
     <script src="{{ asset('js/script.js') }}" async></script>
 @endsection

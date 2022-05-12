@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('estilosConBootstrap')
+{{-- @section('estilosConBootstrap')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-@endsection
+@endsection --}}
 
 @section('estilosSinBootstrap')
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 @endsection
 
 @section('javascript')
-    <script src="{{ asset('js/script2.js') }}" async></script>
+    <script src="{{ asset('js/script.js') }}" async></script>
 @endsection
 
 @section('titulo', 'Perfil')
@@ -17,7 +17,19 @@
 @section('content')
     <div class="main_user_account">
         <div class="menu_user_account">
+            <ul>
+                <li>
+                    <p> <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Cerrar Sesión
+                        </a>
 
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
+                    </p>
+                </li>
+            </ul>
         </div>
 
         <div class="usuario">
@@ -26,15 +38,12 @@
                 <a href="#"> <span id="cambiar_foto">Cambiar
                         imagen</span></a>
 
+                <img src="{{ asset('imagenes/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario"
+                    class="usufoto">
+            </div>
 
-
-                @if (Auth::user()->imagen_usuario != null)
-                    <img src="{{ asset('imagenes/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario"
-                        class="usufoto">
-                @else
-                    <img src="../user.png" alt="" class="usufoto">
-                @endif
-
+            <div class="menus">
+                <i class="fas fa-ellipsis-v" id="menu_usuario"></i>
             </div>
 
             <div id="form">
@@ -49,57 +58,68 @@
             <div class="userr">
                 <form action="{{ route('usuario.actualizarDatosPersonales') }}" method="POST">
                     @csrf
-                    <div class="row mb-4">
-                        <div class="form-group col-md-4">
+                    <div class="usuario_nombre_apellidos">
+                        <div>
                             <label for="nombre">Nombre: </label>
-                            <input type="text" class="form-control" name="nombre" id="nombre"
-                                value="{{ Auth::user()->nombre }}">
+                            <div>
+                                <input type="text" name="nombre" id="nombre" value="{{ Auth::user()->nombre }}">
+                            </div>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div>
                             <label for="ape1">Primer apellido: </label>
-                            <input type="text" class="form-control" name="ape1" id="ape1"
-                                value="{{ Auth::user()->apellido1 }}">
+                            <div>
+                                <input type="text" name="ape1" id="ape1" value="{{ Auth::user()->apellido1 }}">
+                            </div>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div>
                             <label for="ape2">Segundo apellido: </label>
-                            <input type="text" class="form-control" name="ape2" id="ape2"
-                                value="{{ Auth::user()->apellido2 }}">
+                            <div>
+                                <input type="text" name="ape2" id="ape2" value="{{ Auth::user()->apellido2 }}">
+                            </div>
                         </div>
                     </div>
-                    <div class="row mb-4">
-                        <div class="form-group col-md-9">
+                    <div class="usuario_email_password">
+                        <div>
                             <label for="email">Email: </label>
-                            <input type="email" class="form-control" name="email" id="email"
-                                value="{{ Auth::user()->email }}">
+                            <div>
+                                <input type="email" name="email" id="email" value="{{ Auth::user()->email }}">
+                            </div>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div>
                             <label for="fecNac">Fecha de nacimiento: </label>
-                            <input type="date" class="form-control" name="fecNac" id="fecNac"
-                                value="{{ Auth::user()->fecNacimiento }}">
+                            <div>
+                                <input type="date" name="fecNac" id="fecNac" value="{{ Auth::user()->fecNacimiento }}">
+                            </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <button type="submit" class="perfil_boton">Actualizar</button>
                 </form>
             </div>
 
             <div class="user2">
                 <form action="{{ route('usuario.actualizarContraseña') }}" method="POST">
                     @csrf
-                    <div class="row mb-4">
-                        <div class="form-group col-md-4">
+                    <div class="usuario_contrasenias">
+                        <div>
                             <label for="password">Contraseña Actual: </label>
-                            <input type="password" class="form-control" name="password" id="password">
+                            <div>
+                                <input type="password" name="password" id="password">
+                            </div>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div>
                             <label for="newPassword">Nueva Contraseña: </label>
-                            <input type="password" class="form-control" name="newPassword" id="newPassword">
+                            <div>
+                                <input type="password" name="newPassword" id="newPassword">
+                            </div>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div>
                             <label for="password-confirm">Confirmar Contraseña: </label>
-                            <input type="password" class="form-control" name="password-confirm" id="password-confirm">
+                            <div>
+                                <input type="password" name="password-confirm" id="password-confirm">
+                            </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <button type="submit" class="perfil_boton">Actualizar</button>
                 </form>
             </div>
 
