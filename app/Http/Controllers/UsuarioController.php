@@ -19,11 +19,22 @@ class UsuarioController extends Controller
 
     public function cargarImagenUsuario(Request $request)
     {
+
         if ($request->hasFile('file')) {
+            $imagen = $request->file;
+
+            $imagen->move(public_path() . '/imagenes', $imagen->getClientOriginalName());
+
             Usuario::where('codUsu', Auth::user()->codUsu)->update([
-                'imagen_usuario' =>  $request->file('file')->store('public')
+                'imagen_usuario' => $imagen->getClientOriginalName()
             ]);
         }
+
+        // if ($request->hasFile('file')) {
+        //     Usuario::where('codUsu', Auth::user()->codUsu)->update([
+        //         'imagen_usuario' =>  $request->file('file')->store('public')
+        //     ]);
+        // }
 
         return redirect()->route('usuario.userHome');
     }
