@@ -2,21 +2,21 @@
 
 let activo = false;
 
-var boton = document.getElementById("menu_barra");
+var boton = document.getElementById("menu-barra");
 
 boton.addEventListener("click", function () {
 
     if (!activo) {
         anime({
-            targets: '#menu_barra',
+            targets: '#menu-barra',
             translateX: 150,
-            duration: 1000,
+            duration: 200,
             easing: 'linear'
         });
         anime({
             targets: '#c',
             translateX: 150,
-            duration: 1000,
+            duration: 200,
             easing: 'linear'
         });
 
@@ -24,15 +24,15 @@ boton.addEventListener("click", function () {
 
     } else {
         anime({
-            targets: '#menu_barra',
+            targets: '#menu-barra',
             translateX: 0,
-            duration: 1000,
+            duration: 200,
             easing: 'linear'
         });
         anime({
             targets: '#c',
             translateX: 0,
-            duration: 1000,
+            duration: 200,
             easing: 'linear'
         });
 
