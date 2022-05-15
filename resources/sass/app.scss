@@ -1,8 +1,36 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Estilos generales
+@import 'generales/generales';
 
-// Variables
-@import 'variables';
+// Inicio
+@import 'index/index';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Contacto
+@import 'contacto/contacto';
+
+// Conocenos
+@import 'conocenos/conocenos';
+
+// Verificación
+@import 'verificacion/verificacion';
+
+// Login
+@import 'login/login';
+
+// Registro
+@import 'registro/registro';
+
+// Perfil
+@import 'perfil/perfil';
+
+// Membresia
+@import 'membresia/membresia';
+
+// Verificación
+@import 'verificacion/verificacion';
+
+// Recuperar Contraseña
+@import 'reset/email';
+@import 'reset/reset';
+
+// Media Querys
+@import 'queries/queries';
