@@ -1,0 +1,302 @@
+@media screen and (min-width: 548px) {
+
+    // Perfil
+    .usuario {
+        width: 502px;
+    }
+
+    // Login
+    .main-login {
+        width: 461px;
+        margin: auto;
+        margin-top: 9%;
+    }
+
+    // Registro
+    .main-registro {
+        width: 461px;
+        margin: auto;
+    }
+
+    // Reset
+    .reset__div {
+        width: 502px;
+        margin: auto;
+    }
+
+    .reset__titulo {
+        font-size: 40px;
+    }
+
+    .reset__input {
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .reset__label {
+        font-size: 17px;
+    }
+
+    .reset__button {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 642px) {
+
+    // Contacto
+    .formulario__div {
+        width: 498px;
+        padding: 50px;
+    }
+}
+
+@media screen and (min-width: 667px) {
+
+    // Email
+    .email__div {
+        width: 547px;
+        margin: auto;
+    }
+
+    .email__input {
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .email__label {
+        font-size: 19px;
+    }
+
+    .email__button {
+        font-size: 16px;
+    }
+}
+
+@media screen and(min-width: 768px) {
+    .verify__boton {
+        font-size: 16px;
+    }
+
+    .verify {
+        font-size: 17px;
+    }
+
+    .verify__titulo {
+        font-size: 31px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+
+    // Estilos generales
+    .header__ul {
+        position: absolute;
+        left: -141px;
+        background-color: #dda056;
+        border-radius: 3px;
+    }
+
+    .header__menu-barra {
+        visibility: visible;
+    }
+
+    .header--height {
+        height: 70px;
+    }
+
+}
+
+@media screen and (min-width: 861px) {
+
+    // Perfil
+    .usuario__perfil {
+        height: 159px;
+    }
+
+    .perfil {
+        /* margin-bottom: 7%; */
+
+        display: grid;
+        grid-template-columns: 25% 62%;
+        gap: 10%;
+    }
+
+    .menu {
+        border: 1px solid black;
+        border-radius: 25px;
+        background-color: gray;
+        height: 500px;
+        margin-left: 10%;
+        position: relative;
+        visibility: visible;
+        z-index: 2;
+    }
+
+    .usuario {
+        width: 100%;
+    }
+
+    .usuario__div {
+        display: flex;
+        gap: 3%;
+    }
+
+    .usuario__div--width {
+        width: 100%;
+    }
+
+    .usuario__input {
+        height: 45px;
+    }
+
+    .usuario__boton {
+        width: 27%;
+        padding: 2% 6%;
+    }
+
+    .usuario__a {
+        width: 27%;
+        padding: 2% 6%;
+    }
+
+    // Estilos generales
+    .header__ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .header__menu-barra {
+        visibility: hidden;
+    }
+
+    // Login
+    .main-login__form {
+        width: 105%;
+        margin: auto;
+        margin-top: 9%;
+    }
+
+    .main-login__separador {
+        visibility: visible;
+        position: relative;
+        border-left: 1px solid black;
+        max-height: 450px;
+    }
+
+    .main-login {
+        width: 86%;
+        margin: auto;
+        margin-top: 3%;
+        padding-bottom: 4%;
+
+        display: grid;
+        grid-template-columns: 50% 1fr 50%;
+    }
+
+    .main-login__input {
+        font-size: 15px;
+    }
+
+    .main-login__recuperar-contrasenia {
+        font-size: 17px;
+    }
+
+    .main-login__p {
+        font-size: 17px;
+    }
+
+    .main-login__portada {
+        width: 100%;
+        height: 100%;
+    }
+
+    .main-login__img {
+        margin-right: 3%;
+        visibility: visible;
+        position: relative;
+    }
+
+    // Registro
+    .main-registro__form {
+        width: 90%;
+    }
+
+    .main-registro__div {
+        display: flex;
+    }
+
+    .main-registro__div--width {
+        width: 33%;
+    }
+
+    .main-registro__email--width {
+        width: 57%;
+    }
+
+    .main-registro__date--width {
+        width: 46%;
+    }
+
+    .main-registro__password--width {
+        width: 56%;
+    }
+
+    .main-registro__p {
+        visibility: visible;
+        position: relative;
+    }
+
+    .main-registro {
+        width: 90%;
+        margin: auto;
+        margin-top: 3%;
+        padding-bottom: 4%;
+
+        display: grid;
+        grid-template-columns: 30% 1fr 80%;
+    }
+
+    .main-registro__separador {
+        visibility: visible;
+        position: relative;
+        border-left: 1px solid black;
+        max-height: 450px;
+    }
+
+    // Conocenos
+    .conocenos__div,
+    .conocenos__div-dos {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1086px) {
+
+    // Estilos generales
+    .header__a {
+        padding: .5em 2em;
+    }
+}
+
+@media screen and (min-width: 1154px) {
+
+    // Estilos generales
+    .header__a {
+        padding: .5em 2em;
+    }
+}
+
+@media screen and(min-width: 1440px) {
+    .verify__boton {
+        font-size: 18px;
+    }
+
+    .verify {
+        font-size: 19px;
+    }
+
+    .verify__titulo {
+        font-size: 42px;
+    }
+}

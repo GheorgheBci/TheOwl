@@ -1,0 +1,41 @@
+.verify {
+    border: 1px solid #D99255;
+    width: 90%;
+    margin: 5% auto;
+    background-color: #D99255;
+    border-radius: 10px;
+    padding: 5%;
+    text-align: justify;
+    font-size: 15px;
+
+}
+
+.verify__titulo {
+    text-align: center;
+    margin-bottom: 4%;
+    font-size: 24px;
+}
+
+.verify__div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.verify__boton {
+    margin-top: 4%;
+    padding: 9px;
+    border-radius: 10px;
+    border: 1px solid rgb(142, 142, 185);
+    background-color: rgb(142, 142, 185);
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.verify__boton:hover {
+    color: white;
+    border: 1px solid white;
+}
+
+
+

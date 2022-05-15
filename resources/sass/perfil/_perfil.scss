@@ -1,0 +1,131 @@
+.menu {
+    position: absolute;
+    color: black;
+    display: block;
+    text-decoration: none;
+    padding: .5em 1em;
+    font-size: 18px;
+    z-index: 3;
+
+    &__ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__a {
+        text-decoration: none;
+
+        &:hover {
+            border-radius: 3px;
+            background: gray;
+            color: white;
+        }
+    }
+}
+
+.usuario {
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: gray;
+    margin: auto;
+
+    &__perfil {
+        display: inline-block;
+        border: 1px solid white;
+        border-radius: 10px;
+        background-color: white;
+        width: 30%;
+        height: 104px;
+        margin: 5% 5%;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__perfil:hover #cambiar_foto {
+        visibility: visible;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    &__input {
+        margin: 3% 0 5% 0;
+        background-color: #fbfbfb;
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #D99255;
+        padding-left: 3.5%;
+    }
+
+    &__input:focus {
+        outline: 0;
+        border: 1px solid #97d848;
+    }
+
+    &__boton {
+        background-color: #D99255;
+        border: 1px solid #D99255;
+        display: inline-block;
+        color: white;
+        width: 40%;
+        padding: 3% 6%;
+        border-radius: 3px;
+    }
+
+    &__aviso-renovacion {
+        color: red;
+    }
+
+    &__a {
+        text-decoration: none;
+        background-color: #D99255;
+        border: 1px solid #D99255;
+        display: inline-block;
+        color: white;
+        border-radius: 3px;
+        padding: 3% 6%;
+        margin-top: 5%;
+    }
+}
+
+// Corregir
+#cambiar_foto {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0.5%;
+    background-color: white;
+    position: absolute;
+    text-align: center;
+    line-height: 105px;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0.5;
+}
+
+#formulario__cambiar-imagen {
+    border: 1px solid #D99255;
+    border-radius: 10px;
+    background-color: #D99255;
+    padding: 2%;
+    position: absolute;
+    visibility: hidden;
+}
+
+.usuario__datos-personales,
+.usuario__password,
+.usuario__socio {
+    border: 1px solid white;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 7%;
+    font-size: 15px;
+    padding: 3%;
+    background-color: white;
+    border-radius: 10px;
+}
