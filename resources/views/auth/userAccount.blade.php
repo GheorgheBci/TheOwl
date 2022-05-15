@@ -1,13 +1,5 @@
 @extends('layouts.app')
 
-{{-- @section('estilosConBootstrap')
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-@endsection --}}
-
-@section('estilosSinBootstrap')
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-@endsection
-
 @section('javascript')
     <script src="{{ asset('js/script2.js') }}" async></script>
     <script src="{{ asset('js/script.js') }}" async></script>
@@ -16,11 +8,11 @@
 @section('titulo', 'Perfil')
 
 @section('content')
-    <div class="main_user_account">
-        <div class="menu_user_account">
-            <ul>
+    <div class="perfil">
+        <div class="menu">
+            <ul class="menu__ul">
                 <li>
-                    <p> <a class="dropdown-item" href="{{ route('logout') }}"
+                    <p> <a class="menu__a" href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Cerrar Sesión
                         </a>
@@ -35,19 +27,19 @@
 
         <div class="usuario">
 
-            <div class="foto_usuario">
+            <div class="usuario__perfil">
                 <a href="#"> <span id="cambiar_foto">Cambiar
                         imagen</span></a>
 
                 <img src="{{ asset('imagenes/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario"
-                    class="usufoto">
+                    class="usuario__img">
             </div>
 
-            <div class="menus">
-                <i class="fas fa-ellipsis-v" id="menu_usuario"></i>
-            </div>
+            {{-- <div class="menus">
+                <i class="fas fa-ellipsis-v usuario__i" id="menu_usuario"></i>
+            </div> --}}
 
-            <div id="form">
+            <div id="formulario__cambiar-imagen">
                 <form action="{{ route('usuario.cargarImagen') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="file" name="file">
@@ -56,90 +48,95 @@
                 </form>
             </div>
 
-            <div class="userr">
+            <div class="usuario__datos-personales">
                 <form action="{{ route('usuario.actualizarDatosPersonales') }}" method="POST">
                     @csrf
-                    <div class="usuario_nombre_apellidos">
-                        <div>
+                    <div class="usuario__div">
+                        <div class="usuario__div--width">
                             <label for="nombre">Nombre: </label>
                             <div>
-                                <input type="text" name="nombre" id="nombre" value="{{ Auth::user()->nombre }}">
+                                <input type="text" class="usuario__input" name="nombre" id="nombre"
+                                    value="{{ Auth::user()->nombre }}">
                             </div>
                         </div>
-                        <div>
+                        <div class="usuario__div--width">
                             <label for="ape1">Primer apellido: </label>
                             <div>
-                                <input type="text" name="ape1" id="ape1" value="{{ Auth::user()->apellido1 }}">
+                                <input type="text" class="usuario__input" name="ape1" id="ape1"
+                                    value="{{ Auth::user()->apellido1 }}">
                             </div>
                         </div>
-                        <div>
+                        <div class="usuario__div--width">
                             <label for="ape2">Segundo apellido: </label>
                             <div>
-                                <input type="text" name="ape2" id="ape2" value="{{ Auth::user()->apellido2 }}">
+                                <input type="text" class="usuario__input" name="ape2" id="ape2"
+                                    value="{{ Auth::user()->apellido2 }}">
                             </div>
                         </div>
                     </div>
-                    <div class="usuario_email_password">
-                        <div>
+                    <div class="usuario__div">
+                        <div class="usuario__div--width">
                             <label for="email">Email: </label>
                             <div>
-                                <input type="email" name="email" id="email" value="{{ Auth::user()->email }}">
+                                <input type="email" class="usuario__input" name="email" id="email"
+                                    value="{{ Auth::user()->email }}">
                             </div>
                         </div>
-                        <div>
+                        <div class="usuario__div--width">
                             <label for="fecNac">Fecha de nacimiento: </label>
                             <div>
-                                <input type="date" name="fecNac" id="fecNac" value="{{ Auth::user()->fecNacimiento }}">
+                                <input type="date" class="usuario__input" name="fecNac" id="fecNac"
+                                    value="{{ Auth::user()->fecNacimiento }}">
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="perfil_boton">Actualizar</button>
+                    <button type="submit" class="usuario__boton">Actualizar</button>
                 </form>
             </div>
 
-            <div class="user2">
+            <div class="usuario__password">
                 <form action="{{ route('usuario.actualizarContraseña') }}" method="POST">
                     @csrf
-                    <div class="usuario_contrasenias">
-                        <div>
+                    <div class="usuario__div">
+                        <div class="usuario__div--width">
                             <label for="password">Contraseña Actual: </label>
                             <div>
-                                <input type="password" name="password" id="password">
+                                <input type="password" class="usuario__input" name="password" id="password">
                             </div>
                         </div>
-                        <div>
+                        <div class="usuario__div--width">
                             <label for="newPassword">Nueva Contraseña: </label>
                             <div>
-                                <input type="password" name="newPassword" id="newPassword">
+                                <input type="password" class="usuario__input" name="newPassword" id="newPassword">
                             </div>
                         </div>
-                        <div>
+                        <div class="usuario__div--width">
                             <label for="password-confirm">Confirmar Contraseña: </label>
                             <div>
-                                <input type="password" name="password-confirm" id="password-confirm">
+                                <input type="password" class="usuario__input" name="password-confirm" id="password-confirm">
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="perfil_boton">Actualizar</button>
+                    <button type="submit" class="usuario__boton">Actualizar</button>
                 </form>
             </div>
 
-            <div class="user3">
+            <div class="usuario__socio">
                 @if (Auth::user()->idRol === 2 && !Auth::user()->baja)
                     <p>Su membresia como socio es hasta {{ Auth::user()->fec_fin_socio }}</p>
 
                     @if ( ((strtotime(date("Y-m-d", strtotime(Auth::user()->fec_fin_socio))) - strtotime(date("Y-m-d"))) /
                     60
                     /60 / 24) === 1)
-                    <p class="aviso_renovacion">Atención su membresia se renovara mañana</p>
+                    <p class="usuario__aviso-renovacion">Atención su membresia se renovara mañana</p>
                 @endif
 
-                <a href="{{ route('usuario.baja') }}" class="btn btn-dark">Darse de baja</a>
+                <a href="{{ route('usuario.baja') }}" class="usuario__a">Darse de baja</a>
             @elseif(Auth::user()->baja)
                 <p>Te has dado de baja, tu membresia es hasta {{ Auth::user()->fec_fin_socio }}</p>
             @else
                 <p>Actualmente no eres socio</p>
-                <a href="{{ route('membresia') }}" class="btn btn-dark">Hacerte socio</a>
+                <a href="{{ route('membresia') }}" class="usuario__a">Hacerte socio</a>
                 @endif
             </div>
 
