@@ -120,3 +120,6 @@ Semana 02/05/2022 - 08/05/2022
 - El usuario se puede dar de alta como socio
 - He añadido una plantilla general para todas las vistas, una plantilla para el login y registro y una plantilla para las vistas de administrador
 - He añadido la parte del administrador (Aún no esta del todo terminada)
+
+# Checkpoint 13/05/2022
+https://www.youtube.com/watch?v=5jIgOfQtVXw&ab_channel=GheorgheBush
