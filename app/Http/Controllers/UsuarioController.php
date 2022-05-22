@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Ui\Presets\React;
-use PhpParser\Builder\Use_;
 
 class UsuarioController extends Controller
 {
@@ -23,7 +20,7 @@ class UsuarioController extends Controller
         if ($request->hasFile('file')) {
             $imagen = $request->file;
 
-            $imagen->move(public_path() . '/imagenes', $imagen->getClientOriginalName());
+            $imagen->move(public_path() . '/img', $imagen->getClientOriginalName());
 
             Usuario::where('codUsu', Auth::user()->codUsu)->update([
                 'imagen_usuario' => $imagen->getClientOriginalName()
