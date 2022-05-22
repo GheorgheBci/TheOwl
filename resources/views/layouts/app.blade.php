@@ -14,12 +14,13 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     @yield('javascript')
     <script src="{{ asset('anime.min.js') }}" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>@yield('titulo')</title>
 </head>
 
 <body>
     <div class="logo">
-        <img src="../buho.svg" alt="buho" class="logo__imagen--width">
+        <img src="{{ asset('img/buho.svg') }}" alt="buho" class="logo__imagen--width">
     </div>
 
     <header class="header header--height">
@@ -30,7 +31,7 @@
             <ul id="c" class="header__ul header__ul--none">
 
                 <li><a href="{{ route('inicio') }}" class="header__a">Inicio</a></li>
-                <li><a href="#" class="header__a">Ejemplares</a></li>
+                <li><a href="{{ route('ejemplar.ejemplares') }}" class="header__a">Ejemplares</a></li>
                 <li><a href="{{ route('conocenos') }}" class="header__a">Conocenos</a></li>
                 <li><a href="{{ route('contacto') }}" class="header__a">Contacto</a></li>
                 {{-- @auth
@@ -39,12 +40,15 @@
                     @endif
                 @endauth --}}
                 <li><a href="#" class="header__a"><i class="fas fa-heart header__i--margin"></i>WishList</a></li>
-                <li><a href="#" class="header__a"><i class="fas fa-cart-plus header__i--margin"></i>Carrito</a></li>
+                <li><a href="#" class="header__a"><i class="fas fa-cart-plus header__i--margin"></i>Carrito</a>
+                </li>
                 <li>
                     @if (Auth::user())
-                        <a href="{{ route('usuario.userHome') }}" class="header__a"><i class="fas fa-user header__i--margin"></i>Mi Cuenta</a>
+                        <a href="{{ route('usuario.userHome') }}" class="header__a"><i
+                                class="fas fa-user header__i--margin"></i>Mi Cuenta</a>
                     @else
-                        <a href="{{ route('login') }}" class="header__a"><i class="fas fa-user header__i--margin"></i>Mi Cuenta</a>
+                        <a href="{{ route('login') }}" class="header__a"><i
+                                class="fas fa-user header__i--margin"></i>Mi Cuenta</a>
                     @endif
                 </li>
             </ul>
