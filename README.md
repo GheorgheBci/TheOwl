@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/GheorgheBci/TheOwl/blob/master/buho.svg" alt="Sublime's custom image"/>
+  <img src="https://github.com/GheorgheBci/TheOwl/blob/master/public/img/buho.svg" alt="Sublime's custom image"/>
 </p>
 
 # 
