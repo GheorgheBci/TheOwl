@@ -1,3 +1,11 @@
+@media screen and (min-width: 504px) {
+
+    //ejemplares
+    .ordenar__ul {
+        font-size: 14px;
+    }
+}
+
 @media screen and (min-width: 548px) {
 
     // Perfil
@@ -74,6 +82,8 @@
 }
 
 @media screen and(min-width: 768px) {
+
+    // Verificación
     .verify__boton {
         font-size: 16px;
     }
@@ -84,6 +94,19 @@
 
     .verify__titulo {
         font-size: 31px;
+    }
+
+    //ejemplares
+    .libro {
+        margin: 7% 0;
+    }
+
+    .buscador {
+        width: 300px;
+
+        &__input {
+            width: 300px;
+        }
     }
 }
 
@@ -268,6 +291,23 @@
     .conocenos__div,
     .conocenos__div-dos {
         font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    //ejemplares
+    .ejemplares {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .libro {
+        width: 30%;
+        display: flex;
+        justify-content: space-around;
     }
 }
 
