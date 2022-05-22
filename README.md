@@ -121,5 +121,11 @@ Semana 02/05/2022 - 08/05/2022
 - He añadido una plantilla general para todas las vistas, una plantilla para el login y registro y una plantilla para las vistas de administrador
 - He añadido la parte del administrador (Aún no esta del todo terminada)
 
+Semana 09/05/2022 - 15/05/2022
+
+- El diagrama E/R ha sido actualizado, se han añadido nuevos campos a la tabla Usuario
+- Tanto las plantillas como las vistas han sido actualizadas
+- Todo el css ha sido separado en modulos scss y luego mediante @import se han unido todos en un solo css llamado main.csss
+
 # Checkpoint 13/05/2022
 https://www.youtube.com/watch?v=5jIgOfQtVXw&ab_channel=GheorgheBush
