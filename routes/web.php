@@ -53,9 +53,12 @@ Route::group(['rol' => 'rol', 'as' => 'rol.', 'middleware' => ['auth', 'verified
     Route::get('roles', [RolController::class, 'roles'])->name('roles');
 });
 
-Route::group(['ejemplar' => 'ejemplar', 'as' => 'ejemplar.', 'middleware' => ['auth', 'verified']], function () {
+Route::group(['ejemplar' => 'ejemplar', 'as' => 'ejemplar.'], function () {
     Route::get('ejemplares', [EjemplarController::class, 'ejemplares'])->name('ejemplares');
-    Route::post('buscar', [EjemplarController::class, 'buscarEjemplar'])->name('buscar');
+    Route::get('ejemplar/{ejemplar}', [EjemplarController::class, 'showDetallesEjemplar'])->name('ejemplar');
+    Route::get('puntuar/{ejemplar}/{puntuacion}', [EjemplarController::class, 'puntuar'])->name('puntuar');
+    Route::get('ejemplares/ordenar/{tipo}', [EjemplarController::class, 'ordenarEjemplares'])->name('ordenar');
+    Route::post('ejemplar/buscar', [EjemplarController::class, 'buscarEjemplar'])->name('buscar');
 });
 
 Route::group(['editorial' => 'editorial', 'as' => 'editorial.', 'middleware' => ['auth', 'verified']], function () {
