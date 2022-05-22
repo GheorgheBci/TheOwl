@@ -15,7 +15,7 @@ class CreateDetalleAlquilerTable extends Migration
     {
         Schema::create('detalle_alquiler', function (Blueprint $table) {
             $table->unsignedBigInteger('codUsu');
-            $table->string('isbn', 13);
+            $table->unsignedBigInteger('isbn');
             $table->date('fecAlquiler');
             $table->date('fecDevolucion');
             $table->decimal('precioAlquiler', 6, 2);
