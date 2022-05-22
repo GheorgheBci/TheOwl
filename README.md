@@ -127,5 +127,13 @@ Semana 09/05/2022 - 15/05/2022
 - Tanto las plantillas como las vistas han sido actualizadas
 - Todo el css ha sido separado en modulos scss y luego mediante @import se han unido todos en un solo css llamado main.csss
 
+Semana 16/05/2022 - 22/05/2022
+
+- En esta semana he añadido la vista para ver todos los ejemplares, los cuales tiene una animación de un libro abriendose. Cuando el libro se abre hay un link que si lo pulsamos nos lleva a otra vista donde muestran los detalles del ejemplar que hemos seleccionado
+- Nuevos campos para la tabla ejemplar que son: idioma, image_book, puntuación y votos. Además el campo isbn ahora es tipo numerico
+- El usuario puede puntuar el ejemplar del 1 al 5, luego se muestra la media de todas las puntuaciones para dicho ejemplar
+- El usuario tiene en la vista ejemplares un buscador para encontrar más rápido el ejemplar que quiere buscar. Además también tiene la opción de ordenar los ejemplares por el nombre, fecha de publicación y por la puntuación
+- Pequeñas modificaciones 
+
 # Checkpoint 13/05/2022
 https://www.youtube.com/watch?v=5jIgOfQtVXw&ab_channel=GheorgheBush
