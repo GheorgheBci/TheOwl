@@ -14,19 +14,23 @@ class CreateEjemplarTable extends Migration
     public function up()
     {
         Schema::create('ejemplar', function (Blueprint $table) {
-            $table->string('isbn', 13)->primary();
+            $table->id('isbn', 13);
             $table->string('nomEjemplar', 50)->required();
-            $table->string('epilogo', 150)->nullable();
+            $table->string('epilogo')->nullable();
             $table->date('fecPublicacion')->required();
             $table->string('tema')->required();
+            $table->string('idioma')->required();
+            $table->string('image_book')->required();
+            $table->double('puntuacion')->nullable()->default(0);
+            $table->integer('votos')->nullable()->default(0);
             // Editorial
-            $table->unsignedBigInteger('codEditorial');
+            $table->unsignedBigInteger('codEditorial')->nullable();
             $table->foreign('codEditorial')->references('codEditorial')->on('editorial')->onDelete('cascade');
             // Autor
-            $table->unsignedBigInteger('codAutor');
+            $table->unsignedBigInteger('codAutor')->nullable();
             $table->foreign('codAutor')->references('codAutor')->on('autor')->onDelete('cascade');
             // Coleccion
-            $table->unsignedBigInteger('codColeccion');
+            $table->unsignedBigInteger('codColeccion')->nullable();
             $table->foreign('codColeccion')->references('codColeccion')->on('coleccion')->onDelete('cascade');
         });
     }
