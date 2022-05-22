@@ -12,7 +12,7 @@
 <body>
 
     <div class="logo">
-        <img src="../../buho.svg" alt="buho" class="logo__imagen--width">
+        <img src="{{ asset('img/buho.svg') }}" alt="buho" class="logo__imagen--width">
     </div>
 
     <div class="contenedor">

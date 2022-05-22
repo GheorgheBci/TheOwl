@@ -5,7 +5,7 @@
 @section('content')
     <div class="main-login">
         <div class="main-login__img">
-            <img src="../fairy-tale-gf5d0c6a7e_1280.jpg" alt="imagen" class="main-login__portada">
+            <img src="{{ asset('img/fairy-tale-gf5d0c6a7e_1280.jpg') }}" alt="imagen" class="main-login__portada">
         </div>
 
         <div class="main-login__separador"></div>
@@ -19,8 +19,8 @@
                     <label for="email">Dirección de correo electrónico</label>
 
                     <div>
-                        <input id="email" class="main-login__input" type="email" @error('email') is-invalid @enderror name="email"
-                            value="{{ old('email') }}" required autocomplete="email" 
+                        <input id="email" class="main-login__input" type="email" @error('email') is-invalid @enderror
+                            name="email" value="{{ old('email') }}" required autocomplete="email"
                             placeholder="Indica tu correo">
 
                         @error('email')
@@ -34,8 +34,9 @@
                     <label for="password">Contraseña</label>
 
                     <div>
-                        <input id="password" class="main-login__input" type="password" @error('password') is-invalid @enderror name="password"
-                            required autocomplete="current-password" placeholder="Indica tu contraseña">
+                        <input id="password" class="main-login__input" type="password"
+                            @error('password') is-invalid @enderror name="password" required autocomplete="current-password"
+                            placeholder="Indica tu contraseña">
 
                         @error('password')
                             <span>
@@ -44,7 +45,8 @@
                         @enderror
                     </div>
                 </div>
-                <div class="main-login__recuperar-contrasenia main-login__form--mb main-login__recuperar-contrasenia--float">
+                <div
+                    class="main-login__recuperar-contrasenia main-login__form--mb main-login__recuperar-contrasenia--float">
                     <a href="{{ route('password.request') }}" class="main-login__a--color">¿Olvidaste tu contraseña?</a>
                 </div>
                 <button type="submit" class="main-login__button">Iniciar Sesión</button>

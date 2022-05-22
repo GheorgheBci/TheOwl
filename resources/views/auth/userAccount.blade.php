@@ -31,8 +31,7 @@
                 <a href="#"> <span id="cambiar_foto">Cambiar
                         imagen</span></a>
 
-                <img src="{{ asset('imagenes/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario"
-                    class="usuario__img">
+                <img src="{{ asset('img/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario" class="usuario__img">
             </div>
 
             {{-- <div class="menus">
