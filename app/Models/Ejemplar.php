@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 class Ejemplar extends Model
 {
     use HasFactory;
@@ -38,5 +39,10 @@ class Ejemplar extends Model
     public function editorial()
     {
         return $this->belongsTo('App\Models\Editorial', 'codEditorial')->get();
+    }
+
+    public function usuario()
+    {
+        return $this->belongsToMany('App\Models\Usuario', 'detalle_alquiler', 'isbn', 'codUsu');
     }
 }

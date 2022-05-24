@@ -59,6 +59,7 @@ Route::group(['ejemplar' => 'ejemplar', 'as' => 'ejemplar.'], function () {
     Route::get('puntuar/{ejemplar}/{puntuacion}', [EjemplarController::class, 'puntuar'])->name('puntuar');
     Route::get('ejemplares/ordenar/{tipo}', [EjemplarController::class, 'ordenarEjemplares'])->name('ordenar');
     Route::post('ejemplar/buscar', [EjemplarController::class, 'buscarEjemplar'])->name('buscar');
+    Route::post('alquilar/{ejemplar}', [EjemplarController::class, 'alquilarEjemplar'])->middleware('auth', 'verified')->name('alquilar');
 });
 
 Route::group(['editorial' => 'editorial', 'as' => 'editorial.', 'middleware' => ['auth', 'verified']], function () {

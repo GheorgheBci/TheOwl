@@ -39,7 +39,10 @@
                             {{ $ejemplar->votos }} {{ trans_choice('mensajes.votos', $ejemplar->votos) }}</p>
                     @endif
                 </div>
-
+                <div class="botones">
+                    <a href="#" id="alquilar" class="botones__a">Alquilar</a>
+                    <a href="{{ route('ejemplar.ejemplares') }}" class="botones__a">Atrás</a>
+                </div>
             </div>
 
             <div class="detalles__separador"></div>
@@ -101,12 +104,46 @@
                 <h2 class="texto__subtitulo">Epilogo</h2>
                 <p class="texto__epilogo">{{ $ejemplar->epilogo }}</p>
 
-                <div class="botones">
-                    <a href="#" class="botones__a">Alquilar</a>
-                    <a href="{{ route('ejemplar.ejemplares') }}" class="botones__a">Atrás</a>
+
+            </div>
+        </div>
+
+        @if (session('success'))
+            <div class="fon" id="fon">
+                <div class="mensaje" id="mensaje">
+                    <span class="cerra" id="cerrar_mensaje"><i class="fas fa-times"></i></span>
+                    <h2 class="faa">{{ session('success') }}</h2>
                 </div>
+            </div>
+        @endif
+
+        <div class="fondo" id="fondo">
+            <div class="ventana-alquilar" id="ventana-alquilar">
+                <a href="#" class="ventana-alquilar__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
+                <h3 class="ventana-alquilar__h3">Alquilar el ejemplar {{ $ejemplar->nomEjemplar }}</h3>
+                <form action="{{ route('ejemplar.alquilar', $ejemplar) }}" method="post"
+                    class="ventana-alquilar__form--width">
+                    @csrf
+                    <div>
+                        <label for="precio" class="ventana-alquilar__label">Precio</label>
+                        <input type="number" class="ventana-alquilar__input" name="precio" id="precio" value="4.12"
+                            readonly>
+                        <label for="fecha_alquiler" class="ventana-alquilar__label">Fecha de alquiler</label>
+                        <input type="date" class="ventana-alquilar__input" name="fecha_alquiler" id="fecha_alquiler"
+                            value="{{ date('Y-m-d') }}" disabled>
+                        <label for="fecha_devolucion" class="ventana-alquilar__label">Fecha de devolución</label>
+                        <input type="date" class="ventana-alquilar__input" name="fecha_devolucion" id="fecha_devolucion"
+                            value="{{ date('Y-m-d', strtotime('+30 day', strtotime(date('Y-m-d')))) }}" disabled>
+                    </div>
+
+                    <div class="ventana-alquilar__div--flex">
+                        <button type="submit" class="ventana-alquilar__button">Alquilar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+
+
 
 @endsection

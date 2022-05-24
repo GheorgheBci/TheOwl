@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Ejemplar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class EjemplarController extends Controller
 {
@@ -87,5 +90,28 @@ class EjemplarController extends Controller
         ]);
 
         return redirect()->route('ejemplar.ejemplar', ['ejemplar' => $ejemplar]);
+    }
+
+    public function alquilarEjemplar(Request $request, Ejemplar $ejemplar)
+    {
+        $array = array();
+
+        foreach (Auth::user()->ejemplar as $key) {
+            array_push($array, $key->pivot->isbn);
+        }
+
+        if (!in_array($ejemplar->isbn, $array)) {
+            DB::table('detalle_alquiler')->insert([
+                'codUsu' => Auth::user()->codUsu,
+                'isbn' => $ejemplar->isbn,
+                'fecAlquiler' => date('Y-m-d'),
+                'fecDevolucion' => date('Y-m-d', strtotime('+30 day', strtotime(date('Y-m-d')))),
+                'precioAlquiler' => $request->input('precio'),
+            ]);
+
+            return redirect()->route('ejemplar.ejemplar', ['ejemplar' => $ejemplar])->with('success', "Has alquilado el ejemplar " . $ejemplar->nomEjemplar);
+        }
+
+        return redirect()->route('ejemplar.ejemplar', ['ejemplar' => $ejemplar])->with('success', "El ejemplar " . $ejemplar->nomEjemplar . " ya lo tienes alquilado");
     }
 }

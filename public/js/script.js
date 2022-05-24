@@ -5,8 +5,29 @@ let activo = false;
 const boton = document.getElementById("menu-barra");
 const menu_usuario = document.getElementById("menu_usuario");
 const ordenar = document.getElementById('mostrar-ordenar');
-
+const alquilar = document.getElementById('alquilar');
+const cerrar = document.getElementById('cerrar-ventana');
+const cerrarMensaje = document.getElementById('cerrar_mensaje');
 let puntuacion = document.getElementById('puntuacion');
+
+if (cerrarMensaje) {
+    cerrarMensaje.addEventListener('click', function () {
+        document.getElementById('mensaje').style.visibility = "hidden";
+        document.getElementById('fon').style.visibility = "hidden";
+    });
+}
+
+if (alquilar && cerrar) {
+    alquilar.addEventListener('click', function () {
+        document.getElementById('fondo').classList.add('active');
+        document.getElementById('ventana-alquilar').classList.add('active');
+    });
+
+    cerrar.addEventListener('click', function () {
+        document.getElementById('fondo').classList.remove('active');
+        document.getElementById('ventana-alquilar').classList.remove('active');
+    });
+}
 
 if (puntuacion) {
     const estrellas = document.getElementsByClassName('puntuacion__a');

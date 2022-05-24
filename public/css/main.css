@@ -78,11 +78,93 @@ body {
   padding-top: 2%;
 }
 
+.fondo {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.ventana-alquilar {
+  width: 40%;
+  border: 1px solid #EFD2AE;
+  background-color: #EFD2AE;
+  border-radius: 5px;
+  position: relative;
+  top: 10%;
+  padding: 1%;
+  transition: 0.3s ease all;
+  transform: scale(0.7);
+  opacity: 0;
+}
+.ventana-alquilar__icono {
+  font-size: 16px;
+  float: right;
+  text-align: right;
+  color: black;
+  transition: 0.3s ease all;
+}
+.ventana-alquilar__icono:hover {
+  color: red;
+}
+.ventana-alquilar__h3 {
+  text-align: center;
+  margin: 2% 0 5% 0;
+  font-size: 30px;
+}
+.ventana-alquilar__form--width {
+  width: 100%;
+}
+.ventana-alquilar__label {
+  display: inline-block;
+  width: 200px;
+  margin-bottom: 4%;
+}
+.ventana-alquilar__input {
+  background-color: #fbfbfb;
+  width: 25%;
+  height: 31px;
+  border-radius: 5px;
+  border: 1px solid #D99255;
+  margin: 1% 0 1% 0;
+  padding-left: 3.5%;
+  font-size: 12px;
+}
+.ventana-alquilar__div--flex {
+  display: flex;
+  justify-content: center;
+}
+.ventana-alquilar__button {
+  width: 30%;
+  background-color: #D99255;
+  border: 1px solid #D99255;
+  border-radius: 5px;
+  color: white;
+  height: 30px;
+  margin-top: 4%;
+  cursor: pointer;
+}
+
+.fondo.active {
+  visibility: visible;
+}
+
+.ventana-alquilar.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .detalles {
   display: flex;
 }
 .detalles__portada {
-  width: 20%;
+  width: 28%;
   height: 300px;
 }
 .detalles__img {
@@ -94,6 +176,7 @@ body {
   border-right: 1px solid black;
   height: 445px;
   margin-left: 10%;
+  margin-bottom: 1%;
 }
 .detalles__texto {
   margin-left: 10%;
@@ -145,16 +228,19 @@ body {
 }
 
 .botones {
+  width: 101%;
   margin-top: 5%;
 }
 .botones__a {
   text-decoration: none;
   background-color: #D99255;
   color: white;
-  width: 44%;
-  padding: 1%;
+  width: 49%;
+  padding: 3%;
   border-radius: 3px;
   border: 1px solid #D99255;
+  display: inline-block;
+  text-align: center;
 }
 
 .buscador {
@@ -371,6 +457,49 @@ body {
 .pagination li:hover {
   color: white;
   background-color: red;
+}
+
+.fon {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mensaje {
+  width: 50%;
+  border: 1px solid #5cd62c;
+  position: absolute;
+  top: 50%;
+  left: 26%;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #DFF0D8;
+}
+
+.faa {
+  padding-bottom: 1%;
+  color: #0F5133;
+}
+
+.cerra {
+  display: block;
+  text-align: right;
+  line-height: 10px;
+  padding: 2% 2% 0 0;
+}
+
+.cerra i {
+  color: black;
+  transition: 0.3s ease all;
+  cursor: pointer;
+}
+
+.cerra i:hover {
+  color: red;
 }
 
 .contacto__div {

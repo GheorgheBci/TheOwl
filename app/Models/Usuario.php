@@ -58,4 +58,9 @@ class Usuario extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function ejemplar()
+    {
+        return $this->belongsToMany('App\Models\Ejemplar', 'detalle_alquiler', 'codUsu', 'isbn')->withPivot('isbn');
+    }
 }
