@@ -1,16 +1,12 @@
 @extends('layouts.app')
 
-@section('javascript')
-    <script src="{{ asset('js/script2.js') }}" async></script>
-    <script src="{{ asset('js/script.js') }}" async></script>
-@endsection
-
 @section('titulo', 'Perfil')
 
 @section('content')
     <div class="perfil">
         <div class="menu">
             <ul class="menu__ul">
+                <li><a href="{{ route('usuario.libros') }}" class="menu__a">Mis libros</a></li>
                 <li>
                     <p> <a class="menu__a" href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

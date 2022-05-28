@@ -23,6 +23,7 @@ class CreateEjemplarTable extends Migration
             $table->string('image_book')->required();
             $table->double('puntuacion')->nullable()->default(0);
             $table->integer('votos')->nullable()->default(0);
+            $table->string('contenido')->required();
             // Editorial
             $table->unsignedBigInteger('codEditorial')->nullable();
             $table->foreign('codEditorial')->references('codEditorial')->on('editorial')->onDelete('cascade');

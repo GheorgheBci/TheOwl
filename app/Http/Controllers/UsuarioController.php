@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ejemplar;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -136,5 +137,18 @@ class UsuarioController extends Controller
         }
 
         return redirect()->route('usuario.usuarios');
+    }
+
+    public function showMisLibros()
+    {
+        $misLibros = Auth::user()->ejemplar;
+        $numero = $misLibros->count();
+
+        return view('ejemplares.misLibros', ['misLibros' => $misLibros, "numero" => $numero]);
+    }
+
+    public function showLibro(Ejemplar $ejemplar)
+    {
+        return view('ejemplares.libro', ["ejemplar" => $ejemplar]);
     }
 }

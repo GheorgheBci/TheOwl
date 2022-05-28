@@ -36,6 +36,8 @@ Route::get('membresia', function () {
     return view('auth.membresia');
 })->name('membresia')->middleware('auth', 'verified');
 
+
+
 Route::group(['usuario' => 'usuario', 'as' => 'usuario.', 'middleware' => ['auth', 'verified']], function () {
     Route::get('/perfil', [UsuarioController::class, 'homeUser'])->name('userHome');
     Route::post('cargarImagen', [UsuarioController::class, 'cargarImagenUsuario'])->name('cargarImagen');
@@ -47,6 +49,8 @@ Route::group(['usuario' => 'usuario', 'as' => 'usuario.', 'middleware' => ['auth
     Route::get('usuarios', [UsuarioController::class, 'usuarios'])->name('usuarios');
     Route::get('eliminar/{usuario}', [UsuarioController::class, 'eliminarCuenta'])->name('eliminar');
     Route::post('buscarUsuario', [UsuarioController::class, 'buscarUsuario'])->name('buscar');
+    Route::get('usuario/mis-libros', [UsuarioController::class, 'showMisLibros'])->name('libros');
+    Route::get('libro/{ejemplar}', [UsuarioController::class, 'showLibro'])->name('libro');
 });
 
 Route::group(['rol' => 'rol', 'as' => 'rol.', 'middleware' => ['auth', 'verified']], function () {

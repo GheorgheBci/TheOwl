@@ -21,6 +21,9 @@ class Ejemplar extends Model
         'tema',
         'idioma',
         'image_book',
+        'puntuacion',
+        'votos',
+        'contenido',
         'codEditorial',
         'codAutor',
         'codColeccion'

@@ -400,67 +400,117 @@
     transition: 0.25s;
 }
 
-.pagination {
-    list-style: none;
+.salir {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2%;
+    font-size: 24px;
+
+    &__icono {
+        color: black;
+        transition: .3s ease all;
+    }
+
+    &__icono.color {
+        color: white;
+    }
+
+    &__icono:hover {
+        color: red;
+    }
+}
+
+.menu__div--sticky {
+    position: sticky;
+    top: 0;
+    margin-bottom: 3%;
+}
+
+.menu__botones {
+    width: 50%;
+    margin: auto;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    border: 1px solid #D99255;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.menu__boton {
+    text-decoration: none;
+    background-color: #D99255;
+    color: white;
+    width: 13%;
+    padding: 1%;
+    border-radius: 3px;
+    border: 1px solid #D99255;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+.menu__boton:hover {
+    background-color: #b0590e;
+    border: 1px solid #b0590e;
+}
+
+.menu__pagina {
+    width: 10%;
+    border-radius: 3px;
+    padding: 0.3%;
+    margin: auto;
+    border: 1px solid #D99255;
+    text-align: center;
+    background-color: white;
+}
+
+.libro__pdf {
     display: flex;
     justify-content: center;
 }
 
-.pagination li {
-    border: 1px solid gray;
-    background-color: white;
-    padding: 5px;
-}
-
-.pagination a {
-    text-decoration: none;
-    color: black;
-}
-
-.pagination li:hover {
-    color: white;
-    background-color: red;
-}
-
-.fon {
+.mensaje {
     background-color: rgb(0, 0, 0, .3);
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-}
 
-.mensaje {
-    width: 50%;
-    border: 1px solid #5cd62c;
-    position: absolute;
-    top: 50%;
-    left: 26%;
-    background-color: white;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #DFF0D8;
-}
+    &__div {
+        width: 50%;
+        border: 1px solid #5cd62c;
+        position: absolute;
+        top: 50%;
+        left: 26%;
+        background-color: white;
+        border-radius: 5px;
+        text-align: center;
+        background-color: #DFF0D8;
+    }
 
-.faa {
-    padding-bottom: 1%;
-    color: #0F5133;
-}
+    &__h2 {
+        padding-bottom: 1%;
+        color: #0F5133;
+    }
 
-.cerra {
-    display: block;
-    text-align: right;
-    line-height: 10px;
-    padding: 2% 2% 0 0;
-}
+    &__cerrar {
+        display: block;
+        text-align: right;
+        line-height: 10px;
+        padding: 2% 2% 0 0;
+    }
 
-.cerra i {
-    color: black;
-    transition: .3s ease all;
-    cursor: pointer;
-}
+    &__icono {
+        color: black;
+        transition: .3s ease all;
+        cursor: pointer;
 
-.cerra i:hover {
-    color: red;
+        &:hover {
+            color: red;
+        }
+    }
 }
