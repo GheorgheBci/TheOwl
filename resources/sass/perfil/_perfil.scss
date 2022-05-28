@@ -75,6 +75,13 @@
         width: 40%;
         padding: 3% 6%;
         border-radius: 3px;
+        cursor: pointer;
+        transition: .3s ease all;
+
+        &:hover {
+            background-color: #b0590e;
+            border: 1px solid #b0590e;
+        }
     }
 
     &__aviso-renovacion {
@@ -90,6 +97,12 @@
         border-radius: 3px;
         padding: 3% 6%;
         margin-top: 5%;
+        transition: .3s ease all;
+
+        &:hover {
+            background-color: #b0590e;
+            border: 1px solid #b0590e;
+        }
     }
 }
 

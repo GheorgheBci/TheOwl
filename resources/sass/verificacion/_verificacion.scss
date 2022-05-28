@@ -1,8 +1,8 @@
 .verify {
-    border: 1px solid #D99255;
+    border: 1px solid rgb(238, 217, 217);
     width: 90%;
     margin: 5% auto;
-    background-color: #D99255;
+    background-color: rgb(238, 217, 217);
     border-radius: 10px;
     padding: 5%;
     text-align: justify;
@@ -26,16 +26,14 @@
     margin-top: 4%;
     padding: 9px;
     border-radius: 10px;
-    border: 1px solid rgb(142, 142, 185);
-    background-color: rgb(142, 142, 185);
+    background-color: #D99255;
+    border: 1px solid #D99255;
     cursor: pointer;
     font-size: 15px;
+    transition: .3s ease all;
+
+    &:hover {
+        background-color: #b0590e;
+        border: 1px solid #b0590e;
+    }
 }
-
-.verify__boton:hover {
-    color: white;
-    border: 1px solid white;
-}
-
-
-

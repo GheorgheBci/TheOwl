@@ -61,6 +61,12 @@
         width: 97%;
         cursor: pointer;
         color: white;
+        transition: .3s ease all;
+
+        &:hover {
+            background-color: #b0590e;
+            border: 1px solid #b0590e;
+        }
     }
 
     &__span--color {

@@ -11,6 +11,7 @@
         -webkit-box-shadow: 10px 10px 6px -6px rgba(0, 0, 0, 0.83);
         box-shadow: 10px 10px 6px -6px rgba(0, 0, 0, 0.83);
         margin: 8% auto;
+        transition: .3s ease all;
     }
 
     &__precio {
@@ -31,6 +32,12 @@
         border-radius: 3px;
         margin-top: 5%;
         border: 1px solid #D99255;
+        transition: .3s ease all;
+
+        &:hover {
+            background-color: #b0590e;
+            border: 1px solid #b0590e;
+        }
     }
 }
 

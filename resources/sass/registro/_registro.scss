@@ -45,6 +45,13 @@
         padding: 1%;
         border-radius: 3px;
         border: 1px solid #D99255;
+        cursor: pointer;
+        transition: .3s ease all;
+
+        &:hover {
+            background-color: #b0590e;
+            border: 1px solid #b0590e;
+        }
     }
 
     &__a {
@@ -56,6 +63,12 @@
         padding: 1%;
         text-align: center;
         border-radius: 3px;
+        transition: .3s ease all;
+
+        &:hover {
+            background-color: #b0590e;
+            border: 0 solid #b0590e;
+        }
     }
 
     &__div--ml {

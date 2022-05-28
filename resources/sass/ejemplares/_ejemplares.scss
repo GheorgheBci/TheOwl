@@ -87,6 +87,12 @@
         height: 30px;
         margin-top: 4%;
         cursor: pointer;
+        transition: .3s ease all;
+
+        &:hover {
+            background-color: #b0590e;
+            border: 1px solid #b0590e;
+        }
     }
 }
 
@@ -186,6 +192,13 @@
         border: 1px solid #D99255;
         display: inline-block;
         text-align: center;
+        transition: .3s ease all;
+
+        &:hover {
+            background-color: #b0590e;
+            border: 1px solid #b0590e;
+        }
+
     }
 }
 
