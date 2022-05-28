@@ -74,6 +74,9 @@ body {
     &__contenido {
         background-color: rgb(49, 46, 46);
         color: white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     &__informacion,
@@ -82,6 +85,15 @@ body {
         text-align: center;
         padding: 3%;
         padding-bottom: 7%;
+    }
+
+    &__informacion--width {
+        width: 70%;
+    }
+
+    &__redes-sociales--width,
+    &__contacto--width {
+        width: 55%;
     }
 
     &__h3 {
@@ -109,11 +121,14 @@ body {
         justify-content: space-around;
         background-color: black;
         color: white;
-        text-align: center;
+        // text-align: center;
         padding: 2%;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-around;
     }
 
-    &__span--padding-top {
-        padding-top: 4%;
+    &__div--padding {
+        padding: 1%;
     }
 }

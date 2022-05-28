@@ -84,10 +84,6 @@
 @media screen and (min-width:700px) {
 
     //footer
-    .footer__contenido {
-        display: flex;
-    }
-
     .footer__informacion--width {
         width: 50%;
     }
@@ -98,13 +94,7 @@
     }
 
     .footer__copyright {
-        display: flex;
-        align-items: center;
         height: 55px;
-    }
-
-    .footer__span--padding-top {
-        padding-top: 0;
     }
 }
 

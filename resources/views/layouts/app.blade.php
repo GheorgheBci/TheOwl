@@ -68,7 +68,8 @@
 
             <div class="footer__informacion footer__informacion--width">
                 <h3 class="footer__h3">Más información de la compañía</h3>
-                <p class="footer__p--justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, beatae voluptas nobis dolor fuga in
+                <p class="footer__p--justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, beatae
+                    voluptas nobis dolor fuga in
                     labore optio quae dolores consequatur eius earum quisquam eligendi a, quaerat, hic minima esse
                     deleniti!</p>
             </div>
@@ -89,8 +90,10 @@
         </div>
 
         <div class="footer__copyright">
-            <span>© 2022 Todos los Derechos Reservados</span>
-            <div class="footer__span--padding-top">
+            <div class="footer__div--padding">
+                <span>© 2022 Todos los Derechos Reservados</span>
+            </div>
+            <div class="footer__div--padding">
                 <span>Privacidad y Política |</span>
                 <span>Terminos y Condiciones</span>
             </div>
