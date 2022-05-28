@@ -2,18 +2,29 @@
 
 let activo = false;
 
-const boton = document.getElementById("menu-barra");
-const menu_usuario = document.getElementById("menu_usuario");
-const ordenar = document.getElementById('mostrar-ordenar');
-const alquilar = document.getElementById('alquilar');
-const cerrar = document.getElementById('cerrar-ventana');
-const cerrarMensaje = document.getElementById('cerrar_mensaje');
+const boton = document.getElementById("menu-barra"),
+    menu_usuario = document.getElementById("menu_usuario"),
+    ordenar = document.getElementById('mostrar-ordenar'),
+    alquilar = document.getElementById('alquilar'),
+    cerrar = document.getElementById('cerrar-ventana'),
+    cerrarMensaje = document.getElementById('cerrar_mensaje'),
+    cambiarFoto = document.getElementById('cambiar_foto');
 let puntuacion = document.getElementById('puntuacion');
+
+if (cambiarFoto) {
+    cambiarFoto.addEventListener('click', function () {
+        document.getElementById("formulario__cambiar-imagen").style.visibility = 'visible';
+    });
+
+    document.getElementById('cancelar').addEventListener('click', function () {
+        document.getElementById("formulario__cambiar-imagen").style.visibility = 'hidden';
+    });
+}
 
 if (cerrarMensaje) {
     cerrarMensaje.addEventListener('click', function () {
-        document.getElementById('mensaje').style.visibility = "hidden";
-        document.getElementById('fon').style.visibility = "hidden";
+        document.querySelector('.mensaje__div').style.visibility = "hidden";
+        document.querySelector('.mensaje').style.visibility = "hidden";
     });
 }
 
@@ -111,5 +122,4 @@ if (menu_usuario) {
             activo = false;
         }
     })
-
 }
