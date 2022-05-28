@@ -68,7 +68,52 @@ body {
 }
 
 .footer {
-    border: 1px solid green;
-    height: 250px;
+    height: 236px;
     margin-top: 5%;
+
+    &__contenido {
+        background-color: rgb(49, 46, 46);
+        color: white;
+    }
+
+    &__informacion,
+    &__redes-sociales,
+    &__contacto {
+        text-align: center;
+        padding: 3%;
+        padding-bottom: 7%;
+    }
+
+    &__h3 {
+        margin-bottom: 3%;
+    }
+
+    &__p--justify {
+        text-align: justify;
+    }
+
+    &__ul {
+        list-style: none;
+        font-size: 30px;
+        padding-bottom: 2%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    &__a {
+        text-decoration: none;
+        color: white;
+    }
+
+    &__copyright {
+        justify-content: space-around;
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 2%;
+    }
+
+    &__span--padding-top {
+        padding-top: 4%;
+    }
 }

@@ -81,6 +81,33 @@
     }
 }
 
+@media screen and (min-width:700px) {
+
+    //footer
+    .footer__contenido {
+        display: flex;
+    }
+
+    .footer__informacion--width {
+        width: 50%;
+    }
+
+    .footer__redes-sociales--width,
+    .footer__contacto--width {
+        width: 25%;
+    }
+
+    .footer__copyright {
+        display: flex;
+        align-items: center;
+        height: 55px;
+    }
+
+    .footer__span--padding-top {
+        padding-top: 0;
+    }
+}
+
 @media screen and(min-width: 768px) {
 
     // Verificación
@@ -301,7 +328,7 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: space-between;
+        // justify-content: space-between;
     }
 
     .libro {
