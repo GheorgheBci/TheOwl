@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    @yield('javascript')
+    <script src="{{ asset('js/script.js') }}" async></script>
     <script src="{{ asset('anime.min.js') }}" async></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>@yield('titulo')</title>
@@ -63,7 +63,39 @@
 
     </div>
 
-    <footer class="footer"></footer>
+    <footer class="footer">
+        <div class="footer__contenido">
+
+            <div class="footer__informacion footer__informacion--width">
+                <h3 class="footer__h3">Más información de la compañía</h3>
+                <p class="footer__p--justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, beatae voluptas nobis dolor fuga in
+                    labore optio quae dolores consequatur eius earum quisquam eligendi a, quaerat, hic minima esse
+                    deleniti!</p>
+            </div>
+
+            <div class="footer__redes-sociales footer__redes-sociales--width">
+                <h3 class="footer__h3">Redes Sociales</h3>
+                <ul class="footer__ul">
+                    <li><i class="fab fa-instagram"></i></li>
+                    <li><i class="fab fa-twitter"></i></li>
+                    <li><i class="fab fa-linkedin"></i></li>
+                </ul>
+            </div>
+
+            <div class="footer__contacto footer__contacto--width">
+                <h3 class="footer__h3">Atención al Cliente</h3>
+                <a href="{{ route('contacto') }}" class="footer__a">Contacto</a>
+            </div>
+        </div>
+
+        <div class="footer__copyright">
+            <span>© 2022 Todos los Derechos Reservados</span>
+            <div class="footer__span--padding-top">
+                <span>Privacidad y Política |</span>
+                <span>Terminos y Condiciones</span>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
