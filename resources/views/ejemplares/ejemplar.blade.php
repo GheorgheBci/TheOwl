@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
-@section('javascript')
-    <script src="{{ asset('js/script.js') }}" async></script>
-@endsection
-
 @section('titulo', 'Ejemplares')
-
-
 
 @section('content')
 
@@ -33,11 +27,9 @@
                 <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar', 2) }}" class="ordenar__a">Nombre
                         [z-a]</a>
                 </li>
-                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar', 3) }}" class="ordenar__a">Publicación
-                        más
+                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar', 3) }}" class="ordenar__a">Más
                         antigua</a></li>
-                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar', 4) }}" class="ordenar__a">Publicación
-                        más
+                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar', 4) }}" class="ordenar__a">Más
                         reciente</a></li>
                 <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar', 5) }}" class="ordenar__a">Mejor
                         valorado</a>

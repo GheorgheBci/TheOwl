@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('javascript')
-    <script src="{{ asset('js/script.js') }}" async></script>
-@endsection
-
 @section('titulo', 'Ejemplares')
 
 @section('content')
@@ -109,10 +105,10 @@
         </div>
 
         @if (session('success'))
-            <div class="fon" id="fon">
-                <div class="mensaje" id="mensaje">
-                    <span class="cerra" id="cerrar_mensaje"><i class="fas fa-times"></i></span>
-                    <h2 class="faa">{{ session('success') }}</h2>
+            <div class="mensaje">
+                <div class="mensaje__div">
+                    <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
+                    <h2 class="mensaje__h2">{{ session('success') }}</h2>
                 </div>
             </div>
         @endif
