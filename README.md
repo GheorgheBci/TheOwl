@@ -135,5 +135,12 @@ Semana 16/05/2022 - 22/05/2022
 - El usuario tiene en la vista ejemplares un buscador para encontrar más rápido el ejemplar que quiere buscar. Además también tiene la opción de ordenar los ejemplares por el nombre, fecha de publicación y por la puntuación
 - Pequeñas modificaciones 
 
+Semana 23/05/2022 - 29/05/2022
+
+- El usuario puede alquilar un ejemplar y además tiene la opción de poder leer dicho ejemplar
+- El footer ha sido creado
+- Se ha añadido mensajes emergentes cuando se actualiza la contraseña. Se ha mejorado los mensajes de error en los inputs
+- Otras modificaciones
+
 # Checkpoint 13/05/2022
 https://www.youtube.com/watch?v=5jIgOfQtVXw&ab_channel=GheorgheBush
