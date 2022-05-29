@@ -18,11 +18,6 @@
     <div class="contenedor">
 
         <div class="email--padding">
-            @if (session('status'))
-                <div>
-                    {{ session('status') }}
-                </div>
-            @endif
 
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
@@ -36,10 +31,16 @@
                     </div>
 
                     @error('email')
-                        <span>
+                        <span class="mensaje__error--red mensaje__error-reset-password-fs">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+
+                    @if (session('status'))
+                        <div class="mensaje__exito">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <div>
                         <button type="submit" class="email__button">Enviar el link</button>
                     </div>

@@ -563,44 +563,6 @@ body {
   justify-content: center;
 }
 
-.mensaje {
-  background-color: rgba(0, 0, 0, 0.3);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-.mensaje__div {
-  width: 50%;
-  border: 1px solid #5cd62c;
-  position: absolute;
-  top: 50%;
-  left: 26%;
-  background-color: white;
-  border-radius: 5px;
-  text-align: center;
-  background-color: #DFF0D8;
-}
-.mensaje__h2 {
-  padding-bottom: 1%;
-  color: #0F5133;
-}
-.mensaje__cerrar {
-  display: block;
-  text-align: right;
-  line-height: 10px;
-  padding: 2% 2% 0 0;
-}
-.mensaje__icono {
-  color: black;
-  transition: 0.3s ease all;
-  cursor: pointer;
-}
-.mensaje__icono:hover {
-  color: red;
-}
-
 .contacto__div {
   text-align: center;
   background-color: #D99255;
@@ -712,10 +674,10 @@ body {
 }
 
 .verify {
-  border: 1px solid rgb(238, 217, 217);
+  border: 1px solid rgb(236, 236, 236);
   width: 90%;
   margin: 5% auto;
-  background-color: rgb(238, 217, 217);
+  background-color: rgb(236, 236, 236);
   border-radius: 10px;
   padding: 5%;
   text-align: justify;
@@ -735,7 +697,7 @@ body {
 }
 
 .verify__boton {
-  margin-top: 4%;
+  margin: 4% 0 4% 0;
   padding: 9px;
   border-radius: 10px;
   background-color: #D99255;
@@ -837,14 +799,13 @@ body {
   border: 1px solid #D99255;
   margin: 1% 0 1% 0;
   padding-left: 3.5%;
-  margin-bottom: 4%;
 }
 .main-registro__input:focus {
   outline: 0;
   border: 1px solid #97d848;
 }
 .main-registro__div--mb {
-  margin-bottom: 3%;
+  margin-bottom: 5%;
 }
 .main-registro__button {
   background-color: #D99255;
@@ -928,13 +889,16 @@ body {
   border-radius: 10px;
 }
 .usuario__input {
-  margin: 3% 0 5% 0;
+  margin: 3% 0 3% 0;
   background-color: #fbfbfb;
   width: 100%;
   height: 30px;
   border-radius: 5px;
   border: 1px solid #D99255;
   padding-left: 3.5%;
+}
+.usuario__div--mb {
+  margin-bottom: 5%;
 }
 .usuario__input:focus {
   outline: 0;
@@ -948,6 +912,7 @@ body {
   width: 40%;
   padding: 3% 6%;
   border-radius: 3px;
+  margin-top: 3%;
   cursor: pointer;
   transition: 0.3s ease all;
 }
@@ -1071,10 +1036,10 @@ body {
   }
 }
 .verify {
-  border: 1px solid rgb(238, 217, 217);
+  border: 1px solid rgb(236, 236, 236);
   width: 90%;
   margin: 5% auto;
-  background-color: rgb(238, 217, 217);
+  background-color: rgb(236, 236, 236);
   border-radius: 10px;
   padding: 5%;
   text-align: justify;
@@ -1094,7 +1059,7 @@ body {
 }
 
 .verify__boton {
-  margin-top: 4%;
+  margin: 4% 0 4% 0;
   padding: 9px;
   border-radius: 10px;
   background-color: #D99255;
@@ -1106,6 +1071,69 @@ body {
 .verify__boton:hover {
   background-color: #b0590e;
   border: 1px solid #b0590e;
+}
+
+.mensaje {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+.mensaje__div {
+  width: 50%;
+  border: 1px solid #5cd62c;
+  position: absolute;
+  top: 50%;
+  left: 26%;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #DFF0D8;
+}
+.mensaje__h2 {
+  padding-bottom: 1%;
+  color: #0F5133;
+}
+.mensaje__cerrar {
+  display: block;
+  text-align: right;
+  line-height: 10px;
+  padding: 2% 2% 0 0;
+}
+.mensaje__icono {
+  color: black;
+  transition: 0.3s ease all;
+  cursor: pointer;
+}
+.mensaje__icono:hover {
+  color: red;
+}
+
+.mensaje__error--red {
+  color: red;
+}
+
+.mensaje__error-reset-password-fs {
+  font-size: 1rem;
+}
+
+.mensaje__error-registro-fs {
+  font-size: 0.8rem;
+}
+
+.mensaje__error-perfil-fs {
+  font-size: 0.8rem;
+}
+
+.mensaje__error-login-fs {
+  font-size: 1rem;
+}
+
+.mensaje__exito {
+  color: rgb(43, 169, 43);
 }
 
 .email--padding {
@@ -1164,7 +1192,6 @@ body {
   border: 1px solid #D99255;
   margin: 1% 0 1% 0;
   padding-left: 3.5%;
-  margin-bottom: 4%;
 }
 .reset__input:focus {
   outline: 0;
@@ -1187,6 +1214,15 @@ body {
   border: 1px solid #b0590e;
 }
 
+.reset__div--mb {
+  margin-bottom: 5%;
+}
+
+@media screen and (max-width: 375px) {
+  .mensaje__error-login-fs {
+    font-size: 0.8rem;
+  }
+}
 @media screen and (min-width: 504px) {
   .ordenar__ul {
     font-size: 14px;
@@ -1272,6 +1308,7 @@ body {
 @media screen and (min-width: 768px) {
   .verify__boton {
     font-size: 16px;
+    margin: 4% 0 2% 0;
   }
 
   .verify {
@@ -1423,6 +1460,10 @@ body {
 
   .main-registro__div--width {
     width: 33%;
+  }
+
+  .main-registro__div--mb {
+    margin-bottom: 2%;
   }
 
   .main-registro__email--width {

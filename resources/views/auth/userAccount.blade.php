@@ -49,39 +49,69 @@
                     <div class="usuario__div">
                         <div class="usuario__div--width">
                             <label for="nombre">Nombre: </label>
-                            <div>
+                            <div class="usuario__div--mb">
                                 <input type="text" class="usuario__input" name="nombre" id="nombre"
                                     value="{{ Auth::user()->nombre }}">
+
+                                @error('nombre')
+                                    <span class="mensaje__error--red mensaje__error-perfil-fs">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="usuario__div--width">
                             <label for="ape1">Primer apellido: </label>
-                            <div>
+                            <div class="usuario__div--mb">
                                 <input type="text" class="usuario__input" name="ape1" id="ape1"
                                     value="{{ Auth::user()->apellido1 }}">
+
+                                @error('ape1')
+                                    <span class="mensaje__error--red mensaje__error-perfil-fs">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="usuario__div--width">
                             <label for="ape2">Segundo apellido: </label>
-                            <div>
+                            <div class="usuario__div--mb">
                                 <input type="text" class="usuario__input" name="ape2" id="ape2"
                                     value="{{ Auth::user()->apellido2 }}">
+
+                                @error('ape2')
+                                    <span class="mensaje__error--red mensaje__error-perfil-fs">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                     </div>
                     <div class="usuario__div">
                         <div class="usuario__div--width">
                             <label for="email">Email: </label>
-                            <div>
+                            <div class="usuario__div--mb">
                                 <input type="email" class="usuario__input" name="email" id="email"
                                     value="{{ Auth::user()->email }}">
+
+                                @error('email')
+                                    <span class="mensaje__error--red mensaje__error-perfil-fs">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="usuario__div--width">
-                            <label for="fecNac">Fecha de nacimiento: </label>
-                            <div>
-                                <input type="date" class="usuario__input" name="fecNac" id="fecNac"
+                            <label for="fechaNac">Fecha de nacimiento: </label>
+                            <div class="usuario__div--mb">
+                                <input type="date" class="usuario__input" name="fechaNac" id="fechaNac"
                                     value="{{ Auth::user()->fecNacimiento }}">
+
+                                @error('fechaNac')
+                                    <span class="mensaje__error--red mensaje__error-perfil-fs">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -95,20 +125,51 @@
                     <div class="usuario__div">
                         <div class="usuario__div--width">
                             <label for="password">Contraseña Actual: </label>
-                            <div>
+                            <div class="usuario__div--mb">
                                 <input type="password" class="usuario__input" name="password" id="password">
+
+                                {{-- Mirar en el futuro --}}
+                                @if (session('success'))
+                                    <div class="mensaje__exito">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+
+                                @if (session('error'))
+                                    <div class="mensaje__error--red">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+
+                                @error('password')
+                                    <span class="mensaje__error--red">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="usuario__div--width">
                             <label for="newPassword">Nueva Contraseña: </label>
-                            <div>
+                            <div class="usuario__div--mb">
                                 <input type="password" class="usuario__input" name="newPassword" id="newPassword">
+
+                                @error('newPassword')
+                                    <span class="mensaje__error--red mensaje__error-perfil-fs">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="usuario__div--width">
                             <label for="password-confirm">Confirmar Contraseña: </label>
-                            <div>
+                            <div class="usuario__div--mb">
                                 <input type="password" class="usuario__input" name="password-confirm" id="password-confirm">
+
+                                @error('password-confirm')
+                                    <span class="mensaje__error--red mensaje__error-perfil-fs">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                     </div>

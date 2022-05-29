@@ -40,11 +40,11 @@ class UsuarioController extends Controller
     public function actualizarDatosPersonales(Request $request)
     {
         $request->validate([
-            'nombre' => 'string|max:20',
-            'ape1' => 'string|max:20',
-            'ape2' => 'string|max:35|nullable',
+            'nombre' => 'alpha|max:20',
+            'ape1' => 'alpha|max:20',
+            'ape2' => 'alpha|max:35|nullable',
             'fechaNac' => 'date',
-            'email' => 'string|email|max:255|unique:usuario',
+            'email' => 'email|max:255|unique:usuario',
         ]);
 
         Usuario::where('codUsu', Auth::user()->codUsu)->update([
@@ -63,17 +63,19 @@ class UsuarioController extends Controller
         if (Hash::check($request->password, Auth::user()->password)) {
 
             $request->validate([
-                'password' => 'required|string|min:8',
-                'newPassword' => 'required|string|min:8',
+                'password' => 'required|alpha_dash|min:8',
+                'newPassword' => 'required|alpha_dash|min:8',
                 'password-confirm' => 'required|min:8|same:newPassword',
             ]);
 
             Usuario::where('codUsu', Auth::user()->codUsu)->update([
                 'password' => Hash::make($request->newPassword),
             ]);
+
+            return redirect()->route('usuario.userHome')->with('success', "¡Contraseña actualizada!");
         }
 
-        return redirect()->route('usuario.userHome');
+        return redirect()->route('usuario.userHome')->with('error', "¡La contraseña no existe!");
     }
 
     public function socio(Request $request)
@@ -98,7 +100,7 @@ class UsuarioController extends Controller
             'fec_fin_socio' => $date_future,
         ]);
 
-        return redirect()->route('membresia');
+        return redirect()->route('membresia')->with('success', "¡Felicidades, ya eres socio!");
     }
 
     public function bajaSocio()
@@ -107,7 +109,7 @@ class UsuarioController extends Controller
             'baja' => 1
         ]);
 
-        return redirect()->route('usuario.userHome');
+        return redirect()->route('usuario.userHome')->with('success', "¡Te has dado de baja correctamente!");
     }
 
     /*Parte Administrador*/

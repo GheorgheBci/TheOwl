@@ -61,10 +61,12 @@ class EjemplarController extends Controller
 
     public function crear(Request $request)
     {
-        if ($request->hasFile('file')) {
+        if ($request->hasFile('file') && $request->hasFile('contenido')) {
             $imagen = $request->file;
+            $contenido = $request->contenido;
 
             $imagen->move(public_path() . '/book', $imagen->getClientOriginalName());
+            $contenido->move(public_path() . '/pdf', $contenido->getClientOriginalName());
 
             Ejemplar::create([
                 'nomEjemplar' => $request->nombre,
@@ -72,7 +74,8 @@ class EjemplarController extends Controller
                 'fecPublicacion' => $request->fecha,
                 'tema' => $request->tema,
                 'idioma' => $request->idioma,
-                'image_book' => $imagen->getClientOriginalName()
+                'image_book' => $imagen->getClientOriginalName(),
+                'contenido' => "../pdf/" . $contenido->getClientOriginalName()
             ]);
         }
     }

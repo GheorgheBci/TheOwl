@@ -22,12 +22,6 @@
                         <input id="email" class="main-login__input" type="email" @error('email') is-invalid @enderror
                             name="email" value="{{ old('email') }}" required autocomplete="email"
                             placeholder="Indica tu correo">
-
-                        @error('email')
-                            <span>
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                     </div>
                 </div>
                 <div class="main-login__form--mb">
@@ -38,8 +32,8 @@
                             @error('password') is-invalid @enderror name="password" required autocomplete="current-password"
                             placeholder="Indica tu contraseña">
 
-                        @error('password')
-                            <span>
+                        @error('email')
+                            <span class="mensaje__error--red mensaje__error-login-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
@@ -56,5 +50,14 @@
                 </div>
             </form>
         </div>
+
+        @if (session('success'))
+            <div class="mensaje">
+                <div class="mensaje__div">
+                    <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
+                    <h2 class="mensaje__h2">{{ session('success') }}</h2>
+                </div>
+            </div>
+        @endif
     </div>
 @endsection

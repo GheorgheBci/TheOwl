@@ -17,7 +17,7 @@
             <form method="POST" action="{{ route('register') }}" class="main-registro__form main-registro__form--mt">
                 @csrf
                 <div class="main-registro__div main-registro__div--mb">
-                    <div class="main-registro__div--width">
+                    <div class="main-registro__div--width main-registro__div--mb">
                         <label for="nombre">Nombre</label>
 
                         <div>
@@ -26,14 +26,14 @@
                                 placeholder="Indica tu nombre">
 
                             @error('nombre')
-                                <span>
+                                <span class="mensaje__error--red mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                     </div>
 
-                    <div class="main-registro__div--width">
+                    <div class="main-registro__div--width main-registro__div--mb">
                         <label for="ape1">Primer apellido</label>
 
                         <div>
@@ -42,14 +42,14 @@
                                 placeholder="Indica tu primer apellido">
 
                             @error('ape1')
-                                <span>
+                                <span class="mensaje__error--red mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                     </div>
 
-                    <div class="main-registro__div--width">
+                    <div class="main-registro__div--width main-registro__div--mb">
                         <label for="ape2">Segundo apellido</label>
 
                         <div>
@@ -58,7 +58,7 @@
                                 placeholder="Indica tu segundo apellido">
 
                             @error('ape2')
-                                <span>
+                                <span class="mensaje__error--red mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="main-registro__div main-registro__div--mb">
-                    <div class="main-registro__email--width">
+                    <div class="main-registro__email--width main-registro__div--mb">
                         <label for="email">Correo electrónico</label>
 
                         <div>
@@ -76,14 +76,14 @@
                                 placeholder="Indica tu correo">
 
                             @error('email')
-                                <span>
+                                <span class="mensaje__error--red mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                     </div>
 
-                    <div class="main-registro__date--width">
+                    <div class="main-registro__date--width main-registro__div--mb">
                         <label for="fechaNac">Fecha de nacimiento</label>
 
                         <div>
@@ -92,7 +92,7 @@
                                 required autocomplete="fechaNac">
 
                             @error('fechaNac')
-                                <span>
+                                <span class="mensaje__error--red mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="main-registro__div main-registro__div--mb">
-                    <div class="main-registro__password--width">
+                    <div class="main-registro__password--width main-registro__div--mb">
                         <label for="password">Contraseña</label>
 
                         <div>
@@ -110,20 +110,26 @@
                                 placeholder="Indica tu contraseña">
 
                             @error('password')
-                                <span>
+                                <span class="mensaje__error--red mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                     </div>
 
-                    <div class="main-registro__password--width">
+                    <div class="main-registro__password--width main-registro__div--mb">
                         <label for="password-confirm">Confirmar la contraseña</label>
 
                         <div>
                             <input id="password-confirm" class="main-registro__input" type="password"
                                 name="password-confirm" required autocomplete="new-password"
                                 placeholder="Repite la contraseña">
+
+                            @error('password-confirm')
+                                <span class="mensaje__error--red mensaje__error-registro-fs">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                 </div>

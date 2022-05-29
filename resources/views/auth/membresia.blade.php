@@ -21,5 +21,15 @@
             <h6 class="membresia__tiempo">cada año</h6>
             <a href="{{ route('usuario.comprar', 12) }}" class="membresia__a">Comprar</a>
         </div>
+
+        @if (session('success'))
+            <div class="mensaje">
+                <div class="mensaje__div">
+                    <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
+                    <h2 class="mensaje__h2">{{ session('success') }}</h2>
+                </div>
+            </div>
+        @endif
+    </div>
     </div>
 @endsection

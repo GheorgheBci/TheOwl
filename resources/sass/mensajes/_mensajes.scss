@@ -1,0 +1,67 @@
+.mensaje {
+    background-color: rgb(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    &__div {
+        width: 50%;
+        border: 1px solid #5cd62c;
+        position: absolute;
+        top: 50%;
+        left: 26%;
+        background-color: white;
+        border-radius: 5px;
+        text-align: center;
+        background-color: #DFF0D8;
+    }
+
+    &__h2 {
+        padding-bottom: 1%;
+        color: #0F5133;
+    }
+
+    &__cerrar {
+        display: block;
+        text-align: right;
+        line-height: 10px;
+        padding: 2% 2% 0 0;
+    }
+
+    &__icono {
+        color: black;
+        transition: .3s ease all;
+        cursor: pointer;
+
+        &:hover {
+            color: red;
+        }
+    }
+}
+
+.mensaje__error--red {
+    color: red;
+}
+
+.mensaje__error-reset-password-fs {
+    font-size: 1rem;
+}
+
+.mensaje__error-registro-fs {
+    font-size: 0.8rem;
+}
+
+.mensaje__error-perfil-fs {
+    font-size: 0.8rem;
+}
+
+.mensaje__error-login-fs {
+    font-size: 1rem;
+}
+
+.mensaje__exito {
+    color: rgb(43, 169, 43);
+}

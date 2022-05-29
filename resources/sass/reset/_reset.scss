@@ -15,7 +15,6 @@
     border: 1px solid #D99255;
     margin: 1% 0 1% 0;
     padding-left: 3.5%;
-    margin-bottom: 4%;
 
     &:focus {
         outline: 0;
@@ -38,4 +37,8 @@
         background-color: #b0590e;
         border: 1px solid #b0590e;
     }
+}
+
+.reset__div--mb{
+    margin-bottom: 5%;
 }

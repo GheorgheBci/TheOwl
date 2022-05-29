@@ -27,6 +27,12 @@
                         <div class="verify__div">
                             <button class="verify__boton"
                                 type="submit">{{ __('Click para reenviar otro enlace') }}</button>
+
+                            @if (session('succes'))
+                                <div class="mensaje__exito">
+                                    {{ session('succes') }}
+                                </div>
+                            @endif
                         </div>
                     </form>
                     </p>
