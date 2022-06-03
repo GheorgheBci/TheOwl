@@ -3,19 +3,61 @@
 @section('titulo', 'Roles')
 
 @section('content')
-    <table class="table">
-        <thead>
-            <th>#</th>
-            <th>Rol</th>
+
+    <div class="boton-crear__div">
+        <i class="fa-solid fa-circle-plus boton-crear__icono" id="crear"></i>
+    </div>
+
+    @if (session('success'))
+        <div class="mensaje__exito mensaje__exito--center">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="mensaje__error--red mensaje__exito--center">
+            {{ session('error') }}
+        </div>
+    @endif
+
+    @error('rol')
+        <div class="mensaje__error--center">
+            <span class="mensaje__error--red">
+                <strong>{{ $message }}</strong>
+            </span>
+        </div>
+    @enderror
+
+    <table class="admin__table">
+        <thead class="admin__thead">
+            <th class="admin__th">#</th>
+            <th class="admin__th">Rol</th>
         </thead>
         <tbody>
             @foreach ($roles as $item)
-                <tr>
-                    <td>{{ $item->idRol }}</td>
-                    <td>{{ $item->rol }}</td>
-                    <td><a href="#" class="btn btn-dark">Editar</a></td>
+                <tr class="admin__tbody-tr">
+                    <td class="admin__td">{{ $item->idRol }}</td>
+                    <td class="admin__td">{{ $item->rol }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
+    <div class="fondo" id="fondo">
+        <div class="ventana-crear ventana-crear__rol" id="ventana-crear">
+            <a href="#" class="ventana-crear__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
+            <h3 class="ventana-crear__h3 ventana-crear__rol-h3">Crear nuevo Rol</h3>
+            <form action="{{ route('rol.crear') }}" method="post" class="ventana-crear__form--width">
+                @csrf
+                <div>
+                    <label for="rol" class="ventana-crear__label ventana-crear__rol-label">Rol</label>
+                    <input type="text" class="ventana-crear__input ventana-crear__rol-input" name="rol" id="rol" required>
+                </div>
+
+                <div class="ventana-crear__div--flex">
+                    <button type="submit" class="ventana-crear__button">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection

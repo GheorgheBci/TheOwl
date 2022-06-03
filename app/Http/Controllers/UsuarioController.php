@@ -114,16 +114,41 @@ class UsuarioController extends Controller
 
     /*Parte Administrador*/
 
+    public function cambiarRol(Request $request, Usuario $usuario)
+    {
+        $rol = null;
+
+        switch ($request->rol) {
+            case 'usuario':
+                $rol = 1;
+                break;
+            case 'administrador':
+                $rol = 3;
+                break;
+            default:
+                return redirect()->route('usuario.usuarios')->with(['error' => 'Nombre de rol incorrecto [usuario, administrador]']);
+                break;
+        }
+
+        if ($rol !== null) {
+            Usuario::where('codUsu', $usuario->codUsu)->update([
+                'idRol' => $rol
+            ]);
+
+            return redirect()->route('usuario.usuarios')->with(['success' => 'El rol del usuario ' . $usuario->nombre . ' ' .  $usuario->apellido1 . ' ' . $usuario->apellido2 . ' ha sido modificado correctamente']);
+        }
+    }
+
     public function usuarios(Request $request)
     {
-        return view('admin.usuarios.index', ['usuarios' => Usuario::paginate(15)]);
+        return view('admin.usuarios.index', ['usuarios' => Usuario::paginate(20)]);
     }
 
     public function eliminarCuenta(Request $request, Usuario $usuario)
     {
         Usuario::where('codUsu', $usuario->codUsu)->delete();
 
-        return redirect()->route('usuario.usuarios');
+        return redirect()->route('usuario.usuarios')->with(['success' => 'Se ha eliminado el usuario ' . $usuario->nombre . ' ' .  $usuario->apellido1 . ' ' . $usuario->apellido2 . ' correctamente']);
     }
 
     public function buscarUsuario(Request $request)
@@ -138,7 +163,7 @@ class UsuarioController extends Controller
             return view('admin.usuarios.usuario', ['usuario' => $usuario]);
         }
 
-        return redirect()->route('usuario.usuarios');
+        return redirect()->route('usuario.usuarios')->with(['error' => 'No se ha encontrado el usuario con email ' . $request->email]);
     }
 
     public function showMisLibros()

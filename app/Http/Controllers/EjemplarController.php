@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ejemplar;
+use App\Models\Editorial;
+use App\Models\Autor;
+use App\Models\Coleccion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +18,11 @@ class EjemplarController extends Controller
         $numero = Ejemplar::count();
 
         return view('ejemplares.ejemplar', ['ejemplares' => Ejemplar::paginate(9), "numero" => $numero]);
+    }
+
+    public function ejemplaresAdmin(Request $request)
+    {
+        return view('admin.ejemplares.index', ['ejemplares' => Ejemplar::paginate(20), 'editorial' => Editorial::all(), 'autor' => Autor::all(), 'coleccion' => Coleccion::all()]);
     }
 
     public function buscarEjemplar(Request $request)
@@ -30,6 +38,17 @@ class EjemplarController extends Controller
         $numero = Ejemplar::count();
 
         return view('ejemplares.ejemplar', ['ejemplares' => Ejemplar::paginate(9), "numero" => $numero]);
+    }
+
+    public function buscarEjemplarAdmin(Request $request)
+    {
+        $ejemplar = Ejemplar::where('isbn', $request->ejemplar)->first();
+
+        if (!empty($ejemplar)) {
+            return view('admin.ejemplares.ejemplar', ['ejemplar' => $ejemplar]);
+        }
+
+        return redirect()->route('ejemplar.admin-ejemplares')->with(['error' => 'El ejemplar con ISBN ' . $request->ejemplar . ' no existe']);
     }
 
     public function ordenarEjemplares(Request $request)
@@ -61,23 +80,124 @@ class EjemplarController extends Controller
 
     public function crear(Request $request)
     {
-        if ($request->hasFile('file') && $request->hasFile('contenido')) {
-            $imagen = $request->file;
+        $request->validate([
+            'isbn' => 'digits_between:13,13|required|integer',
+            'nombre' => 'string|max:50|required',
+            'epilogo' => 'max:255',
+            'fecha' => 'date|required',
+            'tema' => 'alpha|max:25|required',
+            'idioma' => 'alpha|max:25|required',
+            'portada' => 'image|max:255',
+            'contenido' => 'mimes:pdf',
+        ]);
+
+        $existe = Ejemplar::Where('isbn', $request->isbn)->first();
+
+        if (!empty($existe)) {
+            return redirect()->route('ejemplar.admin-ejemplares')->with(['error' => 'Este ejemplar ya existe']);
+        }
+
+        if ($request->hasFile('portada') && $request->hasFile('contenido')) {
+            $imagen = $request->portada;
             $contenido = $request->contenido;
 
             $imagen->move(public_path() . '/book', $imagen->getClientOriginalName());
             $contenido->move(public_path() . '/pdf', $contenido->getClientOriginalName());
 
+            $editorial =  Editorial::where('codEditorial', $request->editorial)->first();
+            $autor =  Autor::where('codAutor', $request->autor)->first();
+            $coleccion =  Coleccion::where('codColeccion', $request->coleccion)->first();
+
+
             Ejemplar::create([
+                'isbn' => $request->isbn,
                 'nomEjemplar' => $request->nombre,
                 'epilogo' => $request->epilogo,
                 'fecPublicacion' => $request->fecha,
                 'tema' => $request->tema,
                 'idioma' => $request->idioma,
                 'image_book' => $imagen->getClientOriginalName(),
-                'contenido' => "../pdf/" . $contenido->getClientOriginalName()
+                'contenido' => "../pdf/" . $contenido->getClientOriginalName(),
+                'codEditorial' => $editorial->codEditorial ?? NULL,
+                'codAutor' => $autor->codAutor ?? NULL,
+                'codColeccion' => $coleccion->codColeccion ?? NULL,
+            ]);
+
+            return redirect()->route('ejemplar.admin-ejemplares')->with(['success' => 'Se ha creado un nuevo ejemplar']);
+        }
+
+        return redirect()->route('ejemplar.admin-ejemplares');
+    }
+
+    public function eliminarEjemplar(Request $request, Ejemplar $ejemplar)
+    {
+        Ejemplar::where('isbn', $ejemplar->isbn)->delete();
+
+        return redirect()->route('ejemplar.admin-ejemplares')->with(['success' => 'Se ha eliminado el ejemplar con ISBN ' . $ejemplar->isbn . ' correctamente']);
+    }
+
+    public function showEditView(Request $request, Ejemplar $ejemplar)
+    {
+        return view('admin.ejemplares.updateEjemplar', ['ejemplar' => $ejemplar, 'editorial' => Editorial::all(), 'autor' => Autor::all(), 'coleccion' => Coleccion::all()]);
+    }
+
+    public function updateEjemplar(Request $request, Ejemplar $ejemplar)
+    {
+        $request->validate([
+            'isbn' => 'digits_between:13,13|required|integer|unique:ejemplar',
+            'nombre' => 'string|max:50|required',
+            'epilogo' => 'max:255',
+            'fecha' => 'date|required',
+            'tema' => 'alpha|max:25|required',
+            'idioma' => 'alpha|max:25|required',
+        ]);
+
+        $editorial =  Editorial::where('codEditorial', $request->editorial)->first();
+        $autor =  Autor::where('codAutor', $request->autor)->first();
+        $coleccion =  Coleccion::where('codColeccion', $request->coleccion)->first();
+
+
+        if ($request->hasFile('portada')) {
+
+            $request->validate([
+                'portada' => 'image|max:255',
+            ]);
+
+            $imagen = $request->portada;
+            $imagen->move(public_path() . '/book', $imagen->getClientOriginalName());
+
+            Ejemplar::where('isbn', $ejemplar->isbn)->update([
+                'image_book' => $imagen->getClientOriginalName(),
             ]);
         }
+
+        if ($request->hasFile('contenido')) {
+
+            $request->validate([
+                'contenido' => 'mimes:pdf',
+            ]);
+
+            $contenido = $request->contenido;
+            $contenido->move(public_path() . '/pdf', $contenido->getClientOriginalName());
+
+            Ejemplar::where('isbn', $ejemplar->isbn)->update([
+                'contenido' => "../pdf/" . $contenido->getClientOriginalName(),
+            ]);
+        }
+
+        Ejemplar::where('isbn', $ejemplar->isbn)->update([
+            'isbn' => $request->isbn,
+            'nomEjemplar' => $request->nombre,
+            'epilogo' => $request->epilogo,
+            'fecPublicacion' => $request->fecha,
+            'tema' => $request->tema,
+            'idioma' => $request->idioma,
+            'codEditorial' => $editorial->codEditorial ?? NULL,
+            'codAutor' => $autor->codAutor ?? NULL,
+            'codColeccion' => $coleccion->codColeccion ?? NULL,
+        ]);
+
+        return redirect()->route('ejemplar.admin-ejemplares')->with(['success' => 'El ejemplar ha sido modificado correctamente']);
     }
 
     public function showDetallesEjemplar(Ejemplar $ejemplar)

@@ -24,8 +24,8 @@ class CreateDetalleAlquilerTable extends Migration
         });
 
         Schema::table('detalle_alquiler', function (Blueprint $table) {
-            $table->foreign('codUsu')->references('codUsu')->on('usuario');
-            $table->foreign('isbn')->references('isbn')->on('ejemplar');
+            $table->foreign('codUsu')->references('codUsu')->on('usuario')->onDelete('cascade');
+            $table->foreign('isbn')->references('isbn')->on('ejemplar')->onDelete('cascade');
         });
     }
 

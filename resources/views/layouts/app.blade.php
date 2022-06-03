@@ -10,11 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <script src="{{ asset('js/script.js') }}" async></script>
     <script src="{{ asset('anime.min.js') }}" async></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/3be00db212.js" crossorigin="anonymous"></script>
     <title>@yield('titulo')</title>
 </head>
 
@@ -44,11 +44,18 @@
                 </li>
                 <li>
                     @if (Auth::user())
-                        <a href="{{ route('usuario.userHome') }}" class="header__a"><i
-                                class="fas fa-user header__i--margin"></i>Mi Cuenta</a>
+
+                        @if (Auth::user()->idRol == 3)
+                            <a href="{{ route('admin') }}" class="header__a"><i
+                                    class="fas fa-tools header__i--margin"></i>Admin</a>
+                        @else
+                            <a href="{{ route('usuario.userHome') }}" class="header__a"><i
+                                    class="fas fa-user header__i--margin"></i>Mi Cuenta</a>
+                        @endif
                     @else
                         <a href="{{ route('login') }}" class="header__a"><i
-                                class="fas fa-user header__i--margin"></i>Mi Cuenta</a>
+                                class="fas fa-user header__i--margin"></i>Mi
+                            Cuenta</a>
                     @endif
                 </li>
             </ul>

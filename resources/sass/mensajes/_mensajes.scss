@@ -50,6 +50,10 @@
     font-size: 1rem;
 }
 
+.mensaje__error-updateEjemplar-fs {
+    font-size: 0.8rem;
+}
+
 .mensaje__error-registro-fs {
     font-size: 0.8rem;
 }
@@ -64,4 +68,9 @@
 
 .mensaje__exito {
     color: rgb(43, 169, 43);
+}
+
+.mensaje__exito--center,
+.mensaje__error--center {
+    text-align: center;
 }
