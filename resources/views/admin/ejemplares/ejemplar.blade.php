@@ -31,7 +31,6 @@
         <thead class="admin__thead">
             <th class="admin__th">#</th>
             <th class="admin__th">Nombre</th>
-            <th class="admin__th">Epilogo</th>
             <th class="admin__th">Fecha Publicación</th>
             <th class="admin__th">Tema</th>
             <th class="admin__th">Idioma</th>
@@ -47,7 +46,6 @@
             <tr class="admin__tbody-tr">
                 <td class="admin__td">{{ $ejemplar->isbn }}</td>
                 <td class="admin__td">{{ $ejemplar->nomEjemplar }}</td>
-                <td class="admin__td">{{ $ejemplar->epilogo }}</td>
                 <td class="admin__td">{{ $ejemplar->fecPublicacion }}</td>
                 <td class="admin__td">{{ $ejemplar->tema }}</td>
                 <td class="admin__td">{{ $ejemplar->idioma }}</td>

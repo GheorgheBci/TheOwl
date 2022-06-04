@@ -133,7 +133,7 @@ class EjemplarController extends Controller
     {
         Ejemplar::where('isbn', $ejemplar->isbn)->delete();
 
-        return redirect()->route('ejemplar.admin-ejemplares')->with(['success' => 'Se ha eliminado el ejemplar con ISBN ' . $ejemplar->isbn . ' correctamente']);
+        return redirect()->route('ejemplar.admin-ejemplares')->with(['success' => 'Se ha eliminado el ejemplar con ISBN ' . $ejemplar->isbn]);
     }
 
     public function showEditView(Request $request, Ejemplar $ejemplar)
@@ -144,7 +144,6 @@ class EjemplarController extends Controller
     public function updateEjemplar(Request $request, Ejemplar $ejemplar)
     {
         $request->validate([
-            'isbn' => 'digits_between:13,13|required|integer|unique:ejemplar',
             'nombre' => 'string|max:50|required',
             'epilogo' => 'max:255',
             'fecha' => 'date|required',
@@ -155,7 +154,6 @@ class EjemplarController extends Controller
         $editorial =  Editorial::where('codEditorial', $request->editorial)->first();
         $autor =  Autor::where('codAutor', $request->autor)->first();
         $coleccion =  Coleccion::where('codColeccion', $request->coleccion)->first();
-
 
         if ($request->hasFile('portada')) {
 
@@ -185,17 +183,38 @@ class EjemplarController extends Controller
             ]);
         }
 
-        Ejemplar::where('isbn', $ejemplar->isbn)->update([
-            'isbn' => $request->isbn,
-            'nomEjemplar' => $request->nombre,
-            'epilogo' => $request->epilogo,
-            'fecPublicacion' => $request->fecha,
-            'tema' => $request->tema,
-            'idioma' => $request->idioma,
-            'codEditorial' => $editorial->codEditorial ?? NULL,
-            'codAutor' => $autor->codAutor ?? NULL,
-            'codColeccion' => $coleccion->codColeccion ?? NULL,
-        ]);
+        $existe =  Ejemplar::where('isbn', $request->isbn)->first();
+
+        if (!empty($existe)) {
+
+            Ejemplar::where('isbn', $ejemplar->isbn)->update([
+                'nomEjemplar' => $request->nombre,
+                'epilogo' => $request->epilogo,
+                'fecPublicacion' => $request->fecha,
+                'tema' => $request->tema,
+                'idioma' => $request->idioma,
+                'codEditorial' => $editorial->codEditorial ?? NULL,
+                'codAutor' => $autor->codAutor ?? NULL,
+                'codColeccion' => $coleccion->codColeccion ?? NULL,
+            ]);
+        } else {
+
+            $request->validate([
+                'isbn' => 'digits_between:13,13|required|integer|unique:ejemplar',
+            ]);
+
+            Ejemplar::where('isbn', $request->oldisbn)->update([
+                'isbn' => $request->isbn,
+                'nomEjemplar' => $request->nombre,
+                'epilogo' => $request->epilogo,
+                'fecPublicacion' => $request->fecha,
+                'tema' => $request->tema,
+                'idioma' => $request->idioma,
+                'codEditorial' => $editorial->codEditorial ?? NULL,
+                'codAutor' => $autor->codAutor ?? NULL,
+                'codColeccion' => $coleccion->codColeccion ?? NULL,
+            ]);
+        }
 
         return redirect()->route('ejemplar.admin-ejemplares')->with(['success' => 'El ejemplar ha sido modificado correctamente']);
     }

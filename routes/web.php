@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\EjemplarController;
@@ -112,4 +113,4 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('admin/inico', [AlquilerController::class, 'alquileres'])->name('admin');
+Route::get('admin/inico', [AdminController::class, 'chartUsuario'])->name('admin');

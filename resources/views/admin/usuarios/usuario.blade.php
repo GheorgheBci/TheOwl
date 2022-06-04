@@ -14,18 +14,6 @@
         </div>
     </div>
 
-    @if (session('success'))
-        <div class="mensaje__exito mensaje__exito--center">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    @if (session('error'))
-        <div class="mensaje__error--red mensaje__exito--center">
-            {{ session('error') }}
-        </div>
-    @endif
-
     <table class="admin__table">
         <thead class="admin__thead">
             <th class="admin__th">#</th>

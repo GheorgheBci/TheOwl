@@ -16,12 +16,12 @@ let puntuacion = document.getElementById('puntuacion');
 
 document.querySelector('#cerrar_menu_admin').addEventListener('click', function () {
     document.querySelector('#menu').style.visibility = 'hidden';
-    document.querySelector('.k').style.visibility = 'visible';
+    document.querySelector('.admin__span-menu').style.visibility = 'visible';
 });
 
 document.querySelector('#abrir_menu_admin').addEventListener('click', function () {
     document.querySelector('#menu').style.visibility = 'visible';
-    document.querySelector('.k').style.visibility = 'hidden';
+    document.querySelector('.admin__span-menu').style.visibility = 'hidden';
 
 });
 

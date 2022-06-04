@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+$title-font: 'Open Sans', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+$apartados-font: 'Open Sans', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@100;300;400&display=swap');
+$table-font: 'Roboto', sans-serif;
+
 .contenedor__admin {
     border-radius: 25px;
     width: 97%;
@@ -43,6 +52,7 @@
         color: white;
         display: block;
         padding: 4% 4%;
+        font-family: $apartados-font;
 
         &:hover {
             background-color: white;
@@ -82,6 +92,7 @@
     background-color: #D99255;
     color: white;
     text-align: left;
+    font-family: $table-font;
 }
 
 .admin__th,
@@ -91,6 +102,7 @@
 
 .admin__tbody-tr {
     border-bottom: 1px solid #ddd;
+    font-family: $table-font;
 }
 
 .boton-crear__div {
@@ -140,6 +152,7 @@
         text-align: center;
         margin: 2% 0 3% 0;
         font-size: 30px;
+        font-family: $title-font;
     }
 
     &__form--width {
@@ -196,6 +209,48 @@
     transform: scale(1);
 }
 
+.ventana-crear__rol,
+.ventana-crear__editorial,
+.ventana-crear__coleccion {
+    width: 27%;
+    font-family: $table-font;
+}
+
+.ventana-crear__rol-h3,
+.ventana-crear__editorial-h3,
+.ventana-crear__coleccion-h3,
+.ventana-crear__autor-h3 {
+    margin: 2% 0 6% 0;
+    font-family: $title-font;
+}
+
+.ventana-crear__rol-label {
+    width: 36px;
+    margin-bottom: 5%;
+}
+
+.ventana-crear__editorial-label,
+.ventana-crear__colecciom-label,
+.ventana-crear__autor-label {
+    width: 63px;
+    margin-bottom: 5%;
+}
+
+.ventana-crear__autor-label {
+    width: 125px;
+    margin-bottom: 5%;
+}
+
+.ventana-crear__rol-input {
+    width: 30%;
+}
+
+.ventana-crear__editorial-input,
+.ventana-crear__coleccion-input,
+.ventana-crear__autor-input {
+    width: 45%;
+}
+
 .admin__boton {
     color: black;
     cursor: pointer;
@@ -206,110 +261,6 @@
 
     &--hidden {
         visibility: hidden;
-    }
-}
-
-// Cambiar
-.editar-ejemplar {
-    width: 50%;
-    margin: auto;
-    padding: 11px 0;
-
-    &__div--flex {
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    &__h1 {
-        text-align: center;
-        margin-bottom: 4%;
-    }
-
-    &__label {
-        display: inline-block;
-        width: 75px;
-        margin-bottom: 4%;
-    }
-
-    &__input {
-        background-color: #fbfbfb;
-        width: 25%;
-        height: 31px;
-        border-radius: 5px;
-        border: 1px solid #D99255;
-        margin: 1% 0 1% 0;
-        padding-left: 3.5%;
-        font-size: 12px;
-
-        &:focus {
-            outline: 0;
-            border: 1px solid #97d848;
-        }
-    }
-
-    &__button {
-        width: 30%;
-        background-color: #D99255;
-        border: 1px solid #D99255;
-        border-radius: 5px;
-        color: white;
-        height: 30px;
-        margin-top: 4%;
-        cursor: pointer;
-        transition: .3s ease all;
-
-        &:hover {
-            background-color: #b0590e;
-            border: 1px solid #b0590e;
-        }
-    }
-
-    &__a {
-        text-decoration: none;
-        line-height: 27px;
-        text-align: center;
-        width: 30%;
-        background-color: #D99255;
-        border: 1px solid #D99255;
-        border-radius: 5px;
-        color: white;
-        height: 30px;
-        margin-top: 4%;
-        cursor: pointer;
-        transition: .3s ease all;
-
-        &:hover {
-            background-color: #b0590e;
-            border: 1px solid #b0590e;
-        }
-    }
-
-    &__textarea {
-        background-color: #fbfbfb;
-        width: 97%;
-        height: 110px;
-        border-radius: 5px;
-        border: 1px solid #D99255;
-        margin: 2% 0 1% 0;
-        padding: 3.8% 0 0 3.5%;
-        resize: none;
-
-        &:focus {
-            outline: 0;
-            border: 1px solid #97d848;
-        }
-    }
-
-    &__select {
-        background-color: #fbfbfb;
-        height: 23px;
-        border-radius: 5px;
-        border: 1px solid #D99255;
-
-        &:focus {
-            outline: 0;
-            border: 1px solid #97d848;
-        }
     }
 }
 

@@ -17,39 +17,41 @@
         </div>
     </div>
 
-    @error('nombre')
-        <div class="mensaje__error--center">
-            <span class="mensaje__error--red">
-                <strong>Nombre: {{ $message }}</strong>
-            </span>
-        </div>
-    @enderror
+    <div class="mensake__error-ejemplar">
+        @error('nombre')
+            <div>
+                <span class="mensaje__error">
+                    <strong>Nombre: {{ $message }}</strong>
+                </span>
+            </div>
+        @enderror
 
-    @error('ape1')
-        <div class="mensaje__error--center">
-            <span class="mensaje__error--red">
-                <strong>Primer apellido: {{ $message }}</strong>
-            </span>
-        </div>
-    @enderror
+        @error('ape1')
+            <div>
+                <span class="mensaje__error">
+                    <strong>Primer apellido: {{ $message }}</strong>
+                </span>
+            </div>
+        @enderror
 
-    @error('ape2')
-        <div class="mensaje__error--center">
-            <span class="mensaje__error--red">
-                <strong>Segundo apellido: {{ $message }}</strong>
-            </span>
-        </div>
-    @enderror
+        @error('ape2')
+            <div>
+                <span class="mensaje__error">
+                    <strong>Segundo apellido: {{ $message }}</strong>
+                </span>
+            </div>
+        @enderror
 
-    @if (session('error'))
-        <div class="mensaje__error--red mensaje__exito--center">
-            {{ session('error') }}
+    </div>
+    @if (session('success'))
+        <div class="mensaje__exito mensaje__exito--center">
+            <strong>{{ session('success') }}</strong>
         </div>
     @endif
 
-    @if (session('success'))
-        <div class="mensaje__exito mensaje__exito--center">
-            {{ session('success') }}
+    @if (session('error'))
+        <div class="mensaje__error mensaje__error--center">
+            <strong>{{ session('error') }}</strong>
         </div>
     @endif
 
@@ -114,19 +116,19 @@
                 enctype="multipart/form-data">
                 @csrf
                 <div>
-                    <div class="d">
+                    <div>
                         <label for="nombre" class="ventana-crear__label ventana-crear__autor-label">Nombre</label>
-                        <input type="text" class="ventana-crear__input ventana-crear__autor-input" name="nombre">
+                        <input type="text" class="ventana-crear__input ventana-crear__autor-input" name="nombre" required>
                     </div>
-                    <div class="d">
+                    <div>
                         <label for="ape1" class="ventana-crear__label ventana-crear__autor-label">Primer
                             apellido</label>
-                        <input type="text" class="ventana-crear__input ventana-crear__autor-input" name="ape1">
+                        <input type="text" class="ventana-crear__input ventana-crear__autor-input" name="ape1" required>
                     </div>
-                    <div class="d">
+                    <div>
                         <label for="ape2" class="ventana-crear__label ventana-crear__autor-label">Segundo
                             apellido</label>
-                        <input type="text" class="ventana-crear__input ventana-crear__autor-input" name="ape2">
+                        <input type="text" class="ventana-crear__input ventana-crear__autor-input" name="ape2" required>
                     </div>
                 </div>
 

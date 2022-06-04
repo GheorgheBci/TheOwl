@@ -70,3 +70,108 @@
         border: 1px solid #97d848;
     }
 }
+
+.editar-ejemplar {
+    width: 50%;
+    margin: auto;
+    padding: 11px 0;
+
+    &__div--flex {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    &__h1 {
+        text-align: center;
+        margin-bottom: 4%;
+        font-family: $title-font;
+
+    }
+
+    &__label {
+        display: inline-block;
+        width: 75px;
+        margin-bottom: 4%;
+    }
+
+    &__input {
+        background-color: #fbfbfb;
+        width: 25%;
+        height: 31px;
+        border-radius: 5px;
+        border: 1px solid #D99255;
+        margin: 1% 0 1% 0;
+        padding-left: 3.5%;
+        font-size: 12px;
+
+        &:focus {
+            outline: 0;
+            border: 1px solid #97d848;
+        }
+    }
+
+    &__button {
+        width: 30%;
+        background-color: #D99255;
+        border: 1px solid #D99255;
+        border-radius: 5px;
+        color: white;
+        height: 30px;
+        margin-top: 4%;
+        cursor: pointer;
+        transition: .3s ease all;
+
+        &:hover {
+            background-color: #b0590e;
+            border: 1px solid #b0590e;
+        }
+    }
+
+    &__a {
+        text-decoration: none;
+        line-height: 27px;
+        text-align: center;
+        width: 30%;
+        background-color: #D99255;
+        border: 1px solid #D99255;
+        border-radius: 5px;
+        color: white;
+        height: 30px;
+        margin-top: 4%;
+        cursor: pointer;
+        transition: .3s ease all;
+
+        &:hover {
+            background-color: #b0590e;
+            border: 1px solid #b0590e;
+        }
+    }
+
+    &__textarea {
+        background-color: #fbfbfb;
+        width: 97%;
+        height: 110px;
+        border-radius: 5px;
+        border: 1px solid #D99255;
+        margin: 2% 0 1% 0;
+        padding: 3.8% 0 0 3.5%;
+        resize: none;
+
+        &:focus {
+            outline: 0;
+            border: 1px solid #97d848;
+        }
+    }
+
+    &__select {
+        background-color: #fbfbfb;
+        height: 23px;
+        border-radius: 5px;
+        border: 1px solid #D99255;
+
+        &:focus {
+            outline: 0;
+            border: 1px solid #97d848;
+        }
+    }
+}

@@ -8,74 +8,75 @@
         <form action="{{ route('ejemplar.admin-actualizar', $ejemplar) }}" method="post" enctype="multipart/form-data">
             @csrf
             <div>
-                <div class="d">
+                <div>
+                    <input type="hidden" name="oldisbn" value="{{ $ejemplar->isbn }}">
                     <label for="isbn" class="editar-ejemplar__label">ISBN</label>
                     <input type="number" class="editar-ejemplar__input" name="isbn" value="{{ $ejemplar->isbn }}">
                     @error('isbn')
                         <div>
-                            <span class="mensaje__error--red mensaje__error-updateEjemplar-fs">
+                            <span class="mensaje__error mensaje__error-updateEjemplar-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         </div>
                     @enderror
                 </div>
-                <div class="d">
+                <div>
                     <label for="nombre" class="editar-ejemplar__label">Nombre</label>
                     <input type="text" class="editar-ejemplar__input" name="nombre" value="{{ $ejemplar->nomEjemplar }}">
                     @error('nombre')
                         <div>
-                            <span class="mensaje__error--red mensaje__error-updateEjemplar-fs">
+                            <span class="mensaje__error mensaje__error-updateEjemplar-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         </div>
                     @enderror
                 </div>
-                <div class="d">
+                <div>
                     <label for="epilogo">Epilogo</label>
                     <textarea name="epilogo" class="editar-ejemplar__textarea">{{ $ejemplar->epilogo }}</textarea>
                     @error('epilogo')
                         <div>
-                            <span class="mensaje__error--red mensaje__error-updateEjemplar-fs">
+                            <span class="mensaje__error mensaje__error-updateEjemplar-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         </div>
                     @enderror
                 </div>
-                <div class="d">
+                <div>
                     <label for="fecha" class="editar-ejemplar__label">Fecha</label>
                     <input type="date" class="editar-ejemplar__input" name="fecha"
                         value="{{ $ejemplar->fecPublicacion }}">
                     @error('fecha')
                         <div>
-                            <span class="mensaje__error--red mensaje__error-updateEjemplar-fs">
+                            <span class="mensaje__error mensaje__error-updateEjemplar-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         </div>
                     @enderror
                 </div>
-                <div class="d">
+                <div>
                     <label for="tema" class="editar-ejemplar__label">Tema</label>
                     <input type="text" class="editar-ejemplar__input" name="tema" value="{{ $ejemplar->tema }}">
                     @error('tema')
                         <div>
-                            <span class="mensaje__error--red mensaje__error-updateEjemplar-fs">
+                            <span class="mensaje__error mensaje__error-updateEjemplar-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         </div>
                     @enderror
                 </div>
-                <div class="d">
+                <div>
                     <label for="idioma" class="editar-ejemplar__label">Idioma</label>
                     <input type="text" class="editar-ejemplar__input" name="idioma" value="{{ $ejemplar->idioma }}">
                     @error('idioma')
                         <div>
-                            <span class="mensaje__error--red mensaje__error-updateEjemplar-fs">
+                            <span class="mensaje__error mensaje__error-updateEjemplar-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         </div>
                     @enderror
                 </div>
-                <div class="d">
+                <div>
                     <label for="portada" class="editar-ejemplar__label">Portada</label>
                     <input type="text" class="editar-ejemplar__input" name="portada" accept="image/*" id="portada"
                         value="{{ $ejemplar->image_book }}">
@@ -85,13 +86,13 @@
 
                     @error('portada')
                         <div>
-                            <span class="mensaje__error--red mensaje__error-updateEjemplar-fs">
+                            <span class="mensaje__error mensaje__error-updateEjemplar-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         </div>
                     @enderror
                 </div>
-                <div class="d">
+                <div>
                     <label for="contenido" class="editar-ejemplar__label">Contenido</label>
                     <input type="text" class="editar-ejemplar__input" name="contenido" accept="application/pdf"
                         id="contenido" value="{{ $ejemplar->contenido }}">
@@ -99,14 +100,14 @@
                     <i class="fas fa-times admin__boton admin__boton--hidden" id="cerrar__fichero-contenido"></i>
                     @error('contenido')
                         <div>
-                            <span class="mensaje__error--red mensaje__error-updateEjemplar-fs">
+                            <span class="mensaje__error mensaje__error-updateEjemplar-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         </div>
                     @enderror
                 </div>
 
-                <div class="d">
+                <div>
                     <label for="editorial" class="editar-ejemplar__label">Editorial</label>
                     <select name="editorial" class="editar-ejemplar__select">
                         @foreach ($ejemplar->editorial() as $item)
@@ -121,7 +122,7 @@
                     </select>
                 </div>
 
-                <div class="d">
+                <div>
                     <label for="autor" class="editar-ejemplar__label">Autor</label>
                     <select name="autor" class="editar-ejemplar__select">
                         @foreach ($ejemplar->autor() as $item)
@@ -139,7 +140,7 @@
                     </select>
                 </div>
 
-                <div class="d">
+                <div>
                     <label for="coleccion" class="editar-ejemplar__label">Colección</label>
                     <select name="coleccion" class="editar-ejemplar__select">
                         @foreach ($ejemplar->coleccion() as $item)

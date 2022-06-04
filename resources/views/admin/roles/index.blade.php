@@ -10,19 +10,19 @@
 
     @if (session('success'))
         <div class="mensaje__exito mensaje__exito--center">
-            {{ session('success') }}
+            <strong>{{ session('success') }}</strong>
         </div>
     @endif
 
     @if (session('error'))
-        <div class="mensaje__error--red mensaje__exito--center">
-            {{ session('error') }}
+        <div class="mensaje__error mensaje__error--center">
+            <strong>{{ session('error') }}</strong>
         </div>
     @endif
 
     @error('rol')
         <div class="mensaje__error--center">
-            <span class="mensaje__error--red">
+            <span class="mensaje__error">
                 <strong>{{ $message }}</strong>
             </span>
         </div>

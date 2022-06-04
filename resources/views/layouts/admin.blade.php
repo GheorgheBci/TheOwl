@@ -8,12 +8,15 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3be00db212.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ asset('js/chart.js') }}"></script>
+
     <title>@yield('titulo')</title>
 </head>
 
 <body>
     <span class="admin__span-menu">
-        <i class="fas fa-bars admin__span-icono" id="abrir_menu_admin"></i>
+        <i class="fas fa-bars admin__span-icono" id="abrir_menu_admin" class="k"></i>
     </span>
 
     <div class="contenedor__admin">
@@ -59,7 +62,7 @@
 
         </div>
     </div>
-    
+
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
 

@@ -7,6 +7,7 @@ use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
@@ -178,4 +179,6 @@ class UsuarioController extends Controller
     {
         return view('ejemplares.libro', ["ejemplar" => $ejemplar]);
     }
+
+    
 }

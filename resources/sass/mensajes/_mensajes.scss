@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Open+Sans&family=Roboto:wght@100;300;400&display=swap');
+$mensajes-font: 'DM Sans', sans-serif;
+
 .mensaje {
     background-color: rgb(0, 0, 0, .3);
     position: fixed;
@@ -42,8 +45,9 @@
     }
 }
 
-.mensaje__error--red {
-    color: red;
+.mensaje__error {
+    color: rgb(211, 49, 49);
+    font-family: $mensajes-font;
 }
 
 .mensaje__error-reset-password-fs {
@@ -68,9 +72,16 @@
 
 .mensaje__exito {
     color: rgb(43, 169, 43);
+    font-family: $mensajes-font;
 }
 
 .mensaje__exito--center,
 .mensaje__error--center {
     text-align: center;
+}
+
+.mensajes__error-ejemplar {
+    width: 95%;
+    text-align: start;
+    margin: auto;
 }
