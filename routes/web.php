@@ -46,7 +46,7 @@ Route::post('gu', [EjemplarController::class, 'crear'])->name('gu');
 Route::group(['usuario' => 'usuario', 'as' => 'usuario.', 'middleware' => ['auth', 'verified']], function () {
     Route::get('/perfil', [UsuarioController::class, 'homeUser'])->name('userHome');
     Route::post('cargarImagen', [UsuarioController::class, 'cargarImagenUsuario'])->name('cargarImagen');
-    Route::post('actualizarDatosPersonales', [UsuarioController::class, 'actualizarDatosPersonales'])->name('actualizarDatosPersonales');
+    Route::post('actualizarDatosPersonales/{usuario}', [UsuarioController::class, 'actualizarDatosPersonales'])->name('actualizarDatosPersonales');
     Route::post('actualizarContraseña', [UsuarioController::class, 'cambiarContraseña'])->name('actualizarContraseña');
     Route::get('comprar/{tipo}', [UsuarioController::class, 'socio'])->name('comprar');
     Route::get('baja', [UsuarioController::class, 'bajaSocio'])->name('baja');

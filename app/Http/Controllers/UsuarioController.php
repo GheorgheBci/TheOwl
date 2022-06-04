@@ -7,7 +7,6 @@ use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
@@ -38,14 +37,14 @@ class UsuarioController extends Controller
         return redirect()->route('usuario.userHome');
     }
 
-    public function actualizarDatosPersonales(Request $request)
+    public function actualizarDatosPersonales(Request $request, Usuario $usuario)
     {
         $request->validate([
             'nombre' => 'alpha|max:20',
             'ape1' => 'alpha|max:20',
             'ape2' => 'alpha|max:35|nullable',
             'fechaNac' => 'date',
-            'email' => 'email|max:255|unique:usuario',
+            'email' => 'email|max:255|unique:usuario,email,' . $usuario->codUsu . ',codUsu'
         ]);
 
         Usuario::where('codUsu', Auth::user()->codUsu)->update([
@@ -53,10 +52,10 @@ class UsuarioController extends Controller
             'apellido1' => $request->ape1,
             'apellido2' => $request->ape2,
             'email' => $request->email,
-            'fecNacimiento' => $request->fecNac
+            'fecNacimiento' => $request->fechaNac
         ]);
 
-        return redirect()->route('usuario.userHome');
+        return redirect()->route('usuario.userHome')->with(['success-datos-personales' => 'Datos personales actualizados']);
     }
 
     public function cambiarContraseña(Request $request)
@@ -73,7 +72,7 @@ class UsuarioController extends Controller
                 'password' => Hash::make($request->newPassword),
             ]);
 
-            return redirect()->route('usuario.userHome')->with('success', "¡Contraseña actualizada!");
+            return redirect()->route('usuario.userHome')->with('success-contraseña', "¡Contraseña actualizada!");
         }
 
         return redirect()->route('usuario.userHome')->with('error', "¡La contraseña no existe!");
@@ -179,6 +178,4 @@ class UsuarioController extends Controller
     {
         return view('ejemplares.libro', ["ejemplar" => $ejemplar]);
     }
-
-    
 }
