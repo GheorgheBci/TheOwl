@@ -17,9 +17,13 @@ class UsuarioController extends Controller
 
     public function cargarImagenUsuario(Request $request)
     {
+        if ($request->hasFile('imagen')) {
 
-        if ($request->hasFile('file')) {
-            $imagen = $request->file;
+            $request->validate([
+                'imagen_usuario' => 'image'
+            ]);
+
+            $imagen = $request->imagen;
 
             $imagen->move(public_path() . '/img', $imagen->getClientOriginalName());
 

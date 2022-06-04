@@ -35,14 +35,14 @@
         border: 1px solid white;
         border-radius: 10px;
         background-color: white;
-        width: 30%;
+        width: 25%;
         height: 104px;
         margin: 5% 5%;
         position: relative;
         z-index: 1;
     }
 
-    &__perfil:hover #cambiar_foto {
+    &__perfil:hover .usuario__imagen-label {
         visibility: visible;
     }
 
@@ -111,19 +111,29 @@
     }
 }
 
-// Corregir
-#cambiar_foto {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 0.5%;
-    background-color: white;
-    position: absolute;
-    text-align: center;
-    line-height: 105px;
+.usuario__imagen-label {
     width: 100%;
-    height: 100%;
-    visibility: hidden;
+    height: 157px;
+    background-color: #fff;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-bottom: 3%;
     opacity: 0.5;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.usuario__form-imagen {
+    position: absolute;
+    width: 100%;
+}
+
+.usuario__perfil input[type=file] {
+    display: none;
 }
 
 #formulario__cambiar-imagen {
