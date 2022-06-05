@@ -21,19 +21,22 @@
         <div id="mostrar-ordenar" class="ordenar">
             <p class="ordenar__p">Ordenar por...</p>
             <ul id="opciones-ordenar" class="ordenar__ul">
-                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar', 1) }}" class="ordenar__a">Nombre
+                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar-mis-libros', 1) }}"
+                        class="ordenar__a">Nombre
                         [a-z]</a>
                 </li>
-                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar', 2) }}" class="ordenar__a">Nombre
+                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar-mis-libros', 2) }}"
+                        class="ordenar__a">Nombre
                         [z-a]</a>
                 </li>
-                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar', 3) }}" class="ordenar__a">Publicación
-                        más
+                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar-mis-libros', 3) }}"
+                        class="ordenar__a">Más
                         antigua</a></li>
-                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar', 4) }}" class="ordenar__a">Publicación
-                        más
+                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar-mis-libros', 4) }}"
+                        class="ordenar__a">Más
                         reciente</a></li>
-                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar', 5) }}" class="ordenar__a">Mejor
+                <li class="ordenar__li"><a href="{{ route('ejemplar.ordenar-mis-libros', 5) }}"
+                        class="ordenar__a">Mejor
                         valorado</a>
                 </li>
             </ul>
@@ -65,4 +68,7 @@
             </div>
         @endforeach
     </div>
+
+    {{ $misLibros->links() }}
+
 @endsection

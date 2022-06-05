@@ -78,6 +78,34 @@ class EjemplarController extends Controller
         }
     }
 
+    public function ordenarMisEjemplares(Request $request)
+    {
+        $misLibros = Auth::user()->ejemplar;
+        $numero = $misLibros->count();
+
+        switch ($request->tipo) {
+            case 1:
+                return view('ejemplares.misLibros', ['misLibros' => Auth::user()->ejemplar()->orderBy('nomEjemplar')->paginate(9), "numero" => $numero]);
+                break;
+
+            case 2:
+                return view('ejemplares.misLibros', ['misLibros' => Auth::user()->ejemplar()->orderBy('nomEjemplar', 'DESC')->paginate(9), "numero" => $numero]);
+                break;
+
+            case 3:
+                return view('ejemplares.misLibros', ['misLibros' => Auth::user()->ejemplar()->orderBy('fecPublicacion')->paginate(9), "numero" => $numero]);
+                break;
+
+            case 4:
+                return view('ejemplares.misLibros', ['misLibros' => Auth::user()->ejemplar()->orderBy('fecPublicacion', 'DESC')->paginate(9), "numero" => $numero]);
+                break;
+
+            case 5:
+                return view('ejemplares.misLibros', ['misLibros' => Auth::user()->ejemplar()->orderBy('puntuacion', 'DESC')->paginate(9), "numero" => $numero]);
+                break;
+        }
+    }
+
     public function crear(Request $request)
     {
         $request->validate([
