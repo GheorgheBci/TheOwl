@@ -1,34 +1,55 @@
-.menu {
-    position: absolute;
-    color: black;
-    display: block;
-    text-decoration: none;
-    padding: .5em 1em;
-    font-size: 18px;
-    z-index: 3;
+.menu-usuario {
+    width: 80%;
+    border: 1px solid black;
+    background-color: #111924;
+    border-radius: 25px;
+    overflow: hidden;
+    text-align: center;
+    height: max-content;
 
-    &__ul {
+    &__span {
+        width: 90%;
+        display: block;
+        text-align: right;
+        padding-top: 3%;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    &__icono {
+        color: white;
+        cursor: pointer;
+        transition: .3s ease all;
+
+        &:hover {
+            color: red;
+        }
+    }
+
+    &__li {
         list-style: none;
-        padding: 0;
-        margin: 0;
     }
 
     &__a {
         text-decoration: none;
+        color: white;
+        display: block;
+        padding: 4% 4%;
+        // font-family: $apartados-font;
 
         &:hover {
-            border-radius: 3px;
-            background: gray;
-            color: white;
+            background-color: white;
+            color: black;
         }
     }
 }
 
 .usuario {
-    border: 1px solid black;
+    border: 1px solid #F2E4CE;
     border-radius: 25px;
-    background-color: gray;
-    margin: auto;
+    background-color: #F2E4CE;
+    margin: 30px 0;
+    box-shadow: 8px 7px 7px -1px #867253;
 
     &__perfil {
         display: inline-block;
