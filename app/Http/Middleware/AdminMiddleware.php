@@ -20,7 +20,7 @@ class AdminMiddleware
         if (Auth::user()->idRol === 3) {
             return $next($request);
         } else {
-            return redirect('inicio');
+            return redirect()->route('inicio');
         }
     }
 }
