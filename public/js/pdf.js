@@ -95,13 +95,17 @@ function normal() {
 
 // Cambiar el fondo de la página
 function cambiarColorFondo() {
-    if (document.querySelector('#cambiar-color-fondo').innerHTML === 'Oscuro') {
+    if (document.querySelector('#ico').classList.contains('fa-moon')) {
         document.body.style.backgroundColor = 'black';
-        document.querySelector('#cambiar-color-fondo').innerHTML = 'Normal';
+        document.querySelector('#cambiar-color-fondo').setAttribute('title', 'Modo Claro');
+        document.querySelector('#ico').classList.remove('fa-moon')
+        document.querySelector('#ico').classList.add('fa-sun');
         document.querySelector('.salir__icono').classList.add('color');
     } else {
         document.body.style.backgroundColor = '#F2E4CE';
-        document.querySelector('#cambiar-color-fondo').innerHTML = 'Oscuro';
+        document.querySelector('#cambiar-color-fondo').setAttribute('title', 'Modo Oscuro');
+        document.querySelector('#ico').classList.remove('fa-sun')
+        document.querySelector('#ico').classList.add('fa-moon');
         document.querySelector('.salir__icono').classList.remove('color');
     }
 }

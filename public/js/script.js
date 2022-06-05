@@ -11,19 +11,29 @@ const boton = document.getElementById("menu-barra"),
     cerrarMensaje = document.getElementById('cerrar_mensaje'),
     cambiarFoto = document.getElementById('cambiar_foto'),
     fichero_portada = document.getElementById('fichero_portada'),
-    fichero_contenido = document.getElementById('fichero_contenido');
-let puntuacion = document.getElementById('puntuacion');
+    fichero_contenido = document.getElementById('fichero_contenido'),
+    cerrar_menu_admin = document.querySelector('#cerrar_menu_admin'),
+    abrir_menu_admin = document.querySelector('#abrir_menu_admin');
+let puntuacion = document.getElementById('puntuacion'),
+    imagen_usuario = document.getElementById('imagen');
 
-// document.querySelector('#cerrar_menu_admin').addEventListener('click', function () {
-//     document.querySelector('#menu').style.visibility = 'hidden';
-//     document.querySelector('.admin__span-menu').style.visibility = 'visible';
-// });
+if (abrir_menu_admin && cerrar_menu_admin) {
+    abrir_menu_admin.addEventListener('click', function () {
+        document.querySelector('#menu').style.visibility = 'visible';
+        document.querySelector('.admin__span-menu').style.visibility = 'hidden';
+    });
 
-// document.querySelector('#abrir_menu_admin').addEventListener('click', function () {
-//     document.querySelector('#menu').style.visibility = 'visible';
-//     document.querySelector('.admin__span-menu').style.visibility = 'hidden';
+    cerrar_menu_admin.addEventListener('click', function () {
+        document.querySelector('#menu').style.visibility = 'hidden';
+        document.querySelector('.admin__span-menu').style.visibility = 'visible';
+    });
+}
 
-// });
+if (imagen_usuario) {
+    imagen_usuario.addEventListener('change', function () {
+        document.getElementById('cargar-imagen').submit();
+    });
+}
 
 let usuarioRol = document.querySelectorAll('.admin-usuario__rol');
 let usuarioInput = document.querySelectorAll('.admin__usuario-input');
@@ -266,8 +276,6 @@ if (usuarioRol) {
     }
 }
 
-
-
 if (fichero_portada || fichero_contenido) {
     fichero_portada.addEventListener('click', function () {
         document.getElementById('portada').type = 'file';
@@ -298,19 +306,17 @@ if (fichero_portada || fichero_contenido) {
     });
 }
 
-// if (cambiarFoto) {
-//     cambiarFoto.addEventListener('click', function () {
-//         // document.getElementById("formulario__cambiar-imagen").style.visibility = 'visible';
-//         document.getElementById('fondo').classList.add('active');
-//         document.getElementById('ventana-crear').classList.add('active');
-//     });
+if (cambiarFoto) {
+    cambiarFoto.addEventListener('click', function () {
+        document.getElementById('fondo').classList.add('active');
+        document.getElementById('ventana-crear').classList.add('active');
+    });
 
-//     document.getElementById('cerrar-ventana').addEventListener('click', function () {
-//         // document.getElementById("formulario__cambiar-imagen").style.visibility = 'hidden';
-//         document.getElementById('fondo').classList.remove('active');
-//         document.getElementById('ventana-crear').classList.remove('active');
-//     });
-// }
+    document.getElementById('cerrar-ventana').addEventListener('click', function () {
+        document.getElementById('fondo').classList.remove('active');
+        document.getElementById('ventana-crear').classList.remove('active');
+    });
+}
 
 if (cerrarMensaje) {
     cerrarMensaje.addEventListener('click', function () {
@@ -345,6 +351,13 @@ if (alquilar && cerrar) {
 
 if (puntuacion) {
     const estrellas = document.getElementsByClassName('puntuacion__a');
+    let sonido = document.querySelector('#sonido-puntuar');
+
+    for (let j = 0; j < estrellas.length; j++) {
+        estrellas[j].addEventListener('click', function () {
+            sonido.play();
+        })
+    }
 
     for (let i = 0; i < puntuacion.innerHTML; i++) {
         estrellas[i].style.color = "rgb(228, 228, 40)";
@@ -426,8 +439,3 @@ if (menu_usuario) {
         }
     })
 }
-
-
-document.getElementById('imagen').addEventListener('change', function () {
-    document.getElementById('cargar-imagen').submit();
-});
