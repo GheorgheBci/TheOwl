@@ -142,5 +142,15 @@ Semana 23/05/2022 - 29/05/2022
 - Se ha añadido mensajes emergentes cuando se actualiza la contraseña. Se ha mejorado los mensajes de error en los inputs
 - Otras modificaciones
 
+Semana 30/05/2022 - 05/06/2022
+
+- La parte del administrador ya esta completo, el administrador puede gestionar temas como añadir ejemplares, cambiar el rol a un usuario, etc.
+- Se ha corregido el bug de que cuando se actualizada los datos personales de un usuario, salia el error de que el correo ya esta en uso.
+- La función de cambiar de imagen al usuario se ha mejorado
+- El usuario ahora cuando puntua un ejemplar se activa un sonido que indica que el usuario ha puntuado dicho ejemplar
+- El usuario cuando se loguea aparecera un mensaje de bienvenida
+- Se han añadido iconos en el menu de la vista para leer un ejemplar alquilado
+- Correción de bugs, pequeños cambios, etc.
+
 # Checkpoint 13/05/2022
 https://www.youtube.com/watch?v=5jIgOfQtVXw&ab_channel=GheorgheBush
