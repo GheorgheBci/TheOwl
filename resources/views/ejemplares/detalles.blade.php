@@ -34,6 +34,7 @@
                                 id="puntuacion">{{ round($ejemplar->puntuacion / $ejemplar->votos) }}</span>/5 |
                             {{ $ejemplar->votos }} {{ trans_choice('mensajes.votos', $ejemplar->votos) }}</p>
                     @endif
+                    <audio id="sonido-puntuar" src="{{ asset('sound/511484__mlaudio__success-bell.wav') }}"></audio>
                 </div>
                 <div class="botones">
                     <a href="#" id="alquilar" class="botones__a">Alquilar</a>
@@ -54,9 +55,11 @@
                             @if ($ejemplar->codAutor === null)
                                 <p>Anónimo</p>
                             @else
-                        <td>{{ $ejemplar->codAutor }}</td>
-                        @endif
+                                @foreach ($ejemplar->autor() as $item)
+                                    {{ $item->nomAutor }} {{ $item->ape1Autor }} {{ $item->ape2Autor }}
+                                @endforeach
                         </td>
+                        @endif
                     </tr>
 
                     <tr class="texto__tr--height">
@@ -65,8 +68,10 @@
                             @if ($ejemplar->codEditorial === null)
                                 <p>Sin editorial</p>
                             @else
-                        <td>{{ $ejemplar->codEditorial }}</td>
-                        @endif
+                                @foreach ($ejemplar->editorial() as $item)
+                                    {{ $item->nomEditorial }}
+                                @endforeach
+                            @endif
                         </td>
                     </tr>
 
@@ -76,8 +81,10 @@
                             @if ($ejemplar->codColeccion === null)
                                 <p>Sin colección</p>
                             @else
-                        <td>{{ $ejemplar->codColeccion }}</td>
-                        @endif
+                                @foreach ($ejemplar->coleccion() as $item)
+                                    {{ $item->nomColeccion }}
+                                @endforeach
+                            @endif
                         </td>
                     </tr>
 

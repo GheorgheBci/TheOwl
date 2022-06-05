@@ -4,9 +4,10 @@
 
 @section('content')
     <div class="main-registro main-registro--padding">
-        <div class="main-registro__p">
-            <p><strong>Disfruta</strong> de millones de libros de todas las tematicas</p>
-            <p><strong>Conviertete</strong> en socio y distruta de muchas ventajas</p>
+        <div class="main-registro__div-p">
+            <p class="main-registro__p"><strong>Disfruta</strong> de millones de libros de todas las tematicas</p>
+            <p class="main-registro__p"><strong>Conviertete</strong> en socio y distruta de muchas ventajas</p>
+            <p class="main-registro__p"><strong>Lee</strong> desde cualquier dispositivo</p>
         </div>
 
         <div class="main-registro__separador"></div>
@@ -21,12 +22,12 @@
                         <label for="nombre">Nombre</label>
 
                         <div>
-                            <input id="nombre" class="main-registro__input" type="text" @error('nombre') is-invalid @enderror
-                                name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre"
-                                placeholder="Indica tu nombre">
+                            <input id="nombre" class="main-registro__input" type="text"
+                                @error('nombre') is-invalid @enderror name="nombre" value="{{ old('nombre') }}" required
+                                autocomplete="nombre" placeholder="Indica tu nombre">
 
                             @error('nombre')
-                                <span class="mensaje__error--red mensaje__error-registro-fs">
+                                <span class="mensaje__error mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -42,7 +43,7 @@
                                 placeholder="Indica tu primer apellido">
 
                             @error('ape1')
-                                <span class="mensaje__error--red mensaje__error-registro-fs">
+                                <span class="mensaje__error mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -58,7 +59,7 @@
                                 placeholder="Indica tu segundo apellido">
 
                             @error('ape2')
-                                <span class="mensaje__error--red mensaje__error-registro-fs">
+                                <span class="mensaje__error mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -76,7 +77,7 @@
                                 placeholder="Indica tu correo">
 
                             @error('email')
-                                <span class="mensaje__error--red mensaje__error-registro-fs">
+                                <span class="mensaje__error mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -92,7 +93,7 @@
                                 required autocomplete="fechaNac">
 
                             @error('fechaNac')
-                                <span class="mensaje__error--red mensaje__error-registro-fs">
+                                <span class="mensaje__error mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -110,7 +111,7 @@
                                 placeholder="Indica tu contraseña">
 
                             @error('password')
-                                <span class="mensaje__error--red mensaje__error-registro-fs">
+                                <span class="mensaje__error mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -126,7 +127,7 @@
                                 placeholder="Repite la contraseña">
 
                             @error('password-confirm')
-                                <span class="mensaje__error--red mensaje__error-registro-fs">
+                                <span class="mensaje__error mensaje__error-registro-fs">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror

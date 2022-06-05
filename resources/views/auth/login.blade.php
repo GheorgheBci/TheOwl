@@ -33,7 +33,7 @@
                             placeholder="Indica tu contraseña">
 
                         @error('email')
-                            <span class="mensaje__error--red mensaje__error-login-fs">
+                            <span class="mensaje__error mensaje__error-login-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror

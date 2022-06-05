@@ -4,7 +4,28 @@
 
 @section('content')
     <div class="perfil">
-    
+
+        <div class="menu-usuario" id="menu">
+            <span class="menu-usuario__span">
+                <i class="fas fa-times menu-usuario__icono"></i>
+            </span>
+
+            <ul>
+                <li class="menu-usuario__li"><a href="{{ route('usuario.libros') }}" class="menu-usuario__a">Mis libros</a>
+                </li>
+                <li class="menu-usuario__li"><a href="#" class="menu-usuario__a">Alquileres realizados</a>
+                </li>
+                <li class="menu-usuario__li"><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();" class="menu-usuario__a">
+                        Cerrar Sesión
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
+                </li>
+            </ul>
+        </div>
 
         <div class="usuario">
 
@@ -16,9 +37,20 @@
                     <input type="file" name="imagen" accept="image/*" id="imagen" required>
                 </form>
 
-                <img src="{{ asset('img/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario"
-                    class="usuario__img">
+                <img src="{{ asset('img/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario" class="usuario__img">
             </div>
+
+            @error('imagen')
+                <span class="mensaje__error mensaje__error-perfil-fs">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+
+            @if (session('success-imagen'))
+                <span class="mensaje__exito">
+                    {{ session('success-imagen') }}
+                </span>
+            @endif
 
             <div class="usuario__datos-personales">
                 <form action="{{ route('usuario.actualizarDatosPersonales', Auth::user()) }}" method="POST">
@@ -191,26 +223,12 @@
         </div>
     </div>
 
-    <div class="fondo" id="fondo">
-        <div class="ventana-alquilar" id="ventana-crear">
-            <a href="#" class="ventana-alquilar__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
-            <h3 class="ventana-alquilar__h3">Alquilar el ejemplar</h3>
-            <form action="{{ route('usuario.cargarImagen') }}" method="post" enctype="multipart/form-data"
-                class="ventana-alquilar__form--width">
-                @csrf
-                <div>
-                    <input type="file" name="file" accept="image/*">
-                    @error('file')
-                        <span class="mensaje__error mensaje__error-perfil-fs">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-
-                <div class="ventana-alquilar__div--flex">
-                    <button type="submit" class="ventana-alquilar__button">Cambiar</button>
-                </div>
-            </form>
+    @if (session('success'))
+        <div class="mensaje">
+            <div class="mensaje__div">
+                <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
+                <h2 class="mensaje__h2">{{ session('success') }}</h2>
+            </div>
         </div>
-    </div>
+    @endif
 @endsection
