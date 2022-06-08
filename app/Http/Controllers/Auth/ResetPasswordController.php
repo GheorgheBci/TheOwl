@@ -32,6 +32,7 @@ class ResetPasswordController extends Controller
     protected function rules()
     {
         return [
+            'email' => 'email',
             'token' => 'required',
             'password' => ['required', 'alpha_dash', Rules\Password::defaults()],
             'password_confirmation' => 'same:password|min:8'
@@ -49,7 +50,8 @@ class ResetPasswordController extends Controller
         return $request->only(
             'password',
             'password_confirmation',
-            'token'
+            'token',
+            'email'
         );
     }
 

@@ -24,6 +24,8 @@
 
                 <input type="hidden" name="token" value="{{ $token }}">
 
+                <input type="hidden" value="{{ $email ?? old('email') }}" name="email" required>
+
                 <div>
                     <label for="password" class="reset__label">Nueva Contraseña</label>
 
@@ -33,7 +35,7 @@
                             autocomplete="new-password">
 
                         @error('password')
-                            <span class="mensaje__error--red mensaje__error-reset-password-fs">
+                            <span class="mensaje__error mensaje__error-reset-password-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
@@ -41,14 +43,20 @@
                 </div>
 
                 <div>
-                    <label for="password-confirm" class="reset__label">Confirmar Contraseña</label>
+                    <label for="password_confirmation" class="reset__label">Confirmar Contraseña</label>
 
                     <div class="reset__div--mb">
-                        <input id="password-confirm" class="reset__input" type="password" name="password_confirmation"
-                            requireutocomplete="new-password">
+                        <input id="password_confirmation" class="reset__input" type="password"
+                            name="password_confirmation" requireutocomplete="new-password">
 
                         @error('password_confirmation')
-                            <span class="mensaje__error--red mensaje__error-reset-password-fs">
+                            <span class="mensaje__error mensaje__error-reset-password-fs">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                        @error('email')
+                            <span class="mensaje__error mensaje__error-reset-password-fs">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
