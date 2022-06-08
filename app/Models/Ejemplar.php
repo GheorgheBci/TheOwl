@@ -20,6 +20,7 @@ class Ejemplar extends Model
         'fecPublicacion',
         'tema',
         'idioma',
+        'precio',
         'image_book',
         'puntuacion',
         'votos',

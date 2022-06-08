@@ -77,6 +77,17 @@
                     @enderror
                 </div>
                 <div>
+                    <label for="precio" class="editar-ejemplar__label">Precio</label>
+                    <input type="text" class="editar-ejemplar__input" name="precio" value="{{ $ejemplar->precio }}">
+                    @error('precio')
+                        <div>
+                            <span class="mensaje__error mensaje__error-updateEjemplar-fs">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        </div>
+                    @enderror
+                </div>
+                <div>
                     <label for="portada" class="editar-ejemplar__label">Portada</label>
                     <input type="text" class="editar-ejemplar__input" name="portada" accept="image/*" id="portada"
                         value="{{ $ejemplar->image_book }}">

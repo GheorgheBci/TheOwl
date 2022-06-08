@@ -20,6 +20,7 @@ class CreateEjemplarTable extends Migration
             $table->date('fecPublicacion')->required();
             $table->string('tema')->required();
             $table->string('idioma')->required();
+            $table->decimal('precio', 4, 2)->required();
             $table->string('image_book')->required();
             $table->double('puntuacion')->nullable()->default(0);
             $table->integer('votos')->nullable()->default(0);

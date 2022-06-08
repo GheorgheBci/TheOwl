@@ -1,0 +1,65 @@
+.wishlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+
+    &__corazon {
+        font-size: 5em;
+        color: rgb(180, 57, 57)
+    }
+
+    &__titulo {
+        font-size: 5em;
+    }
+
+    &__portada-libro {
+        width: 58%;
+        height: 118px;
+    }
+
+    &__tabla {
+        border-collapse: collapse;
+        margin: 3% 0;
+    }
+
+    &__tabla-thead {
+        text-align: left;
+        font-size: 2em;
+    }
+
+    &__tabla-tr {
+        border-bottom: 1px solid #bdbcbc;
+    }
+
+    &__tabla-th,
+    &__tabla-td {
+        padding: 12px 70px;
+    }
+
+    &__quitar {
+        font-size: 3em;
+        color: black;
+        transition: .3s ease color;
+
+        &:hover {
+            color: #D99255;
+        }
+    }
+
+    &__nada {
+        font-size: 2em;
+        margin-top: 3%;
+        color: rgb(170, 157, 157);
+    }
+
+    &__enlace {
+        font-size: 2em;
+        text-decoration: none;
+        color: rgb(170, 157, 157);
+
+        &:hover{
+            color: rgb(99, 93, 93);
+        }
+    }
+}

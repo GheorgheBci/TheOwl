@@ -40,7 +40,8 @@
                         <li><a href="{{ route('admin') }}">Administrador</a></li>
                     @endif
                 @endauth --}}
-                <li><a href="#" class="header__a"><i class="fas fa-heart header__i--margin"></i>WishList</a></li>
+                <li><a href="{{ route('usuario.wishlist') }}" class="header__a"><i
+                            class="fas fa-heart header__i--margin"></i>WishList</a></li>
                 <li><a href="#" class="header__a"><i class="fas fa-cart-plus header__i--margin"></i>Carrito</a>
                 </li>
                 <li>

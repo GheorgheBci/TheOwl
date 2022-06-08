@@ -16,11 +16,6 @@ class Usuario extends Authenticatable implements MustVerifyEmail
     protected $primaryKey = 'codUsu';
     public $timestamps = false;
 
-    public function rol()
-    {
-        return $this->belongsTo('App\Models\Rol', 'idRol')->get();
-    }
-
     /**
      * The attributes that are mass assignable.
      *
@@ -62,5 +57,15 @@ class Usuario extends Authenticatable implements MustVerifyEmail
     public function ejemplar()
     {
         return $this->belongsToMany('App\Models\Ejemplar', 'detalle_alquiler', 'codUsu', 'isbn')->withPivot('isbn');
+    }
+
+    public function addEjemplarWishList()
+    {
+        return $this->belongsToMany('App\Models\Ejemplar', 'wishlist', 'codUsu', 'isbn');
+    }
+
+    public function rol()
+    {
+        return $this->belongsTo('App\Models\Rol', 'idRol')->get();
     }
 }

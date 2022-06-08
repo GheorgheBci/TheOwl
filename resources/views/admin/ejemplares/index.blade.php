@@ -79,6 +79,14 @@
             </div>
         @enderror
 
+        @error('precio')
+            <div>
+                <span class="mensaje__error">
+                    <strong>Precio: {{ $message }}</strong>
+                </span>
+            </div>
+        @enderror
+
         @error('portada')
             <div>
                 <span class="mensaje__error">
@@ -103,6 +111,7 @@
             <th class="admin__th">Fecha Publicación</th>
             <th class="admin__th">Tema</th>
             <th class="admin__th">Idioma</th>
+            <th class="admin__th">Precio</th>
             <th class="admin__th">Portada</th>
             <th class="admin__th">Puntuación</th>
             <th class="admin__th">Votos</th>
@@ -119,8 +128,9 @@
                     <td class="admin__td">{{ $item->fecPublicacion }}</td>
                     <td class="admin__td">{{ $item->tema }}</td>
                     <td class="admin__td">{{ $item->idioma }}</td>
+                    <td class="admin__td">{{ $item->precio }}</td>
                     <td class="admin__td">
-                        <div class="pp"><img src="{{ asset('book/' . $item->image_book) }}" alt="portada"
+                        <div><img src="{{ asset('book/' . $item->image_book) }}" alt="portada"
                                 class="admin__ejemplar-portada"></div>
                     </td>
                     <td class="admin__td">{{ $item->puntuacion }}</td>
@@ -198,6 +208,11 @@
                     <div>
                         <label for="idioma" class="ventana-crear__label">Idioma</label>
                         <input type="text" class="ventana-crear__input ventana-crear__input-ejemplar" name="idioma"
+                            required>
+                    </div>
+                    <div>
+                        <label for="precio" class="ventana-crear__label">Precio</label>
+                        <input type="text" class="ventana-crear__input ventana-crear__input-ejemplar" name="precio"
                             required>
                     </div>
                     <div>

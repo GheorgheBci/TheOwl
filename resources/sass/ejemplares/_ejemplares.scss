@@ -7,6 +7,21 @@
         margin-bottom: 4%;
         padding-top: 2%;
     }
+
+    &__corazon-rojo {
+        text-decoration: none;
+        color: red;
+    }
+
+    &__corazon-negro {
+        text-decoration: none;
+        color: black;
+        transition: .3s ease color;
+
+        &:hover {
+            color: red
+        }
+    }
 }
 
 .fondo {

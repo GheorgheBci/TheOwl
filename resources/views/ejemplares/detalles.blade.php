@@ -6,8 +6,25 @@
 
     <div class="ejemplar">
 
-        <h1 class="ejemplar__titulo">{{ $ejemplar->nomEjemplar }}</h1>
+        <h1 class="ejemplar__titulo">{{ $ejemplar->nomEjemplar }}
 
+            @if (DB::table('wishlist')->where('codUsu', Auth::user()->codUsu)->where('isbn', $ejemplar->isbn)->first())
+                <a href="#" class="ejemplar__corazon-rojo"><i class="fas fa-heart"></i></a>
+            @else
+                <a href="{{ route('usuario.add', $ejemplar) }}" class="ejemplar__corazon-negro"><i
+                        class="fas fa-heart"></i></a>
+            @endif
+        </h1>
+
+
+        @if (session('existe'))
+            <div class="mensaje">
+                <div class="mensaje__div">
+                    <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
+                    <h2 class="mensaje__h2">{{ session('existe') }}</h2>
+                </div>
+            </div>
+        @endif
         <div class="detalles">
 
             <div class="detalles__portada">
@@ -27,7 +44,8 @@
                         href="{{ route('ejemplar.puntuar', ['ejemplar' => $ejemplar, 'puntuacion' => 5]) }}">&#9733;</a>
 
                     @if ($ejemplar->votos === 0)
-                        <p class="puntuacion__p">Puntuación: <span id="puntuacion">{{ $ejemplar->puntuacion }}</span>/5 |
+                        <p class="puntuacion__p">Puntuación: <span id="puntuacion">{{ $ejemplar->puntuacion }}</span>/5
+                            |
                             {{ $ejemplar->votos }} Votos</p>
                     @else
                         <p class="puntuacion__p">Puntuación: <span
@@ -129,8 +147,8 @@
                     @csrf
                     <div>
                         <label for="precio" class="ventana-alquilar__label">Precio</label>
-                        <input type="number" class="ventana-alquilar__input" name="precio" id="precio" value="4.12"
-                            readonly>
+                        <input type="number" class="ventana-alquilar__input" name="precio" id="precio"
+                            value="{{ $ejemplar->precio }}" readonly>
                         <label for="fecha_alquiler" class="ventana-alquilar__label">Fecha de alquiler</label>
                         <input type="date" class="ventana-alquilar__input" name="fecha_alquiler" id="fecha_alquiler"
                             value="{{ date('Y-m-d') }}" disabled>

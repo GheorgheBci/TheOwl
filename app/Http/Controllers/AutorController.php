@@ -76,7 +76,7 @@ class AutorController extends Controller
     public function actualizarApe2Autor(Request $request,  Autor $autor)
     {
         $request->validate([
-            'ape2' => 'string|required|max:20'
+            'ape2' => 'string|nullable|max:20'
         ]);
 
         Autor::where('codAutor', $autor->codAutor)->update([

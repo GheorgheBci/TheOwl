@@ -25,6 +25,10 @@ Route::get('/', function () {
     return view('index');
 })->name('inicio');
 
+Route::get('para', function () {
+    return view('para');
+})->name('para');
+
 Route::get('conocenos', function () {
     return view('conocenos');
 })->name('conocenos');
@@ -35,7 +39,7 @@ Route::get('contacto', function () {
 
 Route::get('membresia', function () {
     return view('auth.membresia');
-})->name('membresia')->middleware('auth', 'verified');
+})->name('membresia');
 
 Route::get('cre', function () {
     return view('ejemplares.create');
@@ -50,16 +54,19 @@ Route::group(['usuario' => 'usuario', 'as' => 'usuario.', 'middleware' => ['auth
     Route::post('actualizarContraseña', [UsuarioController::class, 'cambiarContraseña'])->name('actualizarContraseña');
     Route::get('comprar/{tipo}', [UsuarioController::class, 'socio'])->name('comprar');
     Route::get('baja', [UsuarioController::class, 'bajaSocio'])->name('baja');
-
-    Route::get('usuarios', [UsuarioController::class, 'usuarios'])->name('usuarios');
-    Route::get('eliminar/{usuario}', [UsuarioController::class, 'eliminarCuenta'])->name('eliminar');
-    Route::post('buscarUsuario', [UsuarioController::class, 'buscarUsuario'])->name('buscar');
     Route::get('usuario/mis-libros', [UsuarioController::class, 'showMisLibros'])->name('libros');
     Route::get('libro/{ejemplar}', [UsuarioController::class, 'showLibro'])->name('libro');
-    Route::post('admin/cambiar-rol/{usuario}', [UsuarioController::class, 'cambiarRol'])->name('cambiar');
+    Route::get('add/{ejemplar}', [UsuarioController::class, 'addToWishList'])->name('add');
+    Route::get('remove/{ejemplar}', [UsuarioController::class, 'removeFromWishList'])->name('remove');
+    Route::get('wishlist', [UsuarioController::class, 'wishlist'])->name('wishlist');
+
+    Route::get('usuarios', [UsuarioController::class, 'usuarios'])->middleware('admin')->name('usuarios');
+    Route::get('eliminar/{usuario}', [UsuarioController::class, 'eliminarCuenta'])->middleware('admin')->name('eliminar');
+    Route::post('buscarUsuario', [UsuarioController::class, 'buscarUsuario'])->middleware('admin')->name('buscar');
+    Route::post('admin/cambiar-rol/{usuario}', [UsuarioController::class, 'cambiarRol'])->middleware('admin')->name('cambiar');
 });
 
-Route::group(['rol' => 'rol', 'as' => 'rol.', 'middleware' => ['auth', 'verified']], function () {
+Route::group(['rol' => 'rol', 'as' => 'rol.', 'middleware' => ['auth', 'verified', 'admin']], function () {
     Route::get('admin/roles', [RolController::class, 'roles'])->name('roles');
     Route::post('admin/crear-rol', [RolController::class, 'crearRol'])->name('crear');
 });
@@ -69,17 +76,18 @@ Route::group(['ejemplar' => 'ejemplar', 'as' => 'ejemplar.'], function () {
     Route::get('ejemplar/{ejemplar}', [EjemplarController::class, 'showDetallesEjemplar'])->name('ejemplar');
     Route::get('puntuar/{ejemplar}/{puntuacion}', [EjemplarController::class, 'puntuar'])->middleware('auth', 'verified')->name('puntuar');
     Route::get('ejemplares/ordenar/{tipo}', [EjemplarController::class, 'ordenarEjemplares'])->name('ordenar');
+    Route::get('ejemplares/ordenar-mis-libros/{tipo}', [EjemplarController::class, 'ordenarMisEjemplares'])->name('ordenar-mis-libros');
     Route::post('ejemplar/buscar', [EjemplarController::class, 'buscarEjemplar'])->name('buscar');
     Route::post('alquilar/{ejemplar}', [EjemplarController::class, 'alquilarEjemplar'])->middleware('auth', 'verified')->name('alquilar');
 
-    Route::get('admin/ejemplares', [EjemplarController::class, 'ejemplaresAdmin'])->name('admin-ejemplares');
-    Route::post('admin/ejemplar', [EjemplarController::class, 'buscarEjemplarAdmin'])->name('admin-buscar');
-    Route::get('admin/eliminar/ejemplar/{ejemplar}', [EjemplarController::class, 'eliminarEjemplar'])->name('admin-eliminar');
-    Route::get('admin/editar/ejemplar/{ejemplar}', [EjemplarController::class, 'showEditView'])->name('admin-editar');
-    Route::post('admin/actualizar/ejemplar/{ejemplar}', [EjemplarController::class, 'updateEjemplar'])->name('admin-actualizar');
+    Route::get('admin/ejemplares', [EjemplarController::class, 'ejemplaresAdmin'])->middleware('admin')->name('admin-ejemplares');
+    Route::post('admin/ejemplar', [EjemplarController::class, 'buscarEjemplarAdmin'])->middleware('admin')->name('admin-buscar');
+    Route::get('admin/eliminar/ejemplar/{ejemplar}', [EjemplarController::class, 'eliminarEjemplar'])->middleware('admin')->name('admin-eliminar');
+    Route::get('admin/editar/ejemplar/{ejemplar}', [EjemplarController::class, 'showEditView'])->middleware('admin')->name('admin-editar');
+    Route::post('admin/actualizar/ejemplar/{ejemplar}', [EjemplarController::class, 'updateEjemplar'])->middleware('admin')->name('admin-actualizar');
 });
 
-Route::group(['editorial' => 'editorial', 'as' => 'editorial.', 'middleware' => ['auth', 'verified']], function () {
+Route::group(['editorial' => 'editorial', 'as' => 'editorial.', 'middleware' => ['auth', 'verified', 'admin']], function () {
     Route::get('editoriales', [EditorialController::class, 'editoriales'])->name('editoriales');
     Route::post('admin/editorial/buscar', [EditorialController::class, 'buscarEditorial'])->name('buscar');
     Route::post('admin/editorial/crear', [EditorialController::class, 'crearEditorial'])->name('crear');
@@ -87,7 +95,7 @@ Route::group(['editorial' => 'editorial', 'as' => 'editorial.', 'middleware' => 
     Route::post('admin/actualizar/editorial/{editorial}', [EditorialController::class, 'actualizarEditorial'])->name('actualizar');
 });
 
-Route::group(['coleccion' => 'coleccion', 'as' => 'coleccion.', 'middleware' => ['auth', 'verified']], function () {
+Route::group(['coleccion' => 'coleccion', 'as' => 'coleccion.', 'middleware' => ['auth', 'verified', 'admin']], function () {
     Route::get('colecciones', [ColeccionController::class, 'colecciones'])->name('colecciones');
     Route::post('admin/coleccion/buscar', [ColeccionController::class, 'buscarColeccion'])->name('buscar');
     Route::post('admin/coleccion/crear', [ColeccionController::class, 'crearColeccion'])->name('crear');
@@ -95,7 +103,7 @@ Route::group(['coleccion' => 'coleccion', 'as' => 'coleccion.', 'middleware' => 
     Route::post('admin/actualizar/coleccion/{coleccion}', [ColeccionController::class, 'actualizarColeccion'])->name('actualizar');
 });
 
-Route::group(['autor' => 'autor', 'as' => 'autor.', 'middleware' => ['auth', 'verified']], function () {
+Route::group(['autor' => 'autor', 'as' => 'autor.', 'middleware' => ['auth', 'verified', 'admin']], function () {
     Route::get('autores', [AutorController::class, 'autores'])->name('autores');
     Route::post('admin/autor/buscar', [AutorController::class, 'buscarAutor'])->name('buscar');
     Route::post('admin/autor/crear', [AutorController::class, 'crearAutor'])->name('crear');
@@ -105,12 +113,8 @@ Route::group(['autor' => 'autor', 'as' => 'autor.', 'middleware' => ['auth', 've
     Route::post('admin/actualizar/autor/apellido2/{autor}', [AutorController::class, 'actualizarApe2Autor'])->name('actualizar-ape2');
 });
 
-Route::group(['alquiler' => 'alquiler', 'as' => 'alquiler.', 'middleware' => ['auth', 'verified']], function () {
-    // Route::get('alquileres', [AlquilerController::class, 'alquileres'])->name('alquileres');
-});
-
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('admin/inico', [AdminController::class, 'chartUsuario'])->name('admin');
+Route::get('admin/inico', [AdminController::class, 'chartUsuario'])->middleware(['auth', 'verified', 'admin'])->name('admin');

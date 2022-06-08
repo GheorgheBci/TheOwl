@@ -7,6 +7,7 @@ use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
@@ -15,12 +16,43 @@ class UsuarioController extends Controller
         return view('auth.userAccount');
     }
 
+    public function wishlist()
+    {
+        $array = [];
+
+        $ejemplares = DB::table('wishlist')->where('codUsu', Auth::user()->codUsu)->get('isbn');
+
+        foreach ($ejemplares as $item) {
+            array_push($array, $item->isbn);
+        }
+
+        return view('auth.wishlist', ['milista' => Ejemplar::whereIn('isbn', $array)->get()]);
+    }
+
+    public function addToWishList(Request $request, Ejemplar $ejemplar)
+    {
+        $existe = DB::table('wishlist')->where('codUsu', Auth::user()->codUsu)->where('isbn', $ejemplar->isbn)->first();
+
+        if (empty($existe)) {
+            Auth::user()->addEjemplarWishList()->attach($ejemplar->isbn);
+        }
+
+        return redirect()->route('ejemplar.ejemplar', ['ejemplar' => $ejemplar])->with(['existe' => 'Ya lo tienes añadido']);
+    }
+
+    public function removeFromWishList(Request $request, Ejemplar $ejemplar)
+    {
+        Auth::user()->addEjemplarWishList()->detach($ejemplar->isbn);
+
+        return redirect()->route('usuario.wishlist');
+    }
+
     public function cargarImagenUsuario(Request $request)
     {
         if ($request->hasFile('imagen')) {
 
             $request->validate([
-                'imagen_usuario' => 'image'
+                'imagen' => 'image'
             ]);
 
             $imagen = $request->imagen;
@@ -38,7 +70,7 @@ class UsuarioController extends Controller
         //     ]);
         // }
 
-        return redirect()->route('usuario.userHome');
+        return redirect()->route('usuario.userHome')->with('success-imagen', "¡Imagen actualizada!");
     }
 
     public function actualizarDatosPersonales(Request $request, Usuario $usuario)
@@ -172,7 +204,7 @@ class UsuarioController extends Controller
 
     public function showMisLibros()
     {
-        $misLibros = Auth::user()->ejemplar;
+        $misLibros = Auth::user()->ejemplar()->paginate(9);
         $numero = $misLibros->count();
 
         return view('ejemplares.misLibros', ['misLibros' => $misLibros, "numero" => $numero]);

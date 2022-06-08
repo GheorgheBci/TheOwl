@@ -115,7 +115,8 @@ class EjemplarController extends Controller
             'fecha' => 'date|required',
             'tema' => 'alpha|max:25|required',
             'idioma' => 'alpha|max:25|required',
-            'portada' => 'image|max:255',
+            'precio' => 'required|regex:/^(\d{1,2})[.](\d{1,2})$/',
+            'portada' => 'image',
             'contenido' => 'mimes:pdf',
         ]);
 
@@ -144,6 +145,7 @@ class EjemplarController extends Controller
                 'fecPublicacion' => $request->fecha,
                 'tema' => $request->tema,
                 'idioma' => $request->idioma,
+                'precio' => $request->precio,
                 'image_book' => $imagen->getClientOriginalName(),
                 'contenido' => "../pdf/" . $contenido->getClientOriginalName(),
                 'codEditorial' => $editorial->codEditorial ?? NULL,
@@ -177,6 +179,7 @@ class EjemplarController extends Controller
             'fecha' => 'date|required',
             'tema' => 'alpha|max:25|required',
             'idioma' => 'alpha|max:25|required',
+            'precio' => 'required|regex:/^(\d{1,2})[.](\d{1,2})$/'
         ]);
 
         $editorial =  Editorial::where('codEditorial', $request->editorial)->first();
@@ -221,6 +224,7 @@ class EjemplarController extends Controller
                 'fecPublicacion' => $request->fecha,
                 'tema' => $request->tema,
                 'idioma' => $request->idioma,
+                'precio' => $request->precio,
                 'codEditorial' => $editorial->codEditorial ?? NULL,
                 'codAutor' => $autor->codAutor ?? NULL,
                 'codColeccion' => $coleccion->codColeccion ?? NULL,
@@ -238,6 +242,7 @@ class EjemplarController extends Controller
                 'fecPublicacion' => $request->fecha,
                 'tema' => $request->tema,
                 'idioma' => $request->idioma,
+                'precio' => $request->precio,
                 'codEditorial' => $editorial->codEditorial ?? NULL,
                 'codAutor' => $autor->codAutor ?? NULL,
                 'codColeccion' => $coleccion->codColeccion ?? NULL,
