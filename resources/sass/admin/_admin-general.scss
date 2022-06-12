@@ -17,7 +17,7 @@ $table-font: 'Roboto', sans-serif;
 }
 
 .menu-admin {
-    width: 15%;
+    width: 230px;
     border: 1px solid black;
     background-color: #111924;
     border-radius: 25px;
@@ -26,6 +26,7 @@ $table-font: 'Roboto', sans-serif;
     height: max-content;
     position: absolute;
     visibility: hidden;
+    z-index: 11;
 
     &__span {
         width: 90%;
@@ -83,13 +84,23 @@ $table-font: 'Roboto', sans-serif;
     border-radius: 25px;
 }
 
-.admin__table {
+.admin__table,
+.admin__table--ejemplar,
+.admin__table--usuario,
+.admin__table--editorial,
+.admin__table--coleccion,
+.admin__table--autor {
     border-collapse: collapse;
     margin: 4% auto;
     font-size: 0.8em;
 }
 
-.admin__thead {
+.admin__thead,
+.admin__thead--ejemplar,
+.admin__thead--usuario,
+.admin__thead--editorial,
+.admin__thead--coleccion,
+.admin__thead--autor {
     background-color: #D99255;
     color: white;
     text-align: left;
@@ -101,14 +112,28 @@ $table-font: 'Roboto', sans-serif;
     padding: 12px 15px;
 }
 
-.admin__tbody-tr {
+.admin__td--usuario,
+.admin__td--ejemplar,
+.admin__td--editorial,
+.admin__td--coleccion,
+.admin__td--autor {
+    padding: 12px 15px;
+}
+
+.admin__tbody-tr,
+.admin__tbody-tr--ejemplar,
+.admin__tbody-tr--usuario,
+.admin__tbody-tr--editorial,
+.admin__tbody-tr--coleccion,
+.admin__tbody-tr--autor {
     border-bottom: 1px solid #ddd;
+    border-radius: 10px;
     font-family: $table-font;
 }
 
 .boton-crear__div {
     text-align: right;
-    padding: 2% 2% 0 0;
+    padding: 4% 4% 0px 0;
 }
 
 .boton-crear__icono {
@@ -212,8 +237,9 @@ $table-font: 'Roboto', sans-serif;
 
 .ventana-crear__rol,
 .ventana-crear__editorial,
-.ventana-crear__coleccion {
-    width: 27%;
+.ventana-crear__coleccion,
+.ventana-crear__autor {
+    width: 90%;
     font-family: $table-font;
 }
 
@@ -231,14 +257,13 @@ $table-font: 'Roboto', sans-serif;
 }
 
 .ventana-crear__editorial-label,
-.ventana-crear__colecciom-label,
-.ventana-crear__autor-label {
+.ventana-crear__colecciom-label {
     width: 63px;
     margin-bottom: 5%;
 }
 
 .ventana-crear__autor-label {
-    width: 125px;
+    width: 141px;
     margin-bottom: 5%;
 }
 
@@ -330,12 +355,20 @@ $table-font: 'Roboto', sans-serif;
 }
 
 .admin__editorial-input,
-.admin__coleccion-input,
+.admin__coleccion-input {
+    background-color: #fbfbfb;
+    width: 100px;
+    height: 22px;
+    border-radius: 5px;
+    border: 1px solid #D99255;
+    padding-left: 3.5%;
+}
+
 .admin__autor-input,
 .admin__autor-ape1-input,
 .admin__autor-ape2-input {
     background-color: #fbfbfb;
-    width: 200px;
+    width: 73px;
     height: 22px;
     border-radius: 5px;
     border: 1px solid #D99255;

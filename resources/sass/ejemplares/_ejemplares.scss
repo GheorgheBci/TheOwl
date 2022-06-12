@@ -22,6 +22,20 @@
             color: red
         }
     }
+
+    &__iconos {
+        text-align: right;
+        font-size: 2em;
+        margin: 2% 0;
+    }
+
+    &__carrito {
+        color: black;
+
+        &:hover {
+            color: #D99255;
+        }
+    }
 }
 
 .fondo {
@@ -36,10 +50,11 @@
     align-items: center;
     justify-content: center;
     visibility: hidden;
+    overflow-y: auto;
 }
 
 .ventana-alquilar {
-    width: 40%;
+    width: 90%;
     border: 1px solid #EFD2AE;
     background-color: #EFD2AE;
     border-radius: 5px;
@@ -74,13 +89,13 @@
 
     &__label {
         display: inline-block;
-        width: 225px;
+        width: 56%;
         margin-bottom: 4%;
     }
 
     &__input {
         background-color: #fbfbfb;
-        width: 25%;
+        width: 37%;
         height: 31px;
         border-radius: 5px;
         border: 1px solid #D99255;
@@ -122,11 +137,11 @@
 }
 
 .detalles {
-    display: flex;
 
     &__portada {
-        width: 28%;
         height: 300px;
+
+        margin-bottom: 51%;
     }
 
     &__img {
@@ -136,15 +151,11 @@
     }
 
     &__separador {
-        border-right: 1px solid black;
-        height: 445px;
-        margin-left: 10%;
-        margin-bottom: 1%;
+        visibility: hidden;
     }
 
     &__texto {
-        margin-left: 10%;
-        width: 50%;
+        margin-bottom: 10%;
     }
 }
 
@@ -180,9 +191,18 @@
         color: gray;
     }
 
+    &__media {
+        visibility: hidden;
+    }
+
     &__p {
-        margin-left: 5%;
-        line-height: 47px;
+        margin-left: 2%;
+        line-height: 44px;
+    }
+
+    &__p--precio {
+        margin-left: 10%;
+        line-height: 44px;
     }
 }
 
@@ -203,7 +223,7 @@
         background-color: #D99255;
         color: white;
         width: 49%;
-        padding: 3%;
+        padding: 2%;
         border-radius: 3px;
         border: 1px solid #D99255;
         display: inline-block;
@@ -214,7 +234,6 @@
             background-color: #b0590e;
             border: 1px solid #b0590e;
         }
-
     }
 }
 
@@ -268,23 +287,24 @@
 }
 
 .ordenar__ul {
-    width: 8%;
+    width: 120px;
     border: 1px solid #e5d3bc;
     background-color: #e5d3bc;
-    border-radius: 9px;
+    border-radius: 0 0 9px 9px;
     overflow: hidden;
     text-align: center;
     height: max-content;
     position: absolute;
     visibility: hidden;
+    z-index: 2;
 }
 
 .ordenar__p {
-    padding: 10px;
+    padding: 10px 15px;
     cursor: pointer;
 
     &:hover {
-        border-radius: 5px;
+        border-radius: 5px 5px 0 0;
         background-color: #e5d3bc;
     }
 }
@@ -480,6 +500,7 @@
     background-color: #D99255;
     color: white;
     width: 13%;
+    // height: 42px;
     padding: 1%;
     border-radius: 3px;
     border: 1px solid #D99255;

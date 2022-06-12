@@ -5,23 +5,36 @@
 @section('content')
 
     <div class="ejemplar">
+        <h1 class="ejemplar__titulo">{{ $ejemplar->nomEjemplar }}</h1>
 
-        <h1 class="ejemplar__titulo">{{ $ejemplar->nomEjemplar }}
+        <p class="ejemplar__iconos">
+            @auth
+                @if (DB::table('wishlist')->where('codUsu', Auth::user()->codUsu)->where('isbn', $ejemplar->isbn)->first())
+                    <a href="#" class="ejemplar__corazon-rojo"><i class="fas fa-heart"></i></a>
+                    <a href="{{ route('carrito', $ejemplar) }}" class="ejemplar__carrito"><i
+                            class="fa-solid fa-cart-arrow-down"></i></a>
+                @else
+                    <a href="{{ route('usuario.add', $ejemplar) }}" class="ejemplar__corazon-negro"><i
+                            class="fas fa-heart"></i></a>
+                    <a href="{{ route('carrito', $ejemplar) }}" class="ejemplar__carrito"><i
+                            class="fa-solid fa-cart-arrow-down"></i></a>
+                @endif
+            @endauth
 
-            @if (DB::table('wishlist')->where('codUsu', Auth::user()->codUsu)->where('isbn', $ejemplar->isbn)->first())
-                <a href="#" class="ejemplar__corazon-rojo"><i class="fas fa-heart"></i></a>
-            @else
+            @guest
                 <a href="{{ route('usuario.add', $ejemplar) }}" class="ejemplar__corazon-negro"><i
                         class="fas fa-heart"></i></a>
-            @endif
-        </h1>
+                <a href="{{ route('carrito', $ejemplar) }}" class="ejemplar__carrito"><i
+                        class="fa-solid fa-cart-arrow-down"></i></a>
 
+            @endguest
+        </p>
 
-        @if (session('existe'))
+        @if (session('exito'))
             <div class="mensaje">
                 <div class="mensaje__div">
                     <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
-                    <h2 class="mensaje__h2">{{ session('existe') }}</h2>
+                    <h2 class="mensaje__h2">{{ session('exito') }}</h2>
                 </div>
             </div>
         @endif
@@ -44,14 +57,15 @@
                         href="{{ route('ejemplar.puntuar', ['ejemplar' => $ejemplar, 'puntuacion' => 5]) }}">&#9733;</a>
 
                     @if ($ejemplar->votos === 0)
-                        <p class="puntuacion__p">Puntuación: <span id="puntuacion">{{ $ejemplar->puntuacion }}</span>/5
-                            |
-                            {{ $ejemplar->votos }} Votos</p>
+                        <p class="puntuacion__p">({{ $ejemplar->votos }})</p>
+                        <p class="puntuacion__p--precio">{{ $ejemplar->precio }}$</p>
                     @else
-                        <p class="puntuacion__p">Puntuación: <span
-                                id="puntuacion">{{ round($ejemplar->puntuacion / $ejemplar->votos) }}</span>/5 |
-                            {{ $ejemplar->votos }} {{ trans_choice('mensajes.votos', $ejemplar->votos) }}</p>
+                        <p class="puntuacion__p">({{ $ejemplar->votos }})</p>
+                        <p class="puntuacion__p--precio">{{ $ejemplar->precio }}$</p>
+                        <span id="puntuacion"
+                            class="puntuacion__media">{{ round($ejemplar->puntuacion / $ejemplar->votos) }}</span>
                     @endif
+
                     <audio id="sonido-puntuar" src="{{ asset('sound/511484__mlaudio__success-bell.wav') }}"></audio>
                 </div>
                 <div class="botones">

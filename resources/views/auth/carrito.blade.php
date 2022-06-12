@@ -6,7 +6,7 @@
 
     <h1 class="carrito__titulo">Mi Carrito ({{ $cantidad }})</h1>
 
-    @if (count($eje) === 0)
+    @if (count($ejemplar) === 0)
         <div class="carrito__nada">
             <p>No tienes nada en el carrito</p>
             <a href="{{ route('ejemplar.ejemplares') }}" class="carrito__enlace">Añadir</a>
@@ -21,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($eje as $item)
+                    @foreach ($ejemplar as $item)
                         <tr class="carrito__tbody-tr">
                             <td class="carrito__ejemplar">
                                 <div class="carrito__portada">

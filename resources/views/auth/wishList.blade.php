@@ -15,7 +15,6 @@
             <table class="wishlist__tabla">
                 <thead class="wishlist__tabla-thead">
                     <tr>
-                        <th class="wishlist__tabla-th"></th>
                         <th class="wishlist__tabla-th">Portada</th>
                         <th class="wishlist__tabla-th">Producto</th>
                         <th class="wishlist__tabla-th">Precio</th>
@@ -24,19 +23,26 @@
                 <tbody>
                     @foreach ($milista as $item)
                         <tr class="wishlist__tabla-tr">
-                            <td class="wishlist__tabla-td"><a href="{{ route('usuario.remove', $item) }}"><i
-                                        class="fa-solid fa-trash wishlist__quitar"></i></a></td>
-                            <td class="wishlist__tabla-td">
+
+                            <td class="wishlist__tabla-td whishlist__tabla-td--block">
                                 <div>
                                     <img src="{{ asset('book/' . $item->image_book) }}" alt="portada"
                                         class="wishlist__portada-libro">
                                 </div>
                             </td>
-                            <td class="wishlist__tabla-td">
+                            <td class="wishlist__tabla-td whishlist__tabla-td--block">
                                 {{ $item->nomEjemplar }}
                             </td>
-                            <td class="wishlist__tabla-td">{{ $item->precio }}$</td>
-                            <td class="wishlist__tabla-td">Añadir al carro</td>
+                            <td class="wishlist__tabla-td whishlist__tabla-td--block">{{ $item->precio }}$</td>
+                            <td class="wishlist__tabla-td wishlist__tabla-td--inline">
+                                <a href="{{ route('usuario.remove', $item) }}"><i
+                                        class="fa-solid fa-trash wishlist__iconos"></i></a>
+
+                            </td>
+                            <td class="wishlist__tabla-td wishlist__tabla-td--inline">
+                                <a href="{{ route('carrito', $item) }}"><i
+                                        class="fa-solid fa-cart-arrow-down wishlist__iconos"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

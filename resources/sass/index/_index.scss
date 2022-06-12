@@ -2,7 +2,7 @@
 
 [class^='inicio__div'] {
     min-height: 600px;
-    background-position: center;
+    background-position: center top;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -12,16 +12,14 @@
 }
 
 .inicio__bienvenido {
-    position: absolute;
-    left: 25%;
-    top: 50%;
-    width: 50vw;
     text-align: center;
     background-color: #111;
-    border-radius: 25px;
+    border-radius: 25px 25px 0 0;
     color: #fff;
     padding: 18px;
-    font-size: 4vw;
+    font-size: 7vw;
+    display: flex;
+    justify-content: center;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -41,6 +39,15 @@
 .inicio__a {
     color: #ddd;
     text-decoration: none;
+    background-color: #111;
+    padding: 18px;
+    border-radius: 25px;
+    font-size: 7vw;
+    transition: .3s ease color;
+}
+
+.inicio__a--shadow {
+    box-shadow: 9px 9px 5px 4px rgb(0 0 0 / 42%);
 }
 
 .inicio__video {
@@ -51,41 +58,19 @@
 }
 
 .inicio__registro {
-    position: absolute;
-    left: 40%;
-    top: 176%;
-    width: 18vw;
-    border-radius: 25px;
-    text-align: center;
-    background-color: #111;
-    color: #fff;
-    padding: 18px;
-    font-size: 2vw;
-    transition: .3s ease all;
-
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
 }
 
-.inicio__registro:hover {
+.inicio__a:hover {
     background-color: rgb(227, 222, 222);
     color: black;
 }
 
 .inicio__membresia {
-    position: absolute;
-    left: 69%;
-    top: 17%;
-    width: 17%;
-    text-align: center;
-    background-color: #111;
-    color: #fff;
-    padding: 18px;
-    font-size: 25px;
-    border-radius: 25px;
-    box-shadow: 9px 9px 5px 4px rgb(0 0 0 / 42%);
-    transition: .3s ease all;
-}
-
-.inicio__membresia:hover {
-    background-color: rgb(227, 222, 222);
-    color: black;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 100px;
+    padding-right: 50px;
 }

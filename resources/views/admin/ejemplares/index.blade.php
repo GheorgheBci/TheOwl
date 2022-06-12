@@ -104,68 +104,71 @@
         @enderror
     </div>
 
-    <table class="admin__table">
-        <thead class="admin__thead">
-            <th class="admin__th">#</th>
-            <th class="admin__th">Nombre</th>
-            <th class="admin__th">Fecha Publicación</th>
-            <th class="admin__th">Tema</th>
-            <th class="admin__th">Idioma</th>
-            <th class="admin__th">Precio</th>
-            <th class="admin__th">Portada</th>
-            <th class="admin__th">Puntuación</th>
-            <th class="admin__th">Votos</th>
-            <th class="admin__th">Contenido</th>
-            <th class="admin__th">Editorial</th>
-            <th class="admin__th">Autor</th>
-            <th class="admin__th">Coleccion</th>
+    <table class="admin__table--ejemplar">
+        <thead class="admin__thead--ejemplar ">
+            <tr class="admin__thead-tr--ejemplar">
+                <th class="admin__th">#</th>
+                <th class="admin__th">Nombre</th>
+                <th class="admin__th">Fecha Publicación</th>
+                <th class="admin__th">Tema</th>
+                <th class="admin__th">Idioma</th>
+                <th class="admin__th">Precio</th>
+                <th class="admin__th">Portada</th>
+                <th class="admin__th">Puntuación</th>
+                <th class="admin__th">Votos</th>
+                <th class="admin__th">Contenido</th>
+                <th class="admin__th">Editorial</th>
+                <th class="admin__th">Autor</th>
+                <th class="admin__th">Coleccion</th>
+            </tr>
         </thead>
         <tbody>
             @foreach ($ejemplares as $item)
-                <tr class="admin__tbody-tr">
-                    <td class="admin__td">{{ $item->isbn }}</td>
-                    <td class="admin__td">{{ $item->nomEjemplar }}</td>
-                    <td class="admin__td">{{ $item->fecPublicacion }}</td>
-                    <td class="admin__td">{{ $item->tema }}</td>
-                    <td class="admin__td">{{ $item->idioma }}</td>
-                    <td class="admin__td">{{ $item->precio }}</td>
-                    <td class="admin__td">
+                <tr class="admin__tbody-tr--ejemplar">
+                    <td class="admin__td--ejemplar" data-datos="ISBN">{{ $item->isbn }}</td>
+                    <td class="admin__td--ejemplar" data-datos="Nombre">{{ $item->nomEjemplar }}</td>
+                    <td class="admin__td--ejemplar" data-datos="Fec. Publicación">{{ $item->fecPublicacion }}</td>
+                    <td class="admin__td--ejemplar" data-datos="Tema">{{ $item->tema }}</td>
+                    <td class="admin__td--ejemplar" data-datos="Idioma">{{ $item->idioma }}</td>
+                    <td class="admin__td--ejemplar" data-datos="Precio">{{ $item->precio }}</td>
+                    <td class="admin__td--ejemplar" data-datos="Portada">
                         <div><img src="{{ asset('book/' . $item->image_book) }}" alt="portada"
                                 class="admin__ejemplar-portada"></div>
                     </td>
-                    <td class="admin__td">{{ $item->puntuacion }}</td>
-                    <td class="admin__td">{{ $item->votos }}</td>
-                    <td class="admin__td">
+                    <td class="admin__td--ejemplar" data-datos="Puntuación">{{ $item->puntuacion }}</td>
+                    <td class="admin__td--ejemplar" data-datos="Votos">{{ $item->votos }}</td>
+                    <td class="admin__td--ejemplar" data-datos="Contenido">
                         <div class="admin__contenido-ejemplar--ellipsis">
                             {{ $item->contenido }}</div>
                     </td>
 
                     @if ($item->codEditorial === null)
-                        <td class="admin__td">NULL</td>
+                        <td class="admin__td--ejemplar" data-datos="Editorial">NULL</td>
                     @else
                         @foreach ($item->editorial() as $edit)
-                            <td class="admin__td">{{ $edit->nomEditorial }}</td>
+                            <td class="admin__td--ejemplar" data-datos="Editorial">{{ $edit->nomEditorial }}</td>
                         @endforeach
                     @endif
 
                     @if ($item->codAutor === null)
-                        <td class="admin__td">Anónimo</td>
+                        <td class="admin__td--ejemplar" data-datos="Autor">Anónimo</td>
                     @else
                         @foreach ($item->autor() as $aut)
-                            <td class="admin__td">{{ $aut->nomAutor }} {{ $aut->ape1Autor }}
+                            <td class="admin__td--ejemplar" data-datos="Autor">{{ $aut->nomAutor }}
+                                {{ $aut->ape1Autor }}
                                 {{ $aut->ape2Autor }}</td>
                         @endforeach
                     @endif
 
                     @if ($item->codColeccion === null)
-                        <td class="admin__td">NULL</td>
+                        <td class="admin__td--ejemplar" data-datos="Colección">NULL</td>
                     @else
                         @foreach ($item->coleccion() as $colecc)
-                            <td class="admin__td">{{ $colecc->nomColeccion }}</td>
+                            <td class="admin__td--ejemplar" data-datos="Colección">{{ $colecc->nomColeccion }}</td>
                         @endforeach
                     @endif
 
-                    <td><a href="{{ route('ejemplar.admin-editar', $item) }}"><i
+                    <td class="admin__td"><a href="{{ route('ejemplar.admin-editar', $item) }}"><i
                                 class="fa-solid fa-pen-to-square admin__boton"></i></a></td>
                     <td class="admin__td"><a href="{{ route('ejemplar.admin-eliminar', $item) }}"
                             class="btn btn-dark"><i class="fa-solid fa-trash admin__boton"></i></a></td>

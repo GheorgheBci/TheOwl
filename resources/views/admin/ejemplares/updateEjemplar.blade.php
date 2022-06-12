@@ -4,8 +4,9 @@
 
 @section('content')
     <div class="editar-ejemplar">
-        <h1 class="editar-ejemplar__h1">Actualizar el ejemplar {{ $ejemplar->nomEjemplar }}</h1>
-        <form action="{{ route('ejemplar.admin-actualizar', $ejemplar) }}" method="post" enctype="multipart/form-data">
+        <h1 class="editar-ejemplar__h1">{{ $ejemplar->nomEjemplar }}</h1>
+        <form action="{{ route('ejemplar.admin-actualizar', $ejemplar) }}" class="editar-ejemplar__form" method="post"
+            enctype="multipart/form-data">
             @csrf
             <div>
                 <div>

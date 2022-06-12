@@ -26,28 +26,31 @@
         </div>
     @endif
 
-    <table class="admin__table">
-        <thead class="admin__thead">
-            <th class="admin__th">#</th>
-            <th class="admin__th">Nombre Completo</th>
-            <th class="admin__th">Fecha de Nacimiento</th>
-            <th class="admin__th">Email</th>
-            <th class="admin__th">Rol</th>
-            <th class="admin__th">Fecha verificación</th>
-            <th class="admin__th">Fecha Inicio Socio</th>
-            <th class="admin__th">Fecha Fin Socio</th>
-            <th class="admin__th">Baja</th>
+    <table class="admin__table--usuario">
+        <thead class="admin__thead--usuario">
+            <tr class="admin__thead-tr--usuario">
+                <th class="admin__th">#</th>
+                <th class="admin__th">Nombre Completo</th>
+                <th class="admin__th">Fecha de Nacimiento</th>
+                <th class="admin__th">Email</th>
+                <th class="admin__th">Rol</th>
+                <th class="admin__th">Fecha verificación</th>
+                <th class="admin__th">Fecha Inicio Socio</th>
+                <th class="admin__th">Fecha Fin Socio</th>
+                <th class="admin__th">Baja</th>
+            </tr>
         </thead>
         <tbody>
             @foreach ($usuarios as $item)
-                <tr class="admin__tbody-tr">
-                    <td class="admin__td">{{ $item->codUsu }}</td>
-                    <td class="admin__td">{{ $item->nombre }} {{ $item->apellido1 }} {{ $item->apellido2 }}
+                <tr class="admin__tbody-tr--usuario">
+                    <td class="admin__td--usuario" data-datos="codigo">{{ $item->codUsu }}</td>
+                    <td class="admin__td--usuario" data-datos="nombre">{{ $item->nombre }} {{ $item->apellido1 }}
+                        {{ $item->apellido2 }}
                     </td>
-                    <td class="admin__td">{{ $item->fecNacimiento }}</td>
-                    <td class="admin__td">{{ $item->email }}</td>
+                    <td class="admin__td--usuario" data-datos="fecha Naci.">{{ $item->fecNacimiento }}</td>
+                    <td class="admin__td--usuario" data-datos="email">{{ $item->email }}</td>
                     @foreach ($item->rol() as $items)
-                        <td class="admin__td">
+                        <td class="admin__td--usuario" data-datos="rol">
                             <form action="{{ route('usuario.cambiar', $item) }}" method="post">
                                 @csrf
                                 <span class="admin-usuario__rol">{{ $items->rol }}</span>
@@ -61,29 +64,27 @@
                     @endforeach
 
                     @if ($item->email_verified_at === null)
-                        <td class="
-                        admin__td">NULL</td>
+                        <td class="admin__td--usuario" data-datos="verificado">NULL</td>
                     @else
-                        <td class="admin__td">{{ $item->email_verified_at }}</td>
+                        <td class="admin__td--usuario" data-datos="verificado">{{ $item->email_verified_at }}</td>
                     @endif
 
                     @if ($item->fec_ini_socio === null)
-                        <td class="
-                        admin__td">NULL</td>
+                        <td class="admin__td--usuario" data-datos="fecha inicio">NULL</td>
                     @else
-                        <td class="admin__td">{{ $item->fec_ini_socio }}</td>
+                        <td class="admin__td--usuario" data-datos="fecha inicio">{{ $item->fec_ini_socio }}</td>
                     @endif
 
                     @if ($item->fec_fin_socio === null)
-                        <td class="admin__td">NULL</td>
+                        <td class="admin__td--usuario" data-datos="fecha fin">NULL</td>
                     @else
-                        <td class="admin__td">{{ $item->fec_fin_socio }}</td>
+                        <td class="admin__td--usuario" data-datos="fecha fin">{{ $item->fec_fin_socio }}</td>
                     @endif
 
                     @if ($item->baja == 0)
-                        <td class="admin__td">No</td>
+                        <td class="admin__td--usuario" data-datos="baja">No</td>
                     @else
-                        <td class="admin__td">Si</td>
+                        <td class="admin__td--usuario" data-datos="baja">Si</td>
                     @endif
                     <td class="admin__td"><a href="{{ route('usuario.eliminar', $item->codUsu) }}"
                             class="btn btn-dark"><i class="fa-solid fa-trash admin__boton"></i></a></td>

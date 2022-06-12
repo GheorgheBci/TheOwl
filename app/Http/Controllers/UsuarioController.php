@@ -13,7 +13,10 @@ class UsuarioController extends Controller
 {
     public function homeUser()
     {
-        return view('auth.userAccount');
+        $alquileres = DB::table('detalle_alquiler')->where('codUsu', Auth::user()->codUsu)->get();
+
+
+        return view('auth.userAccount', ['alquileres' => $alquileres]);
     }
 
     public function wishlist()
@@ -37,7 +40,7 @@ class UsuarioController extends Controller
             Auth::user()->addEjemplarWishList()->attach($ejemplar->isbn);
         }
 
-        return redirect()->route('ejemplar.ejemplar', ['ejemplar' => $ejemplar])->with(['existe' => 'Ya lo tienes añadido']);
+        return redirect()->route('ejemplar.ejemplar', ['ejemplar' => $ejemplar])->with(['exito' => 'Ejemplar añadido a la wishlist']);
     }
 
     public function removeFromWishList(Request $request, Ejemplar $ejemplar)

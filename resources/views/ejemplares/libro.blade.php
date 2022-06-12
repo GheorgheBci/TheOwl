@@ -22,17 +22,12 @@
     <div class="menu__div--sticky">
         <div class="menu__botones">
             <input type="hidden" id="url" value="{{ $ejemplar->contenido }}">
-            <button id="anterior-pagina" title="Anterior" class="menu__boton"><i
-                    class="fa-solid fa-arrow-left"></i></button>
-            <button id="siguiente-pagina" title="Siguiente" class="menu__boton"><i
-                    class="fa-solid fa-arrow-right"></i></button>
-            <button id="acercar" title="Acercar" class="menu__boton"><i
-                    class="fa-solid fa-magnifying-glass-plus"></i></button>
-            <button id="alejar" title="Alejar" class="menu__boton"><i
-                    class="fa-solid fa-magnifying-glass-minus"></i></button>
+            <button id="anterior-pagina" title="Anterior" class="menu__boton"><i class="fa-solid fa-arrow-left"></i></button>
+            <button id="siguiente-pagina" title="Siguiente" class="menu__boton"><i class="fa-solid fa-arrow-right"></i></button>
+            <button id="acercar" title="Acercar" class="menu__boton"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+            <button id="alejar" title="Alejar" class="menu__boton"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
             <button id="default" title="Reset Zoom" class="menu__boton">100%</button>
-            <button id="cambiar-color-fondo" title="Modo Oscuro" class="menu__boton"><i id="ico"
-                    class="fa-solid fa-moon"></i></button>
+            <button id="cambiar-color-fondo" title="Modo Oscuro" class="menu__boton"><i id="ico" class="fa-solid fa-moon"></i></button>
         </div>
 
         <div class="menu__pagina">

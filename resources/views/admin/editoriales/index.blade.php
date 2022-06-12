@@ -37,17 +37,19 @@
         </div>
     @endif
 
-    <table class="admin__table">
-        <thead class="admin__thead">
-            <th class="admin__th">#</th>
-            <th class="admin__th">Nombre</th>
+    <table class="admin__table--editorial">
+        <thead class="admin__thead--editorial">
+            <tr>
+                <th class="admin__th">#</th>
+                <th class="admin__th">Nombre</th>
+            </tr>
         </thead>
         <tbody>
             @foreach ($editoriales as $item)
-                <tr class="admin__tbody-tr">
-                    <td class="admin__td">{{ $item->codEditorial }}</td>
-                    <td class="admin__td">
-                        <form action="{{ route('editorial.actualizar', $item) }}" method="post">
+                <tr class="admin__tbody-tr--editorial">
+                    <td class="admin__td--editorial" data-datos="Código">{{ $item->codEditorial }}</td>
+                    <td class="admin__td--editorial" data-datos="Nombre">
+                        <form action="{{ route('editorial.actualizar', $item) }}" class="ss" method="post">
                             @csrf
                             <span class="admin-editorial__nombre">{{ $item->nomEditorial }}</span>
                             <input type="text" class="admin__editorial-input" name="editorial"
@@ -75,7 +77,8 @@
                 <div>
                     <div>
                         <label for="editorial" class="ventana-crear__label ventana-crear__editorial-label">Nombre</label>
-                        <input type="text" class="ventana-crear__input ventana-crear__editorial-input" name="editorial" required>
+                        <input type="text" class="ventana-crear__input ventana-crear__editorial-input" name="editorial"
+                            required>
                     </div>
                 </div>
 

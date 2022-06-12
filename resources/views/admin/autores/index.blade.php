@@ -55,18 +55,20 @@
         </div>
     @endif
 
-    <table class="admin__table">
-        <thead class="admin__thead">
-            <th class="admin__th">#</th>
-            <th class="admin__th">Nombre</th>
-            <th class="admin__th">Primer apellido</th>
-            <th class="admin__th">Segundo apellido</th>
+    <table class="admin__table--autor">
+        <thead class="admin__thead--autor">
+            <tr class="admin__thead-tr--autor">
+                <th class="admin__th">#</th>
+                <th class="admin__th">Nombre</th>
+                <th class="admin__th">Primer apellido</th>
+                <th class="admin__th">Segundo apellido</th>
+            </tr>
         </thead>
         <tbody>
             @foreach ($autores as $item)
-                <tr class="admin__tbody-tr">
-                    <td class="admin__td">{{ $item->codAutor }}</td>
-                    <td class="admin__td">
+                <tr class="admin__tbody-tr--autor">
+                    <td class="admin__td--autor" data-datos="Código">{{ $item->codAutor }}</td>
+                    <td class="admin__td--autor" data-datos="Nombre">
                         <form action="{{ route('autor.actualizar-nombre', $item) }}" method="post">
                             @csrf
                             <span class="admin-autor__nombre">{{ $item->nomAutor }}</span>
@@ -77,7 +79,7 @@
                                     class="fas fa-times"></i></button>
                         </form>
                     </td>
-                    <td class="admin__td">
+                    <td class="admin__td--autor" data-datos="Primer Apellido">
                         <form action="{{ route('autor.actualizar-ape1', $item) }}" method="post">
                             @csrf
                             <span class="admin-autor__ape1">{{ $item->ape1Autor }}</span>
@@ -89,7 +91,7 @@
                                     class="fas fa-times"></i></button>
                         </form>
                     </td>
-                    <td class="admin__td">
+                    <td class="admin__td--autor" data-datos="Segundo Apellido">
                         <form action="{{ route('autor.actualizar-ape2', $item) }}" method="post">
                             @csrf
                             <span class="admin-autor__ape2">{{ $item->ape2Autor }}</span>

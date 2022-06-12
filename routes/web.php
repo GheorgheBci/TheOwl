@@ -8,6 +8,7 @@ use App\Http\Controllers\EditorialController;
 use App\Http\Controllers\ColeccionController;
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\AlquilerController;
+use App\Http\Controllers\CarritoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -116,5 +117,9 @@ Route::group(['autor' => 'autor', 'as' => 'autor.', 'middleware' => ['auth', 've
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('carrito/{ejemplar}', [CarritoController::class, 'addToCarrito'])->name('carrito');
+Route::get('carrito', [CarritoController::class, 'showCarrito'])->name('show');
+Route::get('borrar/{id}', [CarritoController::class, 'removeFromCarrito'])->name('borrar');
+Route::get('alquilar', [CarritoController::class, 'alquilarCarrito'])->name('alquilar');
 
 Route::get('admin/inico', [AdminController::class, 'chartUsuario'])->middleware(['auth', 'verified', 'admin'])->name('admin');

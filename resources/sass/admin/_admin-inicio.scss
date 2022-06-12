@@ -1,8 +1,5 @@
-.detalles {
+.admin-inicio {
     padding: 10px 11px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
 
     &__h2 {
         font-family: $title-font;
@@ -11,17 +8,18 @@
     }
 
     &__grafica {
-        border: 1px solid rgba(83, 83, 83, 0.73);
+        border: 1px solid rgb(239, 232, 232);
+        background-color: rgb(239, 232, 232);
         border-radius: 10px;
         padding: 17px;
-        width: 45%;
         box-shadow: 14px 11px 7px -7px rgba(0, 0, 0, 0.73);
+        margin-bottom: 35px;
     }
 
     &__alquileres {
-        width: 50%;
         height: max-content;
-        border: 1px solid rgba(83, 83, 83, 0.73);
+        border: 1px solid rgb(239, 232, 232);
+        background-color: rgb(239, 232, 232);
         border-radius: 10px;
         padding: 17px;
         box-shadow: 14px 11px 7px -7px rgba(0, 0, 0, 0.73);

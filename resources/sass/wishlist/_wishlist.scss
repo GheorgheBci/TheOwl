@@ -10,17 +10,17 @@
     }
 
     &__titulo {
-        font-size: 5em;
+        font-size: 3em;
     }
 
     &__portada-libro {
-        width: 58%;
+        width: 88.38px;
         height: 118px;
     }
 
     &__tabla {
         border-collapse: collapse;
-        margin: 3% 0;
+        margin: 3% 0 10% 0;
     }
 
     &__tabla-thead {
@@ -34,13 +34,14 @@
 
     &__tabla-th,
     &__tabla-td {
-        padding: 12px 70px;
+        padding: 12px 4vw;
     }
 
-    &__quitar {
-        font-size: 3em;
+    &__iconos {
+        font-size: 2em;
         color: black;
         transition: .3s ease color;
+        padding-left: 2%;
 
         &:hover {
             color: #D99255;
@@ -48,17 +49,17 @@
     }
 
     &__nada {
-        font-size: 2em;
+        font-size: 1em;
         margin-top: 3%;
         color: rgb(170, 157, 157);
     }
 
     &__enlace {
         font-size: 2em;
-        text-decoration: none;
         color: rgb(170, 157, 157);
+        margin-bottom: 5%;
 
-        &:hover{
+        &:hover {
             color: rgb(99, 93, 93);
         }
     }

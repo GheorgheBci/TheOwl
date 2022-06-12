@@ -6,6 +6,85 @@
     }
 }
 
+@media screen and(min-width: 425px) {
+
+    // Admin crear 
+    .ventana-crear__rol,
+    .ventana-crear__editorial,
+    .ventana-crear__coleccion,
+    .ventana-crear__autor {
+        width: 382px;
+    }
+
+    .ventana-crear__autor-label {
+        width: 170px;
+    }
+
+    // Admin Ejemplar
+    .editar-ejemplar__form {
+        width: 385px;
+        margin: auto;
+    }
+
+    // Admin crear
+    .boton-crear__div {
+        padding: 2% 2% 0 0;
+    }
+
+    // Carrito
+    .carrito__nada {
+        font-size: 2em;
+    }
+
+    .carrito {
+        width: 388px;
+    }
+
+    // Detalles del ejemplar
+    .detalles {
+        width: 350px;
+        margin: auto;
+    }
+
+    // WishList
+    .wishlist {
+        width: 389px;
+        margin: 4% auto;
+
+        &__titulo {
+            font-size: 4em;
+        }
+
+        &__nada {
+            font-size: 2em;
+        }
+    }
+}
+
+@media screen and(min-width: 472px) {
+
+    // Admin Ejemplar
+    .ventana-crear__ejemplar {
+        width: 457px;
+    }
+}
+
+@media screen and (min-width:480px) {
+
+    // Index
+    .inicio__a {
+        font-size: 34px;
+    }
+}
+
+@media screen and(min-width:524px) {
+
+    // Detalles del ejemplar
+    .ventana-alquilar {
+        width: 471px;
+    }
+}
+
 @media screen and (min-width: 504px) {
 
     //ejemplares
@@ -14,11 +93,48 @@
     }
 }
 
+@media screen and (max-width: 527px) {
+
+    // Perfil
+    .usuario__td {
+        padding: 12px 0px;
+    }
+
+    .usuario__thead-tr {
+        width: 205px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+    }
+
+    .usuario__thead {
+        display: none;
+    }
+
+    .usuario__td[data-datos] {
+        display: flex;
+    }
+
+    .usuario__td[data-datos]::before {
+        content: attr(data-datos);
+        width: 120px;
+        color: #D99255;
+        font-weight: bold;
+    }
+}
+
 @media screen and (min-width: 548px) {
 
     // Perfil
     .usuario {
+        width: 471px;
+        margin: 30px auto;
+    }
+
+    .menu-usuario {
         width: 502px;
+        margin: auto;
     }
 
     // Login
@@ -55,6 +171,103 @@
 
     .reset__button {
         font-size: 16px;
+    }
+}
+
+@media screen and (max-width:599px) {
+
+    // Admin Index
+    .admin-inicio__alquileres {
+        overflow-x: auto;
+    }
+}
+
+@media screen and (min-width:600px) {
+
+    // Admin Index
+    .admin-inicio__grafica {
+        width: 558px;
+        margin: auto;
+        margin-bottom: 35px;
+    }
+
+    .admin-inicio__alquileres {
+        width: 558px;
+        margin: auto;
+    }
+}
+
+@media screen and(max-width: 630px) {
+
+    // Admin Editorial y Colección
+    .admin__table--editorial {
+        width: 74%;
+    }
+
+    .admin__table--coleccion {
+        width: 74%;
+    }
+
+    .admin__td--editorial {
+        padding: 12px 0px;
+    }
+
+    .admin__td--coleccion {
+        padding: 12px 0px;
+    }
+
+    .admin__thead-tr--editorial,
+    .admin__tbody-tr--editorial {
+        width: 286px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #c4c2c2;
+        background-color: #EFE8E8;
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+
+    .admin__thead-tr--coleccion,
+    .admin__tbody-tr--coleccion {
+        width: 286px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #c4c2c2;
+        background-color: #EFE8E8;
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+
+    .admin__thead--editorial {
+        display: none;
+    }
+
+    .admin__thead--coleccion {
+        display: none;
+    }
+
+    .admin__td--editorial[data-datos] {
+        display: flex;
+    }
+
+    .admin__td--coleccion[data-datos] {
+        display: flex;
+    }
+
+    .admin__td--editorial[data-datos]::before {
+        content: attr(data-datos);
+        width: 95px;
+        color: #D99255;
+        font-weight: bold;
+    }
+
+    .admin__td--coleccion[data-datos]::before {
+        content: attr(data-datos);
+        width: 95px;
+        color: #D99255;
+        font-weight: bold;
     }
 }
 
@@ -106,7 +319,115 @@
     }
 }
 
+@media screen and(max-width: 750px) {
+
+    // Admin Autor
+    .admin__table--autor {
+        width: 74%;
+    }
+
+    .admin__td--autor {
+        padding: 12px 0px;
+    }
+
+    .admin__thead-tr--autor,
+    .admin__tbody-tr--autor {
+        width: 286px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #c4c2c2;
+        background-color: #EFE8E8;
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+
+    .admin__thead--autor {
+        display: none;
+    }
+
+    .admin__td--autor[data-datos] {
+        display: flex;
+    }
+
+    .admin__td--autor[data-datos]::before {
+        content: attr(data-datos);
+        width: 135px;
+        color: #D99255;
+        font-weight: bold;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+
+    // Carrito
+    .carrito__thead {
+        display: none;
+    }
+
+    .carrito__td {
+        display: block;
+        text-align: center;
+    }
+
+    // WishList
+    .wishlist__tabla-td--inline {
+        display: inline-block;
+    }
+
+    .wishlist__tabla-thead {
+        display: none;
+    }
+
+    .whishlist__tabla-td--block {
+        display: block;
+        text-align: center;
+    }
+}
+
 @media screen and(min-width: 768px) {
+
+    // Carrito
+    .carrito__portada {
+        width: 44%;
+        height: 191px;
+        margin-right: 5%;
+    }
+
+    .precio {
+        visibility: hidden;
+    }
+
+    // Detalles del ejemplar
+    .detalles {
+        display: flex;
+        width: 100%;
+
+        &__portada {
+            width: 40%;
+            margin-bottom: 2%;
+        }
+
+        &__separador {
+            border-right: 1px solid black;
+            height: 445px;
+            margin-left: 10%;
+            margin-bottom: 1%;
+
+            visibility: visible;
+        }
+
+        &__texto {
+            margin-left: 10%;
+            width: 50%;
+        }
+    }
+
+    // Index
+    .inicio__bienvenido {
+        font-size: 53px;
+    }
 
     // Verificación
     .verify__boton {
@@ -171,16 +492,21 @@
         gap: 10%;
     }
 
-    .menu {
-        border: 1px solid black;
-        border-radius: 25px;
-        background-color: gray;
-        height: 500px;
-        margin-left: 10%;
-        position: relative;
-        visibility: visible;
-        z-index: 2;
+    .menu-usuario {
+        width: 244px;
+        margin: 34px 14px;
     }
+
+    // .menu {
+    //     border: 1px solid black;
+    //     border-radius: 25px;
+    //     background-color: gray;
+    //     height: 500px;
+    //     margin-left: 10%;
+    //     position: relative;
+    //     visibility: visible;
+    //     z-index: 2;
+    // }
 
     .usuario {
         width: 100%;
@@ -329,7 +655,64 @@
     }
 }
 
+@media screen and(max-width: 1024px) {
+
+    // Admin usuario
+    .buscador__input {
+        font-size: 11px;
+    }
+
+    // Admin tablas
+    .admin__table--usuario {
+        width: 74%;
+    }
+
+    .admin__td--usuario {
+        padding: 12px 0px;
+    }
+
+    .admin__thead-tr--usuario,
+    .admin__tbody-tr--usuario {
+        width: 286px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #c4c2c2;
+        background-color: #EFE8E8;
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+
+    .admin__thead--usuario {
+        display: none;
+    }
+
+    .admin__td--usuario[data-datos] {
+        display: flex;
+    }
+
+    .admin__td--usuario[data-datos]::before {
+        content: attr(data-datos);
+        width: 95px;
+        color: #D99255;
+        font-weight: bold;
+    }
+}
+
+
+
 @media screen and (min-width: 1024px) {
+
+    //carrito
+    .carrito {
+        width: 92%;
+        display: flex;
+        align-items: baseline;
+    }
+
+    .carrito__alquilar {
+        width: 280px;
+    }
 
     //ejemplares
     .ejemplares {
@@ -354,11 +737,64 @@
     }
 }
 
+@media screen and (min-width:1234px) {
+
+    // Admin Index
+    .admin-inicio {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .admin-inicio__grafica {
+        margin: 0;
+    }
+
+    .admin-inicio__alquileres {
+        margin: 0;
+        overflow: hidden;
+    }
+}
+
 @media screen and (min-width: 1154px) {
 
     // Estilos generales
     .header__a {
         padding: .5em 2em;
+    }
+}
+
+@media screen and(max-width: 1274px) {
+
+    // // Admin tablas ejemplar
+    .admin__table--ejemplar {
+        width: 74%;
+    }
+
+    .admin__thead-tr--ejemplar,
+    .admin__tbody-tr--ejemplar {
+        width: 286px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #c4c2c2;
+        background-color: #EFE8E8;
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+
+    .admin__thead--ejemplar {
+        display: none;
+    }
+
+    .admin__td--ejemplar[data-datos] {
+        display: flex;
+    }
+
+    .admin__td--ejemplar[data-datos]::before {
+        content: attr(data-datos);
+        width: 125px;
+        color: #D99255;
+        font-weight: bold;
     }
 }
 

@@ -25,8 +25,8 @@
     </div>
 
     <div class="inicio__div" style="background-image: url({{ asset('img/books-g777c04f23_1920.jpg') }})">
-        <div>
-            <span><a href="{{ route('register') }}" data-aos="zoom-in" class="inicio__a inicio__registro">R e g i s t r a
+        <div data-aos="zoom-in" class="inicio__registro">
+            <span><a href="{{ route('register') }}" class="inicio__a ">R e g i s t r a
                     t
                     e</a></span>
         </div>
@@ -38,10 +38,8 @@
 
     <div class="inicio__div inicio__div--relative">
         <video src="{{ asset('video/Student - 73007.mp4') }}" class="inicio__video" autoplay muted loop></video>
-        <div>
-            <span><a href="{{ route('membresia') }}" data-aos="fade-left" class="inicio__a inicio__membresia">M e m b r e
-                    s i
-                    a</a></span>
+        <div data-aos="fade-left" class="inicio__membresia">
+            <span><a href="{{ route('membresia') }}" class="inicio__a inicio__a--shadow">M e m b r e s i a</a></span>
         </div>
     </div>
 

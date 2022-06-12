@@ -14,9 +14,9 @@ class CarritoController extends Controller
     {
         \Cart::session(Auth::user()->codUsu);
 
-        $eje = \Cart::getContent();
+        $ejemplares = \Cart::getContent();
 
-        if (count($eje) === 0) {
+        if (count($ejemplares) === 0) {
 
             \Cart::session(Auth::user()->codUsu)->add(array(
                 'id' => $ejemplar->isbn,
@@ -34,9 +34,9 @@ class CarritoController extends Controller
             return back()->with(['exito' => 'Ejemplar añadido al carrito']);
         }
 
-        foreach ($eje as $ejem) {
+        foreach ($ejemplares as $libro) {
 
-            if ($ejemplar->isbn !== $ejem->id) {
+            if ($ejemplar->isbn !== $libro->id) {
                 \Cart::session(Auth::user()->codUsu)->add(array(
                     'id' => $ejemplar->isbn,
                     'name' => $ejemplar->nomEjemplar,
@@ -61,15 +61,13 @@ class CarritoController extends Controller
     {
         \Cart::session(Auth::user()->codUsu);
 
-        $eje = \Cart::getContent();
+        $ejemplar = \Cart::getContent();
 
         $total = \Cart::getTotal();
 
         $cantidad = \Cart::getTotalQuantity();
 
-        // dd($eje);
-
-        return view('auth.carrito', ['eje' => $eje, 'total' => $total, 'cantidad' => $cantidad]);
+        return view('auth.carrito', ['ejemplar' => $ejemplar, 'total' => $total, 'cantidad' => $cantidad]);
     }
 
     public function removeFromCarrito(Request $request, $id)
@@ -109,8 +107,5 @@ class CarritoController extends Controller
         }
 
         return redirect()->route('show');
-
-
-        // dd($ejemplares);
     }
 }

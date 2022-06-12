@@ -37,16 +37,18 @@
         </div>
     @endif
 
-    <table class="admin__table">
-        <thead class="admin__thead">
-            <th class="admin__th">#</th>
-            <th class="admin__th">Nombre</th>
+    <table class="admin__table--coleccion">
+        <thead class="admin__thead--coleccion">
+            <tr class="admin__thead-tr--coleccion">
+                <th class="admin__th">#</th>
+                <th class="admin__th">Nombre</th>
+            </tr>
         </thead>
         <tbody>
             @foreach ($colecciones as $item)
-                <tr class="admin__tbody-tr">
-                    <td class="admin__td">{{ $item->codColeccion }}</td>
-                    <td class="admin__td">
+                <tr class="admin__tbody-tr--coleccion">
+                    <td class="admin__td--coleccion" data-datos="Código">{{ $item->codColeccion }}</td>
+                    <td class="admin__td--coleccion" data-datos="Nombre">
                         <form action="{{ route('coleccion.actualizar', $item) }}" method="post">
                             @csrf
                             <span class="admin-coleccion__nombre">{{ $item->nomColeccion }}</span>
@@ -75,7 +77,8 @@
                 <div>
                     <div>
                         <label for="coleccion" class="ventana-crear__label ventana-crear__colecciom-label">Nombre</label>
-                        <input type="text" class="ventana-crear__input ventana-crear__coleccion-input" name="coleccion" required>
+                        <input type="text" class="ventana-crear__input ventana-crear__coleccion-input" name="coleccion"
+                            required>
                     </div>
                 </div>
 

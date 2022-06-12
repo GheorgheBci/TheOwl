@@ -6,17 +6,14 @@
     <div class="perfil">
 
         <div class="menu-usuario" id="menu">
-            <span class="menu-usuario__span">
-                <i class="fas fa-times menu-usuario__icono"></i>
-            </span>
 
             <ul>
                 <li class="menu-usuario__li"><a href="{{ route('usuario.libros') }}" class="menu-usuario__a">Mis libros</a>
                 </li>
-                <li class="menu-usuario__li"><a href="#" class="menu-usuario__a">Alquileres realizados</a>
-                </li>
-                <li class="menu-usuario__li"><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();" class="menu-usuario__a">
+                <li class="menu-usuario__li"><a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                                                                                                                                                                             document.getElementById('logout-form').submit();"
+                        class="menu-usuario__a">
                         Cerrar Sesión
                     </a>
 
@@ -218,6 +215,36 @@
                 <p>Actualmente no eres socio</p>
                 <a href="{{ route('membresia') }}" class="usuario__a">Hacerte socio</a>
                 @endif
+            </div>
+
+            <div class="usuario__alquileres">
+                <h3 class="usuario__h3">Tus alquileres</h3>
+                <table class="usuario__table">
+                    <thead class="usuario__thead">
+                        <tr class="usuario__thead-tr">
+                            <th class="usuario__th">Ejemplar</th>
+                            <th class="usuario__th">Fecha de Alquiler</th>
+                            <th class="usuario__th">Fecha de Devolución</th>
+                            <th class="usuario__th">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($alquileres as $item)
+                            <tr class="usuario__tbody-tr">
+                                <td class="usuario__td" data-datos="Ejemplar">
+                                    @foreach (Auth::user()->ejemplar as $items)
+                                        @if ($item->isbn === $items->isbn)
+                                            {{ $items->nomEjemplar }}
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td class="usuario__td" data-datos="F. Alquiler">{{ $item->fecAlquiler }}</td>
+                                <td class="usuario__td" data-datos="F. Devolución">{{ $item->fecDevolucion }}</td>
+                                <td class="usuario__td" data-datos="Precio">{{ $item->precioAlquiler }}$</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
 
         </div>

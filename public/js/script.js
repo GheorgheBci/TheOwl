@@ -3,15 +3,16 @@
 let activo = false,
     puntuacion = document.querySelector('#puntuacion');
 
-if ($('#mostrar-ordenar')) {
+const ordenar = document.getElementById('mostrar-ordenar');
 
-    $('#mostrar-ordenar').click(function () {
+if (ordenar) {
+    ordenar.addEventListener('click', function () {
 
         if (!activo) {
-            $('#opciones-ordenar').css('visibility', "visible");
+            document.getElementById('opciones-ordenar').style.visibility = "visible";
             activo = true;
         } else {
-            $('#opciones-ordenar').css('visibility', "hidden");
+            document.getElementById('opciones-ordenar').style.visibility = "hidden";
             activo = false;
         }
     });

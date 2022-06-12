@@ -45,7 +45,7 @@ class EjemplarController extends Controller
         $ejemplar = Ejemplar::where('isbn', $request->ejemplar)->first();
 
         if (!empty($ejemplar)) {
-            return view('admin.ejemplares.ejemplar', ['ejemplar' => $ejemplar]);
+            return view('admin.ejemplares.ejemplar', ['ejemplar' => $ejemplar, 'editorial' => Editorial::all(), 'autor' => Autor::all(), 'coleccion' => Coleccion::all()]);
         }
 
         return redirect()->route('ejemplar.admin-ejemplares')->with(['error' => 'El ejemplar con ISBN ' . $request->ejemplar . ' no existe']);
