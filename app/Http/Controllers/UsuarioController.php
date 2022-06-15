@@ -40,14 +40,14 @@ class UsuarioController extends Controller
             Auth::user()->addEjemplarWishList()->attach($ejemplar->isbn);
         }
 
-        return redirect()->route('ejemplar.ejemplar', ['ejemplar' => $ejemplar])->with(['exito' => 'Ejemplar añadido a la wishlist']);
+        return redirect()->route('ejemplar.ejemplar', ['ejemplar' => $ejemplar]);
     }
 
     public function removeFromWishList(Request $request, Ejemplar $ejemplar)
     {
         Auth::user()->addEjemplarWishList()->detach($ejemplar->isbn);
 
-        return redirect()->route('usuario.wishlist');
+        return redirect()->route('usuario.wishlist')->with(['success' => 'Ejemplar eliminado de tu WishList']);
     }
 
     public function cargarImagenUsuario(Request $request)
@@ -121,25 +121,29 @@ class UsuarioController extends Controller
     {
         date_default_timezone_set('Europe/Madrid');
 
-        switch ($request->tipo) {
-            case "1":
-                $date_future = date("Y-m-d", strtotime('+30 day', strtotime(date("Y-m-d"))));
-                break;
-            case "6":
-                $date_future = date("Y-m-d", strtotime('+180 day', strtotime(date("Y-m-d"))));
-                break;
-            case "12":
-                $date_future = date("Y-m-d", strtotime('+365 day', strtotime(date("Y-m-d"))));
-                break;
+        if (Auth::user()->idRol !== 2) {
+            switch ($request->tipo) {
+                case "1":
+                    $date_future = date("Y-m-d", strtotime('+30 day', strtotime(date("Y-m-d"))));
+                    break;
+                case "6":
+                    $date_future = date("Y-m-d", strtotime('+180 day', strtotime(date("Y-m-d"))));
+                    break;
+                case "12":
+                    $date_future = date("Y-m-d", strtotime('+365 day', strtotime(date("Y-m-d"))));
+                    break;
+            }
+
+            Usuario::where('codUsu', Auth::user()->codUsu)->update([
+                'idRol' => 2,
+                'fec_ini_socio' => date("Y-m-d"),
+                'fec_fin_socio' => $date_future,
+            ]);
+
+            return redirect()->route('membresia')->with('success', "¡Felicidades, ya eres socio!");
         }
 
-        Usuario::where('codUsu', Auth::user()->codUsu)->update([
-            'idRol' => 2,
-            'fec_ini_socio' => date("Y-m-d"),
-            'fec_fin_socio' => $date_future,
-        ]);
-
-        return redirect()->route('membresia')->with('success', "¡Felicidades, ya eres socio!");
+        return redirect()->route('membresia')->with('error', "Ya tienes una membresia activa");
     }
 
     public function bajaSocio()

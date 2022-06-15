@@ -19,6 +19,7 @@
 .conocenos__p {
     padding-top: 5%;
     text-align: justify;
+    font-family: 'Titillium Web', sans-serif;
 
     &--padding {
         padding: 5%;
@@ -29,9 +30,14 @@
     }
 }
 
+.conocenos__titulo {
+    font-family: 'Titillium Web', sans-serif;
+}
+
 .conocenos__subtitulo {
     text-align: center;
     margin-top: 2%;
+    font-family: 'Titillium Web', sans-serif;
 
     &--color {
         color: white;

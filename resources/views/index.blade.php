@@ -3,14 +3,6 @@
 @section('titulo', 'Home')
 
 @section('content')
-    @if (session('login'))
-        <div class="mensaje">
-            <div class="mensaje__div">
-                <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
-                <h2 class="mensaje__h2">{{ session('login') }}</h2>
-            </div>
-        </div>
-    @endif
 
     <div class="inicio__div" style="background-image: url({{ asset('img/book-g80cc94351_1920.jpg') }})">
 
@@ -25,10 +17,8 @@
     </div>
 
     <div class="inicio__div" style="background-image: url({{ asset('img/books-g777c04f23_1920.jpg') }})">
-        <div data-aos="zoom-in" class="inicio__registro">
-            <span><a href="{{ route('register') }}" class="inicio__a ">R e g i s t r a
-                    t
-                    e</a></span>
+        <div data-aos="zoom-in" data-aos-offset="300" data-aos-easing="ease-in-sine" class="inicio__registro">
+            <span><a href="{{ route('register') }}" class="inicio__a ">R E G I S T R A T E</a></span>
         </div>
     </div>
 
@@ -38,8 +28,8 @@
 
     <div class="inicio__div inicio__div--relative">
         <video src="{{ asset('video/Student - 73007.mp4') }}" class="inicio__video" autoplay muted loop></video>
-        <div data-aos="fade-left" class="inicio__membresia">
-            <span><a href="{{ route('membresia') }}" class="inicio__a inicio__a--shadow">M e m b r e s i a</a></span>
+        <div data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" class="inicio__membresia">
+            <span><a href="{{ route('membresia') }}" class="inicio__a inicio__a--shadow">M E M B R E S I A</a></span>
         </div>
     </div>
 

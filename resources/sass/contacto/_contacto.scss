@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Open+Sans&family=Roboto:wght@100;300;400&family=Space+Mono&family=Titillium+Web:wght@400;600&display=swap');
+
 .contacto__div {
     text-align: center;
     background-color: #D99255;
@@ -5,11 +7,19 @@
     color: white;
 }
 
+.contacto__titulo {
+    font-family: 'Titillium Web', sans-serif;
+}
+
 .contacto__titulo--padding {
     padding: 5%;
 }
 
 .formulario {
+
+    &__label {
+        font-family: 'Titillium Web', sans-serif;
+    }
 
     &__div {
         width: 85%;
@@ -29,6 +39,7 @@
         border: 1px solid #D99255;
         margin: 2% 0 5% 0;
         padding-left: 3.5%;
+        font-family: 'Space Mono', monospace;
     }
 
     &__input:focus {
@@ -44,6 +55,7 @@
         border: 1px solid #D99255;
         margin: 2% 0 5% 0;
         padding: 3.8% 0 0 3.5%;
+        font-family: 'Space Mono', monospace;
         resize: none;
     }
 
@@ -53,6 +65,7 @@
     }
 
     &__button {
+        font-family: 'Titillium Web', sans-serif;
         padding: 2% 5%;
         margin: 3% 0 5% 0;
         background-color: #D99255;
@@ -73,6 +86,10 @@
         color: red;
     }
 
+    &__p {
+        font-family: 'Titillium Web', sans-serif;
+    }
+
     &__p--color {
         color: red;
     }
@@ -81,5 +98,6 @@
         font-size: 1em;
         padding-bottom: 8.5%;
         color: #0e0e0e;
+        font-family: 'Titillium Web', sans-serif;
     }
 }

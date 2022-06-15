@@ -6,6 +6,12 @@
 
     <h1 class="carrito__titulo">Mi Carrito ({{ $cantidad }})</h1>
 
+    @if (session('success'))
+        <div class="mensaje__exito mensaje__exito--center">
+            <strong>{{ session('success') }}</strong>
+        </div>
+    @endif
+
     @if (count($ejemplar) === 0)
         <div class="carrito__nada">
             <p>No tienes nada en el carrito</p>
@@ -46,6 +52,15 @@
             <div class="carrito__alquilar">
                 <p><strong>Total:</strong> {{ $total }}$</p>
                 <a href="{{ route('alquilar') }}" class="carrito__boton">Alquilar</a>
+            </div>
+
+        </div>
+    @endif
+    @if (session('alquilado'))
+        <div class="mensaje">
+            <div class="mensaje__div mensaje__div--success">
+                <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
+                <h2 class="mensaje__h2">{{ session('alquilado') }}</h2>
             </div>
         </div>
     @endif

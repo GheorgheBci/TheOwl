@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Open+Sans&family=Roboto:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Open+Sans&family=Roboto:wght@100;300;400&family=Titillium+Web:wght@400;600&display=swap');
 
 [class^='inicio__div'] {
     min-height: 600px;
@@ -20,7 +20,7 @@
     font-size: 7vw;
     display: flex;
     justify-content: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .inicio__texto {
@@ -34,6 +34,7 @@
 .inicio__p {
     text-align: center;
     font-size: 20px;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .inicio__a {
@@ -43,6 +44,7 @@
     padding: 18px;
     border-radius: 25px;
     font-size: 7vw;
+    font-family: 'Titillium Web', sans-serif;
     transition: .3s ease color;
 }
 

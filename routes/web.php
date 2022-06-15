@@ -79,6 +79,7 @@ Route::group(['ejemplar' => 'ejemplar', 'as' => 'ejemplar.'], function () {
     Route::get('ejemplares/ordenar/{tipo}', [EjemplarController::class, 'ordenarEjemplares'])->name('ordenar');
     Route::get('ejemplares/ordenar-mis-libros/{tipo}', [EjemplarController::class, 'ordenarMisEjemplares'])->name('ordenar-mis-libros');
     Route::post('ejemplar/buscar', [EjemplarController::class, 'buscarEjemplar'])->name('buscar');
+    Route::post('usuario/mis-libros/buscar', [EjemplarController::class, 'buscarMiEjemplar'])->name('buscar-mis-libros');
     Route::post('alquilar/{ejemplar}', [EjemplarController::class, 'alquilarEjemplar'])->middleware('auth', 'verified')->name('alquilar');
 
     Route::get('admin/ejemplares', [EjemplarController::class, 'ejemplaresAdmin'])->middleware('admin')->name('admin-ejemplares');

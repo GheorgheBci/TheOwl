@@ -2,10 +2,19 @@
     width: 90%;
     margin: auto;
 
+    &__resultado {
+        font-family: 'Titillium Web', sans-serif;
+        margin-left: 2%;
+        font-size: 1.4em;
+        color: #393333;
+        text-transform: uppercase;
+    }
+
     &__titulo {
         text-align: center;
         margin-bottom: 4%;
         padding-top: 2%;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__corazon-rojo {
@@ -80,7 +89,10 @@
     &__h3 {
         text-align: center;
         margin: 2% 0 5% 0;
-        font-size: 30px;
+        font-size: 1.5em;
+        color: #313b3b;
+        font-family: 'Titillium Web', sans-serif;
+
     }
 
     &__form--width {
@@ -91,6 +103,7 @@
         display: inline-block;
         width: 56%;
         margin-bottom: 4%;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__input {
@@ -102,6 +115,7 @@
         margin: 1% 0 1% 0;
         padding-left: 3.5%;
         font-size: 12px;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__div--flex {
@@ -117,6 +131,7 @@
         color: white;
         height: 30px;
         margin-top: 4%;
+        font-family: 'Titillium Web', sans-serif;
         cursor: pointer;
         transition: .3s ease all;
 
@@ -162,11 +177,16 @@
 .texto__subtitulo {
     border-bottom: 1px dotted black;
     padding-bottom: 1%;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .texto__table {
     list-style: none;
     margin-bottom: 4%;
+}
+
+.texto__td {
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .texto__td--width {
@@ -198,11 +218,13 @@
     &__p {
         margin-left: 2%;
         line-height: 44px;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__p--precio {
         margin-left: 10%;
         line-height: 44px;
+        font-family: 'Titillium Web', sans-serif;
     }
 }
 
@@ -221,6 +243,7 @@
     &__a {
         text-decoration: none;
         background-color: #D99255;
+        font-family: 'Titillium Web', sans-serif;
         color: white;
         width: 49%;
         padding: 2%;
@@ -257,6 +280,7 @@
         padding-left: 45px;
         border-radius: 5px;
 
+
         &:hover,
         &:focus {
             outline: none;
@@ -266,6 +290,10 @@
 
     &__icono {
         position: absolute;
+        background-color: #2b303b;
+        border-color: #2b303b;
+        cursor: pointer;
+        border-radius: 5px;
         top: 50%;
         margin-left: 17px;
         margin-top: 17px;
@@ -275,14 +303,15 @@
 }
 
 .filtro {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid #898785;
+    border-bottom: 1px solid #898785;
     margin-bottom: 5%;
     display: flex;
     justify-content: space-evenly;
 
     &__p {
         padding: 10px;
+        font-family: 'Titillium Web', sans-serif;
     }
 }
 
@@ -302,6 +331,7 @@
 .ordenar__p {
     padding: 10px 15px;
     cursor: pointer;
+    font-family: 'Titillium Web', sans-serif;
 
     &:hover {
         border-radius: 5px 5px 0 0;
@@ -314,6 +344,8 @@
     color: black;
     display: block;
     padding: 4% 4%;
+    font-family: 'Titillium Web', sans-serif;
+
 
     &:hover {
         background-color: white;
@@ -328,7 +360,26 @@
 .ejemplares {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin-bottom: 5%;
+
+    &__alquileres-nada {
+        text-align: center;
+        font-family: 'Titillium Web', sans-serif;
+        color: #9c9995;
+        font-size: 1em;
+    }
+
+    &__alquileres-enlace {
+        font-size: 1.3em;
+        color: rgb(170, 157, 157);
+        font-family: "Titillium Web", sans-serif;
+
+        &:hover {
+            color: rgb(99, 93, 93);
+        }
+    }
 }
 
 .libro {
@@ -379,6 +430,7 @@
     &__a {
         text-decoration: none;
         color: black;
+        font-family: 'Titillium Web', sans-serif;
 
         &:hover {
             color: blue;
@@ -523,6 +575,7 @@
     border: 1px solid #D99255;
     text-align: center;
     background-color: white;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .libro__pdf {

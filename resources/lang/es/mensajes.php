@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'votos' => '{1} Voto|{2,*} Votos'
+    'ejemplar' => '{1} Ejemplar|{2,*} Ejemplares'
 ];

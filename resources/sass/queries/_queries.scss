@@ -8,6 +8,15 @@
 
 @media screen and(min-width: 425px) {
 
+    // Perfil
+    .ejemplares__alquileres-nada {
+        font-size: 1.5em;
+    }
+
+    .usuario__perfil {
+        width: 113.94px;
+    }
+
     // Admin crear 
     .ventana-crear__rol,
     .ventana-crear__editorial,
@@ -56,7 +65,7 @@
         }
 
         &__nada {
-            font-size: 2em;
+            font-size: 1.5em;
         }
     }
 }
@@ -410,7 +419,7 @@
         }
 
         &__separador {
-            border-right: 1px solid black;
+            border-right: 1px solid #898785;
             height: 445px;
             margin-left: 10%;
             margin-bottom: 1%;
@@ -480,13 +489,44 @@
 @media screen and (min-width: 861px) {
 
     // Perfil
+    .usuario__alquileres-nada {
+        font-size: 1.2em;
+    }
+
+    .usuario__change {
+        display: none;
+    }
+
+    .usuario__perfil:hover .usuario__imagen-label {
+        visibility: visible;
+    }
+
+    .usuario__imagen-span {
+        color: black;
+    }
+
+    .usuario__imagen-label {
+        width: 100%;
+        height: 157px;
+        border-radius: 4px;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        margin-bottom: 3%;
+        opacity: 0.5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        visibility: hidden;
+    }
+
     .usuario__perfil {
+        width: 141.47px;
         height: 159px;
     }
 
     .perfil {
-        /* margin-bottom: 7%; */
-
         display: grid;
         grid-template-columns: 25% 62%;
         gap: 10%;
@@ -496,17 +536,6 @@
         width: 244px;
         margin: 34px 14px;
     }
-
-    // .menu {
-    //     border: 1px solid black;
-    //     border-radius: 25px;
-    //     background-color: gray;
-    //     height: 500px;
-    //     margin-left: 10%;
-    //     position: relative;
-    //     visibility: visible;
-    //     z-index: 2;
-    // }
 
     .usuario {
         width: 100%;
@@ -523,6 +552,7 @@
 
     .usuario__input {
         height: 45px;
+        font-size: 1vw;
     }
 
     .usuario__boton {

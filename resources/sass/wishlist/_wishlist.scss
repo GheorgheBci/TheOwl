@@ -11,6 +11,7 @@
 
     &__titulo {
         font-size: 3em;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__portada-libro {
@@ -35,6 +36,7 @@
     &__tabla-th,
     &__tabla-td {
         padding: 12px 4vw;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__iconos {
@@ -52,12 +54,14 @@
         font-size: 1em;
         margin-top: 3%;
         color: rgb(170, 157, 157);
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__enlace {
         font-size: 2em;
         color: rgb(170, 157, 157);
         margin-bottom: 5%;
+        font-family: 'Titillium Web', sans-serif;
 
         &:hover {
             color: rgb(99, 93, 93);

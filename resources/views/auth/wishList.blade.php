@@ -7,6 +7,23 @@
     <div class="wishlist">
         <i class="fas fa-heart wishlist__corazon"></i>
         <h1 class="wishlist__titulo">My WishList</h1>
+        @if (session('success'))
+            <div class="mensaje__exito mensaje__exito--center">
+                <strong>{{ session('success') }}</strong>
+            </div>
+        @endif
+
+        @if (session('carrito'))
+            <div class="mensaje__exito mensaje__exito--center">
+                <strong>{{ session('carrito') }}</strong>
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="mensaje__error mensaje__error--center">
+                <strong>{{ session('error') }}</strong>
+            </div>
+        @endif
 
         @if (count($milista) === 0)
             <p class="wishlist__nada">No tienes nada en tu WishList </p>
@@ -40,13 +57,14 @@
 
                             </td>
                             <td class="wishlist__tabla-td wishlist__tabla-td--inline">
-                                <a href="{{ route('carrito', $item) }}"><i
+                                <a href="{{ route('carrito', $item) }}" class="carri"><i
                                         class="fa-solid fa-cart-arrow-down wishlist__iconos"></i></a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
         @endif
     </div>
 

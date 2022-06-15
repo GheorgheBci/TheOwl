@@ -6,17 +6,23 @@
 
     <div class="buscador">
         <div class="buscador__div">
-            <form action="{{ route('ejemplar.buscar') }}" method="post">
+            <form action="{{ route('ejemplar.buscar-mis-libros') }}" method="post">
                 @csrf
-                <span class="buscador__icono"><i class="fa fa-search"></i></span>
+                <button class="buscador__icono"><i class="fa fa-search"></i></button>
                 <input type="search" class="buscador__input" name="ejemplar" placeholder="Busca un ejemplar..." />
             </form>
         </div>
     </div>
 
+    @if (session('error'))
+        <div class="mensaje__error mensaje__error--center">
+            <strong>{{ session('error') }}</strong>
+        </div>
+    @endif
+
     <div class="filtro">
 
-        <p class="filtro__p">{{ $numero }} ejemplares</p>
+        <p class="filtro__p">{{ $numero }} {{ trans_choice('mensajes.ejemplar', $numero) }}</p>
 
         <div id="mostrar-ordenar" class="ordenar">
             <p class="ordenar__p">Ordenar por...</p>
@@ -44,29 +50,41 @@
 
     </div>
 
+    @isset($resultado)
+        <h2 class="ejemplar__resultado">Resultado: {{ $resultado }}</h2>
+    @endisset
+
     <div class="ejemplares">
-        @foreach ($misLibros as $item)
-            <div class="libro">
-                <ul class="libro__paginas">
-                    <li class="libro__portada libro__li">
-                        <img src="{{ asset('book/' . $item->image_book) }}" alt="portada" class="libro__img">
-                    </li>
-                    <li class="libro__contratapa libro__li"></li>
-                    <li class="libro__pagina libro__li">
-                    </li>
-                    <li class="libro__pagina libro__li">
-                    </li>
-                    <li class="libro__pagina libro__li">
-                    </li>
-                    <li class="libro__pagina libro__enlace libro__li">
-                        <a href="{{ route('usuario.libro', $item) }}" class="libro__a">Leer</a>
-                    </li>
-                    <li class="libro__pagina libro__li">
-                    </li>
-                    <li class="libro__contraportada"></li>
-                </ul>
+        @if (count($misLibros) !== 0)
+            @foreach ($misLibros as $item)
+                <div class="libro">
+                    <ul class="libro__paginas">
+                        <li class="libro__portada libro__li">
+                            <img src="{{ asset('book/' . $item->image_book) }}" alt="portada" class="libro__img">
+                        </li>
+                        <li class="libro__contratapa libro__li"></li>
+                        <li class="libro__pagina libro__li">
+                        </li>
+                        <li class="libro__pagina libro__li">
+                        </li>
+                        <li class="libro__pagina libro__li">
+                        </li>
+                        <li class="libro__pagina libro__enlace libro__li">
+                            <a href="{{ route('usuario.libro', $item) }}" class="libro__a">Leer</a>
+                        </li>
+                        <li class="libro__pagina libro__li">
+                        </li>
+                        <li class="libro__contraportada"></li>
+                    </ul>
+                </div>
+            @endforeach
+        @else
+            <div class="ejemplares__alquileres-nada">
+                <p>No tienes alquilado ningún ejemplar</p>
+                <a href="{{ route('ejemplar.ejemplares') }}" class="ejemplares__alquileres-enlace">Añadir</a>
             </div>
-        @endforeach
+        @endif
+
     </div>
 
     {{ $misLibros->links() }}

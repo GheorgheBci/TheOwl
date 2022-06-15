@@ -1,5 +1,10 @@
 .membresia {
-    padding: 5%;
+    padding: 0 5% 2% 5%;
+
+    &__titulo {
+        text-align: center;
+        font-family: 'Titillium Web', sans-serif;
+    }
 
     &__div {
         width: 80%;
@@ -16,10 +21,12 @@
 
     &__precio {
         font-size: 25px;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__tiempo {
         font-size: 17px;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__a {
@@ -30,6 +37,7 @@
         width: 44%;
         padding: 3%;
         border-radius: 3px;
+        font-family: 'Titillium Web', sans-serif;
         margin-top: 5%;
         border: 1px solid #D99255;
         transition: .3s ease all;

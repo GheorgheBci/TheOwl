@@ -12,19 +12,31 @@ $mensajes-font: 'DM Sans', sans-serif;
 
     &__div {
         width: 50%;
-        border: 1px solid #5cd62c;
         position: absolute;
         top: 50%;
-        left: 26%;
+        left: 27%;
         background-color: white;
         border-radius: 5px;
         text-align: center;
+    }
+
+    &__div--success {
         background-color: #DFF0D8;
+        border: 1px solid #5cd62c;
+        color: #0F5133;
+        font-family: $mensajes-font;
+    }
+
+    &__div--error {
+        background-color: #f0d8d8;
+        border: 1px solid #e49290;
+        color: #aa6161;
+        font-family: $mensajes-font;
     }
 
     &__h2 {
         padding-bottom: 1%;
-        color: #0F5133;
+        font-size: 1.5em;
     }
 
     &__cerrar {
@@ -73,6 +85,13 @@ $mensajes-font: 'DM Sans', sans-serif;
 .mensaje__exito {
     color: rgb(43, 169, 43);
     font-family: $mensajes-font;
+}
+
+.mensaje__exito-perfil {
+    color: rgb(43, 169, 43);
+    font-family: $mensajes-font;
+    display: inline-block;
+    margin: 0 0 10px 14px;
 }
 
 .mensaje__exito--center,

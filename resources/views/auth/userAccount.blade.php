@@ -11,8 +11,7 @@
                 <li class="menu-usuario__li"><a href="{{ route('usuario.libros') }}" class="menu-usuario__a">Mis libros</a>
                 </li>
                 <li class="menu-usuario__li"><a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                                                                                                                                                                             document.getElementById('logout-form').submit();"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                         class="menu-usuario__a">
                         Cerrar Sesión
                     </a>
@@ -30,8 +29,13 @@
                 <form action="{{ route('usuario.cargarImagen') }}" method="post" class="usuario__form-imagen"
                     id="cargar-imagen" enctype="multipart/form-data">
                     @csrf
-                    <label for="imagen" class="usuario__imagen-label">Cambiar Imagen</label>
+                    <label for="imagen" class="usuario__imagen-label"><span class="usuario__imagen-span">Cambiar
+                            Imagen</span></label>
+                    <div class="usuario__change">
+                        <label for="imagen"> <i class="fa-solid fa-camera"></i></label>
+                    </div>
                     <input type="file" name="imagen" accept="image/*" id="imagen" required>
+
                 </form>
 
                 <img src="{{ asset('img/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario" class="usuario__img">
@@ -44,13 +48,13 @@
             @enderror
 
             @if (session('success-imagen'))
-                <span class="mensaje__exito">
+                <span class="mensaje__exito-perfil">
                     {{ session('success-imagen') }}
                 </span>
             @endif
 
             <div class="usuario__datos-personales">
-                <form action="{{ route('usuario.actualizarDatosPersonales', Auth::user()) }}" method="POST">
+                <form action="{{ route('usuario.actualizarDatosPersonales', Auth::user()) }}" id="fo" method="POST">
                     @csrf
                     <div class="usuario__div">
                         <div class="usuario__div--width">
@@ -122,8 +126,9 @@
                             </div>
                         </div>
                     </div>
+
                     @if (session('success-datos-personales'))
-                        <div class="mensaje__exito">
+                        <div class="mensaje__exito" id="msg">
                             {{ session('success-datos-personales') }}
                         </div>
                     @endif
@@ -133,7 +138,7 @@
                             {{ session('error-datos-personales') }}
                         </div>
                     @endif
-                    <button type="submit" class="usuario__boton">Actualizar</button>
+                    <button type="submit" id="actu" class="usuario__boton">Actualizar</button>
                 </form>
             </div>
 
@@ -145,14 +150,7 @@
                             <label for="password">Contraseña Actual: </label>
                             <div class="usuario__div--mb">
                                 <input type="password" class="usuario__input" name="password" autocomplete="password"
-                                    id="password">
-
-                                {{-- Mirar en el futuro --}}
-                                @if (session('success-contraseña'))
-                                    <div class="mensaje__exito">
-                                        {{ session('success-contraseña') }}
-                                    </div>
-                                @endif
+                                    id="password" placeholder="Contraseña actual">
 
                                 @if (session('error'))
                                     <div class="mensaje__error">
@@ -171,7 +169,7 @@
                             <label for="newPassword">Nueva Contraseña: </label>
                             <div class="usuario__div--mb">
                                 <input type="password" class="usuario__input" name="newPassword" autocomplete="new-password"
-                                    id="newPassword">
+                                    id="newPassword" placeholder="Nueva contraseña">
 
                                 @error('newPassword')
                                     <span class="mensaje__error mensaje__error-perfil-fs">
@@ -184,7 +182,8 @@
                             <label for="password-confirm">Confirmar Contraseña: </label>
                             <div class="usuario__div--mb">
                                 <input type="password" class="usuario__input" name="password-confirm"
-                                    autocomplete="current-password" id="password-confirm">
+                                    autocomplete="current-password" id="password-confirm"
+                                    placeholder="Confirmar contraseña ">
 
                                 @error('password-confirm')
                                     <span class="mensaje__error mensaje__error-perfil-fs">
@@ -194,6 +193,11 @@
                             </div>
                         </div>
                     </div>
+                    @if (session('success-contraseña'))
+                        <div class="mensaje__exito">
+                            {{ session('success-contraseña') }}
+                        </div>
+                    @endif
                     <button type="submit" class="usuario__boton">Actualizar</button>
                 </form>
             </div>
@@ -218,33 +222,40 @@
             </div>
 
             <div class="usuario__alquileres">
-                <h3 class="usuario__h3">Tus alquileres</h3>
-                <table class="usuario__table">
-                    <thead class="usuario__thead">
-                        <tr class="usuario__thead-tr">
-                            <th class="usuario__th">Ejemplar</th>
-                            <th class="usuario__th">Fecha de Alquiler</th>
-                            <th class="usuario__th">Fecha de Devolución</th>
-                            <th class="usuario__th">Precio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($alquileres as $item)
-                            <tr class="usuario__tbody-tr">
-                                <td class="usuario__td" data-datos="Ejemplar">
-                                    @foreach (Auth::user()->ejemplar as $items)
-                                        @if ($item->isbn === $items->isbn)
-                                            {{ $items->nomEjemplar }}
-                                        @endif
-                                    @endforeach
-                                </td>
-                                <td class="usuario__td" data-datos="F. Alquiler">{{ $item->fecAlquiler }}</td>
-                                <td class="usuario__td" data-datos="F. Devolución">{{ $item->fecDevolucion }}</td>
-                                <td class="usuario__td" data-datos="Precio">{{ $item->precioAlquiler }}$</td>
+                <h3 class="usuario__h3">MIS ALQUILERES</h3>
+                @if (count($alquileres) !== 0)
+                    <table class="usuario__table">
+                        <thead class="usuario__thead">
+                            <tr class="usuario__thead-tr">
+                                <th class="usuario__th">Ejemplar</th>
+                                <th class="usuario__th">Fecha de Alquiler</th>
+                                <th class="usuario__th">Fecha de Devolución</th>
+                                <th class="usuario__th">Precio</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($alquileres as $item)
+                                <tr class="usuario__tbody-tr">
+                                    <td class="usuario__td" data-datos="Ejemplar">
+                                        @foreach (Auth::user()->ejemplar as $items)
+                                            @if ($item->isbn === $items->isbn)
+                                                {{ $items->nomEjemplar }}
+                                            @endif
+                                        @endforeach
+                                    </td>
+                                    <td class="usuario__td" data-datos="F. Alquiler">{{ $item->fecAlquiler }}</td>
+                                    <td class="usuario__td" data-datos="F. Devolución">{{ $item->fecDevolucion }}</td>
+                                    <td class="usuario__td" data-datos="Precio">{{ $item->precioAlquiler }}€</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <div class="usuario__alquileres-nada">
+                        <p>No tienes alquilado ningún ejemplar</p>
+                        <a href="{{ route('ejemplar.ejemplares') }}" class="usuario__alquileres-enlace">Añadir</a>
+                    </div>
+                @endif
             </div>
 
         </div>
@@ -252,7 +263,7 @@
 
     @if (session('success'))
         <div class="mensaje">
-            <div class="mensaje__div">
+            <div class="mensaje__div mensaje__div--success">
                 <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
                 <h2 class="mensaje__h2">{{ session('success') }}</h2>
             </div>

@@ -2,6 +2,7 @@
 
     &__titulo {
         text-align: center;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__nada {
@@ -9,11 +10,13 @@
         font-size: 1em;
         padding: 6% 0;
         color: #AA9D9D;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__enlace {
         font-size: 2rem;
         color: rgb(170, 157, 157);
+        font-family: 'Titillium Web', sans-serif;
 
         &:hover {
             color: rgb(99, 93, 93);
@@ -27,6 +30,7 @@
 
     &__th {
         font-size: 1.5em;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__mi-carrito {
@@ -52,11 +56,13 @@
 
     &__nombre-ejemplar {
         padding-bottom: 45%;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__precio-ejemplar {
         line-height: 10px;
         padding-bottom: 5%;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__tbody-tr {
@@ -72,6 +78,7 @@
         text-align: center;
         width: 67%;
         margin: 5% auto;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__boton {
@@ -94,6 +101,7 @@
     }
 
     &__a {
+        font-family: 'Titillium Web', sans-serif;
         color: black;
 
         &:hover {

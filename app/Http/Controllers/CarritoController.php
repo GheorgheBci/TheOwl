@@ -16,7 +16,7 @@ class CarritoController extends Controller
 
         $ejemplares = \Cart::getContent();
 
-        if (count($ejemplares) === 0) {
+        if (!array_key_exists($ejemplar->isbn, $ejemplares->toArray())) {
 
             \Cart::session(Auth::user()->codUsu)->add(array(
                 'id' => $ejemplar->isbn,
@@ -29,32 +29,10 @@ class CarritoController extends Controller
                 'associatedModel' => 'Ejemplar'
             ));
 
-            Auth::user()->addEjemplarWishList()->detach($ejemplar->isbn);
-
-            return back()->with(['exito' => 'Ejemplar añadido al carrito']);
+            return back()->with(['carrito' => 'Ejemplar ' . $ejemplar->nomEjemplar . ' añadido al carrito']);
         }
 
-        foreach ($ejemplares as $libro) {
-
-            if ($ejemplar->isbn !== $libro->id) {
-                \Cart::session(Auth::user()->codUsu)->add(array(
-                    'id' => $ejemplar->isbn,
-                    'name' => $ejemplar->nomEjemplar,
-                    'price' => $ejemplar->precio,
-                    'quantity' => 1,
-                    'attributes' => array(
-                        'portada' => $ejemplar->image_book
-                    ),
-                    'associatedModel' => 'Ejemplar'
-                ));
-
-                Auth::user()->addEjemplarWishList()->detach($ejemplar->isbn);
-
-                return back()->with(['exito' => 'Ejemplar añadido al carrito']);
-            }
-        }
-
-        return back()->with(['exito' => 'Este ejemplar ya esta en el carrito']);
+        return back()->with(['error' => 'Ejemplar ' . $ejemplar->nomEjemplar . ' ya esta en el carrito']);
     }
 
     public function showCarrito()
@@ -74,7 +52,7 @@ class CarritoController extends Controller
     {
         \Cart::session(Auth::user()->codUsu)->remove($id);
 
-        return redirect()->route('show');
+        return redirect()->route('show')->with(['success' => 'Ejemplar eliminado del carrito']);
     }
 
     public function alquilarCarrito(Request $request)
@@ -82,7 +60,6 @@ class CarritoController extends Controller
         \Cart::session(Auth::user()->codUsu);
 
         $ejemplares =  \Cart::getContent();
-
 
         $array = array();
 
@@ -101,11 +78,13 @@ class CarritoController extends Controller
                     'fecDevolucion' => date('Y-m-d', strtotime('+30 day', strtotime(date('Y-m-d')))),
                     'precioAlquiler' => $ejemplar->price,
                 ]);
-            }
 
-            \Cart::session(Auth::user()->codUsu)->remove($ejemplar->id);
+                \Cart::session(Auth::user()->codUsu)->remove($ejemplar->id);
+
+                return redirect()->route('show')->with(['alquilado' => 'Proceso de alquiler realizado, disfruta la lectura :)']);
+            }
         }
 
-        return redirect()->route('show');
+        return redirect()->route('show')->with(['alquilado' => 'Ya tienes en alquiler este ejemplar']);
     }
 }

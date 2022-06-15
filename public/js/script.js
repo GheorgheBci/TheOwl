@@ -2,8 +2,48 @@
 
 let activo = false,
     puntuacion = document.querySelector('#puntuacion');
-
 const ordenar = document.getElementById('mostrar-ordenar');
+
+$('#carrito').click(function (e) {
+    e.preventDefault();
+    let url = $(this).attr('href');
+    // console.log(send);
+    $.ajax({
+        type: "GET",
+        url: url,
+        data: {
+            "_token": $("meta[name='csrf-token']").attr("content"),
+        },
+        success: function () {
+            // alert("exito");
+            $('#carrito').css('color', '#35B00D');
+        },
+        error: function () {
+            alert('error');
+        }
+    });
+});
+
+$('#corazon').click(function (e) {
+    e.preventDefault();
+    let url = $(this).attr('href');
+    // console.log(send);
+    $.ajax({
+        type: "GET",
+        url: url,
+        data: {
+            "_token": $("meta[name='csrf-token']").attr("content"),
+        },
+        success: function () {
+            // alert("exito");
+            $('#corazon').css('color', '#FF0000');
+        },
+        error: function () {
+            alert('error');
+        }
+    });
+});
+
 
 if (ordenar) {
     ordenar.addEventListener('click', function () {
@@ -18,16 +58,15 @@ if (ordenar) {
     });
 }
 
+const estrellas = document.querySelectorAll('.puntuacion__a');
+let sonido = document.querySelector('#sonido-puntuar');
+
+for (let j = 0; j < estrellas.length; j++) {
+    estrellas[j].addEventListener('click', function () {
+        sonido.play();
+    })
+}
 if (puntuacion) {
-    const estrellas = document.querySelectorAll('.puntuacion__a');
-    let sonido = document.querySelector('#sonido-puntuar');
-
-    for (let j = 0; j < estrellas.length; j++) {
-        estrellas[j].addEventListener('click', function () {
-            sonido.play();
-        })
-    }
-
     for (let i = 0; i < puntuacion.innerHTML; i++) {
         estrellas[i].style.color = "rgb(228, 228, 40)";
     }

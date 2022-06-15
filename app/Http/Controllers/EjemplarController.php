@@ -32,12 +32,34 @@ class EjemplarController extends Controller
         if ($ejemplar->count() !== 0) {
             $numero = $ejemplar->count();
 
-            return view('ejemplares.ejemplar', ['ejemplares' => $ejemplar, "numero" => $numero]);
+            return view('ejemplares.ejemplar', ['ejemplares' => $ejemplar, "numero" => $numero, 'resultado' => $request->ejemplar]);
         }
 
         $numero = Ejemplar::count();
 
-        return view('ejemplares.ejemplar', ['ejemplares' => Ejemplar::paginate(9), "numero" => $numero]);
+        return redirect()->route('ejemplar.ejemplares')->with(['error' => 'El ejemplar ' .  $request->ejemplar . ' no existe']);
+    }
+
+    public function buscarMiEjemplar(Request $request)
+    {
+        $ejemplar = Ejemplar::where('nomEjemplar', $request->ejemplar)->whereIn('isbn', DB::table('detalle_alquiler')->select('isbn'))->paginate(9);
+        $total = DB::table('detalle_alquiler')->where('codUsu', Auth::user()->codUsu)->get();
+
+        if (count($total) !== 0) {
+
+            if (count($ejemplar) !== 0) {
+
+                $numero = count($ejemplar);
+
+                return view('ejemplares.misLibros', ['misLibros' => $ejemplar, "numero" => $numero, 'resultado' => $request->ejemplar]);
+            }
+
+            $numero = Ejemplar::count();
+
+            return redirect()->route('usuario.libros')->with(['error' => 'El ejemplar ' .  $request->ejemplar . ' no existe']);
+        }
+
+        return redirect()->route('usuario.libros')->with(['error' => 'No tienes ejemplares alquilados']);
     }
 
     public function buscarEjemplarAdmin(Request $request)
@@ -287,6 +309,6 @@ class EjemplarController extends Controller
             return redirect()->route('ejemplar.ejemplar', ['ejemplar' => $ejemplar])->with('success', "Has alquilado el ejemplar " . $ejemplar->nomEjemplar);
         }
 
-        return redirect()->route('ejemplar.ejemplar', ['ejemplar' => $ejemplar])->with('success', "El ejemplar " . $ejemplar->nomEjemplar . " ya lo tienes alquilado");
+        return redirect()->route('ejemplar.ejemplar', ['ejemplar' => $ejemplar])->with('error', "El ejemplar " . $ejemplar->nomEjemplar . " ya lo tienes alquilado");
     }
 }

@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=DM+Sans&family=Open+Sans&family=Roboto:wght@100;300;400&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=DM+Sans&family=Open+Sans&family=Roboto:wght@100;300;400&family=Titillium+Web:wght@400;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=DM+Sans&family=Open+Sans&family=Roboto:wght@100;300;400&family=Space+Mono&family=Titillium+Web:wght@400;600&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=DM+Sans&family=Open+Sans&family=Roboto:wght@100;300;400&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
@@ -52,6 +53,7 @@ body {
   text-decoration: none;
   padding: 0.5em 1em;
   font-size: 18px;
+  font-family: "Titillium Web", sans-serif;
 }
 .header__a:hover {
   border-radius: 3px;
@@ -66,6 +68,7 @@ body {
   font-size: 21px;
   line-height: 40px;
   cursor: pointer;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .footer {
@@ -92,9 +95,11 @@ body {
 }
 .footer__h3 {
   margin-bottom: 3%;
+  font-family: "Titillium Web", sans-serif;
 }
 .footer__p--justify {
   text-align: justify;
+  font-family: "Titillium Web", sans-serif;
 }
 .footer__ul {
   list-style: none;
@@ -106,11 +111,13 @@ body {
 .footer__a {
   text-decoration: none;
   color: white;
+  font-family: "Titillium Web", sans-serif;
 }
 .footer__copyright {
   justify-content: space-around;
   background-color: black;
   color: white;
+  font-family: "Titillium Web", sans-serif;
   padding: 2%;
   display: flex;
   flex-wrap: wrap;
@@ -119,15 +126,26 @@ body {
 .footer__div--padding {
   padding: 1%;
 }
+.footer__div--size {
+  font-size: 0.9em;
+}
 
 .ejemplar {
   width: 90%;
   margin: auto;
 }
+.ejemplar__resultado {
+  font-family: "Titillium Web", sans-serif;
+  margin-left: 2%;
+  font-size: 1.4em;
+  color: #393333;
+  text-transform: uppercase;
+}
 .ejemplar__titulo {
   text-align: center;
   margin-bottom: 4%;
   padding-top: 2%;
+  font-family: "Titillium Web", sans-serif;
 }
 .ejemplar__corazon-rojo {
   text-decoration: none;
@@ -193,7 +211,9 @@ body {
 .ventana-alquilar__h3 {
   text-align: center;
   margin: 2% 0 5% 0;
-  font-size: 30px;
+  font-size: 1.5em;
+  color: #313b3b;
+  font-family: "Titillium Web", sans-serif;
 }
 .ventana-alquilar__form--width {
   width: 100%;
@@ -202,6 +222,7 @@ body {
   display: inline-block;
   width: 56%;
   margin-bottom: 4%;
+  font-family: "Titillium Web", sans-serif;
 }
 .ventana-alquilar__input {
   background-color: #fbfbfb;
@@ -212,6 +233,7 @@ body {
   margin: 1% 0 1% 0;
   padding-left: 3.5%;
   font-size: 12px;
+  font-family: "Titillium Web", sans-serif;
 }
 .ventana-alquilar__div--flex {
   display: flex;
@@ -225,6 +247,7 @@ body {
   color: white;
   height: 30px;
   margin-top: 4%;
+  font-family: "Titillium Web", sans-serif;
   cursor: pointer;
   transition: 0.3s ease all;
 }
@@ -261,11 +284,16 @@ body {
 .texto__subtitulo {
   border-bottom: 1px dotted black;
   padding-bottom: 1%;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .texto__table {
   list-style: none;
   margin-bottom: 4%;
+}
+
+.texto__td {
+  font-family: "Titillium Web", sans-serif;
 }
 
 .texto__td--width {
@@ -295,10 +323,12 @@ body {
 .puntuacion__p {
   margin-left: 2%;
   line-height: 44px;
+  font-family: "Titillium Web", sans-serif;
 }
 .puntuacion__p--precio {
   margin-left: 10%;
   line-height: 44px;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .puntuacion:hover .puntuacion__a {
@@ -316,6 +346,7 @@ body {
 .botones__a {
   text-decoration: none;
   background-color: #D99255;
+  font-family: "Titillium Web", sans-serif;
   color: white;
   width: 49%;
   padding: 2%;
@@ -355,6 +386,10 @@ body {
 }
 .buscador__icono {
   position: absolute;
+  background-color: #2b303b;
+  border-color: #2b303b;
+  cursor: pointer;
+  border-radius: 5px;
   top: 50%;
   margin-left: 17px;
   margin-top: 17px;
@@ -363,14 +398,15 @@ body {
 }
 
 .filtro {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid #898785;
+  border-bottom: 1px solid #898785;
   margin-bottom: 5%;
   display: flex;
   justify-content: space-evenly;
 }
 .filtro__p {
   padding: 10px;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .ordenar__ul {
@@ -391,6 +427,7 @@ body {
 .ordenar__p {
   padding: 10px 15px;
   cursor: pointer;
+  font-family: "Titillium Web", sans-serif;
 }
 .ordenar__p:hover {
   border-radius: 5px 5px 0 0;
@@ -402,6 +439,7 @@ body {
   color: black;
   display: block;
   padding: 4% 4%;
+  font-family: "Titillium Web", sans-serif;
 }
 .ordenar__a:hover {
   background-color: white;
@@ -415,7 +453,23 @@ body {
 .ejemplares {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 5%;
+}
+.ejemplares__alquileres-nada {
+  text-align: center;
+  font-family: "Titillium Web", sans-serif;
+  color: #9c9995;
+  font-size: 1em;
+}
+.ejemplares__alquileres-enlace {
+  font-size: 1.3em;
+  color: rgb(170, 157, 157);
+  font-family: "Titillium Web", sans-serif;
+}
+.ejemplares__alquileres-enlace:hover {
+  color: rgb(99, 93, 93);
 }
 
 .libro {
@@ -458,6 +512,7 @@ body {
 .libro__a {
   text-decoration: none;
   color: black;
+  font-family: "Titillium Web", sans-serif;
 }
 .libro__a:hover {
   color: blue;
@@ -597,6 +652,7 @@ body {
   border: 1px solid #D99255;
   text-align: center;
   background-color: white;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .libro__pdf {
@@ -624,7 +680,7 @@ body {
   font-size: 7vw;
   display: flex;
   justify-content: center;
-  font-family: "Roboto", sans-serif;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .inicio__texto {
@@ -638,6 +694,7 @@ body {
 .inicio__p {
   text-align: center;
   font-size: 20px;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .inicio__a {
@@ -647,6 +704,7 @@ body {
   padding: 18px;
   border-radius: 25px;
   font-size: 7vw;
+  font-family: "Titillium Web", sans-serif;
   transition: 0.3s ease color;
 }
 
@@ -687,10 +745,17 @@ body {
   color: white;
 }
 
+.contacto__titulo {
+  font-family: "Titillium Web", sans-serif;
+}
+
 .contacto__titulo--padding {
   padding: 5%;
 }
 
+.formulario__label {
+  font-family: "Titillium Web", sans-serif;
+}
 .formulario__div {
   width: 85%;
   border: 1px solid white;
@@ -708,6 +773,7 @@ body {
   border: 1px solid #D99255;
   margin: 2% 0 5% 0;
   padding-left: 3.5%;
+  font-family: "Space Mono", monospace;
 }
 .formulario__input:focus {
   outline: 0;
@@ -721,6 +787,7 @@ body {
   border: 1px solid #D99255;
   margin: 2% 0 5% 0;
   padding: 3.8% 0 0 3.5%;
+  font-family: "Space Mono", monospace;
   resize: none;
 }
 .formulario__textarea:focus {
@@ -728,6 +795,7 @@ body {
   border: 1px solid #97d848;
 }
 .formulario__button {
+  font-family: "Titillium Web", sans-serif;
   padding: 2% 5%;
   margin: 3% 0 5% 0;
   background-color: #D99255;
@@ -745,6 +813,9 @@ body {
 .formulario__span--color {
   color: red;
 }
+.formulario__p {
+  font-family: "Titillium Web", sans-serif;
+}
 .formulario__p--color {
   color: red;
 }
@@ -752,6 +823,7 @@ body {
   font-size: 1em;
   padding-bottom: 8.5%;
   color: #0e0e0e;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .conocenos__div {
@@ -774,6 +846,7 @@ body {
 .conocenos__p {
   padding-top: 5%;
   text-align: justify;
+  font-family: "Titillium Web", sans-serif;
 }
 .conocenos__p--padding {
   padding: 5%;
@@ -782,9 +855,14 @@ body {
   color: white;
 }
 
+.conocenos__titulo {
+  font-family: "Titillium Web", sans-serif;
+}
+
 .conocenos__subtitulo {
   text-align: center;
   margin-top: 2%;
+  font-family: "Titillium Web", sans-serif;
 }
 .conocenos__subtitulo--color {
   color: white;
@@ -983,6 +1061,7 @@ body {
   color: white;
   display: block;
   padding: 4% 4%;
+  font-family: "Titillium Web", sans-serif;
 }
 .menu-usuario__a:hover {
   background-color: white;
@@ -995,20 +1074,30 @@ body {
   background-color: #F2E4CE;
   margin: 30px 15px;
   box-shadow: 8px 7px 7px -1px #867253;
+  font-family: "Titillium Web", sans-serif;
+}
+.usuario__change {
+  position: absolute;
+  color: white;
+  font-size: 1.5em;
+  border: 1px solid #B0590E;
+  background-color: #B0590E;
+  padding: 1px 5px;
+  border-radius: 20px;
+  top: -1px;
+  left: 90%;
+  cursor: pointer;
 }
 .usuario__perfil {
   display: inline-block;
   border: 1px solid white;
   border-radius: 10px;
   background-color: white;
-  width: 25%;
+  width: 32%;
   height: 104px;
   margin: 5% 5%;
   position: relative;
   z-index: 1;
-}
-.usuario__perfil:hover .usuario__imagen-label {
-  visibility: visible;
 }
 .usuario__img {
   width: 100%;
@@ -1023,6 +1112,7 @@ body {
   border-radius: 5px;
   border: 1px solid #D99255;
   padding-left: 3.5%;
+  font-family: "Space Mono", monospace;
 }
 .usuario__div--mb {
   margin-bottom: 5%;
@@ -1041,6 +1131,7 @@ body {
   border-radius: 3px;
   margin-top: 3%;
   cursor: pointer;
+  font-family: "Titillium Web", sans-serif;
   transition: 0.3s ease all;
 }
 .usuario__boton:hover {
@@ -1065,17 +1156,18 @@ body {
   background-color: #b0590e;
   border: 1px solid #b0590e;
 }
+.usuario__imagen-span {
+  color: transparent;
+}
 .usuario__imagen-label {
   width: 100%;
   height: 157px;
-  background-color: #fff;
   border-radius: 4px;
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
   margin-bottom: 3%;
   opacity: 0.5;
-  visibility: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1106,6 +1198,21 @@ body {
   border: 1px solid white;
   background-color: white;
 }
+.usuario__alquileres-nada {
+  text-align: center;
+  font-family: "Titillium Web", sans-serif;
+  color: #9c9995;
+  font-size: 0.9rem;
+}
+.usuario__alquileres-enlace {
+  font-size: 1.3em;
+  color: rgb(170, 157, 157);
+  margin-bottom: 5%;
+  font-family: "Titillium Web", sans-serif;
+}
+.usuario__alquileres-enlace:hover {
+  color: rgb(99, 93, 93);
+}
 .usuario__h3 {
   text-align: center;
   padding-bottom: 4%;
@@ -1135,7 +1242,11 @@ body {
 }
 
 .membresia {
-  padding: 5%;
+  padding: 0 5% 2% 5%;
+}
+.membresia__titulo {
+  text-align: center;
+  font-family: "Titillium Web", sans-serif;
 }
 .membresia__div {
   width: 80%;
@@ -1150,9 +1261,11 @@ body {
 }
 .membresia__precio {
   font-size: 25px;
+  font-family: "Titillium Web", sans-serif;
 }
 .membresia__tiempo {
   font-size: 17px;
+  font-family: "Titillium Web", sans-serif;
 }
 .membresia__a {
   background-color: #D99255;
@@ -1162,6 +1275,7 @@ body {
   width: 44%;
   padding: 3%;
   border-radius: 3px;
+  font-family: "Titillium Web", sans-serif;
   margin-top: 5%;
   border: 1px solid #D99255;
   transition: 0.3s ease all;
@@ -1206,6 +1320,7 @@ body {
 }
 .wishlist__titulo {
   font-size: 3em;
+  font-family: "Titillium Web", sans-serif;
 }
 .wishlist__portada-libro {
   width: 88.38px;
@@ -1224,6 +1339,7 @@ body {
 }
 .wishlist__tabla-th, .wishlist__tabla-td {
   padding: 12px 4vw;
+  font-family: "Titillium Web", sans-serif;
 }
 .wishlist__iconos {
   font-size: 2em;
@@ -1238,11 +1354,13 @@ body {
   font-size: 1em;
   margin-top: 3%;
   color: rgb(170, 157, 157);
+  font-family: "Titillium Web", sans-serif;
 }
 .wishlist__enlace {
   font-size: 2em;
   color: rgb(170, 157, 157);
   margin-bottom: 5%;
+  font-family: "Titillium Web", sans-serif;
 }
 .wishlist__enlace:hover {
   color: rgb(99, 93, 93);
@@ -1250,16 +1368,19 @@ body {
 
 .carrito__titulo {
   text-align: center;
+  font-family: "Titillium Web", sans-serif;
 }
 .carrito__nada {
   text-align: center;
   font-size: 1em;
   padding: 6% 0;
   color: #AA9D9D;
+  font-family: "Titillium Web", sans-serif;
 }
 .carrito__enlace {
   font-size: 2rem;
   color: rgb(170, 157, 157);
+  font-family: "Titillium Web", sans-serif;
 }
 .carrito__enlace:hover {
   color: rgb(99, 93, 93);
@@ -1270,6 +1391,7 @@ body {
 }
 .carrito__th {
   font-size: 1.5em;
+  font-family: "Titillium Web", sans-serif;
 }
 .carrito__mi-carrito {
   padding-right: 500px;
@@ -1290,10 +1412,12 @@ body {
 }
 .carrito__nombre-ejemplar {
   padding-bottom: 45%;
+  font-family: "Titillium Web", sans-serif;
 }
 .carrito__precio-ejemplar {
   line-height: 10px;
   padding-bottom: 5%;
+  font-family: "Titillium Web", sans-serif;
 }
 .carrito__tbody-tr {
   border-bottom: 1px solid rgb(180, 176, 176);
@@ -1307,6 +1431,7 @@ body {
   text-align: center;
   width: 67%;
   margin: 5% auto;
+  font-family: "Titillium Web", sans-serif;
 }
 .carrito__boton {
   text-decoration: none;
@@ -1326,6 +1451,7 @@ body {
   border: 1px solid #b0590e;
 }
 .carrito__a {
+  font-family: "Titillium Web", sans-serif;
   color: black;
 }
 .carrito__a:hover {
@@ -1381,18 +1507,28 @@ body {
 }
 .mensaje__div {
   width: 50%;
-  border: 1px solid #5cd62c;
   position: absolute;
   top: 50%;
-  left: 26%;
+  left: 27%;
   background-color: white;
   border-radius: 5px;
   text-align: center;
+}
+.mensaje__div--success {
   background-color: #DFF0D8;
+  border: 1px solid #5cd62c;
+  color: #0F5133;
+  font-family: "DM Sans", sans-serif;
+}
+.mensaje__div--error {
+  background-color: #f0d8d8;
+  border: 1px solid #e49290;
+  color: #aa6161;
+  font-family: "DM Sans", sans-serif;
 }
 .mensaje__h2 {
   padding-bottom: 1%;
-  color: #0F5133;
+  font-size: 1.5em;
 }
 .mensaje__cerrar {
   display: block;
@@ -1437,6 +1573,13 @@ body {
 .mensaje__exito {
   color: rgb(43, 169, 43);
   font-family: "DM Sans", sans-serif;
+}
+
+.mensaje__exito-perfil {
+  color: rgb(43, 169, 43);
+  font-family: "DM Sans", sans-serif;
+  display: inline-block;
+  margin: 0 0 10px 14px;
 }
 
 .mensaje__exito--center,
@@ -2099,6 +2242,14 @@ body {
   }
 }
 @media screen and (min-width: 425px) {
+  .ejemplares__alquileres-nada {
+    font-size: 1.5em;
+  }
+
+  .usuario__perfil {
+    width: 113.94px;
+  }
+
   .ventana-crear__rol,
 .ventana-crear__editorial,
 .ventana-crear__coleccion,
@@ -2140,7 +2291,7 @@ body {
     font-size: 4em;
   }
   .wishlist__nada {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 }
 @media screen and (min-width: 472px) {
@@ -2441,7 +2592,7 @@ body {
     margin-bottom: 2%;
   }
   .detalles__separador {
-    border-right: 1px solid black;
+    border-right: 1px solid #898785;
     height: 445px;
     margin-left: 10%;
     margin-bottom: 1%;
@@ -2497,12 +2648,44 @@ body {
   }
 }
 @media screen and (min-width: 861px) {
+  .usuario__alquileres-nada {
+    font-size: 1.2em;
+  }
+
+  .usuario__change {
+    display: none;
+  }
+
+  .usuario__perfil:hover .usuario__imagen-label {
+    visibility: visible;
+  }
+
+  .usuario__imagen-span {
+    color: black;
+  }
+
+  .usuario__imagen-label {
+    width: 100%;
+    height: 157px;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-bottom: 3%;
+    opacity: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    visibility: hidden;
+  }
+
   .usuario__perfil {
+    width: 141.47px;
     height: 159px;
   }
 
   .perfil {
-    /* margin-bottom: 7%; */
     display: grid;
     grid-template-columns: 25% 62%;
     gap: 10%;
@@ -2528,6 +2711,7 @@ body {
 
   .usuario__input {
     height: 45px;
+    font-size: 1vw;
   }
 
   .usuario__boton {

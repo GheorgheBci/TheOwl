@@ -8,15 +8,21 @@
         <div class="buscador__div">
             <form action="{{ route('ejemplar.buscar') }}" method="post">
                 @csrf
-                <span class="buscador__icono"><i class="fa fa-search"></i></span>
+                <button class="buscador__icono"><i class="fa fa-search"></i></button>
                 <input type="search" class="buscador__input" name="ejemplar" placeholder="Busca un ejemplar..." />
             </form>
         </div>
     </div>
 
+    @if (session('error'))
+        <div class="mensaje__error mensaje__error--center">
+            <strong>{{ session('error') }}</strong>
+        </div>
+    @endif
+
     <div class="filtro">
 
-        <p class="filtro__p">{{ $numero }} ejemplares</p>
+        <p class="filtro__p">{{ $numero }} {{ trans_choice('mensajes.ejemplar', $numero) }}</p>
 
         <div id="mostrar-ordenar" class="ordenar">
             <p class="ordenar__p">Ordenar por...</p>
@@ -38,6 +44,10 @@
         </div>
 
     </div>
+
+    @isset($resultado)
+        <h2 class="ejemplar__resultado">Resultado: {{ $resultado }}</h2>
+    @endisset
 
     <div class="ejemplares">
         @foreach ($ejemplares as $item)

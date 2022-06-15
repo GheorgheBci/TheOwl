@@ -11,12 +11,12 @@
             @auth
                 @if (DB::table('wishlist')->where('codUsu', Auth::user()->codUsu)->where('isbn', $ejemplar->isbn)->first())
                     <a href="#" class="ejemplar__corazon-rojo"><i class="fas fa-heart"></i></a>
-                    <a href="{{ route('carrito', $ejemplar) }}" class="ejemplar__carrito"><i
+                    <a href="{{ route('carrito', $ejemplar) }}" id="carrito" class="ejemplar__carrito"><i
                             class="fa-solid fa-cart-arrow-down"></i></a>
                 @else
-                    <a href="{{ route('usuario.add', $ejemplar) }}" class="ejemplar__corazon-negro"><i
+                    <a href="{{ route('usuario.add', $ejemplar) }}" id="corazon" class="ejemplar__corazon-negro"><i
                             class="fas fa-heart"></i></a>
-                    <a href="{{ route('carrito', $ejemplar) }}" class="ejemplar__carrito"><i
+                    <a href="{{ route('carrito', $ejemplar) }}" id="carrito" class="ejemplar__carrito"><i
                             class="fa-solid fa-cart-arrow-down"></i></a>
                 @endif
             @endauth
@@ -30,14 +30,6 @@
             @endguest
         </p>
 
-        @if (session('exito'))
-            <div class="mensaje">
-                <div class="mensaje__div">
-                    <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
-                    <h2 class="mensaje__h2">{{ session('exito') }}</h2>
-                </div>
-            </div>
-        @endif
         <div class="detalles">
 
             <div class="detalles__portada">
@@ -58,10 +50,10 @@
 
                     @if ($ejemplar->votos === 0)
                         <p class="puntuacion__p">({{ $ejemplar->votos }})</p>
-                        <p class="puntuacion__p--precio">{{ $ejemplar->precio }}$</p>
+                        <p class="puntuacion__p--precio">{{ $ejemplar->precio }}€</p>
                     @else
                         <p class="puntuacion__p">({{ $ejemplar->votos }})</p>
-                        <p class="puntuacion__p--precio">{{ $ejemplar->precio }}$</p>
+                        <p class="puntuacion__p--precio">{{ $ejemplar->precio }}€</p>
                         <span id="puntuacion"
                             class="puntuacion__media">{{ round($ejemplar->puntuacion / $ejemplar->votos) }}</span>
                     @endif
@@ -82,8 +74,8 @@
                 <table class="texto__table">
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td--width">Autor: </td>
-                        <td>
+                        <td class="texto__td texto__td--width">Autor: </td>
+                        <td class="texto__td">
                             @if ($ejemplar->codAutor === null)
                                 <p>Anónimo</p>
                             @else
@@ -95,8 +87,8 @@
                     </tr>
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td--width">Editorial: </td>
-                        <td>
+                        <td class="texto__td texto__td--width">Editorial: </td>
+                        <td class="texto__td">
                             @if ($ejemplar->codEditorial === null)
                                 <p>Sin editorial</p>
                             @else
@@ -108,8 +100,8 @@
                     </tr>
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td--width">Colección: </td>
-                        <td>
+                        <td class="texto__td texto__td--width">Colección: </td>
+                        <td class="texto__td">
                             @if ($ejemplar->codColeccion === null)
                                 <p>Sin colección</p>
                             @else
@@ -121,18 +113,18 @@
                     </tr>
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td--width">Tema: </td>
-                        <td>{{ $ejemplar->tema }}</td>
+                        <td class="texto__td texto__td--width">Tema: </td>
+                        <td class="texto__td">{{ $ejemplar->tema }}</td>
                     </tr>
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td--width">Idioma: </td>
-                        <td>{{ $ejemplar->idioma }}</td>
+                        <td class="texto__td texto__td--width">Idioma: </td>
+                        <td class="texto__td">{{ $ejemplar->idioma }}</td>
                     </tr>
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td--width">Fecha: </td>
-                        <td>{{ $ejemplar->fecPublicacion }}</td>
+                        <td class="texto__td texto__td--width">Fecha: </td>
+                        <td class="texto__td">{{ $ejemplar->fecPublicacion }}</td>
                     </tr>
                 </table>
 
@@ -145,9 +137,18 @@
 
         @if (session('success'))
             <div class="mensaje">
-                <div class="mensaje__div">
+                <div class="mensaje__div mensaje__div--success">
                     <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
                     <h2 class="mensaje__h2">{{ session('success') }}</h2>
+                </div>
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="mensaje">
+                <div class="mensaje__div mensaje__div--error">
+                    <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
+                    <h2 class="mensaje__h2">{{ session('error') }}</h2>
                 </div>
             </div>
         @endif
@@ -155,7 +156,7 @@
         <div class="fondo" id="fondo">
             <div class="ventana-alquilar" id="ventana-alquilar">
                 <a href="#" class="ventana-alquilar__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
-                <h3 class="ventana-alquilar__h3">Alquilar el ejemplar {{ $ejemplar->nomEjemplar }}</h3>
+                <h3 class="ventana-alquilar__h3">Ejemplar {{ $ejemplar->nomEjemplar }}</h3>
                 <form action="{{ route('ejemplar.alquilar', $ejemplar) }}" method="post"
                     class="ventana-alquilar__form--width">
                     @csrf
