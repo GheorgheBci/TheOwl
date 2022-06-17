@@ -12,8 +12,13 @@
     }
 
     &__titulo {
-        font-size: 21px;
+        font-size: 4vh;
         text-align: center;
+        font-family: 'Titillium Web', sans-serif;
+    }
+
+    &__label {
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__separador {
@@ -31,6 +36,7 @@
 
     &__input {
         background-color: #fbfbfb;
+        font-family: 'Space Mono', monospace;
         width: 100%;
         height: 40px;
         border-radius: 5px;
@@ -60,8 +66,10 @@
         border: 1px solid #D99255;
         border-radius: 5px;
         color: white;
-        height: 30px;
+        font-size: 3vh;
+        height: 37px;
         cursor: pointer;
+        font-family: 'Titillium Web', sans-serif;
         transition: .3s ease all;
 
         &:hover {
@@ -75,7 +83,19 @@
         font-size: 15px;
     }
 
+    &__p--font {
+        font-family: 'Titillium Web', sans-serif;
+    }
+
+    &__a {
+        font-family: 'Titillium Web', sans-serif;
+    }
+
     &__a--color {
         color: rgb(16, 140, 228);
+
+        &:hover {
+            color: rgb(12, 77, 123);
+        }
     }
 }

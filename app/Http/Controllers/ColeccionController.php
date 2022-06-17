@@ -16,6 +16,7 @@ class ColeccionController extends Controller
     {
         $coleccion = Coleccion::where('nomColeccion', $request->coleccion);
 
+        // dd($coleccion);
 
         if ($coleccion->count() !== 0) {
             return view('admin.colecciones.index', ['colecciones' => $coleccion->paginate(20)]);

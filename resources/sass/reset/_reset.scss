@@ -5,6 +5,11 @@
 .reset__titulo {
     text-align: center;
     margin-bottom: 4%;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.reset__label {
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .reset__input {
@@ -15,6 +20,7 @@
     border: 1px solid #D99255;
     margin: 1% 0 1% 0;
     padding-left: 3.5%;
+    font-family: 'Space Mono', monospace;
 
     &:focus {
         outline: 0;
@@ -25,6 +31,7 @@
 .reset__button {
     margin-top: 3%;
     background-color: #D99255;
+    font-family: 'Titillium Web', sans-serif;
     color: white;
     width: 68%;
     padding: 1%;
@@ -39,6 +46,6 @@
     }
 }
 
-.reset__div--mb{
+.reset__div--mb {
     margin-bottom: 5%;
 }

@@ -6,22 +6,30 @@
 
     <div class="buscador">
         <div class="buscador__div">
-            <form action="{{ route('usuario.buscar') }}" method="post">
+            <form action="{{ route('usuario.buscar') }}" method="get">
                 @csrf
-                <span class="buscador__icono"><i class="fa fa-search"></i></span>
+                <button type="submit" class="buscador__icono"><i class="fa fa-search"></i></button>
                 <input type="email" class="buscador__input" name="email" placeholder="Buscar un usuario por su email..." />
             </form>
         </div>
     </div>
 
+    @error('email')
+        <div class="mensaje__error--center">
+            <span class="mensaje__error mensaje__error--fs">
+                <strong>{{ $message }}</strong>
+            </span>
+        </div>
+    @enderror
+
     @if (session('success'))
-        <div class="mensaje__exito mensaje__exito--center">
+        <div class="mensaje__exito mensaje__exito--fs mensaje__exito--center">
             <strong>{{ session('success') }}</strong>
         </div>
     @endif
 
     @if (session('error'))
-        <div class="mensaje__error mensaje__error--center">
+        <div class="mensaje__error mensaje__error--fs mensaje__error--center">
             <strong>{{ session('error') }}</strong>
         </div>
     @endif

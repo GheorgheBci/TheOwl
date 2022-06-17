@@ -67,12 +67,6 @@ class UsuarioController extends Controller
             ]);
         }
 
-        // if ($request->hasFile('file')) {
-        //     Usuario::where('codUsu', Auth::user()->codUsu)->update([
-        //         'imagen_usuario' =>  $request->file('file')->store('public')
-        //     ]);
-        // }
-
         return redirect()->route('usuario.userHome')->with('success-imagen', "¡Imagen actualizada!");
     }
 
@@ -169,7 +163,7 @@ class UsuarioController extends Controller
                 $rol = 3;
                 break;
             default:
-                return redirect()->route('usuario.usuarios')->with(['error' => 'Nombre de rol incorrecto [usuario, administrador]']);
+                return back()->with(['error' => 'Nombre de rol incorrecto [usuario, administrador]']);
                 break;
         }
 
@@ -178,7 +172,7 @@ class UsuarioController extends Controller
                 'idRol' => $rol
             ]);
 
-            return redirect()->route('usuario.usuarios')->with(['success' => 'El rol del usuario ' . $usuario->nombre . ' ' .  $usuario->apellido1 . ' ' . $usuario->apellido2 . ' ha sido modificado correctamente']);
+            return back()->with(['success' => 'El rol del usuario ' . $usuario->nombre . ' ' .  $usuario->apellido1 . ' ' . $usuario->apellido2 . ' ha sido modificado correctamente']);
         }
     }
 
@@ -197,7 +191,7 @@ class UsuarioController extends Controller
     public function buscarUsuario(Request $request)
     {
         $request->validate([
-            'email' => 'required|email'
+            'email' => 'email'
         ]);
 
         $usuario = Usuario::where('email', $request->email)->first();
@@ -206,7 +200,7 @@ class UsuarioController extends Controller
             return view('admin.usuarios.usuario', ['usuario' => $usuario]);
         }
 
-        return redirect()->route('usuario.usuarios')->with(['error' => 'No se ha encontrado el usuario con email ' . $request->email]);
+        return back()->with(['error' => 'No se ha encontrado el usuario con email ' . $request->email]);
     }
 
     public function showMisLibros()

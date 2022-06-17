@@ -16,7 +16,7 @@
             <form form method="POST" action="{{ route('login') }}" class="main-login__form main-login__form--mt">
                 @csrf
                 <div class="main-login__form--mb">
-                    <label for="email">Dirección de correo electrónico</label>
+                    <label for="email" class="main-login__label">Dirección de correo electrónico</label>
 
                     <div>
                         <input id="email" class="main-login__input" type="email" @error('email') is-invalid @enderror
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="main-login__form--mb">
-                    <label for="password">Contraseña</label>
+                    <label for="password" class="main-login__label">Contraseña</label>
 
                     <div>
                         <input id="password" class="main-login__input" type="password"
@@ -41,11 +41,13 @@
                 </div>
                 <div
                     class="main-login__recuperar-contrasenia main-login__form--mb main-login__recuperar-contrasenia--float">
-                    <a href="{{ route('password.request') }}" class="main-login__a--color">¿Olvidaste tu contraseña?</a>
+                    <a href="{{ route('password.request') }}" class="main-login__a main-login__a--color">¿Olvidaste tu
+                        contraseña?</a>
                 </div>
                 <button type="submit" class="main-login__button">Iniciar Sesión</button>
                 <div class="main-login__form--mb main-login__p">
-                    <p>¿No tienes una cuenta? <a href="{{ route('register') }}" class="main-login__a--color">Crea una
+                    <p class="main-login__p--font">¿No tienes una cuenta? <a href="{{ route('register') }}"
+                            class="main-login__a main-login__a--color">Crea una
                             aquí</a></p>
                 </div>
             </form>
@@ -53,7 +55,7 @@
 
         @if (session('success'))
             <div class="mensaje">
-                <div class="mensaje__div">
+                <div class="mensaje__div mensaje__div--success">
                     <span class="mensaje__cerrar" id="cerrar_mensaje"><i class="fas fa-times mensaje__icono"></i></span>
                     <h2 class="mensaje__h2">{{ session('success') }}</h2>
                 </div>

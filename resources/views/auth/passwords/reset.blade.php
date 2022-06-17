@@ -11,7 +11,8 @@
 
 <body>
     <div class="logo">
-        <img src="{{ asset('img/buho.svg') }}" alt="buho" class="logo__imagen--width">
+        <a href="{{ route('inicio') }}"><img src="{{ asset('img/buho.svg') }}" alt="buho"
+                class="logo__imagen--width"></a>
     </div>
 
     <div class="contenedor">
@@ -31,8 +32,8 @@
 
                     <div class="reset__div--mb">
                         <input id="password" class="reset__input" type="password"
-                            @error('password') is-invalid @enderror name="password" required
-                            autocomplete="new-password">
+                            @error('password') is-invalid @enderror name="password" required autocomplete="new-password"
+                            placeholder="Indica la nueva contraseña">
 
                         @error('password')
                             <span class="mensaje__error mensaje__error-reset-password-fs">
@@ -47,7 +48,8 @@
 
                     <div class="reset__div--mb">
                         <input id="password_confirmation" class="reset__input" type="password"
-                            name="password_confirmation" requireutocomplete="new-password">
+                            name="password_confirmation" requireutocomplete="new-password"
+                            placeholder="Confirma la nueva contraseña">
 
                         @error('password_confirmation')
                             <span class="mensaje__error mensaje__error-reset-password-fs">

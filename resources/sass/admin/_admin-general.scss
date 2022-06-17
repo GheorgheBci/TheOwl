@@ -167,7 +167,7 @@ $table-font: 'Roboto', sans-serif;
         float: right;
         text-align: right;
         color: black;
-        transition: .3s ease all;
+        transition: .3s ease color;
 
         &:hover {
             color: red;
@@ -188,7 +188,8 @@ $table-font: 'Roboto', sans-serif;
     &__label {
         display: inline-block;
         width: 70px;
-        margin-bottom: 4%;
+        font-size: .9em;
+        font-family: $apartados-font;
     }
 
     &__input {
@@ -221,7 +222,7 @@ $table-font: 'Roboto', sans-serif;
         height: 30px;
         margin-top: 4%;
         cursor: pointer;
-        transition: .3s ease all;
+        transition: .3s ease color;
 
         &:hover {
             background-color: #b0590e;

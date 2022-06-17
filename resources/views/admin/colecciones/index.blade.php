@@ -11,7 +11,7 @@
         <div class="buscador__div">
             <form action="{{ route('coleccion.buscar') }}" method="post">
                 @csrf
-                <span class="buscador__icono"><i class="fa fa-search"></i></span>
+                <button type="submit" class="buscador__icono"><i class="fa fa-search"></i></button>
                 <input type="text" class="buscador__input" name="coleccion" placeholder="Buscar una colección..." />
             </form>
         </div>
@@ -19,20 +19,20 @@
 
     @error('coleccion')
         <div class="mensaje__error--center">
-            <span class="mensaje__error">
+            <span class="mensaje__error mensaje__error--fs">
                 <strong>{{ $message }}</strong>
             </span>
         </div>
     @enderror
 
     @if (session('success'))
-        <div class="mensaje__exito mensaje__exito--center">
+        <div class="mensaje__exito mensaje__exito--fs mensaje__exito--center">
             <strong>{{ session('success') }}</strong>
         </div>
     @endif
 
     @if (session('error'))
-        <div class="mensaje__error mensaje__error--center">
+        <div class="mensaje__error mensaje__error--fs mensaje__error--center">
             <strong>{{ session('error') }}</strong>
         </div>
     @endif
@@ -70,7 +70,7 @@
     <div class="fondo" id="fondo">
         <div class="ventana-crear ventana-crear__coleccion" id="ventana-crear">
             <a href="#" class="ventana-crear__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
-            <h3 class="ventana-crear__h3 ventana-crear__coleccion-h3">Crear nueva Colección</h3>
+            <h3 class="ventana-crear__h3 ventana-crear__coleccion-h3">Nueva Colección</h3>
             <form action="{{ route('coleccion.crear') }}" method="post" class="ventana-crear__form--width"
                 enctype="multipart/form-data">
                 @csrf

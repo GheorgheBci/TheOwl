@@ -7,7 +7,6 @@ const ordenar = document.getElementById('mostrar-ordenar');
 $('#carrito').click(function (e) {
     e.preventDefault();
     let url = $(this).attr('href');
-    // console.log(send);
     $.ajax({
         type: "GET",
         url: url,
@@ -15,11 +14,10 @@ $('#carrito').click(function (e) {
             "_token": $("meta[name='csrf-token']").attr("content"),
         },
         success: function () {
-            // alert("exito");
             $('#carrito').css('color', '#35B00D');
         },
         error: function () {
-            alert('error');
+            console.log('error');
         }
     });
 });
@@ -27,7 +25,6 @@ $('#carrito').click(function (e) {
 $('#corazon').click(function (e) {
     e.preventDefault();
     let url = $(this).attr('href');
-    // console.log(send);
     $.ajax({
         type: "GET",
         url: url,
@@ -35,15 +32,13 @@ $('#corazon').click(function (e) {
             "_token": $("meta[name='csrf-token']").attr("content"),
         },
         success: function () {
-            // alert("exito");
             $('#corazon').css('color', '#FF0000');
         },
         error: function () {
-            alert('error');
+            console.log('error');
         }
     });
 });
-
 
 if (ordenar) {
     ordenar.addEventListener('click', function () {

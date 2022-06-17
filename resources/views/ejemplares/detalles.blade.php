@@ -11,12 +11,12 @@
             @auth
                 @if (DB::table('wishlist')->where('codUsu', Auth::user()->codUsu)->where('isbn', $ejemplar->isbn)->first())
                     <a href="#" class="ejemplar__corazon-rojo"><i class="fas fa-heart"></i></a>
-                    <a href="{{ route('carrito', $ejemplar) }}" id="carrito" class="ejemplar__carrito"><i
+                    <a href="{{ route('carrito.añadir', $ejemplar) }}" id="carrito" class="ejemplar__carrito"><i
                             class="fa-solid fa-cart-arrow-down"></i></a>
                 @else
                     <a href="{{ route('usuario.add', $ejemplar) }}" id="corazon" class="ejemplar__corazon-negro"><i
                             class="fas fa-heart"></i></a>
-                    <a href="{{ route('carrito', $ejemplar) }}" id="carrito" class="ejemplar__carrito"><i
+                    <a href="{{ route('carrito.añadir', $ejemplar) }}" id="carrito" class="ejemplar__carrito"><i
                             class="fa-solid fa-cart-arrow-down"></i></a>
                 @endif
             @endauth
@@ -24,7 +24,7 @@
             @guest
                 <a href="{{ route('usuario.add', $ejemplar) }}" class="ejemplar__corazon-negro"><i
                         class="fas fa-heart"></i></a>
-                <a href="{{ route('carrito', $ejemplar) }}" class="ejemplar__carrito"><i
+                <a href="{{ route('carrito.añadir', $ejemplar) }}" class="ejemplar__carrito"><i
                         class="fa-solid fa-cart-arrow-down"></i></a>
 
             @endguest

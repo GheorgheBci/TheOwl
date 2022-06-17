@@ -5,6 +5,11 @@
 @section('content')
     <div class="editar-ejemplar">
         <h1 class="editar-ejemplar__h1">{{ $ejemplar->nomEjemplar }}</h1>
+        @if (session('success'))
+            <div class="mensaje__exito mensaje__exito--fs mensaje__exito--center">
+                <strong>{{ session('success') }}</strong>
+            </div>
+        @endif
         <form action="{{ route('ejemplar.admin-actualizar', $ejemplar) }}" class="editar-ejemplar__form" method="post"
             enctype="multipart/form-data">
             @csrf
@@ -33,7 +38,7 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="epilogo">Epilogo</label>
+                    <label for="epilogo" class="editar-ejemplar__label">Epilogo</label>
                     <textarea name="epilogo" class="editar-ejemplar__textarea">{{ $ejemplar->epilogo }}</textarea>
                     @error('epilogo')
                         <div>

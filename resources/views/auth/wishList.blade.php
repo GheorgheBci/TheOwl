@@ -57,7 +57,7 @@
 
                             </td>
                             <td class="wishlist__tabla-td wishlist__tabla-td--inline">
-                                <a href="{{ route('carrito', $item) }}" class="carri"><i
+                                <a href="{{ route('carrito.añadir', $item) }}" class="carri"><i
                                         class="fa-solid fa-cart-arrow-down wishlist__iconos"></i></a>
                             </td>
                         </tr>

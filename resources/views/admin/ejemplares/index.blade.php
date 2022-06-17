@@ -10,22 +10,22 @@
 
     <div class="buscador">
         <div class="buscador__div">
-            <form action="{{ route('ejemplar.admin-buscar') }}" method="post">
+            <form action="{{ route('ejemplar.admin-buscar') }}" method="get">
                 @csrf
-                <span class="buscador__icono"><i class="fa fa-search"></i></span>
+                <button type="submit" class="buscador__icono"><i class="fa fa-search"></i></button>
                 <input type="text" class="buscador__input" name="ejemplar" placeholder="Buscar un ejemplar por su ISBN..." />
             </form>
         </div>
     </div>
 
     @if (session('success'))
-        <div class="mensaje__exito mensaje__exito--center">
+        <div class="mensaje__exito mensaje__exito--fs mensaje__exito--center">
             <strong>{{ session('success') }}</strong>
         </div>
     @endif
 
     @if (session('error'))
-        <div class="mensaje__error mensaje__error--center">
+        <div class="mensaje__error mensaje__error--fs mensaje__error--center">
             <strong>{{ session('error') }}</strong>
         </div>
     @endif
@@ -33,7 +33,7 @@
     <div class="mensajes__error-ejemplar">
         @error('isbn')
             <div>
-                <span class="mensaje__error">
+                <span class="mensaje__error mensaje__error--fs">
                     <strong>ISBN: {{ $message }}</strong>
                 </span>
             </div>
@@ -41,7 +41,7 @@
 
         @error('nombre')
             <div>
-                <span class="mensaje__error">
+                <span class="mensaje__error mensaje__error--fs">
                     <strong>Nombre del ejemplar: {{ $message }}</strong>
                 </span>
             </div>
@@ -49,7 +49,7 @@
 
         @error('epilogo')
             <div>
-                <span class="mensaje__error">
+                <span class="mensaje__error mensaje__error--fs">
                     <strong>Epilogo: {{ $message }}</strong>
                 </span>
             </div>
@@ -57,7 +57,7 @@
 
         @error('fecha')
             <div>
-                <span class="mensaje__error">
+                <span class="mensaje__error mensaje__error--fs">
                     <strong>Fecha de publicación: {{ $message }}</strong>
                 </span>
             </div>
@@ -65,7 +65,7 @@
 
         @error('tema')
             <div>
-                <span class="mensaje__error">
+                <span class="mensaje__error mensaje__error--fs">
                     <strong>Tema: {{ $message }}</strong>
                 </span>
             </div>
@@ -73,7 +73,7 @@
 
         @error('idioma')
             <div>
-                <span class="mensaje__error">
+                <span class="mensaje__error mensaje__error--fs">
                     <strong>Idioma: {{ $message }}</strong>
                 </span>
             </div>
@@ -81,7 +81,7 @@
 
         @error('precio')
             <div>
-                <span class="mensaje__error">
+                <span class="mensaje__error mensaje__error--fs">
                     <strong>Precio: {{ $message }}</strong>
                 </span>
             </div>
@@ -89,7 +89,7 @@
 
         @error('portada')
             <div>
-                <span class="mensaje__error">
+                <span class="mensaje__error mensaje__error--fs">
                     <strong>Portada: {{ $message }}</strong>
                 </span>
             </div>
@@ -97,7 +97,7 @@
 
         @error('contenido')
             <div>
-                <span class="mensaje__error">
+                <span class="mensaje__error mensaje__error--fs">
                     <strong>Contenido: {{ $message }}</strong>
                 </span>
             </div>
@@ -180,8 +180,8 @@
     <div class="fondo" id="fondo">
         <div class="ventana-crear ventana-crear__ejemplar" id="ventana-crear">
             <a href="#" class="ventana-crear__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
-            <h3 class="ventana-crear__h3">Crear nuevo Ejemplar</h3>
-            <form action="{{ route('gu') }}" method="post" class="ventana-crear__form--width"
+            <h3 class="ventana-crear__h3">Nuevo Ejemplar</h3>
+            <form action="{{ route('ejemplar.crear') }}" method="post" class="ventana-crear__form--width"
                 enctype="multipart/form-data">
                 @csrf
                 <div>
@@ -197,7 +197,7 @@
                             required>
                     </div>
                     <div>
-                        <label for="epilogo">Epilogo</label>
+                        <label for="epilogo" class="ventana-crear__label">Epilogo</label>
                         <textarea name="epilogo" class="ejemplar__textarea"></textarea>
                     </div>
                     <div>

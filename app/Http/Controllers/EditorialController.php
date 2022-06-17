@@ -16,7 +16,6 @@ class EditorialController extends Controller
     {
         $editorial = Editorial::where('nomEditorial', $request->editorial);
 
-
         if ($editorial->count() !== 0) {
             return view('admin.editoriales.index', ['editoriales' => $editorial->paginate(20)]);
         }

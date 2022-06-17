@@ -13,13 +13,13 @@
         <div class="main-registro__separador"></div>
 
         <div class="main-registro__div--ml main-registro__div--ma">
-            <h1>Crear Cuenta</h1>
+            <h1 class="main-registro__titulo">Crear Cuenta</h1>
 
             <form method="POST" action="{{ route('register') }}" class="main-registro__form main-registro__form--mt">
                 @csrf
                 <div class="main-registro__div main-registro__div--mb">
                     <div class="main-registro__div--width main-registro__div--mb">
-                        <label for="nombre">Nombre</label>
+                        <label for="nombre" class="main-registro__label">Nombre</label>
 
                         <div>
                             <input id="nombre" class="main-registro__input" type="text"
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="main-registro__div--width main-registro__div--mb">
-                        <label for="ape1">Primer apellido</label>
+                        <label for="ape1" class="main-registro__label">Primer apellido</label>
 
                         <div>
                             <input id="ape1" class="main-registro__input" type="text" l @error('ape1') is-invalid @enderror
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="main-registro__div--width main-registro__div--mb">
-                        <label for="ape2">Segundo apellido</label>
+                        <label for="ape2" class="main-registro__label">Segundo apellido</label>
 
                         <div>
                             <input id="ape2" class="main-registro__input" type="text" @error('ape2') is-invalid @enderror
@@ -69,7 +69,7 @@
 
                 <div class="main-registro__div main-registro__div--mb">
                     <div class="main-registro__email--width main-registro__div--mb">
-                        <label for="email">Correo electrónico</label>
+                        <label for="email" class="main-registro__label">Correo electrónico</label>
 
                         <div>
                             <input id="email" class="main-registro__input" type="email" @error('email') is-invalid @enderror
@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="main-registro__date--width main-registro__div--mb">
-                        <label for="fechaNac">Fecha de nacimiento</label>
+                        <label for="fechaNac" class="main-registro__label">Fecha de nacimiento</label>
 
                         <div>
                             <input id="fechaNac" class="main-registro__input" type="date"
@@ -103,7 +103,7 @@
 
                 <div class="main-registro__div main-registro__div--mb">
                     <div class="main-registro__password--width main-registro__div--mb">
-                        <label for="password">Contraseña</label>
+                        <label for="password" class="main-registro__label">Contraseña</label>
 
                         <div>
                             <input id="password" class="main-registro__input" type="password"
@@ -119,7 +119,7 @@
                     </div>
 
                     <div class="main-registro__password--width main-registro__div--mb">
-                        <label for="password-confirm">Confirmar la contraseña</label>
+                        <label for="password-confirm" class="main-registro__label">Confirmar la contraseña</label>
 
                         <div>
                             <input id="password-confirm" class="main-registro__input" type="password"

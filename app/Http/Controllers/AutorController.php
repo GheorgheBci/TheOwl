@@ -14,7 +14,7 @@ class AutorController extends Controller
 
     public function buscarAutor(Request $request)
     {
-        $autor = Autor::where('nomAutor', 'LIKE', '%' . $request->autor . '%');
+        $autor = Autor::where('nomAutor', $request->autor);
 
         if ($autor->count() !== 0) {
             return view('admin.autores.index', ['autores' => $autor->paginate(20)]);
@@ -28,7 +28,7 @@ class AutorController extends Controller
         $request->validate([
             'nombre' => 'string|required|max:20',
             'ape1' => 'string|required|max:20',
-            'ape2' => 'string|required|max:20',
+            'ape2' => 'string|nullable|max:20',
         ]);
 
         Autor::create([
@@ -57,7 +57,7 @@ class AutorController extends Controller
             'nomAutor' => $request->nombre,
         ]);
 
-        return redirect()->route('autor.autores');
+        return redirect()->route('autor.autores')->with(['success' => 'Se ha modificado el nombre correctamente']);
     }
 
     public function actualizarApe1Autor(Request $request,  Autor $autor)
@@ -70,7 +70,7 @@ class AutorController extends Controller
             'ape1Autor' => $request->ape1,
         ]);
 
-        return redirect()->route('autor.autores');
+        return redirect()->route('autor.autores')->with(['success' => 'Se ha modificado el primer apellido correctamente']);
     }
 
     public function actualizarApe2Autor(Request $request,  Autor $autor)
@@ -83,6 +83,6 @@ class AutorController extends Controller
             'ape2Autor' => $request->ape2,
         ]);
 
-        return redirect()->route('autor.autores');
+        return redirect()->route('autor.autores')->with(['success' => 'Se ha modificado el segundo apellido correctamente']);
     }
 }

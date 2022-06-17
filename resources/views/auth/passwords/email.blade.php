@@ -12,7 +12,8 @@
 <body>
 
     <div class="logo">
-        <img src="{{ asset('img/buho.svg') }}" alt="buho" class="logo__imagen--width">
+        <a href="{{ route('inicio') }}"><img src="{{ asset('img/buho.svg') }}" alt="buho"
+                class="logo__imagen--width"></a>
     </div>
 
     <div class="contenedor">
@@ -31,7 +32,7 @@
                     </div>
 
                     @error('email')
-                        <span class="mensaje__error--red mensaje__error-reset-password-fs">
+                        <span class="mensaje__error mensaje__error-reset-password-fs">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror

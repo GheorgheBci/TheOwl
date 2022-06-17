@@ -878,25 +878,28 @@ body {
   text-align: justify;
   font-size: 15px;
 }
-
 .verify__titulo {
   text-align: center;
   margin-bottom: 4%;
   font-size: 24px;
+  font-family: "Titillium Web", sans-serif;
 }
-
 .verify__div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+.verify__p {
+  font-family: "Titillium Web", sans-serif;
+}
 .verify__boton {
   margin: 4% 0 4% 0;
   padding: 9px;
+  color: white;
   border-radius: 10px;
   background-color: #D99255;
   border: 1px solid #D99255;
+  font-family: "Titillium Web", sans-serif;
   cursor: pointer;
   font-size: 15px;
   transition: 0.3s ease all;
@@ -916,8 +919,12 @@ body {
   height: 100%;
 }
 .main-login__titulo {
-  font-size: 21px;
+  font-size: 4vh;
   text-align: center;
+  font-family: "Titillium Web", sans-serif;
+}
+.main-login__label {
+  font-family: "Titillium Web", sans-serif;
 }
 .main-login__separador {
   visibility: hidden;
@@ -931,6 +938,7 @@ body {
 }
 .main-login__input {
   background-color: #fbfbfb;
+  font-family: "Space Mono", monospace;
   width: 100%;
   height: 40px;
   border-radius: 5px;
@@ -956,8 +964,10 @@ body {
   border: 1px solid #D99255;
   border-radius: 5px;
   color: white;
-  height: 30px;
+  font-size: 3vh;
+  height: 37px;
   cursor: pointer;
+  font-family: "Titillium Web", sans-serif;
   transition: 0.3s ease all;
 }
 .main-login__button:hover {
@@ -968,16 +978,29 @@ body {
   margin-top: 8%;
   font-size: 15px;
 }
+.main-login__p--font {
+  font-family: "Titillium Web", sans-serif;
+}
+.main-login__a {
+  font-family: "Titillium Web", sans-serif;
+}
 .main-login__a--color {
   color: rgb(16, 140, 228);
+}
+.main-login__a--color:hover {
+  color: rgb(12, 77, 123);
 }
 
 .main-registro--padding {
   padding: 4%;
 }
+.main-registro__titulo {
+  font-family: "Titillium Web", sans-serif;
+}
 .main-registro__p {
   visibility: hidden;
   position: absolute;
+  font-family: "Titillium Web", sans-serif;
 }
 .main-registro__separador {
   visibility: hidden;
@@ -986,8 +1009,13 @@ body {
 .main-registro__form--mt {
   margin-top: 4%;
 }
+.main-registro__label {
+  font-family: "Titillium Web", sans-serif;
+}
 .main-registro__input {
   background-color: #fbfbfb;
+  font-family: "Space Mono", monospace;
+  font-size: 2vh;
   width: 97%;
   height: 40px;
   border-radius: 5px;
@@ -1004,8 +1032,10 @@ body {
 }
 .main-registro__button {
   background-color: #D99255;
+  font-family: "Titillium Web", sans-serif;
   color: white;
   width: 44%;
+  font-size: 1em;
   padding: 1%;
   border-radius: 3px;
   border: 1px solid #D99255;
@@ -1021,7 +1051,9 @@ body {
   background-color: #D99255;
   display: inline-block;
   color: white;
+  font-family: "Titillium Web", sans-serif;
   width: 30%;
+  font-size: 1.1em;
   padding: 1%;
   text-align: center;
   border-radius: 3px;
@@ -1127,7 +1159,7 @@ body {
   display: inline-block;
   color: white;
   width: 40%;
-  padding: 3% 6%;
+  padding: 3px 6px;
   border-radius: 3px;
   margin-top: 3%;
   cursor: pointer;
@@ -1148,7 +1180,7 @@ body {
   display: inline-block;
   color: white;
   border-radius: 3px;
-  padding: 3% 6%;
+  padding: 5px 13px;
   margin-top: 5%;
   transition: 0.3s ease all;
 }
@@ -1468,25 +1500,28 @@ body {
   text-align: justify;
   font-size: 15px;
 }
-
 .verify__titulo {
   text-align: center;
   margin-bottom: 4%;
   font-size: 24px;
+  font-family: "Titillium Web", sans-serif;
 }
-
 .verify__div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+.verify__p {
+  font-family: "Titillium Web", sans-serif;
+}
 .verify__boton {
   margin: 4% 0 4% 0;
   padding: 9px;
+  color: white;
   border-radius: 10px;
   background-color: #D99255;
   border: 1px solid #D99255;
+  font-family: "Titillium Web", sans-serif;
   cursor: pointer;
   font-size: 15px;
   transition: 0.3s ease all;
@@ -1551,7 +1586,7 @@ body {
 }
 
 .mensaje__error-reset-password-fs {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .mensaje__error-updateEjemplar-fs {
@@ -1568,6 +1603,11 @@ body {
 
 .mensaje__error-login-fs {
   font-size: 1rem;
+}
+
+.mensaje__error--fs,
+.mensaje__exito--fs {
+  font-size: 0.8em;
 }
 
 .mensaje__exito {
@@ -1587,7 +1627,8 @@ body {
   text-align: center;
 }
 
-.mensajes__error-ejemplar {
+.mensajes__error-ejemplar,
+.mensajes__error-autor {
   width: 95%;
   text-align: start;
   margin: auto;
@@ -1595,6 +1636,10 @@ body {
 
 .email--padding {
   padding: 5%;
+}
+
+.email__label {
+  font-family: "Titillium Web", sans-serif;
 }
 
 .email__input {
@@ -1606,6 +1651,7 @@ body {
   margin: 1% 0 1% 0;
   padding-left: 3.5%;
   margin-bottom: 4%;
+  font-family: "Space Mono", monospace;
 }
 .email__input:focus {
   outline: 0;
@@ -1621,6 +1667,7 @@ body {
   background-color: #D99255;
   color: white;
   width: 44%;
+  font-family: "Titillium Web", sans-serif;
   padding: 1%;
   border-radius: 3px;
   border: 1px solid #D99255;
@@ -1639,6 +1686,11 @@ body {
 .reset__titulo {
   text-align: center;
   margin-bottom: 4%;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.reset__label {
+  font-family: "Titillium Web", sans-serif;
 }
 
 .reset__input {
@@ -1649,6 +1701,7 @@ body {
   border: 1px solid #D99255;
   margin: 1% 0 1% 0;
   padding-left: 3.5%;
+  font-family: "Space Mono", monospace;
 }
 .reset__input:focus {
   outline: 0;
@@ -1658,6 +1711,7 @@ body {
 .reset__button {
   margin-top: 3%;
   background-color: #D99255;
+  font-family: "Titillium Web", sans-serif;
   color: white;
   width: 68%;
   padding: 1%;
@@ -1828,7 +1882,7 @@ body {
   float: right;
   text-align: right;
   color: black;
-  transition: 0.3s ease all;
+  transition: 0.3s ease color;
 }
 .ventana-crear__icono:hover {
   color: red;
@@ -1845,7 +1899,8 @@ body {
 .ventana-crear__label {
   display: inline-block;
   width: 70px;
-  margin-bottom: 4%;
+  font-size: 0.9em;
+  font-family: "Open Sans", sans-serif;
 }
 .ventana-crear__input {
   background-color: #fbfbfb;
@@ -1874,7 +1929,7 @@ body {
   height: 30px;
   margin-top: 4%;
   cursor: pointer;
-  transition: 0.3s ease all;
+  transition: 0.3s ease color;
 }
 .ventana-crear__button:hover {
   background-color: #b0590e;
@@ -2031,6 +2086,7 @@ body {
   font-family: "Open Sans", sans-serif;
   margin-bottom: 10px;
   text-align: center;
+  font-family: "Open Sans", sans-serif;
 }
 .admin-inicio__grafica {
   border: 1px solid rgb(239, 232, 232);
@@ -2093,7 +2149,7 @@ body {
 }
 
 .ventana-crear__ejemplar-file {
-  width: 117px;
+  width: 136px;
   border: 1px solid #D99255;
   background-color: #fff;
   border-radius: 4px;
@@ -2102,12 +2158,15 @@ body {
   cursor: pointer;
   margin-bottom: 3%;
   margin-left: 74px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .admin-crear__ejemplar-label-select {
   display: inline-block;
   width: 70px;
+  font-size: 0.9em;
   margin-bottom: 4%;
+  font-family: "Open Sans", sans-serif;
 }
 
 .admin-crear__ejemplar-select {
@@ -2126,19 +2185,24 @@ body {
   margin: auto;
   padding: 11px 0;
 }
+.editar-ejemplar__form {
+  margin-top: 15px;
+}
 .editar-ejemplar__div--flex {
   display: flex;
   justify-content: space-evenly;
 }
 .editar-ejemplar__h1 {
   text-align: center;
-  margin-bottom: 4%;
+  margin-bottom: 15px;
   font-family: "Open Sans", sans-serif;
 }
 .editar-ejemplar__label {
   display: inline-block;
-  width: 75px;
+  width: 90px;
+  font-size: 0.9em;
   margin-bottom: 4%;
+  font-family: "Open Sans", sans-serif;
 }
 .editar-ejemplar__input {
   background-color: #fbfbfb;
@@ -2193,7 +2257,7 @@ body {
   height: 110px;
   border-radius: 5px;
   border: 1px solid #D99255;
-  margin: 2% 0 1% 0;
+  margin: 0 0 1% 0;
   padding: 3.8% 0 0 3.5%;
   resize: none;
 }
@@ -2204,6 +2268,7 @@ body {
 .editar-ejemplar__select {
   background-color: #fbfbfb;
   height: 23px;
+  font-size: 0.7em;
   border-radius: 5px;
   border: 1px solid #D99255;
 }
@@ -2264,6 +2329,7 @@ body {
   .editar-ejemplar__form {
     width: 385px;
     margin: auto;
+    margin-top: 15px;
   }
 
   .boton-crear__div {
@@ -2362,6 +2428,15 @@ body {
   .main-registro {
     width: 461px;
     margin: auto;
+  }
+
+  .mensaje__error-reset-password-fs {
+    font-size: 1rem;
+  }
+
+  .mensaje__error--fs,
+.mensaje__exito--fs {
+    font-size: 1em;
   }
 
   .reset__div {
@@ -2716,12 +2791,13 @@ body {
 
   .usuario__boton {
     width: 27%;
-    padding: 2% 6%;
+    padding: 1% 6%;
   }
 
   .usuario__a {
+    text-align: center;
     width: 27%;
-    padding: 2% 6%;
+    padding: 1% 2%;
   }
 
   .header__ul {
@@ -2743,7 +2819,9 @@ body {
     visibility: visible;
     position: relative;
     border-left: 1px solid black;
-    max-height: 450px;
+    max-height: -webkit-max-content;
+    max-height: -moz-max-content;
+    max-height: max-content;
   }
 
   .main-login {
@@ -2784,6 +2862,10 @@ body {
 
   .main-registro__div {
     display: flex;
+  }
+
+  .main-registro__input {
+    font-size: 12px;
   }
 
   .main-registro__div--width {

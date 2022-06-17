@@ -37,7 +37,7 @@
 
                                 <div class="texto">
                                     <p class="carrito__nombre-ejemplar"> {{ $item->name }}</p>
-                                    <a href="{{ route('borrar', $item->id) }}" class="carrito__a">Eliminar</a>
+                                    <a href="{{ route('carrito.eliminar', $item->id) }}" class="carrito__a">Eliminar</a>
                                 </div>
                             </td>
                             <td class="carrito__td">
@@ -51,7 +51,7 @@
 
             <div class="carrito__alquilar">
                 <p><strong>Total:</strong> {{ $total }}$</p>
-                <a href="{{ route('alquilar') }}" class="carrito__boton">Alquilar</a>
+                <a href="{{ route('carrito.alquilar') }}" class="carrito__boton">Alquilar</a>
             </div>
 
         </div>

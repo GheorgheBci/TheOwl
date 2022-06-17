@@ -11,7 +11,8 @@
 
 <body>
     <div class="logo">
-        <img src="{{ asset('img/buho.svg') }}" alt="buho" class="logo__imagen--width">
+        <a href="{{ route('inicio') }}"><img src="{{ asset('img/buho.svg') }}" alt="buho"
+                class="logo__imagen--width"></a>
     </div>
 
     <div class="contenedor">
@@ -20,8 +21,9 @@
                 <h1 class="verify__titulo">Bienvenido a The Owl</h1>
 
                 <div>
-                    <p>Para poder usar la cuenta tienes que activar con el link que le hemos enviado a su correo. Si no
-                        le ha llegado ningún correo, pulsa en el siguiente enlace y le enviaremos otro enlace.
+                    <p class="verify__p">Para poder usar tu cuenta tienes que activarlo con el link que le hemos
+                        enviado a su correo. Si no le ha llegado ningún correo, pulsa en el siguiente enlace y le
+                        enviaremos otro link.
                     <form method="POST" action="{{ route('verification.resend') }}">
                         @csrf
                         <div class="verify__div">

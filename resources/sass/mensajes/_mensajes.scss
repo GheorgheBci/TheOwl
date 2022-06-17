@@ -63,7 +63,7 @@ $mensajes-font: 'DM Sans', sans-serif;
 }
 
 .mensaje__error-reset-password-fs {
-    font-size: 1rem;
+    font-size: .8rem;
 }
 
 .mensaje__error-updateEjemplar-fs {
@@ -80,6 +80,11 @@ $mensajes-font: 'DM Sans', sans-serif;
 
 .mensaje__error-login-fs {
     font-size: 1rem;
+}
+
+.mensaje__error--fs,
+.mensaje__exito--fs {
+    font-size: .8em;
 }
 
 .mensaje__exito {
@@ -99,7 +104,8 @@ $mensajes-font: 'DM Sans', sans-serif;
     text-align: center;
 }
 
-.mensajes__error-ejemplar {
+.mensajes__error-ejemplar,
+.mensajes__error-autor {
     width: 95%;
     text-align: start;
     margin: auto;

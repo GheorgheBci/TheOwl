@@ -4,9 +4,14 @@
         padding: 4%;
     }
 
+    &__titulo {
+        font-family: 'Titillium Web', sans-serif;
+    }
+
     &__p {
         visibility: hidden;
         position: absolute;
+        font-family: 'Titillium Web', sans-serif;
     }
 
     &__separador {
@@ -18,8 +23,14 @@
         margin-top: 4%;
     }
 
+    &__label {
+        font-family: 'Titillium Web', sans-serif;
+    }
+
     &__input {
         background-color: #fbfbfb;
+        font-family: 'Space Mono', monospace;
+        font-size: 2vh;
         width: 97%;
         height: 40px;
         border-radius: 5px;
@@ -39,8 +50,10 @@
 
     &__button {
         background-color: #D99255;
+        font-family: 'Titillium Web', sans-serif;
         color: white;
         width: 44%;
+        font-size: 1em;
         padding: 1%;
         border-radius: 3px;
         border: 1px solid #D99255;
@@ -58,7 +71,9 @@
         background-color: #D99255;
         display: inline-block;
         color: white;
+        font-family: 'Titillium Web', sans-serif;
         width: 30%;
+        font-size: 1.1em;
         padding: 1%;
         text-align: center;
         border-radius: 3px;

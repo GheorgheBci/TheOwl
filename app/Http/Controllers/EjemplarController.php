@@ -70,7 +70,7 @@ class EjemplarController extends Controller
             return view('admin.ejemplares.ejemplar', ['ejemplar' => $ejemplar, 'editorial' => Editorial::all(), 'autor' => Autor::all(), 'coleccion' => Coleccion::all()]);
         }
 
-        return redirect()->route('ejemplar.admin-ejemplares')->with(['error' => 'El ejemplar con ISBN ' . $request->ejemplar . ' no existe']);
+        return back()->with(['error' => 'El ejemplar con ISBN ' . $request->ejemplar . ' no existe']);
     }
 
     public function ordenarEjemplares(Request $request)
@@ -175,7 +175,7 @@ class EjemplarController extends Controller
                 'codColeccion' => $coleccion->codColeccion ?? NULL,
             ]);
 
-            return redirect()->route('ejemplar.admin-ejemplares')->with(['success' => 'Se ha creado un nuevo ejemplar']);
+            return redirect()->route('ejemplar.admin-ejemplares')->with(['success' => 'Se ha añadido un nuevo ejemplar']);
         }
 
         return redirect()->route('ejemplar.admin-ejemplares');
@@ -269,9 +269,11 @@ class EjemplarController extends Controller
                 'codAutor' => $autor->codAutor ?? NULL,
                 'codColeccion' => $coleccion->codColeccion ?? NULL,
             ]);
+
+            return redirect()->route('ejemplar.admin-ejemplares')->with(['success' => 'El ejemplar ha sido modificado correctamente']);
         }
 
-        return redirect()->route('ejemplar.admin-ejemplares')->with(['success' => 'El ejemplar ha sido modificado correctamente']);
+        return back()->with(['success' => 'El ejemplar ha sido modificado correctamente']);
     }
 
     public function showDetallesEjemplar(Ejemplar $ejemplar)

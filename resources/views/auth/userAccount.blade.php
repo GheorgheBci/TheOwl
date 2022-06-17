@@ -26,7 +26,7 @@
         <div class="usuario">
 
             <div class="usuario__perfil">
-                <form action="{{ route('usuario.cargarImagen') }}" method="post" class="usuario__form-imagen"
+                <form action="{{ route('usuario.cambiar-imagen') }}" method="post" class="usuario__form-imagen"
                     id="cargar-imagen" enctype="multipart/form-data">
                     @csrf
                     <label for="imagen" class="usuario__imagen-label"><span class="usuario__imagen-span">Cambiar
@@ -54,7 +54,7 @@
             @endif
 
             <div class="usuario__datos-personales">
-                <form action="{{ route('usuario.actualizarDatosPersonales', Auth::user()) }}" id="fo" method="POST">
+                <form action="{{ route('usuario.actualizar-datos-personales', Auth::user()) }}" id="fo" method="POST">
                     @csrf
                     <div class="usuario__div">
                         <div class="usuario__div--width">
@@ -143,7 +143,7 @@
             </div>
 
             <div class="usuario__password">
-                <form action="{{ route('usuario.actualizarContraseña') }}" method="POST">
+                <form action="{{ route('usuario.actualizar-contraseña') }}" method="POST">
                     @csrf
                     <div class="usuario__div">
                         <div class="usuario__div--width">

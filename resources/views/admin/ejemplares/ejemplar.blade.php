@@ -10,99 +10,26 @@
 
     <div class="buscador">
         <div class="buscador__div">
-            <form action="{{ route('ejemplar.admin-buscar') }}" method="post">
+            <form action="{{ route('ejemplar.admin-buscar') }}" method="get">
                 @csrf
-                <span class="buscador__icono"><i class="fa fa-search"></i></span>
-                <input type="text" class="buscador__input" name="ejemplar" placeholder="Buscar un ejemplar por su ISBN..." />
+                <button type="submit" class="buscador__icono"><i class="fa fa-search"></i></button>
+                <input type="text" class="buscador__input" name="ejemplar"
+                    placeholder="Buscar un ejemplar por su ISBN..." />
             </form>
         </div>
     </div>
 
     @if (session('success'))
-        <div class="mensaje__exito mensaje__exito--center">
-            {{ session('success') }}
+        <div class="mensaje__exito mensaje__exito--fs mensaje__exito--center">
+            <strong>{{ session('success') }}</strong>
         </div>
     @endif
 
     @if (session('error'))
-        <div class="mensaje__error--red mensaje__exito--center">
-            {{ session('error') }}
+        <div class="mensaje__error mensaje__error--fs mensaje__exito--center">
+            <strong>{{ session('error') }}</strong>
         </div>
     @endif
-
-    <div class="mensajes__error-ejemplar">
-        @error('isbn')
-            <div>
-                <span class="mensaje__error">
-                    <strong>ISBN: {{ $message }}</strong>
-                </span>
-            </div>
-        @enderror
-
-        @error('nombre')
-            <div>
-                <span class="mensaje__error">
-                    <strong>Nombre del ejemplar: {{ $message }}</strong>
-                </span>
-            </div>
-        @enderror
-
-        @error('epilogo')
-            <div>
-                <span class="mensaje__error">
-                    <strong>Epilogo: {{ $message }}</strong>
-                </span>
-            </div>
-        @enderror
-
-        @error('fecha')
-            <div>
-                <span class="mensaje__error">
-                    <strong>Fecha de publicación: {{ $message }}</strong>
-                </span>
-            </div>
-        @enderror
-
-        @error('tema')
-            <div>
-                <span class="mensaje__error">
-                    <strong>Tema: {{ $message }}</strong>
-                </span>
-            </div>
-        @enderror
-
-        @error('idioma')
-            <div>
-                <span class="mensaje__error">
-                    <strong>Idioma: {{ $message }}</strong>
-                </span>
-            </div>
-        @enderror
-
-        @error('precio')
-            <div>
-                <span class="mensaje__error">
-                    <strong>Precio: {{ $message }}</strong>
-                </span>
-            </div>
-        @enderror
-
-        @error('portada')
-            <div>
-                <span class="mensaje__error">
-                    <strong>Portada: {{ $message }}</strong>
-                </span>
-            </div>
-        @enderror
-
-        @error('contenido')
-            <div>
-                <span class="mensaje__error">
-                    <strong>Contenido: {{ $message }}</strong>
-                </span>
-            </div>
-        @enderror
-    </div>
 
     <table class="admin__table--ejemplar">
         <thead class="admin__thead--ejemplar ">
@@ -169,8 +96,8 @@
 
                 <td class="admin__td"><a href="{{ route('ejemplar.admin-editar', $ejemplar) }}"><i
                             class="fa-solid fa-pen-to-square admin__boton"></i></a></td>
-                <td class="admin__td"><a href="{{ route('ejemplar.admin-eliminar', $ejemplar) }}"
-                        class="btn btn-dark"><i class="fa-solid fa-trash admin__boton"></i></a></td>
+                <td class="admin__td"><a href="{{ route('ejemplar.admin-eliminar', $ejemplar) }}" class="btn btn-dark"><i
+                            class="fa-solid fa-trash admin__boton"></i></a></td>
             </tr>
         </tbody>
     </table>
@@ -178,7 +105,7 @@
     <div class="fondo" id="fondo">
         <div class="ventana-crear ventana-crear__ejemplar" id="ventana-crear">
             <a href="#" class="ventana-crear__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
-            <h3 class="ventana-crear__h3">Crear nuevo Ejemplar</h3>
+            <h3 class="ventana-crear__h3">Nuevo Ejemplar</h3>
             <form action="{{ route('gu') }}" method="post" class="ventana-crear__form--width"
                 enctype="multipart/form-data">
                 @csrf
@@ -195,16 +122,18 @@
                             required>
                     </div>
                     <div>
-                        <label for="epilogo">Epilogo</label>
+                        <label for="epilogo" class="ventana-crear__label">Epilogo</label>
                         <textarea name="epilogo" class="ejemplar__textarea"></textarea>
                     </div>
                     <div>
                         <label for="fecha" class="ventana-crear__label">Fecha</label>
-                        <input type="date" class="ventana-crear__input ventana-crear__input-ejemplar" name="fecha" required>
+                        <input type="date" class="ventana-crear__input ventana-crear__input-ejemplar" name="fecha"
+                            required>
                     </div>
                     <div>
                         <label for="tema" class="ventana-crear__label">Tema</label>
-                        <input type="text" class="ventana-crear__input ventana-crear__input-ejemplar" name="tema" required>
+                        <input type="text" class="ventana-crear__input ventana-crear__input-ejemplar" name="tema"
+                            required>
                     </div>
                     <div>
                         <label for="idioma" class="ventana-crear__label">Idioma</label>

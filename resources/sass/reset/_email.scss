@@ -2,6 +2,10 @@
     padding: 5%;
 }
 
+.email__label {
+    font-family: 'Titillium Web', sans-serif;
+}
+
 .email__input {
     background-color: #fbfbfb;
     width: 100%;
@@ -11,6 +15,7 @@
     margin: 1% 0 1% 0;
     padding-left: 3.5%;
     margin-bottom: 4%;
+    font-family: 'Space Mono', monospace;
 
     &:focus {
         outline: 0;
@@ -27,14 +32,15 @@
     background-color: #D99255;
     color: white;
     width: 44%;
+    font-family: 'Titillium Web', sans-serif;
     padding: 1%;
     border-radius: 3px;
     border: 1px solid #D99255;
     cursor: pointer;
     transition: .3s ease all;
 
-        &:hover {
-            background-color: #b0590e;
-            border: 1px solid #b0590e;
-        }
+    &:hover {
+        background-color: #b0590e;
+        border: 1px solid #b0590e;
+    }
 }

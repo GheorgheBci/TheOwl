@@ -52,7 +52,7 @@ class CarritoController extends Controller
     {
         \Cart::session(Auth::user()->codUsu)->remove($id);
 
-        return redirect()->route('show')->with(['success' => 'Ejemplar eliminado del carrito']);
+        return redirect()->route('carrito.show')->with(['success' => 'Ejemplar eliminado del carrito']);
     }
 
     public function alquilarCarrito(Request $request)
@@ -85,6 +85,6 @@ class CarritoController extends Controller
             }
         }
 
-        return redirect()->route('show')->with(['alquilado' => 'Ya tienes en alquiler este ejemplar']);
+        return redirect()->route('carrito.show')->with(['alquilado' => 'Ya tienes en alquiler este ejemplar']);
     }
 }

@@ -9,20 +9,20 @@
     </div>
 
     @if (session('success'))
-        <div class="mensaje__exito mensaje__exito--center">
+        <div class="mensaje__exito mensaje__exito--fs mensaje__exito--center">
             <strong>{{ session('success') }}</strong>
         </div>
     @endif
 
     @if (session('error'))
-        <div class="mensaje__error mensaje__error--center">
+        <div class="mensaje__error mensaje__error--fs mensaje__error--center">
             <strong>{{ session('error') }}</strong>
         </div>
     @endif
 
     @error('rol')
         <div class="mensaje__error--center">
-            <span class="mensaje__error">
+            <span class="mensaje__error mensaje__error--fs">
                 <strong>{{ $message }}</strong>
             </span>
         </div>
@@ -46,7 +46,7 @@
     <div class="fondo" id="fondo">
         <div class="ventana-crear ventana-crear__rol" id="ventana-crear">
             <a href="#" class="ventana-crear__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
-            <h3 class="ventana-crear__h3 ventana-crear__rol-h3">Crear nuevo Rol</h3>
+            <h3 class="ventana-crear__h3 ventana-crear__rol-h3">Nuevo Rol</h3>
             <form action="{{ route('rol.crear') }}" method="post" class="ventana-crear__form--width">
                 @csrf
                 <div>

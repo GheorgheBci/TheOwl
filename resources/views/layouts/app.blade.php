@@ -22,7 +22,8 @@
 
 <body>
     <div class="logo">
-        <img src="{{ asset('img/buho.svg') }}" alt="buho" class="logo__imagen--width">
+        <a href="{{ route('inicio') }}"><img src="{{ asset('img/buho.svg') }}" alt="buho"
+                class="logo__imagen--width"></a>
     </div>
 
     <header class="header header--height">
@@ -38,7 +39,7 @@
                 <li><a href="{{ route('contacto') }}" class="header__a">Contacto</a></li>
                 <li><a href="{{ route('usuario.wishlist') }}" class="header__a"><i
                             class="fas fa-heart header__i--margin"></i>WishList</a></li>
-                <li><a href="{{ route('show') }}" class="header__a"><i
+                <li><a href="{{ route('carrito.show') }}" class="header__a"><i
                             class="fas fa-cart-plus header__i--margin"></i>Carrito</a>
                 </li>
                 <li>

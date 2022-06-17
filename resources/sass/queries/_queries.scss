@@ -33,6 +33,7 @@
     .editar-ejemplar__form {
         width: 385px;
         margin: auto;
+        margin-top: 15px;
     }
 
     // Admin crear
@@ -160,6 +161,16 @@
     }
 
     // Reset
+    .mensaje__error-reset-password-fs {
+        font-size: 1rem;
+    }
+
+    // Ejemplar Admin
+    .mensaje__error--fs,
+    .mensaje__exito--fs {
+        font-size: 1em;
+    }
+
     .reset__div {
         width: 502px;
         margin: auto;
@@ -557,12 +568,13 @@
 
     .usuario__boton {
         width: 27%;
-        padding: 2% 6%;
+        padding: 1% 6%;
     }
 
     .usuario__a {
+        text-align: center;
         width: 27%;
-        padding: 2% 6%;
+        padding: 1% 2%;
     }
 
     // Estilos generales
@@ -586,7 +598,7 @@
         visibility: visible;
         position: relative;
         border-left: 1px solid black;
-        max-height: 450px;
+        max-height: max-content;
     }
 
     .main-login {
@@ -629,6 +641,10 @@
 
     .main-registro__div {
         display: flex;
+    }
+
+    .main-registro__input {
+        font-size: 12px;
     }
 
     .main-registro__div--width {

@@ -41,7 +41,7 @@
 }
 
 .ventana-crear__ejemplar-file {
-    width: 117px;
+    width: 136px;
     border: 1px solid #D99255;
     background-color: #fff;
     border-radius: 4px;
@@ -50,12 +50,15 @@
     cursor: pointer;
     margin-bottom: 3%;
     margin-left: 74px;
+    font-family: $apartados-font;
 }
 
 .admin-crear__ejemplar-label-select {
     display: inline-block;
     width: 70px;
+    font-size: .9em;
     margin-bottom: 4%;
+    font-family: $apartados-font;
 }
 
 .admin-crear__ejemplar-select {
@@ -75,6 +78,10 @@
     margin: auto;
     padding: 11px 0;
 
+    &__form {
+        margin-top: 15px;
+    }
+
     &__div--flex {
         display: flex;
         justify-content: space-evenly;
@@ -82,15 +89,16 @@
 
     &__h1 {
         text-align: center;
-        margin-bottom: 4%;
+        margin-bottom: 15px;
         font-family: $title-font;
-
     }
 
     &__label {
         display: inline-block;
-        width: 75px;
+        width: 90px;
+        font-size: .9em;
         margin-bottom: 4%;
+        font-family: $apartados-font;
     }
 
     &__input {
@@ -152,7 +160,7 @@
         height: 110px;
         border-radius: 5px;
         border: 1px solid #D99255;
-        margin: 2% 0 1% 0;
+        margin: 0 0 1% 0;
         padding: 3.8% 0 0 3.5%;
         resize: none;
 
@@ -165,6 +173,7 @@
     &__select {
         background-color: #fbfbfb;
         height: 23px;
+        font-size: .7em;
         border-radius: 5px;
         border: 1px solid #D99255;
 

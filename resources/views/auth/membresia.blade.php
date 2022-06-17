@@ -9,19 +9,32 @@
         <div class="membresia__div">
             <h2 class="membresia__precio">9.99€</h2>
             <h6 class="membresia__tiempo">cada mes</h6>
-            <a href="{{ route('usuario.comprar', 1) }}" class="membresia__a">Comprar</a>
+            @if (Auth::user()->idRol !== 3)
+                <a href="{{ route('usuario.comprar', 1) }}" class="membresia__a">Comprar</a>
+            @else
+                <a href="#" class="membresia__a">Comprar</a>
+            @endif
         </div>
 
         <div class="membresia__div">
             <h2 class="membresia__precio">59.94€</h2>
             <h6 class="membresia__tiempo">cada 6 meses</h6>
-            <a href="{{ route('usuario.comprar', 6) }}" class="membresia__a">Comprar</a>
+            @if (Auth::user()->idRol !== 3)
+                <a href="{{ route('usuario.comprar', 6) }}" class="membresia__a">Comprar</a>
+            @else
+                <a href="#" class="membresia__a">Comprar</a>
+            @endif
         </div>
 
         <div class="membresia__div">
             <h2 class="membresia__precio">119.88€</h2>
             <h6 class="membresia__tiempo">cada año</h6>
-            <a href="{{ route('usuario.comprar', 12) }}" class="membresia__a">Comprar</a>
+            @if (Auth::user()->idRol !== 3)
+                <a href="{{ route('usuario.comprar', 12) }}" class="membresia__a">Comprar</a>
+            @else
+                <a href="#" class="membresia__a">Comprar</a>
+            @endif
+
         </div>
 
         @if (session('success'))
