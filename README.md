@@ -4,6 +4,8 @@
 
 # 
 
+<a href="[username.github.io/folder/document.pdf](https://github.com/GheorgheBci/TheOwl/blob/master/Manual%20de%20usuario%20-%20The%20Owl%20-%20Bucurici%20Gheorghe.pdf)" target="_blank">Manual de usuario</a>
+
 The Owl es una biblioteca digital donde puedes encontrar miles de ejemplares de todas las temáticas con un simple click. 
 
 # Diseño de la página web 
