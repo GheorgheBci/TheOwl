@@ -22,16 +22,16 @@
     <div class="menu__div--sticky">
         <div class="menu__botones">
             <input type="hidden" id="url" value="{{ $ejemplar->contenido }}">
-            <button id="anterior-pagina" title="Anterior" class="menu__boton"><i class="fa-solid fa-arrow-left"></i></button>
-            <button id="siguiente-pagina" title="Siguiente" class="menu__boton"><i class="fa-solid fa-arrow-right"></i></button>
-            <button id="acercar" title="Acercar" class="menu__boton"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
-            <button id="alejar" title="Alejar" class="menu__boton"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
-            <button id="default" title="Reset Zoom" class="menu__boton">100%</button>
-            <button id="cambiar-color-fondo" title="Modo Oscuro" class="menu__boton"><i id="ico" class="fa-solid fa-moon"></i></button>
+            <button id="anterior-pagina" title="{{ __('Previous') }}" class="menu__boton"><i class="fa-solid fa-arrow-left"></i></button>
+            <button id="siguiente-pagina" title="{{ __('Next') }}" class="menu__boton"><i class="fa-solid fa-arrow-right"></i></button>
+            <button id="acercar" title="{{ __('Zoom in') }}" class="menu__boton"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+            <button id="alejar" title="{{ __('Zoom out') }}" class="menu__boton"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+            <button id="default" title="{{ __('Reset zoom') }}" class="menu__boton">100%</button>
+            <button id="cambiar-color-fondo" title="{{ __('Dark Mode') }}" class="menu__boton"><i id="ico" class="fa-solid fa-moon"></i></button>
         </div>
 
         <div class="menu__pagina">
-            <span>Página <span id="pagina"></span> de <span id="total-paginas"></span></span>
+            <span>{{ __('Page') }} <span id="pagina"></span> {{ __('of') }} <span id="total-paginas"></span></span>
         </div>
     </div>
 

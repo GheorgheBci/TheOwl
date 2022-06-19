@@ -3,38 +3,43 @@
 @section('titulo', 'Membresia')
 
 @section('content')
-    <h1 class="membresia__titulo">MEMBRESIAS</h1>
+    <h1 class="membresia__titulo">{{ __('MEMBERSHIPS') }}</h1>
 
     <div class="membresia">
         <div class="membresia__div">
             <h2 class="membresia__precio">9.99€</h2>
-            <h6 class="membresia__tiempo">cada mes</h6>
-            @if (Auth::user()->idRol !== 3)
-                <a href="{{ route('usuario.comprar', 1) }}" class="membresia__a">Comprar</a>
-            @else
-                <a href="#" class="membresia__a">Comprar</a>
-            @endif
+            <h6 class="membresia__tiempo">{{ __('every') }} {{ __('month') }}</h6>
+            @auth
+                @if (Auth::user()->idRol !== 3)
+                    <a href="{{ route('usuario.comprar', 1) }}" class="membresia__a">{{ __('Buy') }}</a>
+                @else
+                    <a href="#" class="membresia__a">{{ __('Buy') }}</a>
+                @endif
+            @endauth
         </div>
 
         <div class="membresia__div">
             <h2 class="membresia__precio">59.94€</h2>
-            <h6 class="membresia__tiempo">cada 6 meses</h6>
-            @if (Auth::user()->idRol !== 3)
-                <a href="{{ route('usuario.comprar', 6) }}" class="membresia__a">Comprar</a>
-            @else
-                <a href="#" class="membresia__a">Comprar</a>
-            @endif
+            <h6 class="membresia__tiempo">{{ __('every') }} 6 {{ __('month') }}</h6>
+            @auth
+                @if (Auth::user()->idRol !== 3)
+                    <a href="{{ route('usuario.comprar', 6) }}" class="membresia__a">{{ __('Buy') }}</a>
+                @else
+                    <a href="#" class="membresia__a">{{ __('Buy') }}</a>
+                @endif
+            @endauth
         </div>
 
         <div class="membresia__div">
             <h2 class="membresia__precio">119.88€</h2>
-            <h6 class="membresia__tiempo">cada año</h6>
-            @if (Auth::user()->idRol !== 3)
-                <a href="{{ route('usuario.comprar', 12) }}" class="membresia__a">Comprar</a>
-            @else
-                <a href="#" class="membresia__a">Comprar</a>
-            @endif
-
+            <h6 class="membresia__tiempo">{{ __('every') }} {{ __('year') }}</h6>
+            @auth
+                @if (Auth::user()->idRol !== 3)
+                    <a href="{{ route('usuario.comprar', 12) }}" class="membresia__a">{{ __('Buy') }}</a>
+                @else
+                    <a href="#" class="membresia__a">{{ __('Buy') }}</a>
+                @endif
+            @endauth
         </div>
 
         @if (session('success'))

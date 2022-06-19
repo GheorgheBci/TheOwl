@@ -231,6 +231,13 @@ $table-font: 'Roboto', sans-serif;
     }
 }
 
+.nombre__ejemplar-recortado {
+    width: 116px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .ventana-crear.active {
     opacity: 1;
     transform: scale(1);

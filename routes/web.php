@@ -9,6 +9,7 @@ use App\Http\Controllers\ColeccionController;
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\AlquilerController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,7 +73,7 @@ Route::group(['ejemplar' => 'ejemplar', 'as' => 'ejemplar.'], function () {
     Route::get('ejemplar/puntuar/{ejemplar}/{puntuacion}', [EjemplarController::class, 'puntuar'])->middleware('auth', 'verified')->name('puntuar');
     Route::get('ejemplares/ordenar/{tipo}', [EjemplarController::class, 'ordenarEjemplares'])->name('ordenar');
     Route::get('perfil/mis-libros/ordenar-mis-libros/{tipo}', [EjemplarController::class, 'ordenarMisEjemplares'])->name('ordenar-mis-libros');
-    Route::post('ejemplar/buscar', [EjemplarController::class, 'buscarEjemplar'])->name('buscar');
+    Route::get('ejemplar/buscar', [EjemplarController::class, 'buscarEjemplar'])->name('buscar');
     Route::post('usuario/mis-libros/buscar', [EjemplarController::class, 'buscarMiEjemplar'])->name('buscar-mis-libros');
     Route::post('ejemplar/alquilar/{ejemplar}', [EjemplarController::class, 'alquilarEjemplar'])->middleware('auth', 'verified')->name('alquilar');
 
@@ -121,6 +122,9 @@ Route::group(['carrito' => 'carrito', 'as' => 'carrito.', 'middleware' => ['auth
     Route::get('carrito/alquilar', [CarritoController::class, 'alquilarCarrito'])->name('alquilar');
 });
 
+
 Auth::routes(['verify' => true]);
+
+Route::get('lang/{lang}', [App\Http\Controllers\LanguageController::class, 'swap'])->name('lang.swap');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

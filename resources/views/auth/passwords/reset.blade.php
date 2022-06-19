@@ -18,7 +18,7 @@
     <div class="contenedor">
 
         <div class="reset__div reset--padding">
-            <h1 class="reset__titulo">Nueva Contraseña</h1>
+            <h1 class="reset__titulo">{{ __('Reset Password') }}</h1>
 
             <form method="POST" action="{{ route('password.update') }}">
                 @csrf
@@ -28,12 +28,12 @@
                 <input type="hidden" value="{{ $email ?? old('email') }}" name="email" required>
 
                 <div>
-                    <label for="password" class="reset__label">Nueva Contraseña</label>
+                    <label for="password" class="reset__label">{{ __('New Password') }}</label>
 
                     <div class="reset__div--mb">
                         <input id="password" class="reset__input" type="password"
                             @error('password') is-invalid @enderror name="password" required autocomplete="new-password"
-                            placeholder="Indica la nueva contraseña">
+                            placeholder="{{ __('Enter the new password') }}">
 
                         @error('password')
                             <span class="mensaje__error mensaje__error-reset-password-fs">
@@ -44,12 +44,12 @@
                 </div>
 
                 <div>
-                    <label for="password_confirmation" class="reset__label">Confirmar Contraseña</label>
+                    <label for="password_confirmation" class="reset__label">{{ __('Confirm Password') }}</label>
 
                     <div class="reset__div--mb">
                         <input id="password_confirmation" class="reset__input" type="password"
                             name="password_confirmation" requireutocomplete="new-password"
-                            placeholder="Confirma la nueva contraseña">
+                            placeholder="{{ __('Confirm the new password') }}">
 
                         @error('password_confirmation')
                             <span class="mensaje__error mensaje__error-reset-password-fs">
@@ -67,7 +67,7 @@
 
                 <div>
                     <div>
-                        <button type="submit" class="reset__button">Actualizar Contraseña</button>
+                        <button type="submit" class="reset__button">{{ __('Update Password') }}</button>
                     </div>
                 </div>
             </form>

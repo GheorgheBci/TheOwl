@@ -27,7 +27,7 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="nombre" class="editar-ejemplar__label">Nombre</label>
+                    <label for="nombre" class="editar-ejemplar__label">{{ __('Name') }}</label>
                     <input type="text" class="editar-ejemplar__input" name="nombre" value="{{ $ejemplar->nomEjemplar }}">
                     @error('nombre')
                         <div>
@@ -38,7 +38,7 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="epilogo" class="editar-ejemplar__label">Epilogo</label>
+                    <label for="epilogo" class="editar-ejemplar__label">{{ __('Epilogue') }}</label>
                     <textarea name="epilogo" class="editar-ejemplar__textarea">{{ $ejemplar->epilogo }}</textarea>
                     @error('epilogo')
                         <div>
@@ -49,7 +49,7 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="fecha" class="editar-ejemplar__label">Fecha</label>
+                    <label for="fecha" class="editar-ejemplar__label">{{ __('Date') }}</label>
                     <input type="date" class="editar-ejemplar__input" name="fecha"
                         value="{{ $ejemplar->fecPublicacion }}">
                     @error('fecha')
@@ -61,7 +61,7 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="tema" class="editar-ejemplar__label">Tema</label>
+                    <label for="tema" class="editar-ejemplar__label">{{ __('Topic') }}</label>
                     <input type="text" class="editar-ejemplar__input" name="tema" value="{{ $ejemplar->tema }}">
                     @error('tema')
                         <div>
@@ -72,7 +72,7 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="idioma" class="editar-ejemplar__label">Idioma</label>
+                    <label for="idioma" class="editar-ejemplar__label">{{ __('Language') }}</label>
                     <input type="text" class="editar-ejemplar__input" name="idioma" value="{{ $ejemplar->idioma }}">
                     @error('idioma')
                         <div>
@@ -83,7 +83,7 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="precio" class="editar-ejemplar__label">Precio</label>
+                    <label for="precio" class="editar-ejemplar__label">{{ __('Price') }}</label>
                     <input type="text" class="editar-ejemplar__input" name="precio" value="{{ $ejemplar->precio }}">
                     @error('precio')
                         <div>
@@ -94,12 +94,12 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="portada" class="editar-ejemplar__label">Portada</label>
+                    <label for="portada" class="editar-ejemplar__label">   {{ __('Cover') }}</label>
                     <input type="text" class="editar-ejemplar__input" name="portada" accept="image/*" id="portada"
                         value="{{ $ejemplar->image_book }}">
 
-                    <i class="fa-solid fa-pen-to-square admin__boton" id="fichero_portada"></i>
-                    <i class="fas fa-times admin__boton admin__boton--hidden" id="cerrar__fichero-portada"></i>
+                    <i class="fa-solid fa-pen-to-square admin__boton" title="{{ __('Edit') }}" id="fichero_portada"></i>
+                    <i class="fas fa-times admin__boton admin__boton--hidden" title="{{ __('Close') }}" id="cerrar__fichero-portada"></i>
 
                     @error('portada')
                         <div>
@@ -110,11 +110,11 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="contenido" class="editar-ejemplar__label">Contenido</label>
+                    <label for="contenido" class="editar-ejemplar__label">  {{ __('Content') }}</label>
                     <input type="text" class="editar-ejemplar__input" name="contenido" accept="application/pdf"
                         id="contenido" value="{{ $ejemplar->contenido }}">
-                    <i class="fa-solid fa-pen-to-square admin__boton" id="fichero_contenido"></i>
-                    <i class="fas fa-times admin__boton admin__boton--hidden" id="cerrar__fichero-contenido"></i>
+                    <i class="fa-solid fa-pen-to-square admin__boton" title="{{ __('Edit') }}" id="fichero_contenido"></i>
+                    <i class="fas fa-times admin__boton admin__boton--hidden" title="{{ __('Close') }}" id="cerrar__fichero-contenido"></i>
                     @error('contenido')
                         <div>
                             <span class="mensaje__error mensaje__error-updateEjemplar-fs">
@@ -125,7 +125,7 @@
                 </div>
 
                 <div>
-                    <label for="editorial" class="editar-ejemplar__label">Editorial</label>
+                    <label for="editorial" class="editar-ejemplar__label">{{ __('Publisher') }}</label>
                     <select name="editorial" class="editar-ejemplar__select">
                         @foreach ($ejemplar->editorial() as $item)
                             <option selected value="{{ $ejemplar->codEditorial }}">{{ $item->nomEditorial }}</option>
@@ -140,7 +140,7 @@
                 </div>
 
                 <div>
-                    <label for="autor" class="editar-ejemplar__label">Autor</label>
+                    <label for="autor" class="editar-ejemplar__label">{{ __('Author') }}</label>
                     <select name="autor" class="editar-ejemplar__select">
                         @foreach ($ejemplar->autor() as $item)
                             <option selected value="{{ $ejemplar->codAutor }}">{{ $item->nomAutor }}
@@ -148,7 +148,7 @@
                                 {{ $item->ape2Autor }}</option>
                         @endforeach
 
-                        <option value="NULL">Anónimo</option>
+                        <option value="NULL">{{ __('Anonymous') }}</option>
 
                         @foreach ($autor as $item)
                             <option value="{{ $item->codAutor }}">{{ $item->nomAutor }} {{ $item->ape1Autor }}
@@ -158,7 +158,7 @@
                 </div>
 
                 <div>
-                    <label for="coleccion" class="editar-ejemplar__label">Colección</label>
+                    <label for="coleccion" class="editar-ejemplar__label">{{ __('Collection') }}</label>
                     <select name="coleccion" class="editar-ejemplar__select">
                         @foreach ($ejemplar->coleccion() as $item)
                             <option selected value="{{ $ejemplar->codColeccion }}">{{ $item->nomColeccion }}</option>
@@ -174,8 +174,8 @@
             </div>
 
             <div class="editar-ejemplar__div--flex">
-                <button type="submit" class="editar-ejemplar__button">Actualizar</button>
-                <a href="{{ route('ejemplar.admin-ejemplares') }}" class="editar-ejemplar__a">Cancelar</a>
+                <button type="submit" class="editar-ejemplar__button">{{ __('Update') }}</button>
+                <a href="{{ route('ejemplar.admin-ejemplares') }}" class="editar-ejemplar__a">{{ __('Cancel') }}</a>
             </div>
         </form>
     </div>

@@ -26,15 +26,15 @@
         @endif
 
         @if (count($milista) === 0)
-            <p class="wishlist__nada">No tienes nada en tu WishList </p>
-            <a href="{{ route('ejemplar.ejemplares') }}" class="wishlist__enlace">Añadir</a>
+            <p class="wishlist__nada">{{ __('Nothing on your WishList') }} </p>
+            <a href="{{ route('ejemplar.ejemplares') }}" class="wishlist__enlace">{{ __('Add') }}</a>
         @else
             <table class="wishlist__tabla">
                 <thead class="wishlist__tabla-thead">
                     <tr>
-                        <th class="wishlist__tabla-th">Portada</th>
-                        <th class="wishlist__tabla-th">Producto</th>
-                        <th class="wishlist__tabla-th">Precio</th>
+                        <th class="wishlist__tabla-th">{{ __('Cover') }}</th>
+                        <th class="wishlist__tabla-th">{{ __('Book') }}</th>
+                        <th class="wishlist__tabla-th">{{ __('Price') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,12 +52,12 @@
                             </td>
                             <td class="wishlist__tabla-td whishlist__tabla-td--block">{{ $item->precio }}$</td>
                             <td class="wishlist__tabla-td wishlist__tabla-td--inline">
-                                <a href="{{ route('usuario.remove', $item) }}"><i
+                                <a href="{{ route('usuario.remove', $item) }}" title="{{ __('Delete') }}"><i
                                         class="fa-solid fa-trash wishlist__iconos"></i></a>
 
                             </td>
                             <td class="wishlist__tabla-td wishlist__tabla-td--inline">
-                                <a href="{{ route('carrito.añadir', $item) }}" class="carri"><i
+                                <a href="{{ route('carrito.añadir', $item) }}" title="{{ __('Add to Cart') }}"><i
                                         class="fa-solid fa-cart-arrow-down wishlist__iconos"></i></a>
                             </td>
                         </tr>

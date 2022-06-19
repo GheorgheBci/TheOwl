@@ -133,7 +133,7 @@ class EjemplarController extends Controller
         $request->validate([
             'isbn' => 'digits_between:13,13|required|integer',
             'nombre' => 'string|max:50|required',
-            'epilogo' => 'max:255',
+            'epilogo' => 'max:1000',
             'fecha' => 'date|required',
             'tema' => 'alpha|max:25|required',
             'idioma' => 'alpha|max:25|required',
@@ -197,7 +197,7 @@ class EjemplarController extends Controller
     {
         $request->validate([
             'nombre' => 'string|max:50|required',
-            'epilogo' => 'max:255',
+            'epilogo' => 'max:1000',
             'fecha' => 'date|required',
             'tema' => 'alpha|max:25|required',
             'idioma' => 'alpha|max:25|required',

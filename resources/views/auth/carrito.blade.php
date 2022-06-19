@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h1 class="carrito__titulo">Mi Carrito ({{ $cantidad }})</h1>
+    <h1 class="carrito__titulo">{{ __('My Cart') }} ({{ $cantidad }})</h1>
 
     @if (session('success'))
         <div class="mensaje__exito mensaje__exito--center">
@@ -14,8 +14,8 @@
 
     @if (count($ejemplar) === 0)
         <div class="carrito__nada">
-            <p>No tienes nada en el carrito</p>
-            <a href="{{ route('ejemplar.ejemplares') }}" class="carrito__enlace">Añadir</a>
+            <p>{{ __('Nothing in your shopping cart') }}</p>
+            <a href="{{ route('ejemplar.ejemplares') }}" class="carrito__enlace">{{ __('Add') }}</a>
         </div>
     @else
         <div class="carrito">
@@ -23,7 +23,7 @@
                 <thead class="carrito__thead">
                     <tr>
                         <th class="carrito__mi-carrito carrito__th"></th>
-                        <th class="carrito__th">Precio</th>
+                        <th class="carrito__th">{{ __('Price') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,12 +37,12 @@
 
                                 <div class="texto">
                                     <p class="carrito__nombre-ejemplar"> {{ $item->name }}</p>
-                                    <a href="{{ route('carrito.eliminar', $item->id) }}" class="carrito__a">Eliminar</a>
+                                    <a href="{{ route('carrito.eliminar', $item->id) }}" class="carrito__a">{{ __('Delete') }}</a>
                                 </div>
                             </td>
                             <td class="carrito__td">
-                                <div class="carrito__precio-ejemplar"><span class="precio">Precio:
-                                    </span>{{ $item->price }}$ </div>
+                                <div class="carrito__precio-ejemplar"><span class="precio">{{ __('Price') }}:
+                                    </span>{{ $item->price }}€ </div>
                             </td>
                         </tr>
                     @endforeach
@@ -50,8 +50,8 @@
             </table>
 
             <div class="carrito__alquilar">
-                <p><strong>Total:</strong> {{ $total }}$</p>
-                <a href="{{ route('carrito.alquilar') }}" class="carrito__boton">Alquilar</a>
+                <p><strong>Total:</strong> {{ $total }}€</p>
+                <a href="{{ route('carrito.alquilar') }}" class="carrito__boton">{{ __('Rent') }}</a>
             </div>
 
         </div>

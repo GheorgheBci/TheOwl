@@ -10,14 +10,14 @@
         <p class="ejemplar__iconos">
             @auth
                 @if (DB::table('wishlist')->where('codUsu', Auth::user()->codUsu)->where('isbn', $ejemplar->isbn)->first())
-                    <a href="#" class="ejemplar__corazon-rojo"><i class="fas fa-heart"></i></a>
-                    <a href="{{ route('carrito.añadir', $ejemplar) }}" id="carrito" class="ejemplar__carrito"><i
+                    <a href="#" title="{{ __('Book added to WishList') }}" class="ejemplar__corazon-rojo"><i class="fas fa-heart"></i></a>
+                    <a href="{{ route('carrito.añadir', $ejemplar) }}" id="carrito" title="{{ __('Add to Cart') }}" class="ejemplar__carrito"><i
                             class="fa-solid fa-cart-arrow-down"></i></a>
                 @else
-                    <a href="{{ route('usuario.add', $ejemplar) }}" id="corazon" class="ejemplar__corazon-negro"><i
-                            class="fas fa-heart"></i></a>
-                    <a href="{{ route('carrito.añadir', $ejemplar) }}" id="carrito" class="ejemplar__carrito"><i
-                            class="fa-solid fa-cart-arrow-down"></i></a>
+                    <a href="{{ route('usuario.add', $ejemplar) }}" id="corazon" title="{{ __('Add to WishList') }}"
+                        class="ejemplar__corazon-negro"><i class="fas fa-heart"></i></a>
+                    <a href="{{ route('carrito.añadir', $ejemplar) }}" id="carrito" title="{{ __('Add to Cart') }}"
+                        class="ejemplar__carrito"><i class="fa-solid fa-cart-arrow-down"></i></a>
                 @endif
             @endauth
 
@@ -61,8 +61,8 @@
                     <audio id="sonido-puntuar" src="{{ asset('sound/511484__mlaudio__success-bell.wav') }}"></audio>
                 </div>
                 <div class="botones">
-                    <a href="#" id="alquilar" class="botones__a">Alquilar</a>
-                    <a href="{{ route('ejemplar.ejemplares') }}" class="botones__a">Atrás</a>
+                    <a href="#" id="alquilar" class="botones__a">{{ __('Rent') }}</a>
+                    <a href="{{ route('ejemplar.ejemplares') }}" class="botones__a">{{ __('Back') }}</a>
                 </div>
             </div>
 
@@ -70,14 +70,14 @@
 
             <div class="detalles__texto">
 
-                <h2 class="texto__subtitulo">Detalles del libro</h2>
+                <h2 class="texto__subtitulo">{{ __('Book details') }}</h2>
                 <table class="texto__table">
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td texto__td--width">Autor: </td>
+                        <td class="texto__td texto__td--width">{{ __('Author') }}: </td>
                         <td class="texto__td">
                             @if ($ejemplar->codAutor === null)
-                                <p>Anónimo</p>
+                                <p>{{ __('Anonymous') }}</p>
                             @else
                                 @foreach ($ejemplar->autor() as $item)
                                     {{ $item->nomAutor }} {{ $item->ape1Autor }} {{ $item->ape2Autor }}
@@ -87,10 +87,10 @@
                     </tr>
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td texto__td--width">Editorial: </td>
+                        <td class="texto__td texto__td--width">{{ __('Publisher') }}: </td>
                         <td class="texto__td">
                             @if ($ejemplar->codEditorial === null)
-                                <p>Sin editorial</p>
+                                <p>{{ __('No Publisher') }}</p>
                             @else
                                 @foreach ($ejemplar->editorial() as $item)
                                     {{ $item->nomEditorial }}
@@ -100,10 +100,10 @@
                     </tr>
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td texto__td--width">Colección: </td>
+                        <td class="texto__td texto__td--width">{{ __('Collection') }}: </td>
                         <td class="texto__td">
                             @if ($ejemplar->codColeccion === null)
-                                <p>Sin colección</p>
+                                <p>{{ __('No Collection') }}</p>
                             @else
                                 @foreach ($ejemplar->coleccion() as $item)
                                     {{ $item->nomColeccion }}
@@ -113,22 +113,22 @@
                     </tr>
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td texto__td--width">Tema: </td>
+                        <td class="texto__td texto__td--width">{{ __('Topic:') }} </td>
                         <td class="texto__td">{{ $ejemplar->tema }}</td>
                     </tr>
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td texto__td--width">Idioma: </td>
+                        <td class="texto__td texto__td--width">{{ __('Language:') }} </td>
                         <td class="texto__td">{{ $ejemplar->idioma }}</td>
                     </tr>
 
                     <tr class="texto__tr--height">
-                        <td class="texto__td texto__td--width">Fecha: </td>
+                        <td class="texto__td texto__td--width">{{ __('Date:') }}</td>
                         <td class="texto__td">{{ $ejemplar->fecPublicacion }}</td>
                     </tr>
                 </table>
 
-                <h2 class="texto__subtitulo">Epilogo</h2>
+                <h2 class="texto__subtitulo">{{ __('Epilogue') }}</h2>
                 <p class="texto__epilogo">{{ $ejemplar->epilogo }}</p>
 
 
@@ -156,24 +156,25 @@
         <div class="fondo" id="fondo">
             <div class="ventana-alquilar" id="ventana-alquilar">
                 <a href="#" class="ventana-alquilar__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
-                <h3 class="ventana-alquilar__h3">Ejemplar {{ $ejemplar->nomEjemplar }}</h3>
+                <h3 class="ventana-alquilar__h3">{{ __('Book') }} {{ $ejemplar->nomEjemplar }}</h3>
                 <form action="{{ route('ejemplar.alquilar', $ejemplar) }}" method="post"
                     class="ventana-alquilar__form--width">
                     @csrf
                     <div>
-                        <label for="precio" class="ventana-alquilar__label">Precio</label>
+                        <label for="precio" class="ventana-alquilar__label">{{ __('Price') }}</label>
                         <input type="number" class="ventana-alquilar__input" name="precio" id="precio"
                             value="{{ $ejemplar->precio }}" readonly>
-                        <label for="fecha_alquiler" class="ventana-alquilar__label">Fecha de alquiler</label>
+                        <label for="fecha_alquiler" class="ventana-alquilar__label">{{ __('Rental date') }}</label>
                         <input type="date" class="ventana-alquilar__input" name="fecha_alquiler" id="fecha_alquiler"
                             value="{{ date('Y-m-d') }}" disabled>
-                        <label for="fecha_devolucion" class="ventana-alquilar__label">Fecha de devolución</label>
-                        <input type="date" class="ventana-alquilar__input" name="fecha_devolucion" id="fecha_devolucion"
+                        <label for="fecha_devolucion" class="ventana-alquilar__label">{{ __('Return date') }}</label>
+                        <input type="date" class="ventana-alquilar__input" name="fecha_devolucion"
+                            id="fecha_devolucion"
                             value="{{ date('Y-m-d', strtotime('+30 day', strtotime(date('Y-m-d')))) }}" disabled>
                     </div>
 
                     <div class="ventana-alquilar__div--flex">
-                        <button type="submit" class="ventana-alquilar__button">Alquilar</button>
+                        <button type="submit" class="ventana-alquilar__button">{{ __('Rent') }}</button>
                     </div>
                 </form>
             </div>

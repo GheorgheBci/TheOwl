@@ -235,13 +235,13 @@ if ($('#menu-barra')) {
         if (!activo) {
             anime({
                 targets: '#menu-barra',
-                translateX: 150,
+                translateX: 165,
                 duration: 200,
                 easing: 'linear'
             });
             anime({
                 targets: '#c',
-                translateX: 150,
+                translateX: 165,
                 duration: 200,
                 easing: 'linear'
             });

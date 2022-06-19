@@ -5,16 +5,17 @@
 @section('content')
 
     <div class="boton-crear__div">
-        <i class="fa-solid fa-circle-plus boton-crear__icono" id="crear"></i>
+        <i class="fa-solid fa-circle-plus boton-crear__icono" title="{{ __('Create') }}" id="crear"></i>
     </div>
 
     <div class="buscador">
         <div class="buscador__div">
             <form action="{{ route('ejemplar.admin-buscar') }}" method="get">
                 @csrf
-                <button type="submit" class="buscador__icono"><i class="fa fa-search"></i></button>
+                <button type="submit" class="buscador__icono" title="{{ __('Search') }}"><i
+                        class="fa fa-search"></i></button>
                 <input type="text" class="buscador__input" name="ejemplar"
-                    placeholder="Buscar un ejemplar por su ISBN..." />
+                    placeholder="{{ __('Search for a book by ISBN...') }}" />
             </form>
         </div>
     </div>
@@ -35,78 +36,78 @@
         <thead class="admin__thead--ejemplar ">
             <tr class="admin__thead-tr--ejemplar">
                 <th class="admin__th">#</th>
-                <th class="admin__th">Nombre</th>
-                <th class="admin__th">Fecha Publicación</th>
-                <th class="admin__th">Tema</th>
-                <th class="admin__th">Idioma</th>
-                <th class="admin__th">Precio</th>
-                <th class="admin__th">Portada</th>
-                <th class="admin__th">Puntuación</th>
-                <th class="admin__th">Votos</th>
-                <th class="admin__th">Contenido</th>
-                <th class="admin__th">Editorial</th>
-                <th class="admin__th">Autor</th>
-                <th class="admin__th">Coleccion</th>
+                <th class="admin__th">{{ __('Name') }}</th>
+                <th class="admin__th">{{ __('Publication Date') }}</th>
+                <th class="admin__th">{{ __('Topic') }}</th>
+                <th class="admin__th">{{ __('Language') }}</th>
+                <th class="admin__th">{{ __('Price') }}</th>
+                <th class="admin__th">{{ __('Cover') }}</th>
+                <th class="admin__th">{{ __('Score') }}</th>
+                <th class="admin__th">{{ __('Votes') }}</th>
+                <th class="admin__th">{{ __('Content') }}</th>
+                <th class="admin__th">{{ __('Publisher') }}</th>
+                <th class="admin__th">{{ __('Author') }}</th>
+                <th class="admin__th">{{ __('Collection') }}</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="admin__tbody-tr--ejemplar">
-                <td class="admin__td--ejemplar" data-datos="ISBN">{{ $ejemplar->isbn }}</td>
-                <td class="admin__td--ejemplar" data-datos="Nombre">{{ $ejemplar->nomEjemplar }}</td>
-                <td class="admin__td--ejemplar" data-datos="Fec. Publicación">{{ $ejemplar->fecPublicacion }}</td>
-                <td class="admin__td--ejemplar" data-datos="Tema">{{ $ejemplar->tema }}</td>
-                <td class="admin__td--ejemplar" data-datos="Idioma">{{ $ejemplar->idioma }}</td>
-                <td class="admin__td--ejemplar" data-datos="Precio">{{ $ejemplar->precio }}</td>
-                <td class="admin__td--ejemplar" data-datos="Portada">
-                    <div><img src="{{ asset('book/' . $ejemplar->image_book) }}" alt="portada"
-                            class="admin__ejemplar-portada"></div>
-                </td>
-                <td class="admin__td--ejemplar" data-datos="Puntuación">{{ $ejemplar->puntuacion }}</td>
-                <td class="admin__td--ejemplar" data-datos="Votos">{{ $ejemplar->votos }}</td>
-                <td class="admin__td--ejemplar" data-datos="Contenido">
-                    <div class="admin__contenido-ejemplar--ellipsis">
-                        {{ $ejemplar->contenido }}</div>
-                </td>
+                <tr class="admin__tbody-tr--ejemplar">
+                    <td class="admin__td--ejemplar" data-datos="ISBN">{{ $ejemplar->isbn }}</td>
+                    <td class="admin__td--ejemplar" data-datos="{{ __('Name') }}">{{ $ejemplar->nomEjemplar }}</td>
+                    <td class="admin__td--ejemplar" data-datos="{{ __('Publication Date') }}">{{ $ejemplar->fecPublicacion }}</td>
+                    <td class="admin__td--ejemplar" data-datos="{{ __('Topic') }}">{{ $ejemplar->tema }}</td>
+                    <td class="admin__td--ejemplar" data-datos="{{ __('Language') }}">{{ $ejemplar->idioma }}</td>
+                    <td class="admin__td--ejemplar" data-datos="{{ __('Price') }}">{{ $ejemplar->precio }}</td>
+                    <td class="admin__td--ejemplar" data-datos="{{ __('Cover') }}">
+                        <div><img src="{{ asset('book/' . $ejemplar->image_book) }}" alt="portada"
+                                class="admin__ejemplar-portada"></div>
+                    </td>
+                    <td class="admin__td--ejemplar" data-datos="{{ __('Score') }}">{{ $ejemplar->puntuacion }}</td>
+                    <td class="admin__td--ejemplar" data-datos="{{ __('Votes') }}">{{ $ejemplar->votos }}</td>
+                    <td class="admin__td--ejemplar" data-datos="{{ __('Content') }}">
+                        <div class="admin__contenido-ejemplar--ellipsis">
+                            {{ $ejemplar->contenido }}</div>
+                    </td>
 
-                @if ($ejemplar->codEditorial === null)
-                    <td class="admin__td--ejemplar" data-datos="Editorial">NULL</td>
-                @else
-                    @foreach ($ejemplar->editorial() as $edit)
-                        <td class="admin__td--ejemplar" data-datos="Editorial">{{ $edit->nomEditorial }}</td>
-                    @endforeach
-                @endif
+                    @if ($ejemplar->codEditorial === null)
+                        <td class="admin__td--ejemplar" data-datos="{{ __('Publisher') }}">NULL</td>
+                    @else
+                        @foreach ($ejemplar->editorial() as $edit)
+                            <td class="admin__td--ejemplar" data-datos="{{ __('Publisher') }}">{{ $edit->nomEditorial }}</td>
+                        @endforeach
+                    @endif
 
-                @if ($ejemplar->codAutor === null)
-                    <td class="admin__td--ejemplar" data-datos="Autor">Anónimo</td>
-                @else
-                    @foreach ($ejemplar->autor() as $aut)
-                        <td class="admin__td--ejemplar" data-datos="Autor">{{ $aut->nomAutor }}
-                            {{ $aut->ape1Autor }}
-                            {{ $aut->ape2Autor }}</td>
-                    @endforeach
-                @endif
+                    @if ($ejemplar->codAutor === null)
+                        <td class="admin__td--ejemplar" data-datos="{{ __('Author') }}">{{ __('Anonymous') }}</td>
+                    @else
+                        @foreach ($ejemplar->autor() as $aut)
+                            <td class="admin__td--ejemplar" data-datos="{{ __('Author') }}">{{ $aut->nomAutor }}
+                                {{ $aut->ape1Autor }}
+                                {{ $aut->ape2Autor }}</td>
+                        @endforeach
+                    @endif
 
-                @if ($ejemplar->codColeccion === null)
-                    <td class="admin__td--ejemplar" data-datos="Colección">NULL</td>
-                @else
-                    @foreach ($ejemplar->coleccion() as $colecc)
-                        <td class="admin__td--ejemplar" data-datos="Colección">{{ $colecc->nomColeccion }}</td>
-                    @endforeach
-                @endif
+                    @if ($ejemplar->codColeccion === null)
+                        <td class="admin__td--ejemplar" data-datos="{{ __('Collection') }}">NULL</td>
+                    @else
+                        @foreach ($ejemplar->coleccion() as $colecc)
+                            <td class="admin__td--ejemplar" data-datos="{{ __('Collection') }}">{{ $colecc->nomColeccion }}</td>
+                        @endforeach
+                    @endif
 
-                <td class="admin__td"><a href="{{ route('ejemplar.admin-editar', $ejemplar) }}"><i
-                            class="fa-solid fa-pen-to-square admin__boton"></i></a></td>
-                <td class="admin__td"><a href="{{ route('ejemplar.admin-eliminar', $ejemplar) }}" class="btn btn-dark"><i
-                            class="fa-solid fa-trash admin__boton"></i></a></td>
-            </tr>
+                    <td class="admin__td"><a href="{{ route('ejemplar.admin-editar', $ejemplar) }}"
+                            title="{{ __('Edit') }}"><i class="fa-solid fa-pen-to-square admin__boton"></i></a></td>
+                    <td class="admin__td"><a href="{{ route('ejemplar.admin-eliminar', $ejemplar) }}" class="btn btn-dark"
+                            title="{{ __('Delete') }}"><i class="fa-solid fa-trash admin__boton"></i></a></td>
+                </tr>
         </tbody>
     </table>
 
     <div class="fondo" id="fondo">
         <div class="ventana-crear ventana-crear__ejemplar" id="ventana-crear">
             <a href="#" class="ventana-crear__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
-            <h3 class="ventana-crear__h3">Nuevo Ejemplar</h3>
-            <form action="{{ route('gu') }}" method="post" class="ventana-crear__form--width"
+            <h3 class="ventana-crear__h3">{{ __('New Book') }}</h3>
+            <form action="{{ route('ejemplar.crear') }}" method="post" class="ventana-crear__form--width"
                 enctype="multipart/form-data">
                 @csrf
                 <div>
@@ -117,81 +118,83 @@
                     </div>
 
                     <div>
-                        <label for="nombre" class="ventana-crear__label">Nombre</label>
+                        <label for="nombre" class="ventana-crear__label">{{ __('Name') }}</label>
                         <input type="text" class="ventana-crear__input ventana-crear__input-ejemplar" name="nombre"
                             required>
                     </div>
                     <div>
-                        <label for="epilogo" class="ventana-crear__label">Epilogo</label>
+                        <label for="epilogo" class="ventana-crear__label">{{ __('Epilogue') }}</label>
                         <textarea name="epilogo" class="ejemplar__textarea"></textarea>
                     </div>
                     <div>
-                        <label for="fecha" class="ventana-crear__label">Fecha</label>
+                        <label for="fecha" class="ventana-crear__label">{{ __('Date') }}</label>
                         <input type="date" class="ventana-crear__input ventana-crear__input-ejemplar" name="fecha"
                             required>
                     </div>
                     <div>
-                        <label for="tema" class="ventana-crear__label">Tema</label>
+                        <label for="tema" class="ventana-crear__label">{{ __('Topic') }}</label>
                         <input type="text" class="ventana-crear__input ventana-crear__input-ejemplar" name="tema"
                             required>
                     </div>
                     <div>
-                        <label for="idioma" class="ventana-crear__label">Idioma</label>
+                        <label for="idioma" class="ventana-crear__label">{{ __('Language') }}</label>
                         <input type="text" class="ventana-crear__input ventana-crear__input-ejemplar" name="idioma"
                             required>
                     </div>
                     <div>
-                        <label for="precio" class="ventana-crear__label">Precio</label>
+                        <label for="precio" class="ventana-crear__label">{{ __('Price') }}</label>
                         <input type="text" class="ventana-crear__input ventana-crear__input-ejemplar" name="precio"
                             required>
                     </div>
                     <div>
                         <label for="portada" class="ventana-crear__ejemplar-file"><i class="fa fa-cloud-upload"></i>
-                            Portada</label>
+                            {{ __('Cover') }}</label>
                         <input type="file" name="portada" accept="image/*" id="portada" required>
                     </div>
                     <div>
                         <label for="contenido" class="ventana-crear__ejemplar-file"><i class="fa fa-cloud-upload"></i>
-                            Contenido</label>
+                            {{ __('Content') }}</label>
                         <input type="file" name="contenido" accept="application/pdf" id="contenido" required>
                     </div>
 
                     <div>
-                        <label for="editorial" class="admin-crear__ejemplar-label-select">Editorial</label>
+                        <label for="editorial" class="admin-crear__ejemplar-label-select">{{ __('Publisher') }}</label>
                         <select name="editorial" class="admin-crear__ejemplar-select">
                             <option value="NULL"></option>
-                            @foreach ($editorial as $item)
-                                <option value="{{ $item->codEditorial }}">{{ $item->nomEditorial }}</option>
+                            @foreach ($editorial as $ejemplar)
+                                <option value="{{ $ejemplar->codEditorial }}">{{ $ejemplar->nomEditorial }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div>
-                        <label for="autor" class="admin-crear__ejemplar-label-select">Autor</label>
+                        <label for="autor" class="admin-crear__ejemplar-label-select">{{ __('Author') }}</label>
                         <select name="autor" id="" class="admin-crear__ejemplar-select">
                             <option value="NULL"></option>
-                            @foreach ($autor as $item)
-                                <option value="{{ $item->codAutor }}">{{ $item->nomAutor }} {{ $item->ape1Autor }}
-                                    {{ $item->ape2Autor }}</option>
+                            @foreach ($autor as $ejemplar)
+                                <option value="{{ $ejemplar->codAutor }}">{{ $ejemplar->nomAutor }} {{ $ejemplar->ape1Autor }}
+                                    {{ $ejemplar->ape2Autor }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div>
-                        <label for="coleccion" class="admin-crear__ejemplar-label-select">Colección</label>
+                        <label for="coleccion"
+                            class="admin-crear__ejemplar-label-select">{{ __('Collection') }}</label>
                         <select name="coleccion" id="" class="admin-crear__ejemplar-select">
                             <option value="NULL"></option>
-                            @foreach ($coleccion as $item)
-                                <option value="{{ $item->codColeccion }}">{{ $item->nomColeccion }}</option>
+                            @foreach ($coleccion as $ejemplar)
+                                <option value="{{ $ejemplar->codColeccion }}">{{ $ejemplar->nomColeccion }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
 
                 <div class="ventana-crear__div--flex">
-                    <button type="submit" class="ventana-crear__button">Crear</button>
+                    <button type="submit" class="ventana-crear__button">{{ __('Create') }}</button>
                 </div>
             </form>
         </div>
     </div>
+
 @endsection

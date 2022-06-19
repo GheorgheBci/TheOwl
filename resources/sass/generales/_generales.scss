@@ -83,18 +83,32 @@ body {
     }
 
     &__informacion,
-    &__redes-sociales,
+    &__cambiar-idioma,
     &__contacto {
         text-align: center;
         padding: 3%;
         padding-bottom: 7%;
     }
 
+    &__idioma{
+        color: white;
+        text-decoration: none;
+        font-size: .8em;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    &__idioma--uppercase{
+        text-transform: uppercase;
+    }
+
     &__informacion--width {
         width: 70%;
     }
 
-    &__redes-sociales--width,
+    &__cambiar-idioma--width,
     &__contacto--width {
         width: 55%;
     }

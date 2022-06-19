@@ -18,17 +18,15 @@
     <div class="contenedor">
         <main>
             <div class="verify">
-                <h1 class="verify__titulo">Bienvenido a The Owl</h1>
+                <h1 class="verify__titulo">{{ __('Welcome to The Owl') }}</h1>
 
                 <div>
-                    <p class="verify__p">Para poder usar tu cuenta tienes que activarlo con el link que le hemos
-                        enviado a su correo. Si no le ha llegado ningún correo, pulsa en el siguiente enlace y le
-                        enviaremos otro link.
+                    <p class="verify__p">{{ __('To be able to use your account you have to activate it with the link that we have sent to your email. If you have not received any email, click on the following link and we will send you another link.') }}
                     <form method="POST" action="{{ route('verification.resend') }}">
                         @csrf
                         <div class="verify__div">
                             <button class="verify__boton"
-                                type="submit">{{ __('Click para reenviar otro enlace') }}</button>
+                                type="submit">{{ __('Click to resend another link') }}</button>
 
                             @if (session('succes'))
                                 <div class="mensaje__exito">

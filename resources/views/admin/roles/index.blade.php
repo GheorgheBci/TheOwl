@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="boton-crear__div">
-        <i class="fa-solid fa-circle-plus boton-crear__icono" id="crear"></i>
+        <i class="fa-solid fa-circle-plus boton-crear__icono" title="{{ __('Create') }}" id="crear"></i>
     </div>
 
     @if (session('success'))
@@ -31,7 +31,7 @@
     <table class="admin__table">
         <thead class="admin__thead">
             <th class="admin__th">#</th>
-            <th class="admin__th">Rol</th>
+            <th class="admin__th">{{ __('Role') }}</th>
         </thead>
         <tbody>
             @foreach ($roles as $item)
@@ -46,16 +46,16 @@
     <div class="fondo" id="fondo">
         <div class="ventana-crear ventana-crear__rol" id="ventana-crear">
             <a href="#" class="ventana-crear__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
-            <h3 class="ventana-crear__h3 ventana-crear__rol-h3">Nuevo Rol</h3>
+            <h3 class="ventana-crear__h3 ventana-crear__rol-h3">{{ __('New Role') }}</h3>
             <form action="{{ route('rol.crear') }}" method="post" class="ventana-crear__form--width">
                 @csrf
                 <div>
-                    <label for="rol" class="ventana-crear__label ventana-crear__rol-label">Rol</label>
+                    <label for="rol" class="ventana-crear__label ventana-crear__rol-label">{{ __('Role') }}</label>
                     <input type="text" class="ventana-crear__input ventana-crear__rol-input" name="rol" id="rol" required>
                 </div>
 
                 <div class="ventana-crear__div--flex">
-                    <button type="submit" class="ventana-crear__button">Crear</button>
+                    <button type="submit" class="ventana-crear__button">{{ __('Create') }}</button>
                 </div>
             </form>
         </div>

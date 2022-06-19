@@ -82,15 +82,26 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
-.footer__informacion, .footer__redes-sociales, .footer__contacto {
+.footer__informacion, .footer__cambiar-idioma, .footer__contacto {
   text-align: center;
   padding: 3%;
   padding-bottom: 7%;
 }
+.footer__idioma {
+  color: white;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+.footer__idioma:hover {
+  text-decoration: underline;
+}
+.footer__idioma--uppercase {
+  text-transform: uppercase;
+}
 .footer__informacion--width {
   width: 70%;
 }
-.footer__redes-sociales--width, .footer__contacto--width {
+.footer__cambiar-idioma--width, .footer__contacto--width {
   width: 55%;
 }
 .footer__h3 {
@@ -270,7 +281,7 @@ body {
   margin-bottom: 51%;
 }
 .detalles__img {
-  width: 100%;
+  width: 260px;
   height: 100%;
   position: relative;
 }
@@ -1684,6 +1695,7 @@ body {
 }
 
 .reset__titulo {
+  font-size: 1.4em;
   text-align: center;
   margin-bottom: 4%;
   font-family: "Titillium Web", sans-serif;
@@ -1934,6 +1946,13 @@ body {
 .ventana-crear__button:hover {
   background-color: #b0590e;
   border: 1px solid #b0590e;
+}
+
+.nombre__ejemplar-recortado {
+  width: 116px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .ventana-crear.active {
@@ -2445,7 +2464,7 @@ body {
   }
 
   .reset__titulo {
-    font-size: 40px;
+    font-size: 2em;
   }
 
   .reset__input {
@@ -2579,7 +2598,7 @@ body {
     width: 50%;
   }
 
-  .footer__redes-sociales--width,
+  .footer__cambiar-idioma--width,
 .footer__contacto--width {
     width: 25%;
   }
@@ -2709,7 +2728,7 @@ body {
 @media screen and (max-width: 860px) {
   .header__ul {
     position: absolute;
-    left: -141px;
+    left: -152px;
     background-color: #dda056;
     border-radius: 3px;
   }

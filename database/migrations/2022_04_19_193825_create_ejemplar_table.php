@@ -16,7 +16,7 @@ class CreateEjemplarTable extends Migration
         Schema::create('ejemplar', function (Blueprint $table) {
             $table->id('isbn', 13);
             $table->string('nomEjemplar', 50)->required();
-            $table->string('epilogo')->nullable();
+            $table->string('epilogo', 1000)->nullable();
             $table->date('fecPublicacion')->required();
             $table->string('tema')->required();
             $table->string('idioma')->required();

@@ -97,7 +97,7 @@ class UsuarioController extends Controller
 
             $request->validate([
                 'password' => 'required|alpha_dash|min:8',
-                'newPassword' => 'required|alpha_dash|min:8',
+                'newPassword' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x]).*$/|min:8',
                 'password-confirm' => 'required|min:8|same:newPassword',
             ]);
 

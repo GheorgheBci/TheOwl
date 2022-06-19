@@ -34,7 +34,7 @@ class ResetPasswordController extends Controller
         return [
             'email' => 'email',
             'token' => 'required',
-            'password' => ['required', 'alpha_dash', Rules\Password::defaults()],
+            'password' => ['required', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x]).*$/', Rules\Password::defaults()],
             'password_confirmation' => 'same:password|min:8'
         ];
     }

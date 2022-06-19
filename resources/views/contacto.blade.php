@@ -4,40 +4,42 @@
 
 @section('content')
     <div class="contacto__div">
-        <h1 class="contacto__titulo contacto__titulo--padding">Formulario de contacto</h1>
+        <h1 class="contacto__titulo contacto__titulo--padding">{{ __('Contact us') }}</h1>
     </div>
 
 
     <div class="formulario__div">
-        <h2 class="formulario__subtitulo">Comentanos tu problema</h2>
+        <h2 class="formulario__subtitulo">{{ __('Tell us your problem') }}</h2>
 
         <form action="#" method="post">
 
-            <label for="nombre" class="formulario__label">Nombre
+            <label for="nombre" class="formulario__label">{{ __('Name') }}
                 <span class="formulario__span--color">*</span>
             </label>
-            <input type="text" class="formulario__input" name="nombre" id="nombre" required placeholder="Escribe tu nombre">
+            <input type="text" class="formulario__input" name="nombre" id="nombre" required
+                placeholder="{{ __('Write your name') }}">
 
             <label for="email" class="formulario__label">Email
                 <span class="formulario__span--color">*</span>
             </label>
-            <input type="email" class="formulario__input" name="email" id="email" required placeholder="Escribe tu Email">
+            <input type="email" class="formulario__input" name="email" id="email" required
+                placeholder="{{ __('Write your Email') }}">
 
-            <label for="asunto" class="formulario__label">Asunto
+            <label for="asunto" class="formulario__label">{{ __('Subject') }}
                 <span class="formulario__span--color">*</span>
             </label>
             <input type="text" class="formulario__input" name="asunto" id="assunto" required
-                placeholder="Escribe un asunto">
+                placeholder="{{ __('Write your subject') }}">
 
-            <label for="mensaje" class="formulario__label">Mensaje
+            <label for="mensaje" class="formulario__label">{{ __('Message') }}
                 <span class="formulario__span--color">*</span>
             </label>
 
-            <textarea name="mensaje" class="formulario__textarea" required placeholder="Deja aquí tu comentario..."></textarea>
+            <textarea name="mensaje" class="formulario__textarea" required placeholder="{{ __('Leave your comment here...') }}"></textarea>
 
-            <button type="submit" class="formulario__button" name="enviar_formulario">Enviar</button>
+            <button type="submit" class="formulario__button" name="enviar_formulario">{{ __('Send') }}</button>
 
-            <p class="formulario__p formulario__p--color">* los campos son obligatorios.</p>
+            <p class="formulario__p formulario__p--color">* {{ __('The fields are compulsory') }}.</p>
 
         </form>
     </div>

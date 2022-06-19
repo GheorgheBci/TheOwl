@@ -8,12 +8,13 @@
         <div class="menu-usuario" id="menu">
 
             <ul>
-                <li class="menu-usuario__li"><a href="{{ route('usuario.libros') }}" class="menu-usuario__a">Mis libros</a>
+                <li class="menu-usuario__li"><a href="{{ route('usuario.libros') }}"
+                        class="menu-usuario__a">{{ __('My Books') }}</a>
                 </li>
                 <li class="menu-usuario__li"><a href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                         class="menu-usuario__a">
-                        Cerrar Sesión
+                        {{ __('Logout') }}
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
@@ -29,8 +30,7 @@
                 <form action="{{ route('usuario.cambiar-imagen') }}" method="post" class="usuario__form-imagen"
                     id="cargar-imagen" enctype="multipart/form-data">
                     @csrf
-                    <label for="imagen" class="usuario__imagen-label"><span class="usuario__imagen-span">Cambiar
-                            Imagen</span></label>
+                    <label for="imagen" class="usuario__imagen-label"><span class="usuario__imagen-span">{{ __('Change Image') }}</span></label>
                     <div class="usuario__change">
                         <label for="imagen"> <i class="fa-solid fa-camera"></i></label>
                     </div>
@@ -54,11 +54,12 @@
             @endif
 
             <div class="usuario__datos-personales">
-                <form action="{{ route('usuario.actualizar-datos-personales', Auth::user()) }}" id="fo" method="POST">
+                <form action="{{ route('usuario.actualizar-datos-personales', Auth::user()) }}" id="fo"
+                    method="POST">
                     @csrf
                     <div class="usuario__div">
                         <div class="usuario__div--width">
-                            <label for="nombre">Nombre: </label>
+                            <label for="nombre">{{ __('Name') }}: </label>
                             <div class="usuario__div--mb">
                                 <input type="text" class="usuario__input" name="nombre" id="nombre"
                                     value="{{ Auth::user()->nombre }}">
@@ -71,7 +72,7 @@
                             </div>
                         </div>
                         <div class="usuario__div--width">
-                            <label for="ape1">Primer apellido: </label>
+                            <label for="ape1">{{ __('First Surname') }}: </label>
                             <div class="usuario__div--mb">
                                 <input type="text" class="usuario__input" name="ape1" id="ape1"
                                     value="{{ Auth::user()->apellido1 }}">
@@ -84,7 +85,7 @@
                             </div>
                         </div>
                         <div class="usuario__div--width">
-                            <label for="ape2">Segundo apellido: </label>
+                            <label for="ape2">{{ __('Second Surname') }}: </label>
                             <div class="usuario__div--mb">
                                 <input type="text" class="usuario__input" name="ape2" id="ape2"
                                     value="{{ Auth::user()->apellido2 }}">
@@ -113,7 +114,7 @@
                             </div>
                         </div>
                         <div class="usuario__div--width">
-                            <label for="fechaNac">Fecha de nacimiento: </label>
+                            <label for="fechaNac">{{ __('Date of birth') }}: </label>
                             <div class="usuario__div--mb">
                                 <input type="date" class="usuario__input" name="fechaNac" id="fechaNac"
                                     value="{{ Auth::user()->fecNacimiento }}">
@@ -138,7 +139,7 @@
                             {{ session('error-datos-personales') }}
                         </div>
                     @endif
-                    <button type="submit" id="actu" class="usuario__boton">Actualizar</button>
+                    <button type="submit" id="actu" class="usuario__boton">{{ __('Update') }}</button>
                 </form>
             </div>
 
@@ -147,10 +148,10 @@
                     @csrf
                     <div class="usuario__div">
                         <div class="usuario__div--width">
-                            <label for="password">Contraseña Actual: </label>
+                            <label for="password">{{ __('Current Password') }}: </label>
                             <div class="usuario__div--mb">
                                 <input type="password" class="usuario__input" name="password" autocomplete="password"
-                                    id="password" placeholder="Contraseña actual">
+                                    id="password" placeholder="{{ __('Current Password') }}">
 
                                 @if (session('error'))
                                     <div class="mensaje__error">
@@ -166,10 +167,10 @@
                             </div>
                         </div>
                         <div class="usuario__div--width">
-                            <label for="newPassword">Nueva Contraseña: </label>
+                            <label for="newPassword">{{ __('New Password') }}: </label>
                             <div class="usuario__div--mb">
-                                <input type="password" class="usuario__input" name="newPassword" autocomplete="new-password"
-                                    id="newPassword" placeholder="Nueva contraseña">
+                                <input type="password" class="usuario__input" name="newPassword"
+                                    autocomplete="new-password" id="newPassword" placeholder="{{ __('New Password') }}">
 
                                 @error('newPassword')
                                     <span class="mensaje__error mensaje__error-perfil-fs">
@@ -179,11 +180,11 @@
                             </div>
                         </div>
                         <div class="usuario__div--width">
-                            <label for="password-confirm">Confirmar Contraseña: </label>
+                            <label for="password-confirm">{{ __('Confirm Password') }}: </label>
                             <div class="usuario__div--mb">
                                 <input type="password" class="usuario__input" name="password-confirm"
                                     autocomplete="current-password" id="password-confirm"
-                                    placeholder="Confirmar contraseña ">
+                                    placeholder="{{ __('Confirm Password') }} ">
 
                                 @error('password-confirm')
                                     <span class="mensaje__error mensaje__error-perfil-fs">
@@ -198,62 +199,62 @@
                             {{ session('success-contraseña') }}
                         </div>
                     @endif
-                    <button type="submit" class="usuario__boton">Actualizar</button>
+                    <button type="submit" class="usuario__boton">{{ __('Update') }}</button>
                 </form>
             </div>
 
             <div class="usuario__socio">
                 @if (Auth::user()->idRol === 2 && !Auth::user()->baja)
-                    <p>Su membresia como socio es hasta {{ Auth::user()->fec_fin_socio }}</p>
+                    <p>{{ __('Your membership is up to') }} {{ Auth::user()->fec_fin_socio }}</p>
 
                     @if ( ((strtotime(date("Y-m-d", strtotime(Auth::user()->fec_fin_socio))) - strtotime(date("Y-m-d"))) /
                     60
                     /60 / 24) === 1)
-                    <p class="usuario__aviso-renovacion">Atención su membresia se renovara mañana</p>
+                    <p class="usuario__aviso-renovacion">{{ __('Attention, your membership will be renewed tomorrow') }}</p>
                 @endif
 
-                <a href="{{ route('usuario.baja') }}" class="usuario__a">Darse de baja</a>
+                <a href="{{ route('usuario.baja') }}" class="usuario__a">{{ __('Unsubscribe') }}</a>
             @elseif(Auth::user()->baja)
-                <p>Te has dado de baja, tu membresia es hasta {{ Auth::user()->fec_fin_socio }}</p>
+                <p>{{ __('You have unsubscribed, your membership is until') }} {{ Auth::user()->fec_fin_socio }}</p>
             @else
-                <p>Actualmente no eres socio</p>
-                <a href="{{ route('membresia') }}" class="usuario__a">Hacerte socio</a>
+                <p>{{ __('You are not currently a member') }}</p>
+                <a href="{{ route('membresia') }}" class="usuario__a">{{ __('Become a member') }}</a>
                 @endif
             </div>
 
             <div class="usuario__alquileres">
-                <h3 class="usuario__h3">MIS ALQUILERES</h3>
+                <h3 class="usuario__h3">{{ __('MY RENTALS') }}</h3>
                 @if (count($alquileres) !== 0)
                     <table class="usuario__table">
                         <thead class="usuario__thead">
                             <tr class="usuario__thead-tr">
-                                <th class="usuario__th">Ejemplar</th>
-                                <th class="usuario__th">Fecha de Alquiler</th>
-                                <th class="usuario__th">Fecha de Devolución</th>
-                                <th class="usuario__th">Precio</th>
+                                <th class="usuario__th">{{ __('Book') }}</th>
+                                <th class="usuario__th">{{ __('Rental date') }}</th>
+                                <th class="usuario__th">{{ __('Return date') }}</th>
+                                <th class="usuario__th">{{ __('Price') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($alquileres as $item)
                                 <tr class="usuario__tbody-tr">
-                                    <td class="usuario__td" data-datos="Ejemplar">
+                                    <td class="usuario__td" data-datos="{{ __('Book') }}">
                                         @foreach (Auth::user()->ejemplar as $items)
                                             @if ($item->isbn === $items->isbn)
                                                 {{ $items->nomEjemplar }}
                                             @endif
                                         @endforeach
                                     </td>
-                                    <td class="usuario__td" data-datos="F. Alquiler">{{ $item->fecAlquiler }}</td>
-                                    <td class="usuario__td" data-datos="F. Devolución">{{ $item->fecDevolucion }}</td>
-                                    <td class="usuario__td" data-datos="Precio">{{ $item->precioAlquiler }}€</td>
+                                    <td class="usuario__td" data-datos="{{ __('Rental date') }}">{{ $item->fecAlquiler }}</td>
+                                    <td class="usuario__td" data-datos="{{ __('Return date') }}">{{ $item->fecDevolucion }}</td>
+                                    <td class="usuario__td" data-datos="{{ __('Price') }}">{{ $item->precioAlquiler }}€</td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 @else
                     <div class="usuario__alquileres-nada">
-                        <p>No tienes alquilado ningún ejemplar</p>
-                        <a href="{{ route('ejemplar.ejemplares') }}" class="usuario__alquileres-enlace">Añadir</a>
+                        <p>{{ __('You have not rented any books') }}</p>
+                        <a href="{{ route('ejemplar.ejemplares') }}" class="usuario__alquileres-enlace">{{ __('Add') }}</a>
                     </div>
                 @endif
             </div>

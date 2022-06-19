@@ -8,8 +8,9 @@
         <div class="buscador__div">
             <form action="{{ route('usuario.buscar') }}" method="get">
                 @csrf
-                <button class="buscador__icono"><i class="fa fa-search"></i></button>
-                <input type="email" class="buscador__input" name="email" placeholder="Buscar un usuario por su email..." />
+                <button class="buscador__icono" title="{{ __('Search') }}"><i class="fa fa-search"></i></button>
+                <input type="email" class="buscador__input" name="email"
+                    placeholder="{{ __('Search for a user by email') }}..." />
             </form>
         </div>
     </div>
@@ -38,64 +39,64 @@
         <thead class="admin__thead--usuario">
             <tr class="admin__thead-tr--usuario">
                 <th class="admin__th">#</th>
-                <th class="admin__th">Nombre Completo</th>
-                <th class="admin__th">Fecha de Nacimiento</th>
+                <th class="admin__th">{{ __('Full Name') }}</th>
+                <th class="admin__th">{{ __('Date of birth') }}</th>
                 <th class="admin__th">Email</th>
-                <th class="admin__th">Rol</th>
-                <th class="admin__th">Fecha verificación</th>
-                <th class="admin__th">Fecha Inicio Socio</th>
-                <th class="admin__th">Fecha Fin Socio</th>
-                <th class="admin__th">Baja</th>
+                <th class="admin__th">{{ __('Role') }}</th>
+                <th class="admin__th">{{ __('Verification date') }}</th>
+                <th class="admin__th">{{ __('Start date Partner') }}</th>
+                <th class="admin__th">{{ __('End date Partner') }}</th>
+                <th class="admin__th">{{ __('Unsubscribe') }}</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($usuarios as $item)
                 <tr class="admin__tbody-tr--usuario">
-                    <td class="admin__td--usuario" data-datos="codigo">{{ $item->codUsu }}</td>
-                    <td class="admin__td--usuario" data-datos="nombre">{{ $item->nombre }} {{ $item->apellido1 }}
+                    <td class="admin__td--usuario" data-datos="{{ __('Code') }}">{{ $item->codUsu }}</td>
+                    <td class="admin__td--usuario" data-datos="{{ __('Name') }}">{{ $item->nombre }} {{ $item->apellido1 }}
                         {{ $item->apellido2 }}
                     </td>
-                    <td class="admin__td--usuario" data-datos="fecha Naci.">{{ $item->fecNacimiento }}</td>
-                    <td class="admin__td--usuario" data-datos="email">{{ $item->email }}</td>
+                    <td class="admin__td--usuario" data-datos="{{ __('Date of birth') }}">{{ $item->fecNacimiento }}</td>
+                    <td class="admin__td--usuario" data-datos="Email">{{ $item->email }}</td>
                     @foreach ($item->rol() as $items)
-                        <td class="admin__td--usuario" data-datos="rol">
+                        <td class="admin__td--usuario" data-datos="{{ __('Role') }}">
                             <form action="{{ route('usuario.cambiar', $item) }}" method="post">
                                 @csrf
                                 <span class="admin-usuario__rol">{{ $items->rol }}</span>
-                                <input type="text" class="admin__usuario-input" name="rol" value="{{ $items->rol }}">
-                                <button type="submit" class="admin__usuario-button"><i
+                                <input type="text" class="admin__usuario-input" name="rol"
+                                    value="{{ $items->rol }}">
+                                <button type="submit" class="admin__usuario-button" title="{{ __('Edit') }}"><i
                                         class="fa-solid fa-pen-to-square"></i></button>
-                                <button type="button" class="admin__usuario-button-cerrar"> <i
-                                        class="fas fa-times"></i></button>
+                                <button type="button" class="admin__usuario-button-cerrar" title="{{ __('Close') }}"><i class="fas fa-times"></i></button>
                             </form>
                         </td>
                     @endforeach
 
                     @if ($item->email_verified_at === null)
-                        <td class="admin__td--usuario" data-datos="verificado">NULL</td>
+                        <td class="admin__td--usuario" data-datos="{{ __('Verification date') }}">NULL</td>
                     @else
-                        <td class="admin__td--usuario" data-datos="verificado">{{ $item->email_verified_at }}</td>
+                        <td class="admin__td--usuario" data-datos="{{ __('Verification date') }}">{{ $item->email_verified_at }}</td>
                     @endif
 
                     @if ($item->fec_ini_socio === null)
-                        <td class="admin__td--usuario" data-datos="fecha inicio">NULL</td>
+                        <td class="admin__td--usuario" data-datos="{{ __('Start date Partner') }}">NULL</td>
                     @else
-                        <td class="admin__td--usuario" data-datos="fecha inicio">{{ $item->fec_ini_socio }}</td>
+                        <td class="admin__td--usuario" data-datos="{{ __('Start date Partner') }}">{{ $item->fec_ini_socio }}</td>
                     @endif
 
                     @if ($item->fec_fin_socio === null)
-                        <td class="admin__td--usuario" data-datos="fecha fin">NULL</td>
+                        <td class="admin__td--usuario" data-datos="{{ __('End date Partner') }}">NULL</td>
                     @else
-                        <td class="admin__td--usuario" data-datos="fecha fin">{{ $item->fec_fin_socio }}</td>
+                        <td class="admin__td--usuario" data-datos="{{ __('End date Partner') }}">{{ $item->fec_fin_socio }}</td>
                     @endif
 
                     @if ($item->baja == 0)
-                        <td class="admin__td--usuario" data-datos="baja">No</td>
+                        <td class="admin__td--usuario" data-datos="{{ __('Unsubscribe') }}">No</td>
                     @else
-                        <td class="admin__td--usuario" data-datos="baja">Si</td>
+                        <td class="admin__td--usuario" data-datos="{{ __('Unsubscribe') }}">{{ __('Yes') }}</td>
                     @endif
-                    <td class="admin__td"><a href="{{ route('usuario.eliminar', $item->codUsu) }}"
-                            class="btn btn-dark"><i class="fa-solid fa-trash admin__boton"></i></a></td>
+                    <td class="admin__td"><a href="{{ route('usuario.eliminar', $item->codUsu) }}" class="btn btn-dark"
+                            title="{{ __('Delete') }}"><i class="fa-solid fa-trash admin__boton"></i></a></td>
                 </tr>
             @endforeach
         </tbody>
