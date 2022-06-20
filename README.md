@@ -2,23 +2,38 @@
   <img src="https://github.com/GheorgheBci/TheOwl/blob/master/public/img/buho.svg" alt="Sublime's custom image"/>
 </p>
 
-# 
+# Indice:
 
-[Manual de Usuario](https://github.com/GheorgheBci/TheOwl/blob/master/Manual%20de%20usuario%20-%20The%20Owl%20-%20Bucurici%20Gheorghe.pdf)
+1. [¿Qué es The Owl?](#1)
+2. [Manual de usuario](#2)
+3. [Diseño de la página web](#3)
+4. [Despliegue](#4)
+5. [Tablas de la Base de Datos](#5)
+6. [Diagrama E/R](#6)
+7. [Especificación de requisitos ](#7)
+8. [Tecnologías](#8)
+9. [Diario](#9)
+10. [Checkpoint 13/05/2022](#10)
+
+# ¿Qúe es The Owl?<a name="1"></a>
 
 The Owl es una biblioteca digital donde puedes encontrar miles de ejemplares de todas las temáticas con un simple click. 
 
-# Diseño de la página web 
+# Manual de Usuario<a name="2"></a>
+
+[Manual de Usuario](https://github.com/GheorgheBci/TheOwl/blob/master/Manual%20de%20usuario%20-%20The%20Owl%20-%20Bucurici%20Gheorghe.pdf)
+
+# Diseño de la página web<a name="3"></a>
 
 https://www.figma.com/file/mz63ZJqAQhAQc42y7s9GJP/ElB%C3%BAhoSabio?node-id=0%3A1
 
 :exclamation: El diseño es una idea de como será la página web, puede cambiar bastante cuando se publique el producto final.
 
-# Despliegue
+# Despliegue<a name="4"></a>
 
 El proyecto se desplegará en Heroku o en IONOS (En caso de que el dominio no funcione en Heroku) con el dominio www.theowl.es. La base de datos en un principio estará en el mismo servidor que la página.
 
-# Base de datos
+# Tablas de la Base de datos<a name="5"></a>
 
 Habrá 7 tablas en la base de datos, que son:
 
@@ -36,11 +51,11 @@ Habrá 7 tablas en la base de datos, que son:
 	
 	- Detalle_Alquiler: cuando un usuario alquila un ejemplar se guarda en está tabla, en la cual aparece el id del usuario, id del ejemplar alquilado, fecha de alquiler, fecha de devolución y el precio.
 	
-# Diagrama E/R 
+# Diagrama E/R<a name="6"></a>
 	
 ![Image text](https://github.com/GheorgheBci/TheOwl/blob/master/TheOwl.drawio.svg)
 
-# Especificación de requisitos 
+# Especificación de requisitos<a name="7"></a>
 
 - Se puede acceder a la página principal y sus apartados sin necesidad de estar logueado, pero a la hora de alquilar un ejemplar si es necesario estar logueado para saber que usuario alquila dicho ejemplar.
 
@@ -82,7 +97,7 @@ Habrá 7 tablas en la base de datos, que son:
 
 - En la página donde se visualizan todos los ejemplares, si queremos ver los detalles de un ejemplar, basta con hacer click sobre dicho ejemplar y ocurrirá una animación de como si el ejemplar se abriese. Una vez abierto nos saldrá todos los detalles de ese ejemplar como su autor, epílogo, etc.
 
-# Tecnologías 
+# Tecnologías<a name="8"></a>
 
 - Front-end
 	- JavaScript
@@ -94,7 +109,7 @@ Habrá 7 tablas en la base de datos, que son:
 - Back-end 
 	- Laravel
 
-# Diario
+# Diario<a name="9"></a>
 
 Semana 18/04/2022 - 24/04/2022
 
@@ -154,5 +169,5 @@ Semana 30/05/2022 - 05/06/2022
 - Se han añadido iconos en el menu de la vista para leer un ejemplar alquilado
 - Correción de bugs, pequeños cambios, etc.
 
-# Checkpoint 13/05/2022
+# Checkpoint 13/05/2022<a name="10"></a>
 https://www.youtube.com/watch?v=5jIgOfQtVXw&ab_channel=GheorgheBush
