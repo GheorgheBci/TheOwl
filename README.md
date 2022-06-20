@@ -36,7 +36,7 @@ El proyecto se desplegará en AWS mediante una instancia EC2 mientrás que la Ba
 
 # Tablas de la Base de datos<a name="5"></a>
 
-Habrá 7 tablas en la base de datos, que son:
+Habrá 8 tablas en la base de datos, que son:
 
 	- Usuario: contiene todos los datos de los usuarios que están registrados en la página.
 	
@@ -49,6 +49,8 @@ Habrá 7 tablas en la base de datos, que son:
 	- Autor: contiene todos los datos de un autor.
 	
 	- Editorial: contiene los datos de una editorial.
+    
+    - WishList: contiene los libros que el usuario tiene pensado alquilar en un futuro.
 	
 	- Detalle_Alquiler: cuando un usuario alquila un ejemplar se guarda en está tabla, en la cual aparece el id del usuario, id del ejemplar alquilado, fecha de alquiler, fecha de devolución y el precio.
 	
