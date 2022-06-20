@@ -14,8 +14,9 @@
 8. [Tecnologías](#8)
 9. [Diario](#9)
 10. [Checkpoint 13/05/2022](#10)
+11. [Bibliografía](#11)
 
-# ¿Qúe es The Owl?<a name="1"></a>
+# ¿Qué es The Owl?<a name="1"></a>
 
 The Owl es una biblioteca digital donde puedes encontrar miles de ejemplares de todas las temáticas con un simple click. 
 
@@ -31,7 +32,7 @@ https://www.figma.com/file/mz63ZJqAQhAQc42y7s9GJP/ElB%C3%BAhoSabio?node-id=0%3A1
 
 # Despliegue<a name="4"></a>
 
-El proyecto se desplegará en Heroku o en IONOS (En caso de que el dominio no funcione en Heroku) con el dominio www.theowl.es. La base de datos en un principio estará en el mismo servidor que la página.
+El proyecto se desplegará en AWS mediante una instancia EC2 mientrás que la Base de Datos estará alojada en una RDS. El enlace de la página web es https://www.th3owl.com/
 
 # Tablas de la Base de datos<a name="5"></a>
 
@@ -171,3 +172,5 @@ Semana 30/05/2022 - 05/06/2022
 
 # Checkpoint 13/05/2022<a name="10"></a>
 https://www.youtube.com/watch?v=5jIgOfQtVXw&ab_channel=GheorgheBush
+
+# Bibliografía<a name="11"></a>
