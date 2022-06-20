@@ -38,7 +38,7 @@
 
                 </form>
 
-                <img src="{{ asset('img/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario" class="usuario__img">
+                <img src="{{ asset('/storage/img/' . Auth::user()->imagen_usuario) }}" alt="imagen_usuario" class="usuario__img">
             </div>
 
             @error('imagen')

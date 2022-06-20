@@ -58,12 +58,13 @@ class UsuarioController extends Controller
                 'imagen' => 'image'
             ]);
 
-            $imagen = $request->imagen;
-
-            $imagen->move(public_path() . '/img', $imagen->getClientOriginalName());
+            $destination = 'public/img';
+            $imagen = $request->file('imagen');
+            $imagenName = $imagen->getClientOriginalName();
+            $path = $request->file('imagen')->storeAs($destination, $imagenName);
 
             Usuario::where('codUsu', Auth::user()->codUsu)->update([
-                'imagen_usuario' => $imagen->getClientOriginalName()
+                'imagen_usuario' => $imagenName
             ]);
         }
 
