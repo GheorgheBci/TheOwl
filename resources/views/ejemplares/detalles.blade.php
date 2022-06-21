@@ -10,9 +10,10 @@
         <p class="ejemplar__iconos">
             @auth
                 @if (DB::table('wishlist')->where('codUsu', Auth::user()->codUsu)->where('isbn', $ejemplar->isbn)->first())
-                    <a href="#" title="{{ __('Book added to WishList') }}" class="ejemplar__corazon-rojo"><i class="fas fa-heart"></i></a>
-                    <a href="{{ route('carrito.añadir', $ejemplar) }}" id="carrito" title="{{ __('Add to Cart') }}" class="ejemplar__carrito"><i
-                            class="fa-solid fa-cart-arrow-down"></i></a>
+                    <a href="#" title="{{ __('Book added to WishList') }}" class="ejemplar__corazon-rojo"><i
+                            class="fas fa-heart"></i></a>
+                    <a href="{{ route('carrito.añadir', $ejemplar) }}" id="carrito" title="{{ __('Add to Cart') }}"
+                        class="ejemplar__carrito"><i class="fa-solid fa-cart-arrow-down"></i></a>
                 @else
                     <a href="{{ route('usuario.add', $ejemplar) }}" id="corazon" title="{{ __('Add to WishList') }}"
                         class="ejemplar__corazon-negro"><i class="fas fa-heart"></i></a>
@@ -156,21 +157,36 @@
         <div class="fondo" id="fondo">
             <div class="ventana-alquilar" id="ventana-alquilar">
                 <a href="#" class="ventana-alquilar__icono" id="cerrar-ventana"><i class="fas fa-times"></i></a>
-                <h3 class="ventana-alquilar__h3">{{ __('Book') }} {{ $ejemplar->nomEjemplar }}</h3>
+                <h3 class="ventana-alquilar__h3">{{ $ejemplar->nomEjemplar }}</h3>
                 <form action="{{ route('ejemplar.alquilar', $ejemplar) }}" method="post"
                     class="ventana-alquilar__form--width">
                     @csrf
                     <div>
-                        <label for="precio" class="ventana-alquilar__label">{{ __('Price') }}</label>
-                        <input type="number" class="ventana-alquilar__input" name="precio" id="precio"
-                            value="{{ $ejemplar->precio }}" readonly>
-                        <label for="fecha_alquiler" class="ventana-alquilar__label">{{ __('Rental date') }}</label>
-                        <input type="date" class="ventana-alquilar__input" name="fecha_alquiler" id="fecha_alquiler"
-                            value="{{ date('Y-m-d') }}" disabled>
-                        <label for="fecha_devolucion" class="ventana-alquilar__label">{{ __('Return date') }}</label>
-                        <input type="date" class="ventana-alquilar__input" name="fecha_devolucion"
-                            id="fecha_devolucion"
-                            value="{{ date('Y-m-d', strtotime('+30 day', strtotime(date('Y-m-d')))) }}" disabled>
+                        @if (Auth::user()->idRol === 2)
+                            <label for="precio" class="ventana-alquilar__label">{{ __('Price') }}</label>
+                            <input type="number" class="ventana-alquilar__input" name="precio" id="precio"
+                                value="{{ $ejemplar->precio - $ejemplar->precio * 0.2 }}" readonly>
+                            <label for="fecha_alquiler" class="ventana-alquilar__label">{{ __('Rental date') }}</label>
+                            <input type="date" class="ventana-alquilar__input" name="fecha_alquiler"
+                                id="fecha_alquiler" value="{{ date('Y-m-d') }}" disabled>
+                            <label for="fecha_devolucion"
+                                class="ventana-alquilar__label">{{ __('Return date') }}</label>
+                            <input type="date" class="ventana-alquilar__input" name="fecha_devolucion"
+                                id="fecha_devolucion"  min="{{ date('Y-m-d', strtotime('+30 day', strtotime(date('Y-m-d')))) }}" max="{{ date('Y-m-d', strtotime('+60 day', strtotime(date('Y-m-d')))) }}"
+                                value="{{ date('Y-m-d', strtotime('+30 day', strtotime(date('Y-m-d')))) }}">
+                        @else
+                            <label for="precio" class="ventana-alquilar__label">{{ __('Price') }}</label>
+                            <input type="number" class="ventana-alquilar__input" name="precio" id="precio"
+                                value="{{ $ejemplar->precio }}" readonly>
+                            <label for="fecha_alquiler" class="ventana-alquilar__label">{{ __('Rental date') }}</label>
+                            <input type="date" class="ventana-alquilar__input" name="fecha_alquiler"
+                                id="fecha_alquiler" value="{{ date('Y-m-d') }}" disabled>
+                            <label for="fecha_devolucion"
+                                class="ventana-alquilar__label">{{ __('Return date') }}</label>
+                            <input type="date" class="ventana-alquilar__input" name="fecha_devolucion"
+                                id="fecha_devolucion"
+                                value="{{ date('Y-m-d', strtotime('+30 day', strtotime(date('Y-m-d')))) }}" readonly>
+                        @endif
                     </div>
 
                     <div class="ventana-alquilar__div--flex">

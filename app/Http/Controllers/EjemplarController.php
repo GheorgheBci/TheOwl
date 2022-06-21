@@ -304,7 +304,7 @@ class EjemplarController extends Controller
                 'codUsu' => Auth::user()->codUsu,
                 'isbn' => $ejemplar->isbn,
                 'fecAlquiler' => date('Y-m-d'),
-                'fecDevolucion' => date('Y-m-d', strtotime('+30 day', strtotime(date('Y-m-d')))),
+                'fecDevolucion' => $request->input('fecha_devolucion'),
                 'precioAlquiler' => $request->input('precio'),
             ]);
 
