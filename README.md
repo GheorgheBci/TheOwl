@@ -176,3 +176,8 @@ Semana 30/05/2022 - 05/06/2022
 https://www.youtube.com/watch?v=5jIgOfQtVXw&ab_channel=GheorgheBush
 
 # Bibliografía<a name="11"></a>
+
+- [Documentación de Laravel](https://laravel.com/)
+- [Despliegue en AWS](https://www.youtube.com/watch?v=W2fQFbkEQo0&t=1042s&ab_channel=AHTCloud)
+- [Implementación de la libreria PDJ.js](https://www.youtube.com/watch?v=ydCSSgwZjzs&t=1082s&ab_channel=TraversyMedia)
+- [Animate On Scroll Library](https://michalsnik.github.io/aos/)
