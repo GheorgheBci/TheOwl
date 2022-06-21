@@ -181,3 +181,5 @@ https://www.youtube.com/watch?v=5jIgOfQtVXw&ab_channel=GheorgheBush
 - [Despliegue en AWS](https://www.youtube.com/watch?v=W2fQFbkEQo0&t=1042s&ab_channel=AHTCloud)
 - [Implementación de la libreria PDJ.js](https://www.youtube.com/watch?v=ydCSSgwZjzs&t=1082s&ab_channel=TraversyMedia)
 - [Animate On Scroll Library](https://michalsnik.github.io/aos/)
+- [Anime.js](https://animejs.com/)
+- [Chart.js](https://www.chartjs.org/)
